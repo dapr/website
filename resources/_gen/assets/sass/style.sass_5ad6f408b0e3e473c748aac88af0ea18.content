@@ -6335,16 +6335,18 @@ Hero styles
     margin: 5vh auto 3rem;
     padding: 0;
     max-width: 60vw; }
-  .hero .hero-cta .button {
-    padding: 2.5rem 3.5rem;
-    min-width: 20vw;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
-    font-weight: bold;
-    background-color: #5CCFF5; }
-  .hero .hero-cta p {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem; }
+
+.button-cta .button {
+  padding: 2.5rem 3.5rem;
+  min-width: 20vw;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  background-color: #5CCFF5; }
+
+.button-cta p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem; }
 
 /* ==========================================================================
 Fresh Footer
@@ -6887,5 +6889,8 @@ h3 {
     padding-left: 1rem; }
     #old-vs-new ol li {
       margin: 1.5rem 0; }
+
+#community {
+  background: #F3F7FF; }
 
 /*# sourceMappingURL=style.css.map */

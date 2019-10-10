@@ -20,21 +20,21 @@ Hero styles
       padding: 0;
       max-width: 60vw;
   }
+}
 
-  .hero-cta {
-      .button {
-          padding: 2.5rem 3.5rem;
-          min-width: 20vw;
-          font-size: 1.75rem;
-          margin-bottom: 2rem;
-          font-weight: bold;
-          background-color: #5CCFF5;
-      }
+.button-cta {
+  .button {
+      padding: 2.5rem 3.5rem;
+      min-width: 20vw;
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
+      background-color: #5CCFF5;
+  }
 
-      p {
-          font-size: 1.25rem;
-          margin-bottom: 2.5rem;
-      }
+  p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
   }
 }
 

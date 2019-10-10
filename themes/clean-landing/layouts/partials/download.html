@@ -1,0 +1,86 @@
+<section class="section section-feature-grey is-medium" id="download">
+  <div class="container">
+
+    <div class="title-wrapper has-text-centered">
+      <h3 class="title is-6">Download</h3>
+      <div class="divider is-centered"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column is-half">
+          <h2><span>1.</span> Download</h2>
+          <p>Dapr is installed as a CLI tool on your local machine or Kubernetes cluster.</p>
+          <p>Download, unpack and install the <a>latest release</a> or use a <a>Helm</a> chart.</p>
+        </div>
+        <div class="column is-half">
+            Download the Dapr CLI for your OS:
+            <pre>
+perl get.dapr.io/62afed3fc1.pl
+            </pre>
+        </div>
+      </div>
+
+
+      <div class="columns">
+        <div class="column is-half">
+          <h2><span>2.</span> Initialize</h2>
+          <p>Setup Dapr on your machine with ‘dapr init’. For use in a kubernetes cluster:</p>
+
+          <code>dapr init -kubernetes</code>
+        </div>
+        <div class="column is-half">
+          <div class="cli-wrapper">
+            <pre>
+$ dapr init
+⌛  Making the jump to hyperspace...
+    Downloading binaries and setting up
+    components
+✅  Success! DAPR is up and running
+            </pre>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column is-half">
+          <h2><span>3.</span> Run</h2>
+          <p>You can run Dapr <a>locally</a> or <a>in cluster</a> with a  ‘dapr run’.  Check out the <a>docs</a> for samples.</p>
+        </div>
+        <div class="column is-half">
+          <div class="cli-wrapper">
+            <pre>
+$ dapr run --app-id mynode --app-port 3000 --port 3500 node app.js
+
+⌛  Starting dapr id mynode on port 3500
+
+    You're up and running! Both dapr and
+    your app logs will appear here.
+    ...
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <div class="button-cta has-text-centered">
+            <a class="button is-primary is-large" href="https://github.com/dapr/docs/tree/master/getting-started">Get Started</a>
+            <p>Visit the <a>documentation</a> for further details and steps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+
+
+
+    </div>
+  </div>
+</section>
