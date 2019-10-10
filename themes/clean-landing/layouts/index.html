@@ -1,0 +1,34 @@
+{{ define "main" }}
+    {{ partial "navbar.html" . }}
+    {{ partial "navbar-clone.html" . }}
+
+    {{ partial "hero.html" . }}
+
+    {{ partial "about.html" . }}
+
+    {{ partial "oldnew.html" . }}
+
+    <!-- {{ if .Site.Params.section2 }}
+    {{ partial "section2.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section3 }}
+    {{ partial "section3.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section4 }}
+    {{ partial "section4.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section5 }}
+    {{ partial "section5.html" . }}
+    {{ end }} -->
+
+    {{ if .Site.Params.footer }}
+    {{ partial "footer.html" . }}
+    {{ end }}
+
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+{{ end }}

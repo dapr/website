@@ -6179,65 +6179,57 @@ Color variables
 /* ==========================================================================
 Navbar
 ========================================================================== */
-.navbar {
+.navbar.is-fresh {
   position: relative;
   min-height: 3.8rem;
   transition: all .3s;
-  z-index: 99;
-  box-shadow: none !important; }
-  .navbar .container {
+  z-index: 99; }
+  .navbar.is-fresh .container {
     min-height: 4rem; }
-  .navbar .navbar-burger {
+  .navbar.is-fresh.no-shadow {
+    box-shadow: none !important; }
+  .navbar.is-fresh .navbar-burger {
     width: 4rem;
     height: 4rem; }
-  .navbar .navbar-brand {
+  .navbar.is-fresh .navbar-brand {
     min-height: 4rem; }
-    .navbar .navbar-brand img {
+    .navbar.is-fresh .navbar-brand img {
       max-height: 36px !important;
       height: 36px; }
-    .navbar .navbar-brand:hover .navbar-item {
+    .navbar.is-fresh .navbar-brand:hover .navbar-item {
       background: transparent !important; }
-  .navbar .navbar-center {
-    align-items: stretch;
-    display: flex;
-    text-align: center;
-    margin-left: auto;
-    margin-left: right; }
-    .navbar .navbar-center a {
-      margin: 0 auto;
-      text-align: center; }
-  .navbar .navbar-end {
+  .navbar.is-fresh .navbar-end {
     align-items: center; }
-  .navbar .navbar-item {
+  .navbar.is-fresh .navbar-item {
     color: #999; }
-    .navbar .navbar-item.is-secondary:hover {
+    .navbar.is-fresh .navbar-item.is-secondary:hover {
       color: #F39200 !important; }
-    .navbar .navbar-item.has-dropdown {
+    .navbar.is-fresh .navbar-item.has-dropdown {
       padding: 10px 0; }
-      .navbar .navbar-item.has-dropdown .navbar-link {
+      .navbar.is-fresh .navbar-item.has-dropdown .navbar-link {
         color: #999; }
-        .navbar .navbar-item.has-dropdown .navbar-link:after {
+        .navbar.is-fresh .navbar-item.has-dropdown .navbar-link:after {
           top: 55%;
           height: 0.5em;
           width: 0.5em;
           border-width: 2px;
           border-color: #999; }
-      .navbar .navbar-item.has-dropdown .navbar-dropdown {
+      .navbar.is-fresh .navbar-item.has-dropdown .navbar-dropdown {
         top: 3.4rem;
         min-width: 220px;
         margin-top: 4px;
         border-top-color: #F39200; }
-        .navbar .navbar-item.has-dropdown .navbar-dropdown .navbar-item {
+        .navbar.is-fresh .navbar-item.has-dropdown .navbar-dropdown .navbar-item {
           padding: 10px 20px; }
-      .navbar .navbar-item.has-dropdown:hover .navbar-link {
+      .navbar.is-fresh .navbar-item.has-dropdown:hover .navbar-link {
         color: #F39200; }
-        .navbar .navbar-item.has-dropdown:hover .navbar-link:after {
+        .navbar.is-fresh .navbar-item.has-dropdown:hover .navbar-link:after {
           border-color: #F39200; }
-    .navbar .navbar-item .signup {
+    .navbar.is-fresh .navbar-item .signup {
       display: block;
       line-height: 0;
       font-size: .9rem !important; }
-  .navbar.is-fixed {
+  .navbar.is-fresh.is-fixed {
     position: fixed;
     top: 0;
     left: 0;
@@ -6245,9 +6237,9 @@ Navbar
     min-height: 4rem !important;
     background: #fff;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12); }
-    .navbar.is-fixed a {
+    .navbar.is-fresh.is-fixed a {
       color: #444F60; }
-      .navbar.is-fixed a:hover {
+      .navbar.is-fresh.is-fixed a:hover {
         color: #4FC1EA; }
 
 #navbar-clone {
@@ -6261,6 +6253,87 @@ Navbar
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12); }
   #navbar-clone.is-active {
     transform: translateY(0); }
+
+/* ==========================================================================
+Dropdown styles
+========================================================================== */
+div.nav-item.is-drop a {
+  padding-right: 7px; }
+
+div.nav-item.is-drop:hover .dropContain .dropOut {
+  opacity: 1; }
+
+div.nav-item.is-drop:hover, div.nav-item.is-drop:hover a {
+  border-bottom: 1px solid transparent !important;
+  color: #F39200; }
+
+div.nav-item.is-drop:hover .dropContain {
+  top: 65px;
+  animation: fadeInUp 0.27s ease-out; }
+
+span.drop-caret {
+  position: relative;
+  top: 5px; }
+
+div.nav-item.is-drop {
+  position: relative; }
+  div.nav-item.is-drop .dropContain {
+    width: 220px;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    margin-left: -110px;
+    /* half of width */
+    top: -400px; }
+    div.nav-item.is-drop .dropContain .dropOut {
+      width: 220px;
+      background: #fff;
+      float: left;
+      position: relative;
+      margin-top: 15px;
+      opacity: 0;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+      -webkit-transition: all .5s ease-out;
+      -moz-transition: all .5s ease-out;
+      -ms-transition: all .5s ease-out;
+      -o-transition: all .5s ease-out;
+      transition: all .5s ease-out; }
+    div.nav-item.is-drop .dropContain .dropOut .triangle {
+      width: 0;
+      height: 0;
+      position: absolute;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid #fff;
+      top: -8px;
+      left: 50%;
+      margin-left: -8px; }
+    div.nav-item.is-drop .dropContain .dropOut ul li {
+      text-align: left;
+      float: left;
+      width: 200px;
+      padding: 12px 0 10px 15px;
+      margin: 0px 10px;
+      color: #777;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-transition: background .1s ease-out;
+      -moz-transition: background .1s ease-out;
+      -ms-transition: background .1s ease-out;
+      -o-transition: background .1s ease-out;
+      transition: background .1s ease-out; }
+      div.nav-item.is-drop .dropContain .dropOut ul li:hover {
+        background: #EFF4F7;
+        cursor: pointer; }
+    div.nav-item.is-drop .dropContain .dropOut ul {
+      float: left;
+      padding: 10px 0; }
 
 /* ==========================================================================
 Section Styles
@@ -6321,46 +6394,49 @@ img.pushed-image {
 /* ==========================================================================
 Hero styles
 ========================================================================== */
-.hero {
+.hero-body {
   padding-top: 6rem;
-  padding-bottom: 6rem;
-  min-height: 48rem;
-  max-height: 768px !important;
-  background: #F8F8FC url("../images/hero.png") no-repeat center bottom; }
-  .hero h1 {
-    margin-top: 0; }
-  .hero h2 {
-    font-size: 1.75rem;
-    font-weight: bold;
-    margin: 5vh auto 3rem;
-    padding: 0;
-    max-width: 60vw; }
-  .hero .hero-cta .button {
-    padding: 2.5rem 3.5rem;
-    min-width: 20vw;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
-    font-weight: bold;
-    background-color: #5CCFF5; }
-  .hero .hero-cta p {
-    font-size: 1.25rem;
-    margin-bottom: 2.5rem; }
+  padding-bottom: 6rem; }
+  .hero-body .title, .hero-body .subtitle {
+    font-family: 'Open Sans', sans-serif; }
+  .hero-body .title.is-bold {
+    font-weight: 700; }
+  .hero-body .subtitle.is-muted {
+    color: #999; }
+
+.hero-foot img.partner-logo {
+  height: 70px; }
 
 /* ==========================================================================
 Fresh Footer
 ========================================================================== */
-footer .columns {
-  margin-top: 35px; }
-
-footer .footer-logo img {
-  height: 40px; }
-
-footer a {
-  display: inline-block;
-  margin-right: 2.5rem; }
-  footer a .icon {
-    opacity: 0.25;
-    padding-right: 0.25rem; }
+footer.footer-dark {
+  background: #444F60;
+  color: #fff; }
+  footer.footer-dark .columns {
+    margin-top: 35px; }
+  footer.footer-dark .footer-logo img {
+    height: 40px; }
+  footer.footer-dark .footer-column .footer-header h3 {
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px; }
+  footer.footer-dark .footer-column ul.link-list {
+    line-height: 40px;
+    font-size: 1.1rem; }
+    footer.footer-dark .footer-column ul.link-list a {
+      color: #98a9c3;
+      font-weight: 400;
+      transition: all 0.5s; }
+    footer.footer-dark .footer-column ul.link-list :hover {
+      color: #fcfcfc; }
+  footer.footer-dark .footer-column .level-item .icon {
+    color: #F39200;
+    transition: all 0.5s; }
+    footer.footer-dark .footer-column .level-item .icon :hover {
+      color: #fcfcfc; }
 
 /* ==========================================================================
 Classes to change the feel of bulma buttons
@@ -6506,6 +6582,45 @@ Cards and Card content styles
     border-bottom-color: #fff !important; }
 
 /* ==========================================================================
+Inputs styles
+========================================================================== */
+input.input {
+  color: #878787;
+  box-shadow: none !important;
+  transition: all 0.8s;
+  padding-bottom: 3px; }
+  input.input.is-small {
+    padding-bottom: 2px;
+    padding-left: 10px; }
+  input.input.is-medium {
+    padding-bottom: 5px; }
+  input.input.is-large {
+    padding-bottom: 7px; }
+  input.input:focus, input.input:active {
+    border-color: #EFF4F7; }
+  input.input.rounded {
+    border-radius: 100px; }
+  input.input.is-primary-focus:focus {
+    border-color: #4FC1EA; }
+    input.input.is-primary-focus:focus ~ span.icon i {
+      color: #4FC1EA; }
+  input.input.is-secondary-focus:focus {
+    border-color: #F39200; }
+    input.input.is-secondary-focus:focus ~ span.icon i {
+      color: #F39200; }
+  input.input.is-accent-focus:focus {
+    border-color: #00efb7; }
+    input.input.is-accent-focus:focus ~ span.icon i {
+      color: #00efb7; }
+  input.input.is-bloody-focus:focus {
+    border-color: #FC354C; }
+    input.input.is-bloody-focus:focus ~ span.icon i {
+      color: #FC354C; }
+
+.form-footer {
+  width: 100%; }
+
+/* ==========================================================================
 General Keyframes animations
 ========================================================================== */
 .animated {
@@ -6596,6 +6711,142 @@ General Keyframes animations
     transform: scale(1.1, 0.9); }
   75% {
     transform: scale(0.95, 1.05); } }
+
+/* ==========================================================================
+Sidebar Styles 
+========================================================================== */
+.menu-icon-wrapper {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  pointer-events: none;
+  transition: 0.1s; }
+  .menu-icon-wrapper svg {
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    transform: scale(0.07);
+    transform-origin: 0 0; }
+    .menu-icon-wrapper svg path {
+      stroke: #F39200;
+      stroke-width: 40px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: transparent;
+      transition: stroke-dasharray 0.5s; }
+      .menu-icon-wrapper svg path.path1 {
+        stroke-dashoffset: 5803.15px;
+        stroke-dasharray: 2901.57px, 2981.57px, 240px; }
+      .menu-icon-wrapper svg path.path2 {
+        stroke-dashoffset: 800px;
+        stroke-dasharray: 400px, 480px, 240px; }
+      .menu-icon-wrapper svg path.path3 {
+        stroke-dashoffset: 6993.11px;
+        stroke-dasharray: 3496.56px, 3576.56px, 240px; }
+  .menu-icon-wrapper.open svg path.path1 {
+    stroke-dasharray: 2901.57px, 5258.15px, 240px; }
+  .menu-icon-wrapper.open svg path.path2 {
+    stroke-dasharray: 400px, 600px, 0px; }
+  .menu-icon-wrapper.open svg path.path3 {
+    stroke-dasharray: 3496.56px, 6448.11px, 240px; }
+  .menu-icon-wrapper .menu-icon-trigger {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    pointer-events: auto;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0; }
+
+.sidebar {
+  background: #344258;
+  width: 280px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-281px);
+  transition: all .3s;
+  z-index: 10000;
+  overflow-y: auto; }
+  .sidebar.is-active {
+    transform: translateX(0); }
+  .sidebar .sidebar-header {
+    height: 4.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3d4e68;
+    padding: 0 20px; }
+    .sidebar .sidebar-header img {
+      height: 32px; }
+    .sidebar .sidebar-header a {
+      width: 24px;
+      height: 24px; }
+    .sidebar .sidebar-header svg {
+      stroke: #fff;
+      transform: rotate(0);
+      transition: all .3s;
+      cursor: pointer; }
+      .sidebar .sidebar-header svg:hover {
+        stroke: #F39200;
+        transform: rotate(180deg); }
+  .sidebar .inner {
+    position: relative; }
+    .sidebar .inner .sidebar-menu {
+      margin: 0;
+      padding: 0;
+      max-width: 400px;
+      list-style: none;
+      list-style-type: none;
+      font-family: 'Open Sans', sans-serif !important; }
+      .sidebar .inner .sidebar-menu li a {
+        padding: 20px 25px;
+        display: block;
+        text-decoration: none;
+        color: #fff; }
+        .sidebar .inner .sidebar-menu li a:hover {
+          padding: 20px 25px;
+          display: block;
+          text-decoration: none;
+          color: #fff; }
+      .sidebar .inner .sidebar-menu li a span {
+        margin-right: 20px;
+        color: #fff; }
+      .sidebar .inner .sidebar-menu li.have-children ul {
+        padding: 0px; }
+      .sidebar .inner .sidebar-menu li.have-children li a {
+        background-color: #2b3648;
+        padding-left: 62px;
+        border-bottom: 1px solid #303d52;
+        font-size: .8rem; }
+        .sidebar .inner .sidebar-menu li.have-children li a:hover {
+          color: #4FC1EA;
+          padding-left: 62px; }
+      .sidebar .inner .sidebar-menu li.have-children span::after {
+        position: absolute;
+        top: 27px;
+        right: 30px;
+        content: "\f054";
+        color: #fff;
+        transition: all .5s;
+        font-weight: 200 !important;
+        font-size: .8rem; }
+    .sidebar .inner li.have-children, .sidebar .inner li {
+      position: relative; }
+    .sidebar .inner li.have-children.active > a, .sidebar .inner li.have-children.active > a span, .sidebar .inner li.have-children.active > a span:after {
+      color: #F39200; }
+    .sidebar .inner li.active.have-children span::after {
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg); }
+    .sidebar .inner .sidebar-menu .have-children > ul {
+      display: none; }
 
 /* ==========================================================================
 Testimonials Styles
@@ -6868,24 +7119,5 @@ body #backtotop a {
 :-moz-placeholder {
   /* Firefox 18- */
   color: #cecece; }
-
-h3 {
-  text-transform: uppercase;
-  letter-spacing: 0.15em; }
-
-#old-vs-new {
-  background: #E0E5F8;
-  min-height: 15rem; }
-  #old-vs-new h3 {
-    font-size: 0.75rem; }
-  #old-vs-new h2 {
-    font-size: 1.5rem;
-    font-weight: bold; }
-  #old-vs-new ol {
-    padding-right: 5%;
-    list-style-position: outside;
-    padding-left: 1rem; }
-    #old-vs-new ol li {
-      margin: 1.5rem 0; }
 
 /*# sourceMappingURL=style.css.map */

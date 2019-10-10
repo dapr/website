@@ -1,0 +1,50 @@
+/* ==========================================================================
+Main SCSS file / Fresh
+========================================================================== */
+
+//Imports
+@import 'partials/colors';
+@import 'partials/navbar';
+// @import 'partials/dropdowns';
+@import 'partials/sections';
+@import 'partials/hero';
+@import 'partials/footer';
+@import 'partials/buttons';
+@import 'partials/cards';
+// @import 'partials/forms';
+@import 'partials/animations';
+// @import 'partials/sidebar';
+@import 'partials/testimonials';
+@import 'partials/responsive';
+@import 'partials/utils';
+
+h3 {
+  text-transform: uppercase;
+  // font-size: 0.25rem;
+  letter-spacing: 0.15em;
+}
+
+#old-vs-new {
+  background: #E0E5F8;
+  min-height: 15rem;
+
+  h3 {
+    font-size: 0.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  ol {
+    padding-right: 5%;
+    list-style-position: outside;
+    padding-left: 1rem;
+
+    li {
+      margin: 1.5rem 0;
+    }
+  }
+
+}
