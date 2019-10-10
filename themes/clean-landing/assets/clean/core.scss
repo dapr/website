@@ -49,6 +49,19 @@ h3 {
 
 }
 
+p {
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  font-size: 1.125rem;
+}
+
+#about {
+  .box {
+    width: 48%;
+    display: inline-flexbox;
+  }
+}
+
 #community {
   background: #F3F7FF;
 }

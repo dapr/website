@@ -6336,6 +6336,13 @@ Hero styles
     padding: 0;
     max-width: 60vw; }
 
+#about h4 {
+  font-weight: bold; }
+
+#about img {
+  float: left;
+  margin: -1rem 0 0 0.5rem; }
+
 .button-cta .button {
   padding: 2.5rem 3.5rem;
   min-width: 20vw;
@@ -6889,6 +6896,15 @@ h3 {
     padding-left: 1rem; }
     #old-vs-new ol li {
       margin: 1.5rem 0; }
+
+p {
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  font-size: 1.125rem; }
+
+#about .box {
+  width: 48%;
+  display: inline-flexbox; }
 
 #community {
   background: #F3F7FF; }
