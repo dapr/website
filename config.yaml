@@ -1,0 +1,66 @@
+baseURL: https://dapr.io/
+languageCode: en-us
+title: Dapr - portable, event-driven, serverless runtime.
+theme: clean-landing
+disableKinds:
+ -taxonomy
+ -taxonomyTerm
+
+
+params:
+  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
+  openGraph: true
+  # Used as meta data; describe your site to make Google Bots happy 
+  description: Dapr is a portable, event-driven, runtime for building distributed applications across cloud and edge.
+  navbarlogo:
+  # Logo (from static/images/logos/___)
+   image: logos/temp-logo.svg
+   link: https://dapr.io/
+  font:
+    name: "Work Sans"
+    sizes: [400,600]
+  hero:
+    # Main hero title
+    title: dapr
+    # Hero subtitle (optional)
+    subtitle: Event-driven, portable runtime for building microservice apps on cloud and edge.
+    # Button text
+    buttontext: Get started
+    # Where the main hero button links to
+    buttonlink: "#"
+  # Customizable navbar. For a dropdown, add a "sublinks" list.
+  navbar:
+  - title: Home
+    url: /#
+  - title: About
+    url: /#about
+  - title: Download
+  - title: Docs
+    url: /#docs
+  - title: Community
+    url: /#community
+  about:
+    title: about
+    tiles:
+    - title: Powerful Building Blocks
+      icon: blocks
+      text: Dapr enables easy, event-driven, stateful, microservices development.
+    - title: No Limits
+      icon: code
+      text: Dapr enables easy, event-driven, stateful, microservices development.
+    - title: Standard Open API
+      icon: openapi
+      text: Dapr enables easy, event-driven, stateful, microservices development.
+    - title: Community Driven
+      icon: community
+      text: Dapr enables easy, event-driven, stateful, microservices development.
+  footer:
+    logo: temp-icon.svg
+    # Social media links (GitHub, Twitter, etc.). All are optional.
+    socialmedia:
+    - link: https://twitter.com/DaprDev
+      icon: twitter
+    - link: /#
+      icon: slack
+    - link: https://github.com/dapr/dapr
+      icon: github

@@ -1,0 +1,31 @@
+{{- $oldnew := .Site.Params.oldnew }}
+<section class="section section-feature-grey is-medium" id="old-vs-new">
+  <div class="container">
+
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column is-half">
+          <h3>Cloud-native development:</h3>
+          <h2 class="is-2">Distributed App Challenges</h2>
+          <ol>
+            <li>Coupling microservices together can be tricky - especially when trying to keep the services as autonomous as possible.</li>
+            <li>Inter-service messaging and state handling can be complicated and difficult to manage at scale.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+          </ol>
+        </div>
+
+        <div class="column is-half">
+          <h3>With Dapr:</h3>
+          <h2 class="is-2">Streamlined Microservices</h2>
+          <ol>
+            <li>Dapr enables loose coupling and service invocation​. This means​​ you can work with services, regardless of where they live or how they were built.</li>
+            <li>Dapr handles state and pub/sub management to the native state or messaging provider of choice​.</li>
+            <li>Dapr utilizes sidecars - dynamically loaded at runtime - so any language supporting HTTP or gRPC can leverage it without a compile time dependency.</li>
+          </ol>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
