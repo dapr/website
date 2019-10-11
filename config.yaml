@@ -1,7 +1,10 @@
-baseURL: https://dapr.io/
+baseURL: https://dapr.github.io/website/
 languageCode: en-us
 title: Dapr - portable, event-driven, serverless runtime.
+
 theme: clean-landing
+publishDir: docs
+
 disableKinds:
  -taxonomy
  -taxonomyTerm
