@@ -3,7 +3,9 @@ languageCode: en-us
 title: Dapr - portable, event-driven, serverless runtime.
 
 theme: clean-landing
-publishDir: docs
+canonifyURLs: true
+relativeURLs: false
+
 
 disableKinds:
  -taxonomy
