@@ -55,7 +55,7 @@ params:
       icon: community
       text: Dapr enables easy, event-driven, stateful, microservices development.
   footer:
-    logo: temp-icon.svg
+    logo: dapr.svg
     # Social media links (GitHub, Twitter, etc.). All are optional.
     socialmedia:
     - link: https://twitter.com/DaprDev

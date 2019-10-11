@@ -24,8 +24,12 @@ h3 {
   letter-spacing: 0.15em;
 }
 
+#about {
+  background: $shade0;
+}
+
 #old-vs-new {
-  background: #E0E5F8 url('../images/oldvsnew.png') no-repeat center bottom;
+  background: #E0E5F8 url('../images/oldvsnew.png') no-repeat center 115%;
   min-height: 15rem;
 
   h3 {
@@ -44,6 +48,8 @@ h3 {
 
     li {
       margin: 1.5rem 0;
+      padding-right: 7.5%;
+      line-height: 1.6;
     }
   }
 
@@ -64,4 +70,5 @@ p {
 
 #community {
   background: #F3F7FF;
+  background-image: linear-gradient(180deg, darken($shade0, 2.5%) 0%, $shade0 100%);
 }
