@@ -25,17 +25,6 @@ $(document).ready(function(){
         $('.sidebar').toggleClass('is-active');
     });
 
-    //Lazy Load Youtube embed
-    var vidDefer = document.getElementsByTagName('iframe');
-              function videoLoad() {
-                for (var i=0; i<vidDefer.length; i++) {
-                  if(vidDefer[i].getAttribute('data-src')) {
-                    vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
-                  }
-                }
-              };
-              window.onload = videoLoad;
-
     //Navbar Clone
     if ($('#navbar-clone').length) {
         $(window).scroll(function() {    // this will work when your window scrolled.
