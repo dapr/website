@@ -8,10 +8,8 @@ disableKinds:
  -taxonomyTerm
 
 params:
-  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
-  openGraph: true
-  # Used as meta data; describe your site to make Google Bots happy 
   description: Dapr is a portable, event-driven, runtime for building distributed applications across cloud and edge.
+  openGraph: true
   navbarlogo:
   # Logo (from static/images/logos/___)
    image: logos/temp-logo.svg
@@ -35,8 +33,9 @@ params:
   - title: About
     url: /#about
   - title: Download
+    url: /#download
   - title: Docs
-    url: /#docs
+    url: https://github.com/dapr/docs
   - title: Community
     url: /#community
   about:

@@ -21,7 +21,7 @@
         {{- range $navbar }}
         {{- if .sublinks }}
         <div class="navbar-item has-dropdown is-hoverable has-text-centered">
-          <a class="navbar-link">
+          <a class="navbar-link" href=".url">
             {{ .title }}
           </a>
         </div>
@@ -31,13 +31,13 @@
         </div>
         
         {{- else if .button }}
-        <a href="{{ .Permalink }}" class="navbar-item">
+        <a href="{{ .url }}" class="navbar-item">
           <span class="button signup-button rounded secondary-btn raised">
             {{ .title }}
           </span>
         </a>
         {{- else }}
-        <a href="{{ .Permalink }}" class="navbar-item is-secondary">
+        <a href="{{ .url }}" class="navbar-item is-secondary">
           {{ .title }}
         </a>
         {{- end }}
