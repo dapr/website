@@ -6,7 +6,7 @@
 <footer class="footer">
   <div class="container">
     <div class="columns">
-      <div class="column">
+      <div class="column is-third">
         <div class="footer-logo">
           <img src="{{ printf "/images/logos/%s" $logo | relURL }}">
         </div>
@@ -29,14 +29,16 @@
           </div>
         </div>
       {{- end }}
-      <div class="column">
+      <div class="column is-two-thirds">
         <div class="content">
             <p>
-              {{- range $socialMedia }}
+              <!-- {{- range $socialMedia }}
               <a class="" href="{{ .link }}">
-                <span class="icon"><i class="fa fa-{{ .icon }}"></i></span> {{humanize .icon }}
+                <span class="icon"><i class="fa fa-{{ .icon }}"></i></span> {{humanize .name }}
               </a>
-              {{- end }}
+              {{- end }} -->
+
+              Event-driven, portable runtime for building microservice apps on cloud and edge.
             </p>
           </div>
         </div>

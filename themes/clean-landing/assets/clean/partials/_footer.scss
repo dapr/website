@@ -2,8 +2,8 @@
 Fresh Footer
 ========================================================================== */
 
-footer {
-  padding: 0 1.5rem 2rem;
+.footer {
+  padding: 2rem 1.5rem 1rem;
   background: white;
   
   .footer-logo {
@@ -20,5 +20,12 @@ footer {
       opacity: 0.25;
       padding-right: 0.25rem;
     }
+  }
+
+  p {
+    font-size: 0.925rem;
+    text-align: right;
+    color: $charcoal;
+    margin: 0.9rem 0 0;
   }
 }

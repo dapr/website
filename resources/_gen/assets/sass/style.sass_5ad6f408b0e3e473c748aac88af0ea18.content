@@ -6209,9 +6209,9 @@ Navbar
   .navbar .navbar-end {
     align-items: center; }
   .navbar .navbar-item {
-    color: #999; }
+    color: #4F4D68; }
     .navbar .navbar-item.is-secondary:hover {
-      color: #73CDF3 !important; }
+      color: #0D2192 !important; }
     .navbar .navbar-item.has-dropdown {
       padding: 10px 0; }
       .navbar .navbar-item.has-dropdown .navbar-link {
@@ -6237,6 +6237,13 @@ Navbar
       display: block;
       line-height: 0;
       font-size: .9rem !important; }
+  .navbar .navbar-github {
+    border-radius: 0.15rem;
+    line-height: 1;
+    padding: 1px 0 0;
+    height: 28px;
+    overflow: hidden;
+    box-shadow: 0 0 1px 3px #0D2192; }
   .navbar.is-fixed {
     position: fixed;
     top: 0;
@@ -6359,17 +6366,22 @@ Hero styles
 /* ==========================================================================
 Fresh Footer
 ========================================================================== */
-footer {
-  padding: 0 1.5rem 2rem;
+.footer {
+  padding: 2rem 1.5rem 1rem;
   background: white; }
-  footer .footer-logo img {
+  .footer .footer-logo img {
     width: 80px; }
-  footer a {
+  .footer a {
     display: inline-block;
     margin-right: 2.5rem; }
-    footer a .icon {
+    .footer a .icon {
       opacity: 0.25;
       padding-right: 0.25rem; }
+  .footer p {
+    font-size: 0.925rem;
+    text-align: right;
+    color: #4F4D68;
+    margin: 0.9rem 0 0; }
 
 /* ==========================================================================
 Classes to change the feel of bulma buttons
@@ -6878,16 +6890,73 @@ body #backtotop a {
   /* Firefox 18- */
   color: #cecece; }
 
+.section.is-medium {
+  padding: 6rem 1.5rem; }
+
 h3 {
   text-transform: uppercase;
-  letter-spacing: 0.15em; }
+  letter-spacing: 0.15em;
+  color: #0D2192; }
+
+.title {
+  color: #0D2192; }
 
 #about {
-  background: #F3F7FF; }
+  background: #F3F7FF;
+  padding-bottom: 0rem; }
+  #about p {
+    font-size: 1.25rem;
+    padding: 1.5rem 7.5% 0.5rem 2rem;
+    line-height: 1.85; }
+  #about .card {
+    background-color: transparent;
+    box-shadow: none;
+    padding-left: 10rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #dee6f8;
+    border-left: 1px solid #dee6f8; }
+    #about .card:first-child, #about .card:nth-child(3) {
+      border-left: none; }
+    #about .card img {
+      position: absolute;
+      left: 1rem;
+      top: 2.5rem; }
+    #about .card h4 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #6681c3;
+      margin: 0.5rem 0 0.25rem 0; }
+    #about .card p {
+      font-size: 1rem;
+      padding: 0 5% 0 0;
+      margin: 0;
+      max-width: 360px; }
+  #about .video-wrap {
+    border: 1px solid #dee6f8;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0 1.25rem; }
 
 #old-vs-new {
-  background: #E0E5F8 url("../images/oldvsnew.png") no-repeat center 115%;
-  min-height: 15rem; }
+  background-image: url(../images/oldvsnew.png), linear-gradient(180deg, #E7EBF7, #D9E0F5);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 50% 115%, 0 0;
+  min-height: 15rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem; }
+  #old-vs-new .oldstuff,
+  #old-vs-new .newstuff {
+    padding-top: 1.75rem; }
+  #old-vs-new .newstuff {
+    background: rebeccapurple;
+    background: linear-gradient(180deg, #2A3D74 0%, #384791 100%);
+    border-radius: 1rem;
+    color: white; }
+    #old-vs-new .newstuff h2, #old-vs-new .newstuff h3 {
+      padding-left: 1rem; }
+    #old-vs-new .newstuff ol {
+      padding-left: 2rem; }
+      #old-vs-new .newstuff ol li {
+        padding-right: 12.5%; }
   #old-vs-new h3 {
     font-size: 0.75rem; }
   #old-vs-new h2 {
@@ -6911,8 +6980,45 @@ p {
   width: 48%;
   display: inline-flexbox; }
 
+#testimonial {
+  background: linear-gradient(180deg, #f7f9fc 0%, white 100%); }
+
 #community {
   background: #F3F7FF;
   background-image: linear-gradient(180deg, #e6efff 0%, #F3F7FF 100%); }
+  #community .social-wrap {
+    text-align: left;
+    position: relative;
+    padding-left: 5rem; }
+    #community .social-wrap .icon {
+      padding: 0; }
+    #community .social-wrap .icon,
+    #community .social-wrap img {
+      font-size: 4rem;
+      float: left;
+      margin: 0 2rem 0 0;
+      line-height: .7;
+      position: absolute;
+      left: 1rem;
+      top: 3rem; }
+      #community .social-wrap .icon .fa-github,
+      #community .social-wrap img .fa-github {
+        color: #4F4D68; }
+    #community .social-wrap img {
+      max-width: 3.5rem;
+      top: 1.75rem;
+      left: 0rem; }
+    #community .social-wrap h4 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      min-width: 15vw;
+      color: #6681c3;
+      margin: 0.5rem 0 0.25rem 0; }
+      #community .social-wrap h4 a {
+        color: #6681c3; }
+    #community .social-wrap p {
+      font-size: 0.825rem;
+      padding: 0 8% 0 0;
+      margin: 0; }
 
 /*# sourceMappingURL=style.css.map */

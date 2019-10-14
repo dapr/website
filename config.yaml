@@ -46,20 +46,23 @@ params:
       text: Dapr enables easy, event-driven, stateful, microservices development.
     - title: No Limits
       icon: code
-      text: Dapr enables easy, event-driven, stateful, microservices development.
+      text: Dapr works with any programming language - on any cloud or edge.
     - title: Standard Open API
       icon: openapi
-      text: Dapr enables easy, event-driven, stateful, microservices development.
-    - title: Community Driven
+      text: Dapr provides consistency and portability, via standard open APIs
+    - title: Open Source
       icon: community
-      text: Dapr enables easy, event-driven, stateful, microservices development.
+      text: Dapr is an open source and vendor neutral project.
   footer:
     logo: dapr.svg
     # Social media links (GitHub, Twitter, etc.). All are optional.
     socialmedia:
     - link: https://twitter.com/DaprDev
       icon: twitter
-    - link: /#
-      icon: slack
+      name: Twitter
+    - link: https://gitter.im/Dapr
+      icon: users
+      name: Gittr
     - link: https://github.com/dapr/dapr
       icon: github
+      name: Github

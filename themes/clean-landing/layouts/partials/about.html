@@ -9,10 +9,10 @@
     </div>
 
     <div class="content-wrapper">
-      <div class="columns is-mobile is-multiline">
+      <div class="columns is-mobile no-sh is-multiline">
         {{- range $tiles }}
         
-        <div class="column is-full-mobile card is-half-desktop has-text-centered">
+        <div class="column is-full-mobile card is-half-desktop">
           <div class="card-title">
             <h4>{{ .title }}</h4>
           </div>
@@ -31,35 +31,13 @@
       <div class="columns">
         <div class="column is-half">
 
-          <p>Dapr is a programming model for writing cloud-native applications which are distributed, dynamically scaled, and loosely coupled in nature.</p>
+          <p><a href="https://github.com/dapr/dapr">Dapr</a> is a programming model for writing cloud-native applications which are distributed, dynamically scaled, and loosely coupled in nature.</p>
 
           <p>Dapr offers an eventing system on which compute units communicate with each other by exchanging messages.</p>
         </div>
 
         <div class="column is-half">
-          <!-- embed a video about dapr here -->
-          <!-- <a href="https://asciinema.org/a/j5ThGMrlqDGXHwOdvYCtIhCpd" target="_blank"><img src="https://asciinema.org/a/j5ThGMrlqDGXHwOdvYCtIhCpd.svg" /></a> -->
-          <script src="https://asciinema.org/a/j5ThGMrlqDGXHwOdvYCtIhCpd.js" data-size="small" data-rows="20"  id="asciicast-j5ThGMrlqDGXHwOdvYCtIhCpd" async></script>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="columns">
-        <div class="column is-full has-text-centered">
-
-          <div class="level">
-            <div class="level-item"><img src="images/lang/node.svg" alt="node" /></div>
-            <div class="level-item"><img src="images/lang/python.svg" alt="python" /></div>
-            <div class="level-item"><img src="images/lang/php.svg" alt="php" /></div>
-            <div class="level-item"><img src="images/lang/java.svg" alt="Java" /></div>
-            <div class="level-item"><img src="images/lang/dotnet.svg" alt=".NET" /></div>
-            <div class="level-item"><img src="images/lang/go.svg" alt="Go" /></div>
-            <div class="level-item"><img src="images/lang/plus.svg" alt="And lots more." /></div>
-          </div>
-
-          <p class="is-3 has-text-centsered">Dapr works with any programming language, via HTTP / gRPC.</p>
-
+          <div class="video-wrap"><script src="https://asciinema.org/a/j5ThGMrlqDGXHwOdvYCtIhCpd.js" data-size="small" data-rows="20"  id="asciicast-j5ThGMrlqDGXHwOdvYCtIhCpd" async></script></div>
         </div>
       </div>
 
