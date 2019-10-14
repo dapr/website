@@ -142,13 +142,72 @@ h3 {
       line-height: 1.6;
     }
   }
+}
 
+#download {
+  .download-step {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  h2 {
+    font-weight: bold;
+    color: $shaded;
+    font-size: 1.125rem;
+  }
+
+  p {
+    padding-right: 8.5%;
+  }
+  
+  .bigno {
+    position: absolute;
+    width: 3rem;
+    line-height: 3;
+    text-align: center;
+    background-color: $shadel;
+    border-radius: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    left: -3.5rem;
+    top: 0rem;
+  }
 }
 
 p {
   line-height: 1.6;
   margin: 1.5rem 0;
   font-size: 1.125rem;
+}
+
+code, pre {
+  background-color: darken($charcoal, 5%);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+pre {
+  position: relative;
+  padding-top: 2.25rem;
+
+  &:before {
+    background: linear-gradient(180deg, lighten($charcoal, 60%) 0%, lighten($charcoal, 50%) 100%);
+    border: 2px solid lighten($charcoal, 50%);
+    display: block;
+    content: " ";
+    width: 200%;
+    height: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 0 0;
+    border-bottom: 1px solid $charcoal;
+  }
+
 }
 
 #about {

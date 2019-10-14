@@ -6,11 +6,11 @@
     </div>
 
     <div class="content-wrapper">
-      <div class="columns">
+      <div class="columns download-step">
         <div class="column is-half">
-          <h2><span>1.</span> Download</h2>
-          <p>Dapr is installed as a CLI tool on your local machine or Kubernetes cluster.</p>
-          <p>Download, unpack and install the <a>latest release</a> or use a <a>Helm</a> chart.</p>
+          <h2><span class="bigno">1</span> Download</h2>
+          <p>Dapr is installed as a CLI on your local machine or Kubernetes cluster.</p>
+          <p>Download, unpack and install the <a href="https://github.com/dapr/dapr/releases">latest release</a> or use a <a href="https://helm.sh/">Helm</a> chart.</p>
         </div>
         <div class="column is-half">
             Download the Dapr CLI for your OS:
@@ -21,9 +21,9 @@ perl get.dapr.io/62afed3fc1.pl
       </div>
 
 
-      <div class="columns">
+      <div class="columns download-step">
         <div class="column is-half">
-          <h2><span>2.</span> Initialize</h2>
+          <h2><span class="bigno">2</span> Initialize</h2>
           <p>Setup Dapr on your machine with ‘dapr init’. For use in a kubernetes cluster:</p>
 
           <code>dapr init -kubernetes</code>
@@ -31,7 +31,7 @@ perl get.dapr.io/62afed3fc1.pl
         <div class="column is-half">
           <div class="cli-wrapper">
             <pre>
-$ dapr init
+ $  dapr init
 ⌛  Making the jump to hyperspace...
     Downloading binaries and setting up
     components
@@ -42,15 +42,15 @@ $ dapr init
         </div>
       </div>
 
-      <div class="columns">
+      <div class="columns download-step">
         <div class="column is-half">
-          <h2><span>3.</span> Run</h2>
+          <h2><span class="bigno">3</span> Run</h2>
           <p>You can run Dapr <a>locally</a> or <a>in cluster</a> with a  ‘dapr run’.  Check out the <a>docs</a> for samples.</p>
         </div>
         <div class="column is-half">
           <div class="cli-wrapper">
             <pre>
-$ dapr run --app-id mynode --app-port 3000 --port 3500 node app.js
+ $  dapr run --app-id mynode --app-port 3000 --port 3500 node app.js
 
 ⌛  Starting dapr id mynode on port 3500
 
@@ -63,6 +63,16 @@ $ dapr run --app-id mynode --app-port 3000 --port 3500 node app.js
       </div>
 
       <hr>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <p>&nbsp;</p>
+          <div class="button-cta has-text-centered">
+            <a class="button is-primary is-large" href="https://github.com/dapr/docs/tree/master/getting-started">Get Started</a>
+            <p>Visit the <a>documentation</a> for further details and steps.</p>
+          </div>
+        </div>
+      </div>
 
       <div class="columns">
         <div class="column is-full has-text-centered">
@@ -80,16 +90,6 @@ $ dapr run --app-id mynode --app-port 3000 --port 3500 node app.js
           <p class="is-3 has-text-centsered"><small>Dapr works with any programming language, via HTTP / gRPC.</small></p>
           <hr>
   
-        </div>
-      </div>
-
-      <div class="columns">
-        <div class="column has-text-centered">
-          <p>&nbsp;</p>
-          <div class="button-cta has-text-centered">
-            <a class="button is-primary is-large" href="https://github.com/dapr/docs/tree/master/getting-started">Get Started</a>
-            <p>Visit the <a>documentation</a> for further details and steps.</p>
-          </div>
         </div>
       </div>
 

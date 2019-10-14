@@ -6971,10 +6971,60 @@ h3 {
       padding-right: 7.5%;
       line-height: 1.6; }
 
+#download .download-step {
+  position: relative;
+  padding-bottom: 2rem; }
+
+#download h2 {
+  font-weight: bold;
+  color: #94A7D5;
+  font-size: 1.125rem; }
+
+#download p {
+  padding-right: 8.5%; }
+
+#download .bigno {
+  position: absolute;
+  width: 3rem;
+  line-height: 3;
+  text-align: center;
+  background-color: #CEDAF4;
+  border-radius: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  left: -3.5rem;
+  top: 0rem; }
+
 p {
   line-height: 1.6;
   margin: 1.5rem 0;
   font-size: 1.125rem; }
+
+code,
+pre {
+  background-color: #444259;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.8; }
+
+pre {
+  position: relative;
+  padding-top: 2.25rem; }
+  pre:before {
+    background: linear-gradient(180deg, #f2f2f5 0%, #d5d4e0 100%);
+    border: 2px solid #d5d4e0;
+    display: block;
+    content: " ";
+    width: 200%;
+    height: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 0 0;
+    border-bottom: 1px solid #4F4D68; }
 
 #about .box {
   width: 48%;
