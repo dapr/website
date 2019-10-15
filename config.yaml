@@ -1,4 +1,4 @@
-baseURL: https://dapr-theme--daprio.netlify.com/
+baseURL: https://dapr.io/
 languageCode: en-us
 title: Dapr - portable, event-driven, serverless runtime.
 theme: clean-landing
