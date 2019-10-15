@@ -6,27 +6,62 @@
     </div>
 
     <div class="content-wrapper">
-      <div class="columns download-step">
+      <div class="columns is-mobile download-step">
         <div class="column is-half">
           <h2><span class="bigno">1</span> Download</h2>
-          <p>Dapr is installed as a CLI on your local machine or Kubernetes cluster.</p>
-          <p>Download, unpack and install the <a href="https://github.com/dapr/dapr/releases">latest release</a> or use a <a href="https://helm.sh/">Helm</a> chart.</p>
+          <p>Dapr is installed as a CLI on your local machine. Use the install script for your OS:</p>
+          
         </div>
         <div class="column is-half">
-            Download the Dapr CLI for your OS:
-            <pre>
-perl get.dapr.io/62afed3fc1.pl
-            </pre>
+          <div class="tabs">
+              <ul>
+                <li>Select your OS:&nbsp;&nbsp;</li>
+                <li id="tablinks" class="is-active"><a onclick="openTab(event, 'MacOS')">MacOS</a></li>
+                <li id="tablinks"><a onclick="openTab(event, 'Windows')">Windows</a></li>
+                <li id="tablinks"><a onclick="openTab(event, 'Linux')">Linux</a></li>
+              </ul>
+            </div>
+
+            <div class="container">
+              <div class="tabcontent active" id="MacOS">
+                  <code>
+curl -fsSL https://raw.githubusercontent.com/dapr/cli/master/install/install.sh | /bin/bash
+                  </code>
+              </div>
+              <div class="tabcontent" id="Windows">
+                  <code>
+powershell -Command "iwr -useb https://raw.githubusercontent.com/dapr/cli/master/install/install.ps
+                  </code>
+              </div>
+              <div class="tabcontent" id="Linux">
+                  <code>
+wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
+                  </code>
+              </div>
+          </div>
         </div>
       </div>
+      <script type="text/javascript">
+        function openTab(evt, tabTitle) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(tabTitle).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+      </script>
 
 
-      <div class="columns download-step">
+      <div class="columns is-mobile download-step">
         <div class="column is-half">
           <h2><span class="bigno">2</span> Initialize</h2>
-          <p>Setup Dapr on your machine with ‘dapr init’. For use in a kubernetes cluster:</p>
-
-          <code>dapr init -kubernetes</code>
+          <p>Setup Dapr on your machine with ‘dapr init’.
         </div>
         <div class="column is-half">
           <div class="cli-wrapper">
@@ -42,14 +77,14 @@ perl get.dapr.io/62afed3fc1.pl
         </div>
       </div>
 
-      <div class="columns download-step">
+      <div class="columns is-mobile download-step">
         <div class="column is-half">
           <h2><span class="bigno">3</span> Run</h2>
-          <p>You can run Dapr <a>locally</a> or <a>in cluster</a> with a  ‘dapr run’.  Check out the <a>docs</a> for samples.</p>
+          <p>You can run Dapr locally with a <code>dapr run</code>. Visit the <a>documentation</a> for further details and next steps.</p>
         </div>
         <div class="column is-half">
           <div class="cli-wrapper">
-            <pre>
+            <!-- <pre>
  $  dapr run --app-id mynode --app-port 3000 --port 3500 node app.js
 
 ⌛  Starting dapr id mynode on port 3500
@@ -57,19 +92,18 @@ perl get.dapr.io/62afed3fc1.pl
     You're up and running! Both dapr and
     your app logs will appear here.
     ...
-            </pre>
+            </pre> -->
           </div>
         </div>
       </div>
 
       <hr>
 
-      <div class="columns">
+      <div class="columns is-mobile">
         <div class="column has-text-centered">
           <p>&nbsp;</p>
           <div class="button-cta has-text-centered">
             <a class="button is-primary is-large" href="https://github.com/dapr/docs/tree/master/getting-started">Get Started</a>
-            <p>Visit the <a>documentation</a> for further details and steps.</p>
           </div>
         </div>
       </div>

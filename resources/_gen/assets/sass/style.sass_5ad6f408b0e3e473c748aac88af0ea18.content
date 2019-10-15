@@ -6343,6 +6343,8 @@ Hero styles
     padding: 0;
     max-width: 45vw;
     color: #0D2192; }
+  .hero img {
+    max-width: 12.5vw; }
 
 #about h4 {
   font-weight: bold; }
@@ -6971,30 +6973,45 @@ h3 {
       padding-right: 7.5%;
       line-height: 1.6; }
 
-#download .download-step {
-  position: relative;
-  padding-bottom: 2rem; }
+#download {
+  /* Go from zero to full opacity */ }
+  #download .download-step {
+    position: relative;
+    padding-bottom: 2rem; }
+  #download h2 {
+    font-weight: bold;
+    color: #94A7D5;
+    font-size: 1.125rem; }
+  #download p {
+    padding-right: 8.5%; }
+  #download .tabcontent {
+    display: none;
+    animation: fadeEffect 1s;
+    /* Fading effect takes 1 second */ }
+    #download .tabcontent.active {
+      display: block; }
+    #download .tabcontent code,
+    #download .tabcontent pre {
+      overflow-wrap: break-word;
+      max-width: 10vw; }
 
-#download h2 {
-  font-weight: bold;
-  color: #94A7D5;
-  font-size: 1.125rem; }
-
-#download p {
-  padding-right: 8.5%; }
-
-#download .bigno {
-  position: absolute;
-  width: 3rem;
-  line-height: 3;
-  text-align: center;
-  background-color: #CEDAF4;
-  border-radius: 100%;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  left: -3.5rem;
-  top: 0rem; }
+@keyframes fadeEffect {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+  #download .bigno {
+    position: absolute;
+    width: 3rem;
+    line-height: 3;
+    text-align: center;
+    background-color: #CEDAF4;
+    border-radius: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    left: -3.5rem;
+    top: 0rem; }
 
 p {
   line-height: 1.6;
@@ -7009,6 +7026,12 @@ pre {
   border-radius: 0.75rem;
   font-size: 1rem;
   line-height: 1.8; }
+
+code {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #f9f9fb;
+  color: #4F4D68; }
 
 pre {
   position: relative;
@@ -7032,6 +7055,14 @@ pre {
 
 #testimonial {
   background: linear-gradient(180deg, #f7f9fc 0%, white 100%); }
+  #testimonial .image {
+    min-height: 6rem;
+    text-align: center; }
+    #testimonial .image img {
+      width: auto;
+      min-width: 4rem;
+      max-height: 6rem;
+      margin: 0 auto; }
 
 #community {
   background: #F3F7FF;

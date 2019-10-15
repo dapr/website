@@ -159,6 +159,26 @@ h3 {
   p {
     padding-right: 8.5%;
   }
+
+  .tabcontent {
+    display: none;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+
+    &.active {
+      display: block;
+    }
+
+    code,
+    pre {
+      overflow-wrap: break-word;
+      max-width: 10vw;
+    }
+  }
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
   
   .bigno {
     position: absolute;
@@ -190,6 +210,13 @@ code, pre {
   line-height: 1.8;
 }
 
+code {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: lighten($charcoal, 62.5%);
+  color: $charcoal;
+}
+
 pre {
   position: relative;
   padding-top: 2.25rem;
@@ -219,6 +246,18 @@ pre {
 
 #testimonial {
   background: linear-gradient(180deg, lighten(#2A3D74, 67%) 0%, lighten(#2A3D74, 75%) 100%);
+
+  .image {
+    min-height: 6rem;
+    text-align: center;
+    
+    img {
+      width: auto;
+      min-width: 4rem;
+      max-height: 6rem;
+      margin: 0 auto;
+    }
+  }
 }
 
 #community {
