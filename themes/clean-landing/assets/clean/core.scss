@@ -124,6 +124,7 @@ h3 {
 
   h3 {
     font-size: 0.75rem;
+    color: $shadel;
   }
 
   h2 {
@@ -163,15 +164,43 @@ h3 {
   .tabcontent {
     display: none;
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
+    position: relative;
 
     &.active {
       display: block;
     }
 
     code,
-    pre {
+    pre,
+    input {
       overflow-wrap: break-word;
-      max-width: 10vw;
+      white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+      white-space: -pre-wrap;      /* Opera 4-6 */
+      white-space: -o-pre-wrap;    /* Opera 7 */
+      white-space: pre-wrap;       /* css-3 */
+      word-wrap: break-word;       /* Internet Explorer 5.5+ */
+      white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+      word-break: break-all;
+      white-space: normal;
+      padding: 1rem 2rem;
+      background: $charcoal;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      padding: 1rem 6.25rem 1rem 1.2rem;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 0.5rem;
+      top: 0.45rem;
     }
   }
   /* Go from zero to full opacity */

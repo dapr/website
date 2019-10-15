@@ -10,34 +10,27 @@
         <div class="column is-half">
           <h2><span class="bigno">1</span> Download</h2>
           <p>Dapr is installed as a CLI on your local machine. Use the install script for your OS:</p>
-          
         </div>
         <div class="column is-half">
           <div class="tabs">
-              <ul>
-                <li>Select your OS:&nbsp;&nbsp;</li>
-                <li id="tablinks" class="is-active"><a onclick="openTab(event, 'MacOS')">MacOS</a></li>
-                <li id="tablinks"><a onclick="openTab(event, 'Windows')">Windows</a></li>
-                <li id="tablinks"><a onclick="openTab(event, 'Linux')">Linux</a></li>
-              </ul>
-            </div>
-
-            <div class="container">
-              <div class="tabcontent active" id="MacOS">
-                  <code>
-curl -fsSL https://raw.githubusercontent.com/dapr/cli/master/install/install.sh | /bin/bash
-                  </code>
-              </div>
-              <div class="tabcontent" id="Windows">
-                  <code>
-powershell -Command "iwr -useb https://raw.githubusercontent.com/dapr/cli/master/install/install.ps
-                  </code>
-              </div>
-              <div class="tabcontent" id="Linux">
-                  <code>
-wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
-                  </code>
-              </div>
+            <ul>
+              <li>Select your OS:&nbsp;&nbsp;</li>
+              <li id="tablinks" class="is-active"><a onclick="openTab(event, 'Windows')">Windows</a></li>
+              <li id="tablinks"><a onclick="openTab(event, 'MacOS')">MacOS</a></li>
+              <li id="tablinks"><a onclick="openTab(event, 'Linux')">Linux</a></li>
+            </ul>
+          </div>
+          <div class="tabcontent active" id="Windows">
+            <input id="copy-windows" value="powershell -Command &quot;iwr -useb https://raw.githubusercontent.com/dapr/cli/master/install/install.ps | iex&quot;" />
+            <button data-clipboard-target="copy-windows" class="button">Copy</button>
+          </div>
+          <div class="tabcontent " id="MacOS">
+            <input id="copy-mac" value="curl -fsSL https://raw.githubusercontent.com/dapr/cli/master/install/install.sh | /bin/bash" />
+            <button data-clipboard-target="copy-mac" class="button">Copy</button>
+          </div>
+          <div class="tabcontent" id="Linux">
+            <input id="copy-linux" value="wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash;" />
+            <button data-clipboard-target="copy-linux" class="button">Copy</button>
           </div>
         </div>
       </div>
@@ -55,6 +48,8 @@ wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O 
           document.getElementById(tabTitle).style.display = "block";
           evt.currentTarget.className += " active";
         }
+
+        var clip = new Clipboard('.button');
       </script>
 
 

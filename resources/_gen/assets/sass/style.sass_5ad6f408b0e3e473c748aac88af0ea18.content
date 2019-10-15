@@ -6960,7 +6960,8 @@ h3 {
       #old-vs-new .newstuff ol li {
         padding-right: 12.5%; }
   #old-vs-new h3 {
-    font-size: 0.75rem; }
+    font-size: 0.75rem;
+    color: #CEDAF4; }
   #old-vs-new h2 {
     font-size: 1.5rem;
     font-weight: bold; }
@@ -6987,13 +6988,45 @@ h3 {
   #download .tabcontent {
     display: none;
     animation: fadeEffect 1s;
-    /* Fading effect takes 1 second */ }
+    /* Fading effect takes 1 second */
+    position: relative; }
     #download .tabcontent.active {
       display: block; }
     #download .tabcontent code,
-    #download .tabcontent pre {
+    #download .tabcontent pre,
+    #download .tabcontent input {
       overflow-wrap: break-word;
-      max-width: 10vw; }
+      white-space: -moz-pre-wrap !important;
+      /* Mozilla, since 1999 */
+      white-space: -pre-wrap;
+      /* Opera 4-6 */
+      white-space: -o-pre-wrap;
+      /* Opera 7 */
+      white-space: pre-wrap;
+      /* css-3 */
+      word-wrap: break-word;
+      /* Internet Explorer 5.5+ */
+      white-space: -webkit-pre-wrap;
+      /* Newer versions of Chrome/Safari*/
+      word-break: break-all;
+      white-space: normal;
+      padding: 1rem 2rem;
+      background: #4F4D68;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      padding: 1rem 6.25rem 1rem 1.2rem; }
+      #download .tabcontent code:before,
+      #download .tabcontent pre:before,
+      #download .tabcontent input:before {
+        display: none; }
+    #download .tabcontent button {
+      position: absolute;
+      right: 0.5rem;
+      top: 0.45rem; }
 
 @keyframes fadeEffect {
   from {
