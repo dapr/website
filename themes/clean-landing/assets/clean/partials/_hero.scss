@@ -14,16 +14,16 @@ Hero styles
   }
 
   h2 {
-      font-size: 1.75rem;
+      font-size: 1.35rem;
       font-weight: bold;
       margin: 5vh auto 3rem;
       padding: 0;
-      max-width: 45vw;
       color: $brand;
   }
 
   img {
-    max-width: 12.5vw;
+    max-width: 10rem;
+    min-width: 8rem;
   }
 }
 

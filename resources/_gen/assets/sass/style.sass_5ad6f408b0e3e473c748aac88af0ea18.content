@@ -6337,14 +6337,14 @@ Hero styles
   .hero h1 {
     margin-top: 0; }
   .hero h2 {
-    font-size: 1.75rem;
+    font-size: 1.35rem;
     font-weight: bold;
     margin: 5vh auto 3rem;
     padding: 0;
-    max-width: 45vw;
     color: #0D2192; }
   .hero img {
-    max-width: 12.5vw; }
+    max-width: 10rem;
+    min-width: 8rem; }
 
 #about h4 {
   font-weight: bold; }
