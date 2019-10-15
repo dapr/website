@@ -6955,13 +6955,14 @@ h3 {
     color: white; }
     #old-vs-new .newstuff h2, #old-vs-new .newstuff h3 {
       padding-left: 1rem; }
+    #old-vs-new .newstuff h3 {
+      color: #CEDAF4; }
     #old-vs-new .newstuff ol {
       padding-left: 2rem; }
       #old-vs-new .newstuff ol li {
         padding-right: 12.5%; }
   #old-vs-new h3 {
-    font-size: 0.75rem;
-    color: #CEDAF4; }
+    font-size: 0.75rem; }
   #old-vs-new h2 {
     font-size: 1.5rem;
     font-weight: bold; }
@@ -6978,7 +6979,8 @@ h3 {
   /* Go from zero to full opacity */ }
   #download .download-step {
     position: relative;
-    padding-bottom: 2rem; }
+    padding-bottom: 2rem;
+    padding: 0 2rem; }
   #download h2 {
     font-weight: bold;
     color: #94A7D5;
@@ -7017,6 +7019,8 @@ h3 {
       color: white;
       font-size: 1rem;
       border-radius: 0.5rem;
+      font-family: monospace;
+      font-weight: 400;
       width: 100%;
       padding: 1rem 6.25rem 1rem 1.2rem; }
       #download .tabcontent code:before,
@@ -7035,16 +7039,16 @@ h3 {
     opacity: 1; } }
   #download .bigno {
     position: absolute;
-    width: 3rem;
-    line-height: 3;
+    width: 2rem;
+    line-height: 2;
     text-align: center;
     background-color: #CEDAF4;
     border-radius: 100%;
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    left: -3.5rem;
-    top: 0rem; }
+    left: -0.2rem;
+    top: 0.525rem; }
 
 p {
   line-height: 1.6;
@@ -7063,7 +7067,7 @@ pre {
 code {
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  background-color: #f9f9fb;
+  background-color: #e5e5eb;
   color: #4F4D68; }
 
 pre {

@@ -21,7 +21,7 @@ params:
     # Main hero title
     title: dapr
     # Hero subtitle (optional)
-    subtitle: Event-driven, portable runtime for building microservice apps on cloud and edge.
+    subtitle: Event-driven, portable runtime for building microservices on cloud and edge.
     # Button text
     buttontext: Get started
     # Where the main hero button links to
@@ -47,7 +47,7 @@ params:
     - title: No Limits
       icon: code
       text: Dapr works with any programming language - on any cloud or edge.
-    - title: Standard Open API
+    - title: Open API
       icon: openapi
       text: Dapr provides consistency and portability, via standard open APIs
     - title: Open Source
