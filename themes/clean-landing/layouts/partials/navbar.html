@@ -21,23 +21,23 @@
         {{- range $navbar }}
         {{- if .sublinks }}
         <div class="navbar-item has-dropdown is-hoverable has-text-centered">
-          <a class="navbar-link">
+          <a class="navbar-link" href=".url">
             {{ .title }}
           </a>
         </div>
 
-        <div class="navbar-item">
-          <a class="github-button" href="https://github.com/dapr/dapr" data-icon="octicon-star" aria-label="Star dapr/dapr on GitHub">Star</a>
+        <div class="navbar-item navbar-github">
+          <a class="github-button" href="https://github.com/dapr/dapr" data-size="large" data-show-count="true" data-icon="octicon-star" aria-label="Star dapr/dapr on GitHub">Star</a>
         </div>
         
         {{- else if .button }}
-        <a href="{{ .Permalink }}" class="navbar-item">
+        <a href="{{ .url }}" class="navbar-item">
           <span class="button signup-button rounded secondary-btn raised">
             {{ .title }}
           </span>
         </a>
         {{- else }}
-        <a href="{{ .Permalink }}" class="navbar-item is-secondary">
+        <a href="{{ .url }}" class="navbar-item is-secondary">
           {{ .title }}
         </a>
         {{- end }}
@@ -45,8 +45,8 @@
       </div>
 
       <div class="navbar navbar-end">
-        <div class="navbar-item">
-          <a class="github-button" href="https://github.com/dapr/dapr" data-icon="octicon-star" aria-label="Star dapr/dapr on GitHub">Star</a>
+        <div class="navbar-item navbar-github">
+          <a class="github-button" href="https://github.com/dapr/dapr" data-size="large" data-show-count="true" data-icon="octicon-star" aria-label="Star dapr/dapr on GitHub">Star</a>
         </div>
       </div>
     </div>

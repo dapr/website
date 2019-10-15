@@ -3,36 +3,47 @@
 
     <div class="title-wrapper has-text-centered">
       <h3 class="title is-6">Download</h3>
-      <div class="divider is-centered"></div>
     </div>
 
     <div class="content-wrapper">
-      <div class="columns">
+      <div class="columns is-mobile download-step">
         <div class="column is-half">
-          <h2><span>1.</span> Download</h2>
-          <p>Dapr is installed as a CLI tool on your local machine or Kubernetes cluster.</p>
-          <p>Download, unpack and install the <a>latest release</a> or use a <a>Helm</a> chart.</p>
+          <h2><span class="bigno">1</span> Download</h2>
+          <p>Dapr is installed as a CLI on your local machine. Use the install script for your OS:</p>
         </div>
         <div class="column is-half">
-            Download the Dapr CLI for your OS:
-            <pre>
-perl get.dapr.io/62afed3fc1.pl
-            </pre>
+          <div class="tabs">
+            <ul>
+              <li>Select your OS:&nbsp;&nbsp;</li>
+              <li id="tablinks" class=""><a onclick="openTab(event, 'Windows')">Windows</a></li>
+              <li id="tablinks"><a onclick="openTab(event, 'MacOS')">MacOS</a></li>
+              <li id="tablinks"><a onclick="openTab(event, 'Linux')">Linux</a></li>
+            </ul>
+          </div>
+          <div class="tabcontent active" id="Windows">
+            <input id="copywindows" value="powershell -Command &quot;iwr -useb https://raw.githubusercontent.com/dapr/cli/master/install/install.ps | iex&quot;" />
+            <button data-clipboard-target="#copywindows" class="button">Copy</button>
+          </div>
+          <div class="tabcontent " id="MacOS">
+            <input id="copymac" value="curl -fsSL https://raw.githubusercontent.com/dapr/cli/master/install/install.sh | /bin/bash" />
+            <button data-clipboard-target="#copymac" class="button">Copy</button>
+          </div>
+          <div class="tabcontent" id="Linux">
+            <input id="copylinux" value="wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash;" />
+            <button data-clipboard-target="#copylinux" class="button">Copy</button>
+          </div>
         </div>
       </div>
 
-
-      <div class="columns">
+      <div class="columns is-mobile download-step">
         <div class="column is-half">
-          <h2><span>2.</span> Initialize</h2>
-          <p>Setup Dapr on your machine with ‘dapr init’. For use in a kubernetes cluster:</p>
-
-          <code>dapr init -kubernetes</code>
+          <h2><span class="bigno">2</span> Initialize</h2>
+          <p>Setup Dapr on your machine with ‘dapr init’.
         </div>
         <div class="column is-half">
           <div class="cli-wrapper">
             <pre>
-$ dapr init
+ $  dapr init
 ⌛  Making the jump to hyperspace...
     Downloading binaries and setting up
     components
@@ -43,43 +54,55 @@ $ dapr init
         </div>
       </div>
 
-      <div class="columns">
+      <div class="columns is-mobile download-step">
         <div class="column is-half">
-          <h2><span>3.</span> Run</h2>
-          <p>You can run Dapr <a>locally</a> or <a>in cluster</a> with a  ‘dapr run’.  Check out the <a>docs</a> for samples.</p>
+          <h2><span class="bigno">3</span> Run</h2>
+          <p>You can run Dapr locally with a <code>dapr run</code>. Visit the <a>documentation</a> for further details and next steps.</p>
         </div>
         <div class="column is-half">
           <div class="cli-wrapper">
-            <pre>
-$ dapr run --app-id mynode --app-port 3000 --port 3500 node app.js
+            <!-- <pre>
+ $  dapr run --app-id mynode --app-port 3000 --port 3500 node app.js
 
 ⌛  Starting dapr id mynode on port 3500
 
     You're up and running! Both dapr and
     your app logs will appear here.
     ...
-            </pre>
+            </pre> -->
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="columns is-mobile">
+        <div class="column has-text-centered">
+          <p>&nbsp;</p>
+          <div class="button-cta has-text-centered">
+            <a class="button is-primary is-large" href="https://github.com/dapr/docs/tree/master/getting-started">Get Started</a>
           </div>
         </div>
       </div>
 
       <div class="columns">
-        <div class="column has-text-centered">
-          <div class="button-cta has-text-centered">
-            <a class="button is-primary is-large" href="https://github.com/dapr/docs/tree/master/getting-started">Get Started</a>
-            <p>Visit the <a>documentation</a> for further details and steps.</p>
+        <div class="column is-full has-text-centered">
+  
+          <div class="level">
+            <div class="level-item"><img src="images/lang/dotnet.svg" alt=".NET" /></div>
+            <div class="level-item"><img src="images/lang/node.svg" alt="node" /></div>
+            <div class="level-item"><img src="images/lang/python.svg" alt="python" /></div>
+            <div class="level-item"><img src="images/lang/go.svg" alt="Go" /></div>
+            <!-- <div class="level-item"><img src="images/lang/php.svg" alt="php" /></div> -->
+            <div class="level-item"><img src="images/lang/java.svg" alt="Java" /></div>
+            <div class="level-item"><img src="images/lang/plus.svg" alt="And lots more." /></div>
           </div>
+  
+          <p class="is-3 has-text-centsered"><small>Dapr works with any programming language, via HTTP / gRPC.</small></p>
+          <hr>
+  
         </div>
       </div>
-    </div>
-
-
-
-
-
-    
-
-
 
     </div>
   </div>

@@ -1,13 +1,25 @@
 /* ==========================================================================
 Color variables
 ========================================================================== */
+//dapr theme
 
+$brand: #0D2192;
+$charcoal: #4F4D68;
+$actions: #73CDF3;
+
+$shaded: #94A7D5;
+$shadem: #B4C5EF;
+$shadel: #CEDAF4;
+$shade0: #F3F7FF;
+
+//fresh theme
 $white: #fff;
 $smoke-white: #fcfcfc;
 $grey-white: #f2f2f2;
 
-$primary: #4FC1EA;
-$secondary: #F39200;
+$primary: #73CDF3;
+// $secondary: #F39200;
+$secondary: $actions;
 $accent: #00efb7;
 
 $fade-grey: #ededed;

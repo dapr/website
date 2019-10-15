@@ -6209,9 +6209,9 @@ Navbar
   .navbar .navbar-end {
     align-items: center; }
   .navbar .navbar-item {
-    color: #999; }
+    color: #4F4D68; }
     .navbar .navbar-item.is-secondary:hover {
-      color: #F39200 !important; }
+      color: #0D2192 !important; }
     .navbar .navbar-item.has-dropdown {
       padding: 10px 0; }
       .navbar .navbar-item.has-dropdown .navbar-link {
@@ -6226,17 +6226,24 @@ Navbar
         top: 3.4rem;
         min-width: 220px;
         margin-top: 4px;
-        border-top-color: #F39200; }
+        border-top-color: #73CDF3; }
         .navbar .navbar-item.has-dropdown .navbar-dropdown .navbar-item {
           padding: 10px 20px; }
       .navbar .navbar-item.has-dropdown:hover .navbar-link {
-        color: #F39200; }
+        color: #73CDF3; }
         .navbar .navbar-item.has-dropdown:hover .navbar-link:after {
-          border-color: #F39200; }
+          border-color: #73CDF3; }
     .navbar .navbar-item .signup {
       display: block;
       line-height: 0;
       font-size: .9rem !important; }
+  .navbar .navbar-github {
+    border-radius: 0.15rem;
+    line-height: 1;
+    padding: 1px 0 0;
+    height: 28px;
+    overflow: hidden;
+    box-shadow: 0 0 1px 3px #0D2192; }
   .navbar.is-fixed {
     position: fixed;
     top: 0;
@@ -6248,7 +6255,7 @@ Navbar
     .navbar.is-fixed a {
       color: #444F60; }
       .navbar.is-fixed a:hover {
-        color: #4FC1EA; }
+        color: #73CDF3; }
 
 #navbar-clone {
   position: fixed;
@@ -6272,7 +6279,7 @@ Section Styles
   background-color: #fbfbfb; }
 
 .section.section-secondary {
-  background-color: #F39200; }
+  background-color: #73CDF3; }
 
 .section.section-half {
   height: 75vh !important; }
@@ -6294,7 +6301,7 @@ Section Styles
 .divider {
   height: 3px;
   border-radius: 50px;
-  background: #F39200;
+  background: #73CDF3;
   width: 60px; }
   .divider.is-centered {
     margin: 0 auto; }
@@ -6334,7 +6341,10 @@ Hero styles
     font-weight: bold;
     margin: 5vh auto 3rem;
     padding: 0;
-    max-width: 60vw; }
+    max-width: 45vw;
+    color: #0D2192; }
+  .hero img {
+    max-width: 12.5vw; }
 
 #about h4 {
   font-weight: bold; }
@@ -6358,18 +6368,22 @@ Hero styles
 /* ==========================================================================
 Fresh Footer
 ========================================================================== */
-footer .columns {
-  margin-top: 35px; }
-
-footer .footer-logo img {
-  height: 40px; }
-
-footer a {
-  display: inline-block;
-  margin-right: 2.5rem; }
-  footer a .icon {
-    opacity: 0.25;
-    padding-right: 0.25rem; }
+.footer {
+  padding: 2rem 1.5rem 1rem;
+  background: white; }
+  .footer .footer-logo img {
+    width: 80px; }
+  .footer a {
+    display: inline-block;
+    margin-right: 2.5rem; }
+    .footer a .icon {
+      opacity: 0.25;
+      padding-right: 0.25rem; }
+  .footer p {
+    font-size: 0.925rem;
+    text-align: right;
+    color: #4F4D68;
+    margin: 0.9rem 0 0; }
 
 /* ==========================================================================
 Classes to change the feel of bulma buttons
@@ -6400,8 +6414,8 @@ Classes to change the feel of bulma buttons
 
 .button.primary-btn {
   outline: none;
-  border-color: #4FC1EA;
-  background-color: #4FC1EA;
+  border-color: #73CDF3;
+  background-color: #73CDF3;
   color: #fff;
   transition: all 0.5s; }
   .button.primary-btn:hover {
@@ -6410,17 +6424,17 @@ Classes to change the feel of bulma buttons
     box-shadow: 0 14px 26px -12px rgba(79, 193, 234, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(79, 193, 234, 0.2) !important;
     opacity: 0.8; }
   .button.primary-btn.btn-outlined {
-    border-color: #4FC1EA;
-    color: #4FC1EA;
+    border-color: #73CDF3;
+    color: #73CDF3;
     background-color: transparent; }
     .button.primary-btn.btn-outlined:hover {
       color: #fff;
-      background-color: #4FC1EA; }
+      background-color: #73CDF3; }
 
 .button.secondary-btn {
   outline: none;
-  border-color: #F39200;
-  background-color: #F39200;
+  border-color: #73CDF3;
+  background-color: #73CDF3;
   color: #fff;
   transition: all 0.5s; }
   .button.secondary-btn:hover {
@@ -6429,12 +6443,12 @@ Classes to change the feel of bulma buttons
     box-shadow: 0 14px 26px -12px rgba(243, 146, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(243, 146, 0, 0.2) !important;
     opacity: 0.8; }
   .button.secondary-btn.btn-outlined {
-    border-color: #F39200;
-    color: #F39200;
+    border-color: #73CDF3;
+    color: #73CDF3;
     background-color: transparent; }
     .button.secondary-btn.btn-outlined:hover {
       color: #fff;
-      background-color: #F39200; }
+      background-color: #73CDF3; }
 
 .button.button.accent-btn {
   outline: none;
@@ -6502,9 +6516,9 @@ Cards and Card content styles
     .flex-card .navtab-content p {
       padding: 0 0.8rem 20px; }
   .flex-card .navigation-tabs.outlined-pills .tabs.tabs-header.primary {
-    background-color: #4FC1EA; }
+    background-color: #73CDF3; }
   .flex-card .navigation-tabs.outlined-pills .tabs.tabs-header.secondary {
-    background-color: #F39200; }
+    background-color: #73CDF3; }
   .flex-card .navigation-tabs.outlined-pills .tabs.tabs-header.accent {
     background-color: #00efb7; }
   .flex-card .navigation-tabs.outlined-pills .tabs.tabs-header ul li a {
@@ -6783,7 +6797,7 @@ button:focus, button:active {
 #backtotop.visible a:hover {
   outline: none;
   opacity: 0.9;
-  background: #F39200; }
+  background: #73CDF3; }
 
 #backtotop a {
   outline: none;
@@ -6878,15 +6892,76 @@ body #backtotop a {
   /* Firefox 18- */
   color: #cecece; }
 
+.section.is-medium {
+  padding: 6rem 1.5rem; }
+
 h3 {
   text-transform: uppercase;
-  letter-spacing: 0.15em; }
+  letter-spacing: 0.15em;
+  color: #0D2192; }
+
+.title {
+  color: #0D2192; }
+
+#about {
+  background: #F3F7FF;
+  padding-bottom: 0rem; }
+  #about p {
+    font-size: 1.25rem;
+    padding: 1.5rem 7.5% 0.5rem 2rem;
+    line-height: 1.85; }
+  #about .card {
+    background-color: transparent;
+    box-shadow: none;
+    padding-left: 10rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #dee6f8;
+    border-left: 1px solid #dee6f8; }
+    #about .card:first-child, #about .card:nth-child(3) {
+      border-left: none; }
+    #about .card img {
+      position: absolute;
+      left: 1rem;
+      top: 2.5rem; }
+    #about .card h4 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #6681c3;
+      margin: 0.5rem 0 0.25rem 0; }
+    #about .card p {
+      font-size: 1rem;
+      padding: 0 5% 0 0;
+      margin: 0;
+      max-width: 360px; }
+  #about .video-wrap {
+    border: 1px solid #dee6f8;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0 1.25rem; }
 
 #old-vs-new {
-  background: #E0E5F8;
-  min-height: 15rem; }
+  background-image: url(../images/oldvsnew.png), linear-gradient(180deg, #E7EBF7, #D9E0F5);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 50% 115%, 0 0;
+  min-height: 15rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem; }
+  #old-vs-new .oldstuff,
+  #old-vs-new .newstuff {
+    padding-top: 1.75rem; }
+  #old-vs-new .newstuff {
+    background: rebeccapurple;
+    background: linear-gradient(180deg, #2A3D74 0%, #384791 100%);
+    border-radius: 1rem;
+    color: white; }
+    #old-vs-new .newstuff h2, #old-vs-new .newstuff h3 {
+      padding-left: 1rem; }
+    #old-vs-new .newstuff ol {
+      padding-left: 2rem; }
+      #old-vs-new .newstuff ol li {
+        padding-right: 12.5%; }
   #old-vs-new h3 {
-    font-size: 0.75rem; }
+    font-size: 0.75rem;
+    color: #CEDAF4; }
   #old-vs-new h2 {
     font-size: 1.5rem;
     font-weight: bold; }
@@ -6895,18 +6970,169 @@ h3 {
     list-style-position: outside;
     padding-left: 1rem; }
     #old-vs-new ol li {
-      margin: 1.5rem 0; }
+      margin: 1.5rem 0;
+      padding-right: 7.5%;
+      line-height: 1.6; }
+
+#download {
+  /* Go from zero to full opacity */ }
+  #download .download-step {
+    position: relative;
+    padding-bottom: 2rem; }
+  #download h2 {
+    font-weight: bold;
+    color: #94A7D5;
+    font-size: 1.125rem; }
+  #download p {
+    padding-right: 8.5%; }
+  #download .tabcontent {
+    display: none;
+    animation: fadeEffect 1s;
+    /* Fading effect takes 1 second */
+    position: relative; }
+    #download .tabcontent.active {
+      display: block; }
+    #download .tabcontent code,
+    #download .tabcontent pre,
+    #download .tabcontent input {
+      overflow-wrap: break-word;
+      white-space: -moz-pre-wrap !important;
+      /* Mozilla, since 1999 */
+      white-space: -pre-wrap;
+      /* Opera 4-6 */
+      white-space: -o-pre-wrap;
+      /* Opera 7 */
+      white-space: pre-wrap;
+      /* css-3 */
+      word-wrap: break-word;
+      /* Internet Explorer 5.5+ */
+      white-space: -webkit-pre-wrap;
+      /* Newer versions of Chrome/Safari*/
+      word-break: break-all;
+      white-space: normal;
+      padding: 1rem 2rem;
+      background: #4F4D68;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      padding: 1rem 6.25rem 1rem 1.2rem; }
+      #download .tabcontent code:before,
+      #download .tabcontent pre:before,
+      #download .tabcontent input:before {
+        display: none; }
+    #download .tabcontent button {
+      position: absolute;
+      right: 0.5rem;
+      top: 0.45rem; }
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+  #download .bigno {
+    position: absolute;
+    width: 3rem;
+    line-height: 3;
+    text-align: center;
+    background-color: #CEDAF4;
+    border-radius: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    left: -3.5rem;
+    top: 0rem; }
 
 p {
   line-height: 1.6;
   margin: 1.5rem 0;
   font-size: 1.125rem; }
 
+code,
+pre {
+  background-color: #444259;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.8; }
+
+code {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #f9f9fb;
+  color: #4F4D68; }
+
+pre {
+  position: relative;
+  padding-top: 2.25rem; }
+  pre:before {
+    background: linear-gradient(180deg, #f2f2f5 0%, #d5d4e0 100%);
+    border: 2px solid #d5d4e0;
+    display: block;
+    content: " ";
+    width: 200%;
+    height: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 0 0;
+    border-bottom: 1px solid #4F4D68; }
+
 #about .box {
   width: 48%;
   display: inline-flexbox; }
 
+#testimonial {
+  background: linear-gradient(180deg, #f7f9fc 0%, white 100%); }
+  #testimonial .image {
+    min-height: 6rem;
+    text-align: center; }
+    #testimonial .image img {
+      width: auto;
+      min-width: 4rem;
+      max-height: 6rem;
+      margin: 0 auto; }
+
 #community {
-  background: #F3F7FF; }
+  background: #F3F7FF;
+  background-image: linear-gradient(180deg, #e6efff 0%, #F3F7FF 100%); }
+  #community .social-wrap {
+    text-align: left;
+    position: relative;
+    padding-left: 5rem; }
+    #community .social-wrap .icon {
+      padding: 0; }
+    #community .social-wrap .icon,
+    #community .social-wrap img {
+      font-size: 4rem;
+      float: left;
+      margin: 0 2rem 0 0;
+      line-height: .7;
+      position: absolute;
+      left: 1rem;
+      top: 3rem; }
+      #community .social-wrap .icon .fa-github,
+      #community .social-wrap img .fa-github {
+        color: #4F4D68; }
+    #community .social-wrap img {
+      max-width: 3.5rem;
+      top: 1.75rem;
+      left: 0rem; }
+    #community .social-wrap h4 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      min-width: 15vw;
+      color: #6681c3;
+      margin: 0.5rem 0 0.25rem 0; }
+      #community .social-wrap h4 a {
+        color: #6681c3; }
+    #community .social-wrap p {
+      font-size: 0.825rem;
+      padding: 0 8% 0 0;
+      margin: 0; }
 
 /*# sourceMappingURL=style.css.map */

@@ -18,7 +18,12 @@ Hero styles
       font-weight: bold;
       margin: 5vh auto 3rem;
       padding: 0;
-      max-width: 60vw;
+      max-width: 45vw;
+      color: $brand;
+  }
+
+  img {
+    max-width: 12.5vw;
   }
 }
 

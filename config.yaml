@@ -1,17 +1,15 @@
-baseURL: https://dapr.io/
+baseURL: https://dapr-theme--daprio.netlify.com/
 languageCode: en-us
 title: Dapr - portable, event-driven, serverless runtime.
 theme: clean-landing
+
 disableKinds:
  -taxonomy
  -taxonomyTerm
 
-
 params:
-  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
-  openGraph: true
-  # Used as meta data; describe your site to make Google Bots happy 
   description: Dapr is a portable, event-driven, runtime for building distributed applications across cloud and edge.
+  openGraph: true
   navbarlogo:
   # Logo (from static/images/logos/___)
    image: logos/temp-logo.svg
@@ -35,8 +33,9 @@ params:
   - title: About
     url: /#about
   - title: Download
+    url: /#download
   - title: Docs
-    url: /#docs
+    url: https://github.com/dapr/docs
   - title: Community
     url: /#community
   about:
@@ -47,20 +46,23 @@ params:
       text: Dapr enables easy, event-driven, stateful, microservices development.
     - title: No Limits
       icon: code
-      text: Dapr enables easy, event-driven, stateful, microservices development.
+      text: Dapr works with any programming language - on any cloud or edge.
     - title: Standard Open API
       icon: openapi
-      text: Dapr enables easy, event-driven, stateful, microservices development.
-    - title: Community Driven
+      text: Dapr provides consistency and portability, via standard open APIs
+    - title: Open Source
       icon: community
-      text: Dapr enables easy, event-driven, stateful, microservices development.
+      text: Dapr is an open source and vendor neutral project.
   footer:
-    logo: temp-icon.svg
+    logo: dapr.svg
     # Social media links (GitHub, Twitter, etc.). All are optional.
     socialmedia:
     - link: https://twitter.com/DaprDev
       icon: twitter
-    - link: /#
-      icon: slack
+      name: Twitter
+    - link: https://gitter.im/Dapr
+      icon: users
+      name: Gittr
     - link: https://github.com/dapr/dapr
       icon: github
+      name: Github
