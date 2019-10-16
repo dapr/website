@@ -293,6 +293,18 @@ pre {
       margin: 0 auto;
     }
   }
+
+  .blog-link {
+    text-align: center;
+
+    p {
+      background: #E8EFFD;
+      border-radius: 2rem;
+      display: inline-block;
+      padding: 1rem 3rem;
+      margin: -1.5rem auto 0;
+    }
+  }
 }
 
 #community {

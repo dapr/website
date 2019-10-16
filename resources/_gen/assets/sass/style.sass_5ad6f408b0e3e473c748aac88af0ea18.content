@@ -7100,6 +7100,14 @@ pre {
       min-width: 4rem;
       max-height: 6rem;
       margin: 0 auto; }
+  #testimonial .blog-link {
+    text-align: center; }
+    #testimonial .blog-link p {
+      background: #E8EFFD;
+      border-radius: 2rem;
+      display: inline-block;
+      padding: 1rem 3rem;
+      margin: -1.5rem auto 0; }
 
 #community {
   background: #F3F7FF;
