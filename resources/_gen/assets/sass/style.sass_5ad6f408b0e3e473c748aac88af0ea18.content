@@ -7032,6 +7032,8 @@ h3 {
       position: absolute;
       right: 0.5rem;
       top: 0.45rem; }
+  #download .level-item {
+    background: yellow; }
 
 @keyframes fadeEffect {
   from {
