@@ -6976,6 +6976,7 @@ h3 {
       line-height: 1.6; }
 
 #download {
+  padding-bottom: 2rem;
   /* Go from zero to full opacity */ }
   #download .download-step {
     position: relative;
