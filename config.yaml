@@ -21,7 +21,7 @@ params:
     # Main hero title
     title: dapr
     # Hero subtitle (optional)
-    subtitle: Event-driven, portable runtime for building microservices on cloud and edge.
+    subtitle: An event-driven, portable runtime for building microservices on cloud and edge.
     # Button text
     buttontext: Get started
     # Where the main hero button links to
@@ -62,7 +62,7 @@ params:
       name: Twitter
     - link: https://gitter.im/Dapr
       icon: users
-      name: Gittr
+      name: Gitter
     - link: https://github.com/dapr/dapr
       icon: github
       name: Github
