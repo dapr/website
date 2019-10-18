@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="90px" height="89px" viewBox="0 0 90 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
-    <title>net</title>
+    <title>Artboard</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="website-layout-02" transform="translate(-707.000000, -1775.000000)" fill-rule="nonzero">
-            <g id="about" transform="translate(-1.000000, 812.000000)">
-                <g id="langus" transform="translate(194.500000, 962.000000)">
-                    <g id="net" transform="translate(514.140625, 1.000000)">
-                        <circle id="Oval-7" fill="#FFFFFF" cx="44.5" cy="44.5" r="44.5"></circle>
-                        <circle id="Oval" fill="#5C2D91" cx="45" cy="44" r="32"></circle>
-                        <path d="M22.82,21 C13.9565299,28.8983271 10.1942502,41.0545681 13.0465456,52.5788505 C15.898841,64.1031329 24.8968671,73.101159 36.4211495,75.9534544 C47.9454319,78.8057498 60.1016729,75.0434701 68,66.18 L22.82,21 Z" id="Shape" fill="#FFFFFF" opacity="0.1"></path>
-                        <path d="M20.4,53.25 C20.0226105,53.2559468 19.6599648,53.1036356 19.4,52.83 C19.1330588,52.5662733 18.985024,52.2052128 18.99,51.83 C18.9873056,51.4552247 19.1349908,51.0950169 19.4,50.83 C19.6574796,50.551635 20.020841,50.3953896 20.4,50.4 C20.7784144,50.3990742 21.1403584,50.5547101 21.4,50.83 C21.6696398,51.0927054 21.8211925,51.453545 21.82,51.83 C21.8235287,52.206918 21.6716061,52.5686385 21.4,52.83 C21.1379602,53.1006152 20.7766855,53.2523506 20.4,53.25 Z" id="Shape" fill="#FFFFFF"></path>
-                        <path d="M40.27,53 L37.65,53 L28.28,38.46 C28.0469931,38.1015242 27.8525771,37.7193962 27.7,37.32 L27.62,37.32 C27.7090773,38.1501686 27.7424853,38.9853689 27.72,39.82 L27.72,53 L25.59,53 L25.59,34.77 L28.36,34.77 L37.48,49.05 C37.86,49.6433333 38.1066667,50.05 38.22,50.27 L38.27,50.27 C38.1645146,49.3807669 38.1210762,48.4852679 38.14,47.59 L38.14,34.77 L40.27,34.77 L40.27,53 Z" id="Shape" fill="#FFFFFF"></path>
-                        <polygon id="Shape" fill="#FFFFFF" points="54.69 53 45 53 45 34.77 54.24 34.77 54.24 36.7 47.18 36.7 47.18 42.76 53.76 42.76 53.76 44.68 47.18 44.68 47.18 51 54.7 51"></polygon>
-                        <polygon id="Shape" fill="#FFFFFF" points="69 36.7 63.7 36.7 63.7 53 61.57 53 61.57 36.7 56.33 36.7 56.33 34.77 69 34.77"></polygon>
-                    </g>
-                </g>
-            </g>
-        </g>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <image id="net_small_purple" x="13.6242673" y="12.2364893" width="64" height="64" xlink:href="data:image/png;base64,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"></image>
     </g>
 </svg>
