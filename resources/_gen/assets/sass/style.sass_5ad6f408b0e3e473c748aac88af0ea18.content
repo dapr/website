@@ -6350,6 +6350,38 @@ Hero styles
     max-width: 20vw;
     margin: 1.75rem auto 0; }
 
+.dapper-dotnet {
+  position: fixed;
+  z-index: 800;
+  top: 1.33rem;
+  left: 1.5rem;
+  background: white;
+  border: 1px solid #B4C5EF;
+  border-radius: .5rem;
+  padding: 0 3.35rem 0 3.925rem;
+  box-shadow: 0 2px 4px 0 #94A7D5; }
+  .dapper-dotnet p {
+    font-size: 0.667rem;
+    margin: 0.7rem 0 1rem; }
+    .dapper-dotnet p span {
+      font-size: 1rem; }
+  .dapper-dotnet .icon {
+    font-size: 1.5rem;
+    color: #94A7D5;
+    position: absolute;
+    right: 0.6rem;
+    top: 1.5rem;
+    opacity: 0.5; }
+  .dapper-dotnet a {
+    color: black; }
+  .dapper-dotnet img, .dapper-dotnet svg {
+    position: absolute;
+    left: 1rem;
+    top: 1.2rem;
+    max-width: 1.75rem;
+    min-width: 1.75rem;
+    width: 2rem; }
+
 #about h4 {
   font-weight: bold; }
 

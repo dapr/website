@@ -33,6 +33,49 @@ Hero styles
   }
 }
 
+.dapper-dotnet {
+  position: fixed;
+  z-index: 800;
+  top: 1.33rem;
+  left: 1.5rem;
+  background: white;
+  border: 1px solid $shadem;
+  border-radius: .5rem;
+  padding: 0 3.35rem 0 3.925rem;
+  box-shadow: 0 2px 4px 0 $shaded;
+  
+  p {
+    font-size: 0.667rem;
+    margin: 0.7rem 0 1rem;
+    
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    color: $shaded;
+    position: absolute;
+    right: 0.6rem;
+    top: 1.5rem;
+    opacity: 0.5;
+  }
+
+  a {
+    color: black;
+  }
+
+  img, svg {
+    position: absolute;
+    left: 1rem;
+    top: 1.2rem;
+    max-width: 1.75rem;
+    min-width: 1.75rem;
+    width: 2rem;
+  }
+}
+
 #about {
   h4 {
     font-weight: bold;
@@ -57,11 +100,5 @@ Hero styles
   p {
       font-size: 1.25rem;
       margin-bottom: 2.5rem;
-  }
-}
-
-#download {
-  .card {
-
   }
 }
