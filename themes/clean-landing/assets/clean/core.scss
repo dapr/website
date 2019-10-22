@@ -370,3 +370,28 @@ pre {
     }
   }
 }
+
+@media screen and (max-width: 1088px ) {
+  .navbar {
+    background: transparent;
+    .navbar-center {
+      margin: 1rem auto;
+    }
+
+    .navbar-end {
+      position: absolute;
+      right: 2vw;
+      top: 6.5rem;
+
+      .navbar-github {
+        box-shadow: none;
+        height: 30px;
+      }
+    }
+  }
+
+  .dapper-dotnet {
+    left: 2vw;
+    top: 1rem;
+  }
+}
