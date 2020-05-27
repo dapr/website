@@ -15,22 +15,22 @@
           <div class="tabs">
             <ul>
               <li>Select your OS:&nbsp;&nbsp;</li>
-              <li id="tablinks" class=""><a onclick="openTab(event, 'Windows')">Windows</a></li>
-              <li id="tablinks"><a onclick="openTab(event, 'MacOS')">MacOS</a></li>
               <li id="tablinks"><a onclick="openTab(event, 'Linux')">Linux</a></li>
+              <li id="tablinks"><a onclick="openTab(event, 'Windows')">Windows</a></li>
+              <li id="tablinks"><a onclick="openTab(event, 'MacOS')">MacOS</a></li>
             </ul>
           </div>
-          <div class="tabcontent active" id="Windows">
+          <div class="tabcontent active" id="Linux">
+            <input id="copylinux" value="wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash" />
+            <button data-clipboard-target="#copylinux" class="button">Copy</button>
+          </div>
+          <div class="tabcontent" id="Windows">
             <input id="copywindows" value="powershell -Command &quot;iwr -useb https://raw.githubusercontent.com/dapr/cli/master/install/install.ps1 | iex&quot;" />
             <button data-clipboard-target="#copywindows" class="button">Copy</button>
           </div>
-          <div class="tabcontent " id="MacOS">
+          <div class="tabcontent" id="MacOS">
             <input id="copymac" value="curl -fsSL https://raw.githubusercontent.com/dapr/cli/master/install/install.sh | /bin/bash" />
             <button data-clipboard-target="#copymac" class="button">Copy</button>
-          </div>
-          <div class="tabcontent" id="Linux">
-            <input id="copylinux" value="wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash" />
-            <button data-clipboard-target="#copylinux" class="button">Copy</button>
           </div>
         </div>
       </div>
