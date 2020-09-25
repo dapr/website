@@ -36,6 +36,8 @@ params:
     url: /#download
   - title: Docs
     url: https://github.com/dapr/docs
+  - title: Blog
+    url: https://blog.dapr.io/posts
   - title: Community
     url: /#community
   about:
