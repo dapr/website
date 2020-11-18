@@ -62,9 +62,9 @@ params:
     - link: https://twitter.com/DaprDev
       icon: twitter
       name: Twitter
-    - link: https://gitter.im/Dapr
+    - link: https://aka.ms/dapr-discord
       icon: users
-      name: Gitter
+      name: Discord
     - link: https://github.com/dapr/dapr
       icon: github
       name: Github
