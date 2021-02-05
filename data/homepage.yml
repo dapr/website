@@ -124,7 +124,7 @@ testimonial:
       - logo : "images/ignition-group.png"
         icon: "ti-quote-right"
         quote : "Using Dapr with Azure makes it very easy to bolt in new pieces of infrastructure without changing anything else. It changed our business."
-        person : "-- Russell Stather, Chief Digital Transformation Officer, Ignitnion Group"
+        person : "-- Russell Stather, Chief Digital Transformation Officer, Ignition Group"
         cta :
           enable : true
           label : "Read the story"
