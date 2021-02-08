@@ -10,6 +10,30 @@ banner:
     label : "Get started"
     link : "https://docs.dapr.io/getting-started/"
 
+    
+##################### News #########################
+news:
+  enable : true
+  prefix : "New! "
+  text : "Dapr v1.0.0-rc.3 release candidate is now available! Learn more >>"
+  link : "https://blog.dapr.io/posts/2021/02/03/dapr-v1.0.0-rc.3-is-now-available/"
+
+##################### Adopters #########################
+adopters:
+  enable : true
+  title : "Dapr adopters" 
+  logos :
+    
+    - "images/zeiss.png"
+    - "images/legentic.png" 
+    - "images/roadwork.png"
+    - "images/ignition-group.png"    
+    - "images/alibaba.png"
+    - "images/morphir.png"
+  button :
+    label : "Testimonials"
+    link : "#testimonials"
+
 ##################### Overview #########################
 overview:
   enable : true
@@ -21,13 +45,6 @@ overview:
     label : "Learn more about Dapr concepts"
     link : "https://docs.dapr.io/concepts/"
 
-##################### News #########################
-news:
-  enable : true
-  prefix : "New! "
-  text : "Dapr v1.0.0-rc.3 release candidate is now available! Learn more >>"
-  link : "https://blog.dapr.io/posts/2021/02/03/dapr-v1.0.0-rc.3-is-now-available/"
-
 ##################### Feature ##########################
 feature:
   enable : true
@@ -35,9 +52,9 @@ feature:
   content : "Dapr building blocks solve common challenges developers face when building microservices"
   feature_item:
     # feature item loop
-    - name : "Service discovery"
+    - name : "Service invocation"
       icon : "ti-direction-alt"
-      content : "Make service-to-service method invocation"
+      content : "Service discovery and service to service method calls"
       link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
       
     # feature item loop
@@ -59,11 +76,18 @@ feature:
       link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
            
     # feature item loop
+    - name : "Bindings"
+      icon : "ti-plug"
+      content : "Create event driven workflows and interface with external services"
+      link : "https://docs.dapr.io/concepts/observability-concept/"
+    
+    # feature item loop
     - name : "Observability"
       icon : "ti-eye"
       content : "Collect traces, metrics and log from every part of a distributed application"
       link : "https://docs.dapr.io/concepts/observability-concept/"
-      
+    
+
     # feature item loop
     - name : "Actors"
       icon : "ti-layers-alt"
@@ -119,7 +143,7 @@ service:
 testimonial:
   enable : true
   title : "Who's using Dapr?"
-  content : "Explore some examples of organizations using Dapr today in real world scenarios"
+  content : "See what Dapr adopters, building real world production solutions have to say"
   testimonial_item :
       - logo : "images/ignition-group.png"
         icon: "ti-quote-right"

@@ -65,6 +65,30 @@
 {{ end }}
 <!-- /overview -->
 
+<!-- adopters -->
+{{ if site.Data.homepage.adopters.enable }}
+{{ with site.Data.homepage.adopters }}
+<section class="section">
+  <div class="container">
+    <div class="col-12 text-center">
+    <!--h4 class="section-title">{{ .title | markdownify }}</h4-->
+      <div class="row align-items-center">
+        {{ range .logos }}            
+          <img src="{{ . | absURL }}" class="img-fluid mx-auto" width="100px">
+        {{ end }}
+      </div>
+      {{ with .button }}
+      {{ if .button.enable }}
+        <a href="{{ .link | absURL }}" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /adopters -->
+
 <!-- feature -->
 {{ if site.Data.homepage.feature.enable }}
 {{ with site.Data.homepage.feature }}
@@ -155,7 +179,7 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-4">
-        <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <h2 id="testimonials" class="section-title">{{ .title | markdownify }}</h2>
         <p>{{ .content | markdownify }}</p>
         {{ if .button.enable }}
         {{ with .button }}

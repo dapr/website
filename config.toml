@@ -124,7 +124,7 @@ preloader = "" # use jpg, png, svg or gif format.
 # Navigation buttons
 [params.navigation_button]
 enable = true
-label = "Get Started"
+label = "Try Dapr"
 link = "https://docs.dapr.io/getting-started/"
 
   
