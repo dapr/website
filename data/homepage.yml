@@ -23,7 +23,6 @@ adopters:
   enable : true
   title : "Dapr adopters" 
   logos :
-    
     - "images/zeiss.png"
     - "images/legentic.png" 
     - "images/roadwork.png"
@@ -31,6 +30,7 @@ adopters:
     - "images/alibaba.png"
     - "images/morphir.png"
   button :
+    enable : false
     label : "Testimonials"
     link : "#testimonials"
 

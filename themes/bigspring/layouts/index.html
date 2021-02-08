@@ -77,8 +77,8 @@
           <img src="{{ . | absURL }}" class="img-fluid mx-auto" width="100px">
         {{ end }}
       </div>
-      {{ with .button }}
       {{ if .button.enable }}
+      {{ with .button }}
         <a href="{{ .link | absURL }}" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
       {{ end }}
       {{ end }}
