@@ -7,7 +7,7 @@
     <div class="row align-items-center">
       <div class="col-md-6 mx-auto text-left">
         <h1 class="mb-3">{{ .title | markdownify }}</h1>
-        <h2 class="mb-5">{{ .content | markdownify }}</h2>
+        <h3 class="mb-5">{{ .content | markdownify }}</h3>
         {{ if .button.enable }}
         {{ with .button }}
         <div><a href="{{ .link | safeURL }}" class="btn btn-primary ">{{ .label }}</a></div>
