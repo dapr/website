@@ -180,6 +180,15 @@ testimonial:
           enable : false
           label : ""
           link : ""
+      
+      - logo : "images/legentic.png"
+        icon: "ti-quote-right"
+        quote : "The fact that we could focus on the core logic and let Dapr deal with the underlying messaging systems allowed us to iterate much faster than we expected."
+        person : "-- Trond Hindenes, Cloud Architect, Legentic"
+        cta :
+          enable : false
+          label : ""
+          link : ""
 
 
 ################### Screenshot ########################
