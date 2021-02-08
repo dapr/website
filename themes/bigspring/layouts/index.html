@@ -5,15 +5,17 @@
 <section class="banner" class="p-5 text-center bg-image" style="background-image: url('{{ .background_image | safeURL }}');">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-8 mx-auto text-center">
-        <!--h1 class="mb-3">{{ .title | markdownify }}</h1-->
-        {{with .image}}<img src="{{ . | absURL }}" class="img-fluid" width="200px">{{end}}
+      <div class="col-md-6 mx-auto text-left">
+        <!--h1 class="mb-3">{{ .title | markdownify }}</h1-->        
         <h2 class="mb-5">{{ .content | markdownify }}</h2>
         {{ if .button.enable }}
         {{ with .button }}
         <div><a href="{{ .link | safeURL }}" class="btn btn-primary ">{{ .label }}</a></div>
         {{ end }}
         {{ end }}
+      </div>
+      <div class="col-md-6 mx-auto text-left">
+        
       </div>
     </div>
   </div>

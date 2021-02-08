@@ -4,7 +4,7 @@ banner:
   image : "images/dapr.svg"
   background_image : "images/bg.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Distributed Application Runtime"
+  content : "Simplify distributed application development"
   button:
     enable : true
     label : "Get started"
@@ -37,9 +37,9 @@ adopters:
 ##################### Overview #########################
 overview:
   enable : true
-  title : "Simplify application development"
+  title : "What is Dapr?"
   video: "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Dapr helps developers build event driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device - Dapr keeps your code simple and portable and lets you focus on your application specific logic."
+  content : "Dapr is the Distributed Application Runtime. Dapr helps developers build event driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device - Dapr keeps your code simple and portable and lets you focus on your application specific logic."
   button: 
     enable : true
     label : "Learn more about Dapr concepts"
