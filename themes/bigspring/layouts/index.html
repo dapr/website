@@ -15,7 +15,7 @@
         {{ end }}        
       </div>
       <div class="col-md-6 mx-auto text-left">
-        
+        <img src="{{ .image | absURL }}" class="img-fluid mx-auto" width="400px" >
       </div>
     </div>
   </div>
@@ -138,7 +138,7 @@
       <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
         <div {{if gt (len .images) 1}}class="slider" {{end}}>
           {{ range .images }}
-          <img src="{{ . | absURL }}" class="img-fluid shadow">
+          <img src="{{ . | absURL }}" class="img-fluid">
           {{ end }}
         </div>
       </div>
@@ -152,7 +152,7 @@
       <div class="col-md-6 mb-4 mb-md-0">
         <div {{if gt (len .images) 1}}class="slider " {{end}}>
           {{ range .images }}
-          <img src="{{ . | absURL }}" class="img-fluid shadow">
+          <img src="{{ . | absURL }}" class="img-fluid">
           {{ end }}
         </div>
       </div>

@@ -1,7 +1,7 @@
 ####################### Banner #########################
 banner:
   title : "Simplify distributed application development"
-  image : "images/dapr.svg"
+  image : "images/banner-image.png"
   background_image : "images/bg.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
   content : "Focus on your application's core logic while keeping it portable"
