@@ -1,10 +1,10 @@
 ####################### Banner #########################
 banner:
   title : "Simplify distributed application development"
-  image : "images/banner-image.png"
+  image : "images/hero.png"
   background_image : "images/bg.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Focus on your application's core logic while keeping it portable"
+  content : "Focus on your application's core logic and keep your code simple and portable"
   button:
     enable : true
     label : "Get started"
@@ -82,10 +82,10 @@ feature:
       link : "https://docs.dapr.io/concepts/observability-concept/"
     
     # feature item loop
-    - name : "Observability"
-      icon : "ti-eye"
-      content : "Collect traces, metrics and log from every part of a distributed application"
-      link : "https://docs.dapr.io/concepts/observability-concept/"
+    # - name : "Observability"
+    #  icon : "ti-eye"
+    #  content : "Collect traces, metrics and log from every part of a distributed application"
+    #  link : "https://docs.dapr.io/concepts/observability-concept/"
     
 
     # feature item loop
@@ -202,7 +202,7 @@ screenshot:
 call_to_action:
   enable : true
   title : "Ready to get started?"
-  image : "images/bottom_cta.png"
+  image : "images/app.png"
   content : "Try Dapr for yourself on your local machine with this step-by-step guided tutorial"
   button:
     enable : true
