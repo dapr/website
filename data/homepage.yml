@@ -94,6 +94,15 @@ feature:
       content : "Leverage the actor pattern to scale self-contained units of processing"
       link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"      
 
+##################### Technical #########################
+technical:
+  enable : true
+  title : "Get started in seconds"
+  content : "The Dapr CLI allows you to get started with Dapr running locally on your dev box and support MacOS, Linux and Windows. Install Dapr in seconds and start coding quickly."
+  button: 
+    enable : true
+    label : "Try it yourself"
+    link : "https://docs.dapr.io/getting-started/"
 
 ######################### Service #####################
 service:
