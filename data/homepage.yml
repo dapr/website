@@ -108,16 +108,7 @@ technical:
 service:
   enable : true
   service_item:
-    # service item loop
-    - title : "Pluggable components"
-      images:
-      - "images/plugable.gif"
-      content : "With an eco-system of over 70 different components to plug-in to your application, Dapr makes it easy to keep you code agnostic to the hosting environment and your application highly portable."
-      button:
-        enable : true
-        label : "More about Dapr components"
-        link : "https://docs.dapr.io/concepts/components-concept/"
-        
+
     # service item loop
     - title : "Any language, anywhere"
       images:
@@ -127,6 +118,16 @@ service:
         enable : true
         label : "Explore Dapr SDKs"
         link : "https://docs.dapr.io/developing-applications/sdks/"
+        
+    # service item loop
+    - title : "Pluggable components"
+      images:
+      - "images/plugable.gif"
+      content : "With an eco-system of over 70 different components to plug-in to your application, Dapr makes it easy to keep you code agnostic to the hosting environment and your application highly portable."
+      button:
+        enable : true
+        label : "More about Dapr components"
+        link : "https://docs.dapr.io/concepts/components-concept/"
         
     # service item loop
     - title : "Open source, community driven"
