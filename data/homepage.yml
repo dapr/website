@@ -21,7 +21,7 @@ news:
 ##################### Adopters #########################
 adopters:
   enable : true
-  title : "Dapr adopters" 
+  title : "Dapr is used by:" 
   logos :
     - "images/zeiss.png"
     - "images/legentic.png" 
@@ -112,7 +112,7 @@ service:
     # service item loop
     - title : "Any language, anywhere"
       images:
-      - "images/anywhere.png"      
+      - "images/any.png"      
       content : "Use Dapr with your language of choice by leveraging an SDK or making simple HTTP or gRPC calls. Dapr is language agnostic and can run on any hosting environment including local development machines, Kubernetes, and public clouds such as AWS, Azure and GCP."
       button:
         enable : true

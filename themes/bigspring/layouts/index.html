@@ -40,7 +40,7 @@
 <!-- overview -->
 {{ if site.Data.homepage.overview.enable }}
 {{ with site.Data.homepage.overview }}
-<section class="section">
+<section class="section bg-light">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-4 order-2 order-md-1">
@@ -73,7 +73,7 @@
 <section class="section">
   <div class="container">
     <div class="col-12 text-center">
-    <!--h4 class="section-title">{{ .title | markdownify }}</h4-->
+    <h5 class="section-title">{{ .title | markdownify }}</h5>
       <div class="row align-items-center">
         {{ range .logos }}            
           <img src="{{ . | absURL }}" class="img-fluid mx-auto" width="100px">
