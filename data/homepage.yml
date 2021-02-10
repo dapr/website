@@ -1,6 +1,6 @@
 ####################### Banner #########################
 banner:
-  title : "Simplify distributed application development"
+  title : "Simplify cloud-native application development"
   image : "images/hero.png"
   background_image : "images/bg.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
@@ -118,7 +118,7 @@ service:
         enable : true
         label : "Explore Dapr SDKs"
         link : "https://docs.dapr.io/developing-applications/sdks/"
-        
+
     # service item loop
     - title : "Pluggable components"
       images:
