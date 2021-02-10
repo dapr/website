@@ -109,7 +109,7 @@ service:
   enable : true
   service_item:
     # service item loop
-    - title : "Plugable components"
+    - title : "Pluggable components"
       images:
       - "images/plugable.gif"
       content : "With an eco-system of over 70 different components to plug-in to your application, Dapr makes it easy to keep you code agnostic to the hosting environment and your application highly portable."
