@@ -100,7 +100,7 @@ weight = 3
 #################### default parameters ################################
 [params]
 logo = "images/dapr.svg"
-logo_width = "100px"
+logo_width = "60px"
 # Meta data
 description = "Dapr helps developers build event driven microservices on cloud and edge"
 keywords = "dapr, microservices, distributed applications, runtime, kubernetes"
