@@ -21,7 +21,7 @@ news:
 ##################### Adopters #########################
 adopters:
   enable : true
-  title : "Dapr is used by:" 
+  title : "Companies using Dapr:" 
   logos :
     - "images/zeiss.png"
     - "images/legentic.png" 
