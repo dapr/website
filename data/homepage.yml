@@ -24,9 +24,9 @@ adopters:
   title : "Companies using Dapr:" 
   logos :
     - image: "images/zeiss.png"
-      width: "120px"
+      width: "100px"
     - image: "images/alibaba.png"
-      width: "180px"
+      width: "150px"
     - image: "images/ignition-group.png"
       width: "200px"
     - image: "images/legentic.png"
