@@ -139,7 +139,7 @@ service:
     - title : "Open source, community driven"
       images:
       - "images/community.png"
-      content : "Dapr is an open source project hosted on GitHub. With a welcoming, engaged and growing community of contributors so issues, fixes and features come from a diverse group of developers from around the world"
+      content : "Dapr is an open source project hosted on GitHub with a welcoming, engaged and growing community of contributors. Issues, fixes and features come from a diverse group of developers from around the world all collaborating to define the roadmap."
       button:
         enable : true
         label : "Join the conversation on Discord"
