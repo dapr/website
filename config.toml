@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://thankful-bay-01a96e51e.azurestaticapps.net/"
+baseURL = "https://docs.dapr.io/"
 title = "Dapr - Distributed Application Runtime"
 theme = "bigspring"
 languageName = "En"
