@@ -76,7 +76,7 @@
     <h2 class="section-title">{{ .title | markdownify }}</h2>
       <div class="row align-items-center">
         {{ range .logos }}            
-          <img src="{{ . | absURL }}" class="img-fluid mx-auto" width="100px">
+          <img src="{{ .image | absURL }}" class="img-fluid mx-auto pl-1 pr-1" width="{{ .width }}">
         {{ end }}
       </div>
       {{ if .button.enable }}

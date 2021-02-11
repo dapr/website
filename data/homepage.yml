@@ -23,12 +23,18 @@ adopters:
   enable : true
   title : "Companies using Dapr:" 
   logos :
-    - "images/zeiss.png"
-    - "images/legentic.png" 
-    - "images/roadwork.png"
-    - "images/ignition-group.png"    
-    - "images/alibaba.png"
-    - "images/morphir.png"
+    - image: "images/zeiss.png"
+      width: "120px"
+    - image: "images/alibaba.png"
+      width: "180px"
+    - image: "images/ignition-group.png"
+      width: "200px"
+    - image: "images/legentic.png"
+      width: "120px"
+    - image: "images/roadwork.png"
+      width: "200px"        
+    - image: "images/morphir.png"
+      width: "100px"
   button :
     enable : false
     label : "Testimonials"
