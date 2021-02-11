@@ -193,9 +193,9 @@ testimonial:
         quote : "Without Dapr, we would need multiple weeks to integrate the different services together as well as create our own scaling infrastructure and service discovery tooling."
         person : "-- Xavier Geerinck, Founder, Roadwork"
         cta :
-          enable : false
-          label : ""
-          link : ""
+          enable : true
+          label : "Read the story"
+          link : "https://blog.dapr.io/posts/2021/02/09/running-dapr-in-production-at-roadwork/"
       
       - logo : "images/legentic.png"
         icon: "ti-quote-right"
