@@ -53,6 +53,7 @@
 {{ "<!-- JS Plugins -->" | safeHTML }}
 {{ range site.Params.plugins.js}}
 <script src="{{ .link | absURL }}"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 {{ end }}
 
 {{ "<!-- Main Script -->" | safeHTML }}

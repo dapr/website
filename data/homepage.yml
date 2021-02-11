@@ -1,10 +1,10 @@
 ####################### Banner #########################
 banner:
-  title : "Simplify distributed application development"
-  image : "images/dapr.svg"
+  title : "Simplify cloud-native application development"
+  image : "images/hero.png"
   background_image : "images/bg.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : ""
+  content : "Focus on your application's core logic and keep your code simple and portable"
   button:
     enable : true
     label : "Get started"
@@ -21,14 +21,20 @@ news:
 ##################### Adopters #########################
 adopters:
   enable : true
-  title : "Dapr adopters" 
+  title : "Companies using Dapr:" 
   logos :
-    - "images/zeiss.png"
-    - "images/legentic.png" 
-    - "images/roadwork.png"
-    - "images/ignition-group.png"    
-    - "images/alibaba.png"
-    - "images/morphir.png"
+    - image: "images/zeiss.png"
+      width: "120px"
+    - image: "images/alibaba.png"
+      width: "180px"
+    - image: "images/ignition-group.png"
+      width: "200px"
+    - image: "images/legentic.png"
+      width: "120px"
+    - image: "images/roadwork.png"
+      width: "200px"        
+    - image: "images/morphir.png"
+      width: "100px"
   button :
     enable : false
     label : "Testimonials"
@@ -39,7 +45,7 @@ overview:
   enable : true
   title : "What is Dapr?"
   video: "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Dapr is the Distributed Application Runtime helping developers build event driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device - Dapr keeps your code simple and portable and lets you focus on your application specific logic."
+  content : "Dapr helps developers build event driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device - Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic"
   button: 
     enable : true
     label : "Learn more about Dapr concepts"
@@ -82,10 +88,10 @@ feature:
       link : "https://docs.dapr.io/concepts/observability-concept/"
     
     # feature item loop
-    - name : "Observability"
-      icon : "ti-eye"
-      content : "Collect traces, metrics and log from every part of a distributed application"
-      link : "https://docs.dapr.io/concepts/observability-concept/"
+    # - name : "Observability"
+    #  icon : "ti-eye"
+    #  content : "Collect traces, metrics and log from every part of a distributed application"
+    #  link : "https://docs.dapr.io/concepts/observability-concept/"
     
 
     # feature item loop
@@ -94,13 +100,33 @@ feature:
       content : "Leverage the actor pattern to scale self-contained units of processing"
       link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"      
 
+##################### Technical #########################
+technical:
+  enable : true
+  title : "Get started in seconds"
+  content : "The Dapr CLI allows you to get started with Dapr running locally on your dev box and support MacOS, Linux and Windows. Install Dapr in seconds and start coding quickly."
+  button: 
+    enable : true
+    label : "Try it yourself"
+    link : "https://docs.dapr.io/getting-started/"
 
 ######################### Service #####################
 service:
   enable : true
   service_item:
+
     # service item loop
-    - title : "Plugable components"
+    - title : "Any language, anywhere"
+      images:
+      - "images/any.png"      
+      content : "Use Dapr with your language of choice by leveraging an SDK or making simple HTTP or gRPC calls. Dapr is language agnostic and can run on any hosting environment including local development machines, Kubernetes, and public clouds such as AWS, Azure and GCP."
+      button:
+        enable : true
+        label : "Explore Dapr SDKs"
+        link : "https://docs.dapr.io/developing-applications/sdks/"
+
+    # service item loop
+    - title : "Pluggable components"
       images:
       - "images/plugable.gif"
       content : "With an eco-system of over 70 different components to plug-in to your application, Dapr makes it easy to keep you code agnostic to the hosting environment and your application highly portable."
@@ -108,16 +134,6 @@ service:
         enable : true
         label : "More about Dapr components"
         link : "https://docs.dapr.io/concepts/components-concept/"
-        
-    # service item loop
-    - title : "Any language, anywhere"
-      images:
-      - "images/anywhere.png"      
-      content : "Use Dapr with your language of choice by leveraging an SDK or making simple HTTP or gRPC calls. Dapr is language agnostic and can run on any hosting environment including local development machines, Kubernetes, and public clouds such as AWS, Azure and GCP."
-      button:
-        enable : true
-        label : "Explore Dapr SDKs"
-        link : "https://docs.dapr.io/developing-applications/sdks/"
         
     # service item loop
     - title : "Open source, community driven"
@@ -202,7 +218,7 @@ screenshot:
 call_to_action:
   enable : true
   title : "Ready to get started?"
-  image : "images/bottom_cta.png"
+  image : "images/app.png"
   content : "Try Dapr for yourself on your local machine with this step-by-step guided tutorial"
   button:
     enable : true
