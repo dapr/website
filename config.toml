@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://docs.dapr.io/"
+baseURL = "https://apr.io/"
 title = "Dapr - Distributed Application Runtime"
 theme = "bigspring"
 languageName = "En"
