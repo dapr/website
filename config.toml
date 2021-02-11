@@ -1,0 +1,150 @@
+######################## default configuration ####################
+baseURL = "https://docs.dapr.io/"
+title = "Dapr - Distributed Application Runtime"
+theme = "bigspring"
+languageName = "En"
+languageCode = "en-us"
+# post pagination
+paginate = "3"
+# post excerpt
+summaryLength = "15"
+# disqus short name
+disqusShortname = "" # get your shortname form here : https://disqus.com
+# google analytics
+googleAnalytics = "" # example : UA-123-45
+# unsafe html
+[markup.goldmark.renderer]
+unsafe = true
+
+############################# Plugins ##############################
+
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/themify-icons/themify-icons.css"
+[[params.plugins.css]]
+link = "plugins/slick/slick.css"
+
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jQuery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+
+
+############################## navigation ###############################
+
+# main menu
+[[menu.main]]
+name = "Blog"
+URL = "https://blog.dapr.io/posts"
+weight = 1
+
+[[menu.main]]
+name = "Docs"
+URL = "https://docs.dapr.io/"
+weight = 2
+
+[[menu.main]]
+name = "GitHub"
+URL = "https://github.com/dapr"
+weight = 3
+
+[[menu.main]]
+name = "Discord"
+URL = "https://aka.ms/dapr-discord"
+weight = 4
+
+# footer menu left
+[[menu.footer_left]]
+name = "How to contribute"
+URL = "https://docs.dapr.io/contributing/"
+weight = 1
+
+[[menu.footer_left]]
+name = "GitHub"
+URL = "https://github.com/dapr"
+weight = 2
+
+# footer menu middle
+[[menu.footer_middle]]
+name = "Blog"
+URL = "https://blog.dapr.io/posts"
+weight = 1
+
+[[menu.footer_middle]]
+name = "Docs"
+URL = "https://docs.dapr.io/"
+weight = 2
+
+# footer menu right
+[[menu.footer_right]]
+name = "Community calls"
+URL = "https://github.com/dapr/community#community-meetings"
+weight = 1
+
+[[menu.footer_right]]
+name = "Discord"
+URL = "https://aka.ms/dapr-discord"
+weight = 2
+
+[[menu.footer_right]]
+name = "Twitter"
+URL = "https://twitter.com/daprdev"
+weight = 3
+
+
+#################### default parameters ################################
+[params]
+logo = "images/dapr.svg"
+logo_width = "60px"
+# Meta data
+description = "Dapr helps developers build event driven microservices on cloud and edge"
+keywords = "dapr, microservices, distributed applications, runtime, kubernetes"
+author = "Dapr Maintainers"
+# contact form action
+contact_form_action = "#" # contact form works with https://formspree.io
+
+########### footer content ##########
+footer_menu_right = "Community"
+footer_menu_middle = "Resources"
+footer_menu_left = "Contribute"
+footer_content = "Event-driven, portable runtime for building microservices on cloud and edge."
+# copyright
+copyright = ""
+
+# Preloader
+[params.preloader]
+enable = false
+preloader = "" # use jpg, png, svg or gif format.
+
+# Navigation buttons
+[params.navigation_button]
+enable = true
+label = "Try Dapr"
+link = "https://docs.dapr.io/getting-started/"
+
+  
+############################# social site ########################
+[[params.social]]
+title = "discord"
+icon = "ti-comments" # themify icon : https://themify.me/themify-icons
+link = "http://aka.ms/dapr-discord"
+
+[[params.social]]
+title = "twitter"
+icon = "ti-twitter-alt" # themify icon : https://themify.me/themify-icons
+link = "https://twitter.com/daprdev"
+
+[[params.social]]
+title = "github"
+icon = "ti-github" # themify icon : https://themify.me/themify-icons
+link = "https://github.com/dapr"
+
+[[params.social]]
+title = "youtube"
+icon = "ti-youtube" # themify icon : https://themify.me/themify-icons
+link = "https://www.youtube.com/channel/UCtpSQ9BLB_3EXdWAUQYwnRA"
