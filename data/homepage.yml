@@ -85,7 +85,7 @@ feature:
     - name : "Bindings"
       icon : "ti-plug"
       content : "Create event driven workflows and interface with external services"
-      link : "https://docs.dapr.io/concepts/observability-concept/"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
     
     # feature item loop
     # - name : "Observability"
