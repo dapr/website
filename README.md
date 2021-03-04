@@ -3,54 +3,46 @@ Welcome to the source file repository for the [Dapr website](https://dapr.io). T
 
 ---
 
-## Structure
+## Structure:
+Important folders and files to note:
 
-There are various parts to a hugo site, these are the key bits:
+[/data/homepage.yml](https://github.com/dapr/website/blob/master/data/homepage.yml) - Dynamic content such as text.  This is the only file you need to touch when looking for minor modifications such as changing text, adding a pane in a section or replacing and image.
 
-```
-/public        // 'dist' generated website - do not edit
-/resources     // compiled css assets - do not edit
-/themes        // source files for the website - edits go here
-config.yaml
-```
+[/styleguides/](https://github.com/dapr/website/tree/master/styleguides) - Latest brand assets and logos for Dapr
 
-Latest brand assets and logos for Dapr can be found in [/art](https://github.com/dapr/website/tree/master/art).
+[/static/images/](https://github.com/dapr/website/tree/master/static/images) - All image file in the site
 
+[/config.toml](https://github.com/dapr/website/blob/master/config.toml) - Hugo configuration and parameters including baseURL, headers and footers, Google Analytics etc.
+
+[/netlify.toml](https://github.com/dapr/website/blob/master/netlify.toml) - Configuration for deployment on Netlify
+
+[/themes/bigspring/](https://github.com/dapr/website/blob/master/themes/bigspring) - The website theme
+
+[/themes/bigspring/layouts/index.html](https://github.com/dapr/website/blob/master/themes/bigspring/layouts/index.html) - The main HTML file which includes most of the structure of the website
+
+[/themes/bigspring/assets/scss/_variables.scss](https://github.com/dapr/website/blob/master/themes/bigspring/assets/scss/_variables.scss) - Definitions of colors etc.
 
 ## Development
+### Run locally
+Make sure you have [Hugo installed](https://gohugo.io/getting-started/installing)
 
+Run:
+
+```bash
+hugo server --disableFastRender
 ```
-// run hugo to have the pipes rebuild and recompile
-# hugo
 
-// make sure to commit the generated results to git
-# git add resources/*
-```
+### Editing the content
+All basic content editing can be done via changes to [/data/homepage.yml](https://github.com/dapr/website/blob/master/data/homepage.yml). Note that the different sections in the file are ordered in the same way as in the website. Each section will usually have an `enable` flag which allows it to be removed without deleting it from the file.
 
-#### Editing the Content
+One exception is the menus in the header and footer of the website which are defined in [/config.toml](https://github.com/dapr/website/blob/master/config.toml)
 
-The website is broken up into html partials per section (e.g. navbar, footer, about, community). To edit the content, you need to modify [these source html files](https://github.com/dapr/website/tree/master/themes/clean-landing/layouts/partials) in the site theme.
+Image assets are stored at [/static/images](https://github.com/dapr/website/tree/master/static/images)
 
-*Do not make edits** to the code in the `/public` directory, this is overwritten each time the site is rebuilt!
+### Editing the theme
+The website uses a modified [Bigspring theme](https://themes.gohugo.io/bigspring-hugo-startup-theme/). You can find the documentation for the original theme [here](https://docs.gethugothemes.com/bigspring/).
 
-In addition, certain pieces of content are set globally via the [config.yaml](https://github.com/dapr/website/blob/master/config.yaml#L10) file:
-
-* site descrition
-* site webfonts
-* navbar: links
-* about section: feature points
-* _etc_
-
-
-#### Editing the Theme
-
-The site uses a custom Hugo theme called [clean-landing], which is a boilerplate based off of the [hugo-fresh](https://themes.gohugo.io/hugo-fresh/) theme by Luc Perkins. The theme uses the Bulma css framework, which provides a mobile-friendly reponsive grid (using flexbox), icon sets and easily configurable site parameters.
-
-* [Dapr.io theme parameters](https://github.com/dapr/website/blob/master/config.yaml#L10)
-* [Bulma CSS docs](https://bulma.io/)
-
-Any design changes should be to the source SASS files here, which are will generate new CSS files each time Hugo recompiles, via [hugo pipes](https://gohugo.io/hugo-pipes/). Remember to commit any changes to the generated css/js files afterwards (the `/resources` folder)!
-
+All theme files are found at [/themes/bigspring](https://github.com/dapr/website/blob/master/themes/bigspring). Most likely changes you will be looking to do are to the main index file [/themes/bigspring/layouts/index.html](https://github.com/dapr/website/blob/master/themes/bigspring/layouts/index.html) this file uses content (like text and image file names) from [/data/homepage.yml](https://github.com/dapr/website/blob/master/data/homepage.yml)
 
 ## Deployment
 
