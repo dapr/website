@@ -14,9 +14,9 @@ banner:
 ##################### News #########################
 news:
   enable : true
-  prefix : "Announcing "
-  text : "Dapr v1.0! Dapr is now production ready! Learn more >>"
-  link : "https://blog.dapr.io/posts/2021/02/17/announcing-dapr-v1.0/"
+  prefix : "New blog post! "
+  text : "How Alibaba is using Dapr. Read the case study >>"
+  link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
 
 ##################### Adopters #########################
 adopters:
@@ -129,7 +129,7 @@ service:
     - title : "Pluggable components"
       images:
       - "images/plugable.gif"
-      content : "With an eco-system of over 70 different components to plug-in to your application, Dapr makes it easy to keep you code agnostic to the hosting environment and your application highly portable."
+      content : "With an eco-system of over 70 different components to plug-in to your application, Dapr makes it easy to keep your code agnostic to the hosting environment and your application highly portable."
       button:
         enable : true
         label : "More about Dapr components"
@@ -184,9 +184,9 @@ testimonial:
         quote : "At Alibaba Cloud, we believe Dapr will lead the evolution of microservices. By adopting Dapr, our customers now enjoy increased velocity for building portable and robust distributed systems."
         person : "-- Xiang Li, Senior Staff Engineer, Alibaba Cloud"        
         cta : 
-          enable : false
-          label : ""
-          link : ""
+          enable : true
+          label : "Read the story"
+          link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
           
       - logo : "images/roadwork.png"
         icon: "ti-quote-right"
