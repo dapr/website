@@ -14,9 +14,9 @@ banner:
 ##################### News #########################
 news:
   enable : true
-  prefix : "New blog post! "
-  text : "How Alibaba is using Dapr. Read the case study >>"
-  link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
+  prefix : "Announcement "
+  text : "Dapr v1.1.0 is now available! Learn more>>"
+  link : "https://blog.dapr.io/posts/2021/04/02/dapr-v1.1.0-is-now-available/"
 
 ##################### Adopters #########################
 adopters:
