@@ -15,8 +15,8 @@ banner:
 news:
   enable : true
   prefix : "Announcement "
-  text : "Dapr v1.1.0 is now available! Learn more>>"
-  link : "https://blog.dapr.io/posts/2021/04/02/dapr-v1.1.0-is-now-available/"
+  text : "Dapr v1.2.0 is now available! Learn more>>"
+  link : "https://blog.dapr.io/posts/2021/05/27/dapr-v1.2-is-now-available/"
 
 ##################### Adopters #########################
 adopters:
