@@ -78,7 +78,7 @@ feature:
     # feature item loop
     - name : "Securing secrets"
       icon : "ti-shield"
-      content : "Keep application secretes secured with a secret store"
+      content : "Keep application secrets secured with a secret store"
       link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
            
     # feature item loop
