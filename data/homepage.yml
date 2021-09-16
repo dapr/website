@@ -15,8 +15,8 @@ banner:
 news:
   enable : true
   prefix : "Announcement "
-  text : "Dapr v1.3.0 is now available! Learn more>>"
-  link : "https://blog.dapr.io/posts/2021/07/27/dapr-v1.3-is-now-available/"
+  text : "Dapr v1.4.0 is now available! Learn more>>"
+  link : "https://blog.dapr.io/posts/2021/09/16/dapr-v1.4-is-now-available/"
 
 ##################### Adopters #########################
 adopters:
@@ -35,6 +35,8 @@ adopters:
       width: "200px"        
     - image: "images/morphir.png"
       width: "100px"
+    - image: "images/autonavi.png"
+      width: "150px"
   button :
     enable : false
     label : "Testimonials"
@@ -205,6 +207,15 @@ testimonial:
           enable : false
           label : ""
           link : ""
+
+      - logo : "images/autonavi.png"
+        icon: "ti-quote-right"
+        quote : "Dapr is really a perfect solution for invoking backend services in our multi-language serverless runtime."
+        person : "-- Xuexiang Deng, Staff Engineer, AutoNavi"
+        cta :
+          enable : false
+          label : "Read the story"
+          link : "https://blog.dapr.io/posts/2021/09/02/how-dapr-helped-autonavi-build-a-new-serverless-solution/"
 
 
 ################### Screenshot ########################
