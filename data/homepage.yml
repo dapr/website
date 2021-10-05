@@ -15,8 +15,8 @@ banner:
 news:
   enable : true
   prefix : "Announcement "
-  text : "Dapr v1.4.0 is now available! Learn more>>"
-  link : "https://blog.dapr.io/posts/2021/09/16/dapr-v1.4-is-now-available/"
+  text : "Join us for DaprCon October 19th-20th, 2021! Learn more >>"
+  link : "https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"
 
 ##################### Adopters #########################
 adopters:
