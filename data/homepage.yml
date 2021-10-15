@@ -21,7 +21,7 @@ news:
 ##################### Adopters #########################
 adopters:
   enable : true
-  link : "cases.html"
+  link : "404.html"
   logos :
     - image: "images/zeiss.png"
       width: "50px"
@@ -41,6 +41,91 @@ main:
   content1 : "Dapr provides developers APIs that simplify micro service connectivity.  Whether your inter-communication pattern is service invocation or pub/sub messaging, Dapr helps you write simpler, more resilient and secured microservices"
   content2 : "By letting Dapr take care of the complex challenges such as service discovery, message broker integration, encryption, observability and secret management, you can focus on business logic and keep your code simple"
   image : "images/dapr-connectivity.png"
+
+
+##################### Practices ##########################
+practices:
+  enable : true
+  title : "Best Practices, Built-In"
+  content : "Dapr helps you adopt industry known cloud native best practices"
+  feature_item:
+    # practices item loop
+    - name : "Secret Management"
+      icon : "ti-shield"
+      content : "Keep application secrets secured with a secret store"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
+      
+    # practices item loop
+    - name : "Secured Connections"
+      icon : "ti-lock"
+      content : "Encrypted communications with mTLS, certification management and fine grained access control"
+      link : "https://docs.dapr.io/concepts/security-concept/"
+
+    # practices item loop
+    - name : "Observability"
+      icon : "ti-eye"
+      content : "Collect traces, metrics and log from every part of your distributed application"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/observability/"
+
+    # practices item loop
+    # - name : "Controlled Access"
+    #  icon : "ti-hand-stop"
+    #  content : ""
+    #  link : ""
+
+##################### Adoption ##########################
+adoption:
+  enable : true
+  title : "Adopt at your own pace"
+  images :
+      - "images/adoption.png"
+  content : "As you evolve your existing applications, adding capabilities or refactoring parts of it, you can integrate Dapr in an incremental way and leverage a subset of capabilities in places that make sense to your existing system. As Dapr sidecars are gradually leveraged across your system, you can choose to use more features at your own pace."
+  button :
+    enable : false
+    label : "Learn more"
+    link : ""
+
+##################### Portability ##########################
+portability:
+  enable : true
+  title : "Same code, any environment"
+  images :
+      - "images/azure.png"
+      - "images/aws.png"
+      - "images/on-prem.png"
+  content : "Dapr's component model lets you make technology choices outside your code making it agnostic to hosting environment and  making deployment to multiple environments easier. Dapr runs as a sidecar where your application runs - on Azure, AWS, GCP, Alibaba Cloud, on-prem or on the edge."
+  button :
+    enable : false
+    label : "Learn more"
+    link : ""
+
+##################### BuildingBlocks ##########################
+buildingblocks:
+  enable : true
+  title : "Building blocks for cloud native applications"
+  content : "In addition to connectivity between microservices, Dapr APIs help you to connect to commonly used services such as state stores, bind to external systems and adopt the distributed patterns such as multiple actors."
+  feature_item:
+    # feature item loop
+    - name : "State management"
+      icon : "ti-server"
+      content : "Build resilient stateful services with your state store of choice"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
+    
+    # feature item loop
+    - name : "Actors"
+      icon : "ti-layout-grid4"
+      content : "Encapsulate code and data in reusable actor objects as a common microservices design pattern"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
+
+    # feature item loop
+    - name : "Bindings"
+      icon : "ti-plug"
+      content : "Create event driven workflows and interface with external services"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
+##########################################################################################
+##########################################################################################
+##########################################################################################
+
 
 ##################### Feature ##########################
 feature:
@@ -103,7 +188,7 @@ technical:
 
 ######################### Service #####################
 service:
-  enable : true
+  enable : false
   service_item:
 
     # service item loop
@@ -148,7 +233,7 @@ service:
 
 ################### Testimonials ########################
 testimonial:
-  enable : true
+  enable : false
   title : "Who's using Dapr?"
   content : "See what Dapr adopters, building real world production solutions have to say"
   testimonial_item :

@@ -40,9 +40,9 @@
 <!-- adopters -->
 {{ if site.Data.homepage.adopters.enable }}
 {{ with site.Data.homepage.adopters }}
-<section class="bg-body">
+<section class="bg-body shadow-lg border-0">
   <a href="{{ .link | absURL }}">
-    <div class="container">
+    <div class="container bg-body">
       <div class="col-12 text-center">
         <div class="row align-items-center">
           {{ range .logos }}            
@@ -60,7 +60,7 @@
 <!-- main -->
 {{ if site.Data.homepage.main.enable }}
 {{ with site.Data.homepage.main }}
-<section class="section bg-body">
+<section class="section bg-light">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 text-center">
@@ -69,14 +69,14 @@
       <div class="col-12 text-left">
         <div class="row justify-content-center">
           <div class="col-6 text-left">
-            <h4 class="mb-4">{{ .content1 | markdownify }}</h4>
+            <p class="mb-4">{{ .content1 | markdownify }}</p>
           </div>
           <div class="col-6 text-left">
-            <h4 class="mb-4">{{ .content2 | markdownify }}</h4>
+            <p class="mb-4">{{ .content2 | markdownify }}</p>
           </div>
         </div>
       </div>
-      <div class="col-10">
+      <div class="col-10 p-5 shadow rounded-lg bg-body">
         <img src="{{ .image | absURL }}" class="img-fluid mx-auto" width=>
       </div>
     </div>
@@ -85,6 +85,122 @@
 {{ end }}
 {{ end }}
 <!-- main-value-prop -->
+
+<!-- practices -->
+{{ if site.Data.homepage.practices.enable }}
+{{ with site.Data.homepage.practices }}
+<section class="section bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <h4 class="mb-4">{{ .content | markdownify }}</h4>
+      </div>
+      {{ range .feature_item }}
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="feature-card text-center bg-body border-0 shadow-lg">
+          <i class="{{.icon}} mb-3"></i>
+          <h4 class="mb-2">{{ .name | title }}</h4>
+          <p>{{ .content | markdownify }}</p>
+          <a href="{{ .link }}" class="stretched-link">Learn more</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /practices -->
+
+<!-- adoption -->
+{{ if site.Data.homepage.adoption.enable }}
+{{ with site.Data.homepage.adoption }}
+<section class="section bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4 ">
+        <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <p>{{ .content | markdownify }}</p>
+        {{ if .button.enable }}
+        {{ with .button }}
+        <a href="{{ .link | absURL }}" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
+        {{ end }}
+        {{ end }}
+      </div>
+      <div class="col-md-8 mb-4 mb-md-0">
+        <div {{if gt (len .images) 1}}class="slider" {{end}}>
+          {{ range .images }}
+          <img src="{{ . | absURL }}" class="img-fluid shadow">
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /adoption -->
+
+<!-- portability -->
+{{ if site.Data.homepage.portability.enable }}
+{{ with site.Data.homepage.portability }}
+<section class="section bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 mb-4 mb-md-0">
+        <div {{if gt (len .images) 1}}class="slider shadow" {{end}}>
+          {{ range .images }}
+          <img src="{{ . | absURL }}" class="img-fluid">
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-md-4 ">
+        <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <p>{{ .content | markdownify }}</p>
+        {{ if .button.enable }}
+        {{ with .button }}
+        <a href="{{ .link | absURL }}" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
+        {{ end }}
+        {{ end }}
+      </div>      
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /portability -->
+
+
+<!-- buildingblocks -->
+{{ if site.Data.homepage.buildingblocks.enable }}
+{{ with site.Data.homepage.buildingblocks }}
+<section class="section bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <h4 class="mb-4">{{ .content | markdownify }}</h4>
+      </div>
+      {{ range .feature_item }}
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="feature-card text-center bg-body border-0 shadow-lg">
+          <i class="{{.icon}} mb-3"></i>
+          <h4 class="mb-2">{{ .name | title }}</h4>
+          <p>{{ .content | markdownify }}</p>
+          <a href="{{ .link }}" class="stretched-link">Learn more</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /buildingblocks -->
+
+
+<!-- **************************************************************************** -->
 
 
 <!-- feature -->
