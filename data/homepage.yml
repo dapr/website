@@ -52,19 +52,19 @@ practices:
     # practices item loop
     - name : "Secret Management"
       icon : "ti-shield"
-      content : "Keep application secrets secured with a secret store"
+      content : "Keep application secrets secured with a secret store <br></br>"
       link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
       
     # practices item loop
     - name : "Secured Connections"
       icon : "ti-lock"
-      content : "Encrypted communications with mTLS, certification management and fine grained access control"
+      content : "Encrypt communications with mTLS, get certification management and fine-grained access control"
       link : "https://docs.dapr.io/concepts/security-concept/"
 
     # practices item loop
     - name : "Observability"
       icon : "ti-eye"
-      content : "Collect traces, metrics and log from every part of your distributed application"
+      content : "Collect traces, metrics and log from every part of your distributed application <br></br>"
       link : "https://docs.dapr.io/developing-applications/building-blocks/observability/"
 
     # practices item loop
@@ -102,7 +102,7 @@ portability:
 ##################### BuildingBlocks ##########################
 buildingblocks:
   enable : true
-  title : "Building blocks for cloud native applications"
+  title : "Even more building blocks for your distributed applications"
   content : "In addition to connectivity between microservices, Dapr APIs help you to connect to commonly used services such as state stores, bind to external systems and adopt the distributed patterns such as multiple actors."
   feature_item:
     # feature item loop
@@ -112,16 +112,39 @@ buildingblocks:
       link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
     
     # feature item loop
+    - name : "Bindings"
+      icon : "ti-plug"
+      content : "Create event driven workflows and interface with external services"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
+    
+    # feature item loop
     - name : "Actors"
       icon : "ti-layout-grid4"
       content : "Encapsulate code and data in reusable actor objects as a common microservices design pattern"
       link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
 
-    # feature item loop
-    - name : "Bindings"
-      icon : "ti-plug"
-      content : "Create event driven workflows and interface with external services"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
+##################### introvideo #########################
+introvideo:
+  enable : true
+  title : "What is Dapr?"
+  video: "https://www.youtube.com/embed/9o9iDAgYBA8"
+  content : "Dapr helps developers build event-driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic."
+  button: 
+    enable : true
+    label : "Learn more about Dapr concepts"
+    link : "https://docs.dapr.io/concepts/"
+
+##################### Call to action #####################
+call_to_action:
+  enable : true
+  title : "Ready to get started?"
+  image : "images/app.png"
+  content : "Try Dapr for yourself on your local machine with this step-by-step guided tutorial"
+  button:
+    enable : true
+    label : "Start now"
+    link : "https://docs.dapr.io/getting-started/"
+
 ##########################################################################################
 ##########################################################################################
 ##########################################################################################
@@ -291,31 +314,9 @@ testimonial:
           label : "Read the story"
           link : "https://blog.dapr.io/posts/2021/09/02/how-dapr-helped-autonavi-build-a-new-serverless-solution/"
 
-##################### Overview #########################
-overview:
-  enable : true
-  title : "What is Dapr?"
-  video: "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Dapr helps developers build event-driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic."
-  button: 
-    enable : true
-    label : "Learn more about Dapr concepts"
-    link : "https://docs.dapr.io/concepts/"
-
 ################### Screenshot ########################
 screenshot:
   enable : false
   title : "Experience the best <br> workflow with us"
   image : "images/screenshot.svg"
 
-
-##################### Call to action #####################
-call_to_action:
-  enable : true
-  title : "Ready to get started?"
-  image : "images/app.png"
-  content : "Try Dapr for yourself on your local machine with this step-by-step guided tutorial"
-  button:
-    enable : true
-    label : "Start now"
-    link : "https://docs.dapr.io/getting-started/"

@@ -98,7 +98,7 @@
       </div>
       {{ range .feature_item }}
       <div class="col-md-4 col-sm-6 mb-4">
-        <div class="feature-card text-center bg-body border-0 shadow-lg">
+        <div class="feature-card text-center">
           <i class="{{.icon}} mb-3"></i>
           <h4 class="mb-2">{{ .name | title }}</h4>
           <p>{{ .content | markdownify }}</p>
@@ -178,13 +178,13 @@
 <section class="section bg-light">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 text-center">
+      <div class="col-12">
         <h2 class="section-title">{{ .title | markdownify }}</h2>
-        <h4 class="mb-4">{{ .content | markdownify }}</h4>
+        <p class="mb-4">{{ .content | markdownify }}</p>
       </div>
       {{ range .feature_item }}
-      <div class="col-md-4 col-sm-6 mb-4">
-        <div class="feature-card text-center bg-body border-0 shadow-lg">
+      <div class="col-md-10 col-sm-6 mb-4">
+        <div class="feature-card ">
           <i class="{{.icon}} mb-3"></i>
           <h4 class="mb-2">{{ .name | title }}</h4>
           <p>{{ .content | markdownify }}</p>
@@ -199,14 +199,14 @@
 {{ end }}
 <!-- /buildingblocks -->
 
-<!-- overview -->
-{{ if site.Data.homepage.overview.enable }}
-{{ with site.Data.homepage.overview }}
+<!-- introvideo -->
+{{ if site.Data.homepage.introvideo.enable }}
+{{ with site.Data.homepage.introvideo }}
 <section class="section bg-light">
   <div class="container">        
       <div class="row justify-content-center">
         {{with .video}}
-        <div class="col-10 p-5 shadow rounded-lg bg-body">
+        <div class="col-10">
           <div class="embed-responsive mt-3 embed-responsive-16by9 ">
             <iframe class="embed-responsive-item shadow" src="{{ . | safeURL }}" allowfullscreen></iframe>
           </div>
