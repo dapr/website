@@ -171,19 +171,18 @@
 {{ end }}
 <!-- /portability -->
 
-
 <!-- buildingblocks -->
 {{ if site.Data.homepage.buildingblocks.enable }}
 {{ with site.Data.homepage.buildingblocks }}
 <section class="section bg-light">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12">
+      <div class="col-10">
         <h2 class="section-title">{{ .title | markdownify }}</h2>
         <p class="mb-4">{{ .content | markdownify }}</p>
       </div>
       {{ range .feature_item }}
-      <div class="col-md-10 col-sm-6 mb-4">
+      <div class="col-md-6 col-sm-6 mb-4">
         <div class="feature-card ">
           <i class="{{.icon}} mb-3"></i>
           <h4 class="mb-2">{{ .name | title }}</h4>
