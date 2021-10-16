@@ -13,7 +13,7 @@
             <p><i>"{{ .quote | markdownify }}"</i></p>    
             <p>{{ .person | markdownify }}</p>
             {{ if .cta.enable }}
-            <a href="{{ .cta.link | absURL }}" class="btn-link">{{ .cta.label }} <i class="ti-arrow-right"></i></a>
+            <a href="{{ .cta.link | absURL }}" class="stretched-link"><b>{{ .cta.label }}</b></a>
             {{end}}
         </div>
       </div>
@@ -37,7 +37,7 @@
         {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" class="btn btn-primary">{{ .label }}</a>
+        <a href="{{ .link | absURL }}" class="btn btn-primary stretched-link">{{ .label }}</a>
         {{ end }}
         {{ end }}
       </div>
