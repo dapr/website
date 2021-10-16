@@ -21,7 +21,7 @@ news:
 ##################### Adopters #########################
 adopters:
   enable : true
-  link : "404.html"
+  link : "testimonials"
   logos :
     - image: "images/zeiss.png"
       width: "50px"
@@ -32,6 +32,8 @@ adopters:
     - image: "images/roadwork.png"
       width: "100px"        
     - image: "images/autonavi.png"
+      width: "75px"
+    - image: "images/legentic.png"
       width: "75px"
 
 ##################### Main ##########################
@@ -301,7 +303,7 @@ testimonial:
         quote : "The fact that we could focus on the core logic and let Dapr deal with the underlying messaging systems allowed us to iterate much faster than we expected."
         person : "-- Trond Hindenes, Cloud Architect, Legentic"
         cta :
-          enable : false
+          enable : true
           label : ""
           link : ""
 
