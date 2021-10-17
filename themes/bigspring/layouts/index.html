@@ -151,7 +151,7 @@
       <div class="col-md-8 mb-4 mb-md-0">
         <div {{if gt (len .images) 1}}class="slider shadow" {{end}}>
           {{ range .images }}
-          <img src="{{ . | absURL }}" class="img-fluid">
+          <img src="{{ . | absURL }}" class="img-fluid shadow">
           {{ end }}
         </div>
       </div>

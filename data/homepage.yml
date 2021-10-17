@@ -39,7 +39,7 @@ adopters:
 ##################### Main ##########################
 main:
   enable : true
-  title : "Connect your microservices with security and resiliency"
+  title : "Connect Your Microservices Easily with Security and Resiliency"
   content1 : "Dapr provides developers APIs that simplify micro service connectivity.  Whether your inter-communication pattern is service invocation or pub/sub messaging, Dapr helps you write simpler, more resilient and secured microservices"
   content2 : "By letting Dapr take care of the complex challenges such as service discovery, message broker integration, encryption, observability and secret management, you can focus on business logic and keep your code simple"
   image : "images/dapr-connectivity.png"
@@ -78,9 +78,9 @@ practices:
 ##################### Adoption ##########################
 adoption:
   enable : true
-  title : "Adopt at your own pace"
+  title : "Incremental Adoption for Existing Systems"
   images :
-      - "images/adoption.png"
+      - "images/adoption.gif"
   content : "As you evolve your existing applications, adding capabilities or refactoring parts of it, you can integrate Dapr in an incremental way and leverage a subset of capabilities in places that make sense to your existing system. As Dapr sidecars are gradually leveraged across your system, you can choose to use more features at your own pace."
   button :
     enable : false
@@ -90,11 +90,9 @@ adoption:
 ##################### Portability ##########################
 portability:
   enable : true
-  title : "Same code, any environment"
+  title : "Manage Technology Choices Outside Your Code"
   images :
-      - "images/azure.png"
-      - "images/aws.png"
-      - "images/on-prem.png"
+      - "images/deploy.gif"
   content : "Dapr's component model lets you make technology choices outside your code making it agnostic to hosting environment and  making deployment to multiple environments easier. Dapr runs as a sidecar where your application runs - on Azure, AWS, GCP, Alibaba Cloud, on-prem or on the edge."
   button :
     enable : false
@@ -104,7 +102,7 @@ portability:
 ##################### BuildingBlocks ##########################
 buildingblocks:
   enable : true
-  title : "Even more building blocks for your distributed applications"
+  title : "Use Additional Building Blocks to Build Your Distributed Applications"
   content : "In addition to connectivity between microservices, Dapr APIs help you to connect to commonly used services such as state stores, bind to external systems and adopt the distributed patterns such as multiple actors."
   feature_item:
     # feature item loop
@@ -128,7 +126,7 @@ buildingblocks:
 ##################### introvideo #########################
 introvideo:
   enable : true
-  title : "What is Dapr?"
+  title : "Watch this short introduction to Dapr"
   video: "https://www.youtube.com/embed/9o9iDAgYBA8"
   content : "Dapr helps developers build event-driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic."
   button: 
