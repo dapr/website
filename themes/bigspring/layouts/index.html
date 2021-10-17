@@ -5,6 +5,9 @@
 <section class="banner" class="p-5 text-center bg-image" style="background-image: url('{{ .background_image | safeURL }}');">
   <div class="container">
     <div class="row align-items-center">
+      <div class="col-md-6 mx-auto text-center">
+        <img src="{{ .image | absURL }}" class="img-fluid mx-auto" width="50%" >
+      </div>
       <div class="col-md-6 mx-auto text-left">
         <h1 class="mb-3">{{ .title | markdownify }}</h1>
         <h3 class="mb-5">{{ .content | markdownify }}</h3>
@@ -13,10 +16,7 @@
         <div><a href="{{ .link | safeURL }}" class="btn btn-primary ">{{ .label }}</a></div>
         {{ end }}
         {{ end }}       
-      </div>
-      <div class="col-md-4 mx-auto text-left">
-        <img src="{{ .image | absURL }}" class="img-fluid mx-auto" width="400px" >
-      </div>
+      </div>      
     </div>
   </div>
 </section>
@@ -99,7 +99,7 @@
       {{ range .feature_item }}
       <div class="col-md-4 col-sm-6 mb-4">
         <div class="feature-card text-center">
-          <i class="{{.icon}} mb-3"></i>
+          <h2 class="{{.icon}} mb-3"></h2>
           <h4 class="mb-2">{{ .name | title }}</h4>
           <p>{{ .content | markdownify }}</p>
           <a href="{{ .link }}" class="stretched-link">Learn more</a>
@@ -178,13 +178,13 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-10">
-        <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <h2 class="section-title text-center">{{ .title | markdownify }}</h2>
         <p class="mb-4">{{ .content | markdownify }}</p>
       </div>
       {{ range .feature_item }}
       <div class="col-md-6 col-sm-6 mb-4">
         <div class="feature-card ">
-          <i class="{{.icon}} mb-3"></i>
+          <h2 class="{{.icon}} mb-3"></h2>
           <h4 class="mb-2">{{ .name | title }}</h4>
           <p>{{ .content | markdownify }}</p>
           <a href="{{ .link }}" class="stretched-link">Learn more</a>
@@ -204,10 +204,13 @@
 <section class="section bg-light">
   <div class="container">        
       <div class="row justify-content-center">
+        <h2 class="section-title">{{ .title | title }}</h2>
         {{with .video}}
         <div class="col-10">
-          <div class="embed-responsive mt-3 embed-responsive-16by9 ">
-            <iframe class="embed-responsive-item shadow" src="{{ . | safeURL }}" allowfullscreen></iframe>
+          <div class="shadow">
+            <div class="embed-responsive mt-3 embed-responsive-16by9 ">
+              <iframe class="embed-responsive-item shadow" src="{{ . | safeURL }}" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
         {{end}}

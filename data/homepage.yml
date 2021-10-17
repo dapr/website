@@ -9,11 +9,10 @@ banner:
     enable : true
     label : "Get started"
     link : "https://docs.dapr.io/getting-started/"
-
     
 ##################### News #########################
 news:
-  enable : false
+  enable : true
   prefix : "Announcement "
   text : "Join us for DaprCon October 19th-20th, 2021! Learn more >>"
   link : "https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"
@@ -78,7 +77,7 @@ practices:
 ##################### Adoption ##########################
 adoption:
   enable : true
-  title : "Incremental Adoption for Existing Systems"
+  title : "Incremental Adoption for Existing Applications"
   images :
       - "images/adoption.gif"
   content : "As you evolve your existing applications, adding capabilities or refactoring parts of it, you can integrate Dapr in an incremental way and leverage a subset of capabilities in places that make sense to your existing system. As Dapr sidecars are gradually leveraged across your system, you can choose to use more features at your own pace."
@@ -126,7 +125,7 @@ buildingblocks:
 ##################### introvideo #########################
 introvideo:
   enable : true
-  title : "Watch this short introduction to Dapr"
+  title : "Watch This Quick Introduction to Dapr"
   video: "https://www.youtube.com/embed/9o9iDAgYBA8"
   content : "Dapr helps developers build event-driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic."
   button: 
@@ -144,179 +143,3 @@ call_to_action:
     enable : true
     label : "Start now"
     link : "https://docs.dapr.io/getting-started/"
-
-##########################################################################################
-##########################################################################################
-##########################################################################################
-
-
-##################### Feature ##########################
-feature:
-  enable : false
-  title : "Building blocks for any developer"
-  content : "Dapr building blocks solve common challenges developers face when building microservices"
-  feature_item:
-    # feature item loop
-    - name : "Service invocation"
-      icon : "ti-direction-alt"
-      content : "Service discovery and service to service method calls"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
-      
-    # feature item loop
-    - name : "State management"
-      icon : "ti-server"
-      content : "Build resilient stateful services with your state store of choice"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
-    
-    # feature item loop
-    - name : "Publish & subscribe"
-      icon : "ti-email"
-      content : "Use asynchronous message topics and subscriptions"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
-
-    # feature item loop
-    - name : "Securing secrets"
-      icon : "ti-shield"
-      content : "Keep application secrets secured with a secret store"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
-           
-    # feature item loop
-    - name : "Bindings"
-      icon : "ti-plug"
-      content : "Create event driven workflows and interface with external services"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
-    
-    # feature item loop
-    # - name : "Observability"
-    #  icon : "ti-eye"
-    #  content : "Collect traces, metrics and log from every part of a distributed application"
-    #  link : "https://docs.dapr.io/concepts/observability-concept/"
-    
-
-    # feature item loop
-    - name : "Actors"
-      icon : "ti-layers-alt"
-      content : "Leverage the actor pattern to scale self-contained units of processing"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"      
-
-##################### Technical #########################
-technical:
-  enable : false
-  title : "Get started in seconds"
-  content : "The Dapr CLI allows you to get started with Dapr running locally on your dev box and support MacOS, Linux and Windows. Install Dapr in seconds and start coding quickly."
-  button: 
-    enable : true
-    label : "Try it yourself"
-    link : "https://docs.dapr.io/getting-started/"
-
-######################### Service #####################
-service:
-  enable : false
-  service_item:
-
-    # service item loop
-    - title : "Any language, anywhere"
-      images:
-      - "images/any.png"      
-      content : "Use Dapr with your language of choice by leveraging an SDK or making simple HTTP or gRPC calls. Dapr is language agnostic and can run on any hosting environment including local development machines, Kubernetes, and public clouds such as AWS, Azure and GCP."
-      button:
-        enable : true
-        label : "Explore Dapr SDKs"
-        link : "https://docs.dapr.io/developing-applications/sdks/"
-
-    # service item loop
-    - title : "Pluggable components"
-      images:
-      - "images/plugable.gif"
-      content : "With an eco-system of over 70 different components to plug-in to your application, Dapr makes it easy to keep your code agnostic to the hosting environment and your application highly portable."
-      button:
-        enable : true
-        label : "More about Dapr components"
-        link : "https://docs.dapr.io/concepts/components-concept/"
-        
-    # service item loop
-    - title : "Open source, community driven"
-      images:
-      - "images/community.png"
-      content : "Dapr is an open source project hosted on GitHub with a welcoming, engaged and growing community of contributors. Issues, fixes and features come from a diverse group of developers from around the world all collaborating to define the roadmap."
-      button:
-        enable : true
-        label : "Join the conversation on Discord"
-        link : "https://aka.ms/dapr-discord"
-    
-    # service item loop
-    - title : "Turnkey observability and security"
-      images:
-      - "images/security.png"
-      content : "The Dapr sidecar collects traces so your application is instrumented with no additional code. Dapr is built with security in mind so using Dapr helps you harden your application."
-      button:
-        enable : true
-        label : "Learn about Dapr security"
-        link : "https://docs.dapr.io/concepts/security-concept/"
-
-################### Testimonials ########################
-testimonial:
-  enable : false
-  title : "Who's using Dapr?"
-  content : "See what Dapr adopters, building real world production solutions have to say"
-  testimonial_item :
-      - logo : "images/ignition-group.png"
-        icon: "ti-quote-right"
-        quote : "Using Dapr with Azure makes it very easy to bolt in new pieces of infrastructure without changing anything else. It changed our business."
-        person : "-- Russell Stather, Chief Digital Transformation Officer, Ignition Group"
-        cta :
-          enable : true
-          label : "Read the story"
-          link : "https://customers.microsoft.com/en-us/story/1335733425802443016-ignition-group-speeds-development-and-payment-processing-using-dapr-and-azure"
-
-      - logo : "images/zeiss.png"
-        icon: "ti-quote-right"
-        quote : "Dapr really simplifies the case of distributed application architectures. With Dapr, any developer can do it."
-        person : "-- Kai Walter, Lead Architect, ZEISS"
-        cta :
-          enable : true
-          label : "Read the story"
-          link : "https://customers.microsoft.com/en-us/story/1336089737047375040-zeiss-accelerates-cloud-first-development-on-azure-and-streamlines-order-processing"      
-      
-      - logo : "images/alibaba.png"
-        icon: "ti-quote-right"
-        quote : "At Alibaba Cloud, we believe Dapr will lead the evolution of microservices. By adopting Dapr, our customers now enjoy increased velocity for building portable and robust distributed systems."
-        person : "-- Xiang Li, Senior Staff Engineer, Alibaba Cloud"        
-        cta : 
-          enable : true
-          label : "Read the story"
-          link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
-          
-      - logo : "images/roadwork.png"
-        icon: "ti-quote-right"
-        quote : "Without Dapr, we would need multiple weeks to integrate the different services together as well as create our own scaling infrastructure and service discovery tooling."
-        person : "-- Xavier Geerinck, Founder, Roadwork"
-        cta :
-          enable : true
-          label : "Read the story"
-          link : "https://blog.dapr.io/posts/2021/02/09/running-dapr-in-production-at-roadwork/"
-      
-      - logo : "images/legentic.png"
-        icon: "ti-quote-right"
-        quote : "The fact that we could focus on the core logic and let Dapr deal with the underlying messaging systems allowed us to iterate much faster than we expected."
-        person : "-- Trond Hindenes, Cloud Architect, Legentic"
-        cta :
-          enable : true
-          label : ""
-          link : ""
-
-      - logo : "images/autonavi.png"
-        icon: "ti-quote-right"
-        quote : "Dapr is really a perfect solution for invoking backend services in our multi-language serverless runtime."
-        person : "-- Xuexiang Deng, Staff Engineer, AutoNavi"
-        cta :
-          enable : false
-          label : "Read the story"
-          link : "https://blog.dapr.io/posts/2021/09/02/how-dapr-helped-autonavi-build-a-new-serverless-solution/"
-
-################### Screenshot ########################
-screenshot:
-  enable : false
-  title : "Experience the best <br> workflow with us"
-  image : "images/screenshot.svg"
-
