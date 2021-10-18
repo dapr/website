@@ -39,29 +39,34 @@ link = "plugins/slick/slick.min.js"
 
 # main menu
 [[menu.main]]
-name = "Docs"
-URL = "https://docs.dapr.io/"
+name = "Home"
+URL = "#"
 weight = 1
-
-[[menu.main]]
-name = "Blog"
-URL = "https://blog.dapr.io/posts"
-weight = 2
 
 [[menu.main]]
 name = "Testimonials"
 URL = "testimonials"
+weight = 2
+
+[[menu.main]]
+name = "Docs"
+URL = "https://docs.dapr.io/"
 weight = 3
+
+[[menu.main]]
+name = "Blog"
+URL = "https://blog.dapr.io/posts"
+weight = 4
 
 [[menu.main]]
 name = "GitHub"
 URL = "https://github.com/dapr"
-weight = 4
+weight = 5
 
 [[menu.main]]
 name = "Discord"
 URL = "https://aka.ms/dapr-discord"
-weight = 5
+weight = 6
 
 # footer menu left
 [[menu.footer_left]]

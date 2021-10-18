@@ -5,18 +5,18 @@
 <section class="banner" class="p-5 text-center bg-image" style="background-image: url('{{ .background_image | safeURL }}');">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-6 mx-auto text-center">
-        <img src="{{ .image | absURL }}" class="img-fluid mx-auto" width="50%" >
-      </div>
       <div class="col-md-6 mx-auto text-left">
-        <h1 class="mb-3">{{ .title | markdownify }}</h1>
-        <h3 class="mb-5">{{ .content | markdownify }}</h3>
+        <h2 class="mb-3">{{ .title | markdownify }}</h2>
+        <h4 class="mb-5">{{ .content | markdownify }}</h4>
         {{ if .button.enable }}
         {{ with .button }}
         <div><a href="{{ .link | safeURL }}" class="btn btn-primary ">{{ .label }}</a></div>
         {{ end }}
         {{ end }}       
-      </div>      
+      </div>
+      <div class="col-md-6 mx-auto text-left">
+        <img src="{{ .image | absURL }}" class="img-fluid mx-auto" width="75%" >
+      </div>
     </div>
   </div>
 </section>
@@ -95,13 +95,13 @@
 <section class="section bg-light">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 text-center">
-        <h2 class="section-title">{{ .title | markdownify }}</h2>
-        <h4 class="mb-4">{{ .content | markdownify }}</h4>
+      <div class="col-12">
+        <h2 class="section-title text-center">{{ .title | markdownify }}</h2>
+        <p class="mb-4">{{ .content | markdownify }}</p>
       </div>
       {{ range .feature_item }}
       <div class="col-md-4 col-sm-6 mb-4">
-        <div class="feature-card text-center">
+        <div class="feature-card">
           <h2 class="{{.icon}} mb-3"></h2>
           <h4 class="mb-2">{{ .name | title }}</h4>
           <p>{{ .content | markdownify }}</p>
@@ -185,7 +185,7 @@
         <p class="mb-4">{{ .content | markdownify }}</p>
       </div>
       {{ range .feature_item }}
-      <div class="col-md-6 col-sm-6 mb-4">
+      <div class="col-md-4 col-sm-6 mb-4">
         <div class="feature-card ">
           <h2 class="{{.icon}} mb-3"></h2>
           <h4 class="mb-2">{{ .name | title }}</h4>
