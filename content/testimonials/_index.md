@@ -66,7 +66,7 @@ cta:
   enable : true
   title : "Ready to get started?"
   image : "images/app.png"
-  content : "Try Dapr for yourself on your local machine with this step-by-step guided tutorial"
+  content : "Get Dapr on your local machine and get started in minutes"
   button:
     enable : true
     label : "Start now"

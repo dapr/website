@@ -76,8 +76,11 @@
           </div>
         </div>
       </div>
-      <div class="col-10 p-5 shadow rounded-lg bg-body">
-        <img src="{{ .image | absURL }}" class="img-fluid mx-auto" width=>
+      <div class="col-12 shadow rounded-lg bg-body">
+        <div {{if gt (len .images) 1}}class="slider" {{end}}>
+          {{ range .images }}
+          <img src="{{ . | absURL }}" class="img-fluid shadow">
+          {{ end }}
       </div>
     </div>
   </div>

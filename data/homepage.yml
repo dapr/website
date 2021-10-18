@@ -2,7 +2,7 @@
 banner:
   title : "Distributed Application Runtime"
   image : "images/dapr.svg"
-  background_image : "images/bg.png"
+  background_image : "images/bg-hexa-light.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
   content : "Focus on your application's core logic and keep your code simple and portable"
   button:
@@ -12,7 +12,7 @@ banner:
     
 ##################### News #########################
 news:
-  enable : true
+  enable : false
   prefix : "Announcement "
   text : "Join us for DaprCon October 19th-20th, 2021! Learn more >>"
   link : "https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"
@@ -41,7 +41,9 @@ main:
   title : "Connect Your Microservices Easily with Security and Resiliency"
   content1 : "Dapr provides developers APIs that simplify micro service connectivity.  Whether your inter-communication pattern is service invocation or pub/sub messaging, Dapr helps you write simpler, more resilient and secured microservices"
   content2 : "By letting Dapr take care of the complex challenges such as service discovery, message broker integration, encryption, observability and secret management, you can focus on business logic and keep your code simple"
-  image : "images/dapr-connectivity.png"
+  images :
+      -  "images/service-invocation.png"
+      -  "images/pubsub.png"
 
 
 ##################### Practices ##########################
@@ -125,7 +127,7 @@ buildingblocks:
 ##################### introvideo #########################
 introvideo:
   enable : true
-  title : "Watch This Quick Introduction to Dapr"
+  title : "Watch a Quick Introduction to Dapr"
   video: "https://www.youtube.com/embed/9o9iDAgYBA8"
   content : "Dapr helps developers build event-driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic."
   button: 
@@ -138,7 +140,7 @@ call_to_action:
   enable : true
   title : "Ready to get started?"
   image : "images/app.png"
-  content : "Try Dapr for yourself on your local machine with this step-by-step guided tutorial"
+  content : "Get Dapr on your local machine and get started in minutes"
   button:
     enable : true
     label : "Start now"
