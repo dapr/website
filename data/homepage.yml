@@ -1,19 +1,18 @@
 ####################### Banner #########################
-banner:
-  title : "Simplify cloud-native application development"
-  image : "images/hero.png"
-  background_image : "images/bg.png"
-  video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Focus on your application's core logic and keep your code simple and portable"
-  button:
-    enable : true
-    label : "Get started"
-    link : "https://docs.dapr.io/getting-started/"
-
+#banner:
+#  title : "Simplify cloud-native application development"
+#  image : "images/hero.png"
+#  background_image : "images/bg.png"
+#  video : "https://www.youtube.com/embed/9o9iDAgYBA8"
+#  content : "Focus on your application's core logic and keep your code simple and portable"
+#  button:
+#    enable : true
+#    label : "Get started"
+#    link : "https://docs.dapr.io/getting-started/"
     
 ##################### News #########################
 news:
-  enable : true
+  enable : false
   prefix : "Announcement "
   text : "Join us for DaprCon October 19th-20th, 2021! Learn more >>"
   link : "https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"
@@ -104,7 +103,7 @@ feature:
 
 ##################### Technical #########################
 technical:
-  enable : true
+  enable : false
   title : "Get started in seconds"
   content : "The Dapr CLI allows you to get started with Dapr running locally on your dev box and support MacOS, Linux and Windows. Install Dapr in seconds and start coding quickly."
   button: 
