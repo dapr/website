@@ -1,5 +1,23 @@
 {{ define "main" }}
 
+<!-- daprcon -->
+<section class="banner" class="p-5 text-center bg-image" style="background-image: url('images/bg.png'">
+  <div class="container">    
+    <div class="col-md-10 mx-auto text-center">
+      <h1 class="mb-3">Join us for DaprCon!</h1>
+      <h4 class="mb-3">The first ever DaprCon is a live virtual event taking place on October 19th-20th. Stream it live to hear from Dapr co-founders, maintainers and people building with Dapr in real world scenarios!</h4>
+      <a href="https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"><font size=4>See the full agenda</font></a>
+      <div class="embed-responsive mt-3 embed-responsive-16by9">
+        <iframe class="embed-responsive-item shadow" src="https://www.youtube.com/embed/7ax-ltJjM58" allowfullscreen></iframe>
+      </div>
+      <div class="mt-5">
+        <a href="https://docs.dapr.io/getting-started/" class="btn btn-primary">Get Started with Dapr</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /daprcon -->
+
 <!-- banner -->
 {{ with site.Data.homepage.banner }}
 <section class="banner" class="p-5 text-center bg-image" style="background-image: url('{{ .background_image | safeURL }}');">
