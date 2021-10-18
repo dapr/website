@@ -68,7 +68,7 @@ practices:
     - name : "Observability"
       icon : "ti-eye"
       content : "Collect traces, metrics and log from every part of your distributed application using Dapr's built-in instrumentation"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/observability/"
+      link : "https://docs.dapr.io/concepts/observability-concept/"
 
     # practices item loop
     # - name : "Controlled Access"
