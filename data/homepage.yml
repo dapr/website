@@ -1,21 +1,21 @@
 ####################### Banner #########################
-#banner:
-#  title : "Simplify cloud-native application development"
-#  image : "images/hero.png"
-#  background_image : "images/bg.png"
-#  video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-#  content : "Focus on your application's core logic and keep your code simple and portable"
-#  button:
-#    enable : true
-#    label : "Get started"
-#    link : "https://docs.dapr.io/getting-started/"
+banner:
+  title : "Simplify cloud-native application development"
+  image : "images/hero.png"
+  background_image : "images/bg.png"
+  video : "https://www.youtube.com/embed/9o9iDAgYBA8"
+  content : "Focus on your application's core logic and keep your code simple and portable"
+  button:
+    enable : true
+    label : "Get started"
+    link : "https://docs.dapr.io/getting-started/"
     
 ##################### News #########################
 news:
-  enable : false
-  prefix : "Announcement "
-  text : "Join us for DaprCon October 19th-20th, 2021! Learn more >>"
-  link : "https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"
+  enable : true
+  prefix : "Missed DaprCon? "
+  text : "All of the event content is now available for on-demand viewing! >>"
+  link : "https://www.youtube.com/playlist?list=PLcip_LgkYwzsScB3DsMu1BLdcxys-OaFi"
 
 ##################### Adopters #########################
 adopters:
