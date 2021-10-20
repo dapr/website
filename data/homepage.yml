@@ -13,9 +13,16 @@ banner:
 ##################### News #########################
 news:
   enable : false
+<<<<<<< HEAD
   prefix : "Announcement "
   text : ""
   link : "https://"
+=======
+  prefix : "Missed DaprCon? "
+  text : "All of the event content is now available for on-demand viewing! >>"
+  link : "https://www.youtube.com/playlist?list=PLcip_LgkYwzsScB3DsMu1BLdcxys-OaFi"
+
+>>>>>>> 570f41cf5b492acb0a95dd0f26115567fc72351d
 
 ##################### Adopters #########################
 adopters:
