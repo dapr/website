@@ -13,9 +13,10 @@ banner:
 ##################### News #########################
 news:
   enable : false
-  prefix : "Announcement "
-  text : "Join us for DaprCon October 19th-20th, 2021! Learn more >>"
-  link : "https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"
+  prefix : "Missed DaprCon? "
+  text : "All of the event content is now available for on-demand viewing! >>"
+  link : "https://www.youtube.com/playlist?list=PLcip_LgkYwzsScB3DsMu1BLdcxys-OaFi"
+
 
 ##################### Adopters #########################
 adopters:
