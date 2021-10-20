@@ -1,6 +1,6 @@
 ####################### Banner #########################
 banner:
-  title : "Simple microservice communication done right"
+  title : "Simple and reliable microservice communication"
   image : "images/banner-image.png"
   background_image : "images/bg-hexa-light.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
@@ -14,8 +14,8 @@ banner:
 news:
   enable : false
   prefix : "Announcement "
-  text : "Join us for DaprCon October 19th-20th, 2021! Learn more >>"
-  link : "https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"
+  text : ""
+  link : "https://"
 
 ##################### Adopters #########################
 adopters:
@@ -39,8 +39,8 @@ adopters:
 main:
   enable : true
   title : "Build connected distributed applications faster"
-  content1 : "Dapr provides developers APIs that simplify micro service connectivity.  Whether your inter-communication pattern is service invocation or Pub/Sub messaging, Dapr helps you write simpler, more resilient and secured microservices"
-  content2 : "By letting Dapr take care of the complex challenges such as service discovery, message broker integration, encryption, observability and secret management, you can focus on business logic and keep your code simple"
+  content1 : "Dapr provides developers APIs that simplify microservice connectivity.  Whether your inter-communication pattern is service invocation or pub/sub messaging, Dapr helps you write simpler, more resilient and secured microservices"
+  content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability and secret management, you can focus on business logic and keep your code simple"
   images :
       -  "images/service-invocation.png"
       -  "images/pubsub.png"
@@ -49,8 +49,8 @@ main:
 ##################### Practices ##########################
 practices:
   enable : true
-  title : "Industry established best practices made easy"
-  content : "Dapr leverages proven practices for distributed application development that help build resilient, secured systems. By adopting Dapr in your application and gain all the benefits without having to deal with complex solutions by yourself"
+  title : "Industry established best practices"
+  content : "Dapr leverages proven practices for distributed application development that enable you to build resilient, secured systems. By adopting Dapr in your application, you adopt these best practices without having to spend time solving common challenges"
   feature_item:
     # practices item loop
     - name : "Secret Management"
@@ -61,20 +61,15 @@ practices:
     # practices item loop
     - name : "Secured Connections"
       icon : "ti-lock"
-      content : "Encrypt communications with mTLS, get certification management and fine-grained access control"
+      content : "Encrypt communications with mTLS, with certification management and fine-grained access control"
       link : "https://docs.dapr.io/concepts/security-concept/"
 
     # practices item loop
     - name : "Observability"
       icon : "ti-eye"
-      content : "Collect traces, metrics and log from every part of your distributed application using Dapr's built-in instrumentation"
+      content : "Quickly diagnose issues in production by collecting traces, metrics and log from every part of your distributed application using Dapr's built-in instrumentation"
       link : "https://docs.dapr.io/concepts/observability-concept/"
 
-    # practices item loop
-    # - name : "Controlled Access"
-    #  icon : "ti-hand-stop"
-    #  content : ""
-    #  link : ""
 
 ##################### Adoption ##########################
 adoption:
@@ -94,7 +89,7 @@ portability:
   title : "Build portable applications"
   images :
       - "images/deploy.gif"
-  content : "Dapr's component model decouples technology choices from your code making it agnostic to hosting environment and  making deployment to multiple environments easier. Dapr runs as a sidecar where your application runs - on the cloud, on-prem or on the edge."
+  content : "Dapr's component model decouples technology choices from your code making it agnostic to hosting environment and making deployment to multiple environments easier. Dapr runs as a sidecar where your application runs - hosted on Kubernetes or VMs, deployed on the cloud, on-prem or on the edge."
   button :
     enable : false
     label : "Learn more"
@@ -109,7 +104,7 @@ buildingblocks:
     # feature item loop
     - name : "State management"
       icon : "ti-server"
-      content : "Build resilient stateful services with your state store of choice. Dapr provides you a with a simple API to store and retrieve state"
+      content : "Build long running, stateful services with your state store of choice. Dapr provides you a with a simple API to store and retrieve state"
       link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
     
     # feature item loop
@@ -121,7 +116,7 @@ buildingblocks:
     # feature item loop
     - name : "Actors"
       icon : "ti-layout-grid4"
-      content : "Encapsulate code and data in reusable actor objects as a common microservices design pattern with Dapr handling placement and scale"
+      content : "Encapsulate code and data in reusable actor objects deployed at scale with Dapr handling actor placement"
       link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
 
 ##################### introvideo #########################
@@ -140,8 +135,8 @@ call_to_action:
   enable : true
   title : "Ready to get started?"
   image : "images/app.png"
-  content : "Get Dapr on your local machine and get started in minutes"
+  content : "Install Dapr on your local machine and get started in minutes"
   button:
     enable : true
-    label : "Start now"
+    label : "Get started"
     link : "https://docs.dapr.io/getting-started/"
