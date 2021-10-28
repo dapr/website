@@ -4,7 +4,7 @@ banner:
   image : "images/banner-image.png"
   background_image : "images/bg-hexa-light.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Focus on your application’s core logic and keep your code simple and portable"
+  content : "Focus on your application’s core logic and keep your code simple and portable."
   button:
     enable : true
     label : "Get started"
@@ -39,8 +39,8 @@ adopters:
 main:
   enable : true
   title : "Build connected distributed applications faster"
-  content1 : "Dapr provides developers APIs that simplify microservice connectivity.  Whether your inter-communication pattern is service invocation or pub/sub messaging, Dapr helps you write simpler, more resilient and secured microservices"
-  content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability and secret management, you can focus on business logic and keep your code simple"
+  content1 : "Dapr provides developers APIs that simplify microservice connectivity.  Whether your inter-communication pattern is service invocation or pub/sub messaging, Dapr helps you write simpler, more resilient and secured microservices."
+  content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability, and secret management, you can focus on business logic and keep your code simple."
   images :
       -  "images/service-invocation.png"
       -  "images/pubsub.png"
@@ -50,24 +50,24 @@ main:
 practices:
   enable : true
   title : "Industry established best practices"
-  content : "Dapr leverages proven practices for distributed application development that enable you to build resilient, secured systems. By adopting Dapr in your application, you adopt these best practices without having to spend time solving common challenges"
+  content : "Dapr leverages proven practices for distributed application development that enable you to build resilient, secured systems. By adopting Dapr in your application, you adopt these best practices without having to spend time solving common challenges."
   feature_item:
     # practices item loop
     - name : "Secret Management"
       icon : "ti-shield"
-      content : "Keep application secrets secured with a secret store and let Dapr manage secret retrieval"
+      content : "Keep application secrets secured with a secret store and let Dapr manage secret retrieval."
       link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
       
     # practices item loop
     - name : "Secured Connections"
       icon : "ti-lock"
-      content : "Encrypt communications with mTLS, with certification management and fine-grained access control"
+      content : "Encrypt communications with mTLS, with certification management, and fine-grained access control."
       link : "https://docs.dapr.io/concepts/security-concept/"
 
     # practices item loop
     - name : "Observability"
       icon : "ti-eye"
-      content : "Quickly diagnose issues in production by collecting traces, metrics and log from every part of your distributed application using Dapr's built-in instrumentation"
+      content : "Quickly diagnose issues in production by collecting traces, metrics, and logs from every part of your distributed application using Dapr's built-in instrumentation."
       link : "https://docs.dapr.io/concepts/observability-concept/"
 
 
@@ -99,24 +99,24 @@ portability:
 buildingblocks:
   enable : true
   title : "More building blocks for solving distributed application challenges"
-  content : "In addition to connectivity between microservices, Dapr APIs help you to connect to commonly used services such as state stores, bind to external systems and adopt the distributed patterns such as the multiple actors pattern"
+  content : "In addition to connectivity between microservices, Dapr APIs help you to connect to commonly used services such as state stores, bind to external systems and adopt the distributed patterns such as the multiple actors pattern."
   feature_item:
     # feature item loop
     - name : "State management"
       icon : "ti-server"
-      content : "Build long running, stateful services with your state store of choice. Dapr provides you a with a simple API to store and retrieve state"
+      content : "Build long running, stateful services with your state store of choice. Dapr provides you a with a simple API to store and retrieve state."
       link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
     
     # feature item loop
     - name : "Bindings"
       icon : "ti-plug"
-      content : "Create event driven workflows and interface with external services using Dapr's input triggers and output bindings to dozens of industry leading technologies"
+      content : "Create event driven workflows and interface with external services using Dapr's input triggers and output bindings to dozens of industry leading technologies."
       link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
     
     # feature item loop
     - name : "Actors"
       icon : "ti-layout-grid4"
-      content : "Encapsulate code and data in reusable actor objects deployed at scale with Dapr handling actor placement"
+      content : "Encapsulate code and data in reusable actor objects deployed at scale with Dapr handling actor placement."
       link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
 
 ##################### introvideo #########################
@@ -135,7 +135,7 @@ call_to_action:
   enable : true
   title : "Ready to get started?"
   image : "images/app.png"
-  content : "Install Dapr on your local machine and get started in minutes"
+  content : "Install Dapr on your local machine and get started in minutes."
   button:
     enable : true
     label : "Get started"
