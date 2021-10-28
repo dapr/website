@@ -104,7 +104,7 @@ buildingblocks:
     # feature item loop
     - name : "State management"
       icon : "ti-server"
-      content : "Build long running, stateful services with your state store of choice. Dapr provides you a with a simple API to store and retrieve state."
+      content : "Build long running, stateful services with your state store of choice. Dapr provides you with a simple API to store and retrieve state."
       link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
     
     # feature item loop
