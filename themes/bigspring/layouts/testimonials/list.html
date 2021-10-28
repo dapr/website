@@ -23,6 +23,27 @@
 </section>
 {{end}}
 
+<!-- panel -->
+{{ with .Params.panel }}
+<section class="section bg-light">
+  <div class="container">        
+      <div class="row justify-content-center">
+        <h2 class="section-title">{{ .title | title }}</h2>
+        {{with .video}}
+        <div class="col-10">
+          <div class="shadow">
+            <div class="embed-responsive mt-3 embed-responsive-16by9 ">
+              <iframe class="embed-responsive-item shadow" src="{{ . | safeURL }}" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        {{end}}
+        </div>
+      </div>    
+  </div>
+</section>
+{{ end }}
+<!-- /panel -->
 
 <!-- call to action -->
 {{ with .Params.cta }}

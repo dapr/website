@@ -5,8 +5,6 @@ title: "Companies building with Dapr"
 description: "This is meta description"
 draft: false
 
-
-
 adopters:
   - logo : "images/ignition-group.png"
     icon: "ti-quote-right"
@@ -49,9 +47,9 @@ adopters:
     quote : "The fact that we could focus on the core logic and let Dapr deal with the underlying messaging systems allowed us to iterate much faster than we expected."
     person : "-- Trond Hindenes, Cloud Architect, Legentic"
     cta :
-      enable : false
-      label : ""
-      link : ""
+      enable : true
+      label : "Watch the video"
+      link : "https://www.youtube.com/watch?v=Mn0vjMMktGA"
 
   - logo : "images/autonavi.png"
     icon: "ti-quote-right"
@@ -61,6 +59,11 @@ adopters:
       enable : true
       label : "Read the story"
       link : "https://blog.dapr.io/posts/2021/09/02/how-dapr-helped-autonavi-build-a-new-serverless-solution/"
+
+panel:
+  enable : true
+  title : "Watch this DaprCon panel and learn from Dapr adopters"
+  video : "https://www.youtube.com/embed/Jyug0wnfsug"
 
 cta:
   enable : true
