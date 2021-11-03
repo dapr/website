@@ -1,18 +1,18 @@
 ####################### Banner #########################
-#banner:
-#  title : "Simplify cloud-native application development"
-#  image : "images/hero.png"
-#  background_image : "images/bg.png"
-#  video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-#  content : "Focus on your application's core logic and keep your code simple and portable"
-#  button:
-#    enable : true
-#    label : "Get started"
-#    link : "https://docs.dapr.io/getting-started/"
+banner:
+  title : "Simplify cloud-native application development"
+  image : "images/hero.png"
+  background_image : "images/bg.png"
+  video : "https://www.youtube.com/embed/9o9iDAgYBA8"
+  content : "Focus on your application's core logic and keep your code simple and portable"
+  button:
+    enable : true
+    label : "Get started"
+    link : "https://docs.dapr.io/getting-started/"
     
 ##################### News #########################
 news:
-  enable : false
+  enable : true
   prefix : "Announcement "
   text : "Dapr joins CNCF as an incubating project! Learn more >>"
   link : "https://blog.dapr.io/posts/2021/11/03/dapr-joins-cncf-as-an-incubating-project/"
