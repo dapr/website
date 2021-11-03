@@ -112,7 +112,7 @@ weight = 3
 logo = "images/dapr.svg"
 logo_width = "60px"
 # Meta data
-description = "Simple microservice communication done right"
+description = "APIs for building portable and reliable microservices"
 keywords = "dapr, microservices, distributed applications, runtime, kubernetes"
 author = "Dapr Maintainers"
 # contact form action
@@ -122,7 +122,7 @@ contact_form_action = "#" # contact form works with https://formspree.io
 footer_menu_right = "Community"
 footer_menu_middle = "Resources"
 footer_menu_left = "Contribute"
-footer_content = "Simple microservice communication done right"
+footer_content = "APIs for building portable and reliable microservices"
 # copyright
 copyright = ""
 
