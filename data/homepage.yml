@@ -1,10 +1,10 @@
 ####################### Banner #########################
 banner:
-  title : "Simple and reliable microservice communication"
+  title : "APIs for building portable and reliable microservices"
   image : "images/banner-image.png"
   background_image : "images/bg-hexa-light.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Focus on your application’s core logic and keep your code simple and portable."
+  content : "Fastest way to leverage industry best practices and focus on your application’s logic."
   button:
     enable : true
     label : "Get started"
@@ -49,7 +49,7 @@ main:
 ##################### Practices ##########################
 practices:
   enable : true
-  title : "Industry established best practices"
+  title : "Industry established best practices for reliability"
   content : "Dapr leverages proven practices for distributed application development that enable you to build resilient, secured systems. By adopting Dapr in your application, you adopt these best practices without having to spend time solving common challenges."
   feature_item:
     # practices item loop
