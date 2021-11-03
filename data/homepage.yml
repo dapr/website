@@ -14,8 +14,8 @@
 news:
   enable : false
   prefix : "Announcement "
-  text : "Join us for DaprCon October 19th-20th, 2021! Learn more >>"
-  link : "https://blog.dapr.io/posts/2021/10/05/join-us-for-daprcon-october-19th-20th-2021/"
+  text : "Dapr joins CNCF as an incubating project! Learn more >>"
+  link : "https://blog.dapr.io/posts/2021/11/03/dapr-joins-cncf-as-an-incubating-project/"
 
 ##################### Adopters #########################
 adopters:
