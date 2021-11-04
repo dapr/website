@@ -50,6 +50,7 @@ buildingblocks:
   enable : true
   title : "APIs for solving distributed application challenges"
   content : "Dapr provides you with APIs that abstract away the complexity of common challenges developers encounter regularly when building distributed applications. These API building blocks can be leveraged as the need arises - use one, several or all to develop your application faster."
+  image : "images/building-blocks.png"
   feature_item:
     - name : "Service invocation"
       icon : "ti-exchange-vertical"
@@ -80,35 +81,7 @@ buildingblocks:
       icon : "ti-layout-grid4"
       content : "Leverage the actor pattern to scale self-contained units of processing"
       link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
-    # - name : "Service invocation"
-    #   icon : "ti-exchange-vertical"
-    #   content : "Invoke ..."
-    #   link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
-
-    # - name : "Publish & subscribe"
-    #   icon : "ti-email"
-    #   content : "Send messages ..."
-    #   link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
     
-    # - name : "Secret Management"
-    #   icon : "ti-shield"
-    #   content : "Keep application secrets secured with a secret store and let Dapr manage secret retrieval."
-    #   link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
-
-    # - name : "State management"
-    #   icon : "ti-server"
-    #   content : "Build long running, stateful services with your state store of choice. Dapr provides you with a simple API to store and retrieve state."
-    #   link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
-    
-    # - name : "Bindings"
-    #   icon : "ti-plug"
-    #   content : "Create event driven workflows and interface with external services using Dapr's input triggers and output bindings to dozens of industry leading technologies."
-    #   link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
-    
-    # - name : "Actors"
-    #   icon : "ti-layout-grid4"
-    #   content : "Encapsulate code and data in reusable actor objects deployed at scale with Dapr handling actor placement."
-    #   link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
 
 ##################### Practices ##########################
 practices:
