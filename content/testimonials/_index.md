@@ -60,6 +60,16 @@ adopters:
       label : "Read the story"
       link : "https://blog.dapr.io/posts/2021/09/02/how-dapr-helped-autonavi-build-a-new-serverless-solution/"
 
+
+  - logo : "images/man-group.png"
+    icon: "ti-quote-right"
+    quote : "With Dapr we can introduce platform-wide capabilities across a broad spectrum of technologies and deployment models with minimal effort, allowing us to more effectively evolve our core trading system."
+    person : "-- Simon Jones, Head of Platform Engineering, Man Group"
+    cta :
+      enable : true
+      label : "Watch the video"
+      link : "https://www.youtube.com/watch?v=Mn0vjMMktGA"
+
 panel:
   enable : true
   title : "Watch this DaprCon panel and learn from Dapr adopters"

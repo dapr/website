@@ -34,6 +34,8 @@ adopters:
       width: "75px"
     - image: "images/legentic.png"
       width: "75px"
+    - image: "images/man-group.png"
+      width: "60px"
 
 ##################### Main ##########################
 main:
@@ -96,7 +98,7 @@ practices:
 
     - name : "Observability"
       icon : "ti-eye"
-      content : "Quickly diagnose issues in production by collecting traces, metrics, and logs from every part of your distributed application using Dapr's built-in instrumentation."
+      content : "Quickly diagnose issues in production by collecting traces, metrics, and logs from every part of your distributed application using Dapr's built-in instrumentation which uses OpenTelemetry."
       link : "https://docs.dapr.io/concepts/observability-concept/"
 
     - name : "Resilient State"
