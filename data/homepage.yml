@@ -67,7 +67,7 @@ buildingblocks:
       content : "Keep application secrets secured with a secret store"
       link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
 
-    - name : "Bindings"
+    - name : "Input/Output Bindings"
       icon : "ti-plug"
       content : "Create event driven workflows and interface with external services"
       link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
