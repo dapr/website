@@ -91,7 +91,7 @@ practices:
   feature_item:         
     - name : "Secured Connections"
       icon : "ti-lock"
-      content : "Encrypt communications with mTLS, with certification management, and fine-grained access control (ACL)."
+      content : "Ensure service-to-service communication is encrypted using mTLS while Dapr takes care of certification management, and define allow lists for fine-grained access control. Restrict access to secrets and message topics using scopes."
       link : "https://docs.dapr.io/concepts/security-concept/"
 
     - name : "Observability"
@@ -100,10 +100,19 @@ practices:
       link : "https://docs.dapr.io/concepts/observability-concept/"
 
     - name : "Resilient State"
+      icon : "ti-infinite"
+      content : "Build resilient, long running, stateful services with the ability to define strong or eventual consistency, state TTL and the concurrency pattern you need. Dapr also allows you to implement reliable actors using transactional data stores."
+      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-stateful-service/"
 
     - name : "Retries"
+      icon : "ti-back-right"
+      content : "Dapr's service invocation API includes automatic retries and back-off time periods for handling endpoint unavailability, refused connections, and authentication errors."
+      link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/#retries"
 
-    - name : "Message Gurantee"
+    - name : "Message Guarantee"
+      icon : "ti-check-box"
+      content : "Dapr's pub/sub API provides at-least-once message delivery guarantee leveraging the capabilities of the underlying message broker you choose."
+      link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
 
 ##################### Adoption ##########################
 adoption:
