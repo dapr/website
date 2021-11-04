@@ -8,7 +8,7 @@ draft: false
 adopters:
   - logo : "images/alibaba.png"
     icon: "ti-quote-right"
-    summary : "See how at Alibaba Cloud, Dapr is used to solve challenges of multi-language systems, integration with legacy systems, and cloud-to-cloud migration"
+    summary : "See how at Alibaba Cloud, Dapr is used to solve challenges of multi-language systems, integration with legacy systems, and cloud-to-cloud migration."
     quote : "At Alibaba Cloud, we believe Dapr will lead the evolution of microservices. By adopting Dapr, our customers now enjoy increased velocity for building portable and robust distributed systems."
     person : "-- Xiang Li, Senior Staff Engineer, Alibaba Cloud"        
     cta : 
@@ -69,7 +69,7 @@ adopters:
 
   - logo : "images/man-group.png"
     icon: "ti-quote-right"
-    summary: "Man Group used Dapr to modernize it's trading platform which runs on VMs deployed on-prem."
+    summary: "Man Group used Dapr to modernize its trading platform which runs on VMs deployed on-prem."
     quote : "With Dapr we can introduce platform-wide capabilities across a broad spectrum of technologies and deployment models with minimal effort, allowing us to more effectively evolve our core trading system."
     person : "-- Simon Jones, Head of Platform Engineering, Man Group"
     cta :
