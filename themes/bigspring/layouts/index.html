@@ -105,7 +105,7 @@
             <div class="row align-items-center">
             {{ range .feature_item }}
             <div class="col-md-6 col-sm-6 mb-4">
-              <div class="feature-card text-center">
+              <div class="feature-card text-center shadow">
                 <h3 class="{{.icon}} mb-3"></h3>
                 <h4 class="mb-1">{{ .name | title }}</h4>
                 <!-- p>{{ .content | markdownify }}</p -->
@@ -126,11 +126,6 @@
 {{ end }}
 {{ end }}
 <!-- /buildingblocks -->
-
-
-
-
-
 
 <!-- practices -->
 {{ if site.Data.homepage.practices.enable }}
