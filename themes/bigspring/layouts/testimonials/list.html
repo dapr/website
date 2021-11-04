@@ -9,7 +9,8 @@
       {{ range .adopters }}
       <div class="col-md-6 col-sm-6 mb-4">
         <div class="feature-card bg-body text-center">
-            <img src="{{ .logo | absURL }}" class="img-fluid mx-auto" width="200px">             
+            <img src="{{ .logo | absURL }}" class="img-fluid mx-auto" width="200px">
+            <p>{{ .summary | markdownify }}</p>         
             <p><i>"{{ .quote | markdownify }}"</i></p>    
             <p>{{ .person | markdownify }}</p>
             {{ if .cta.enable }}
@@ -48,7 +49,7 @@
 <!-- call to action -->
 {{ with .Params.cta }}
 <section class="section">
-  <div class="container section shadow rounded-lg px-4">
+  <div class="container section shadow border rounded-lg px-4">
     <div class="row align-items-center justify-content-center text-center text-md-left">
       <div class="col-lg-4 col-md-5 mb-4 mb-md-0">
         <img src="{{ .image | absURL }}" class="img-fluid" width="200px">
