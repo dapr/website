@@ -68,7 +68,7 @@ adopters:
     cta :
       enable : true
       label : "Watch the video"
-      link : "https://www.youtube.com/watch?v=Mn0vjMMktGA"
+      link : "https://www.youtube.com/watch?v=hEKlsyRFtzI"
 
 panel:
   enable : true
