@@ -77,10 +77,10 @@ buildingblocks:
       content : "Build resilient stateful services with your state store of choice"
       link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
     
-    - name : "Actors"
+    - name : "Virtual Actors"
       icon : "ti-layout-grid4"
       content : "Leverage the actor pattern to scale self-contained units of processing"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
     
 
 ##################### Practices ##########################
@@ -88,12 +88,10 @@ practices:
   enable : true
   title : "Industry established best practices for reliability"
   content : "Dapr leverages proven practices for distributed application development that enable you to build resilient, secured systems. By adopting Dapr in your application, you adopt these best practices without having to spend time solving common challenges."
-  feature_item:
-    - name : "State"
-      
+  feature_item:         
     - name : "Secured Connections"
       icon : "ti-lock"
-      content : "Encrypt communications with mTLS, with certification management, and fine-grained access control."
+      content : "Encrypt communications with mTLS, with certification management, and fine-grained access control (ACL)."
       link : "https://docs.dapr.io/concepts/security-concept/"
 
     - name : "Observability"
@@ -101,6 +99,11 @@ practices:
       content : "Quickly diagnose issues in production by collecting traces, metrics, and logs from every part of your distributed application using Dapr's built-in instrumentation."
       link : "https://docs.dapr.io/concepts/observability-concept/"
 
+    - name : "Resilient State"
+
+    - name : "Retries"
+
+    - name : "Message Gurantee"
 
 ##################### Adoption ##########################
 adoption:

@@ -57,7 +57,7 @@
 {{ end }}
 <!-- /adopters -->
 
-<!-- main -->
+<!-- main-value-prop -->
 {{ if site.Data.homepage.main.enable }}
 {{ with site.Data.homepage.main }}
 <section class="section bg-light">
@@ -101,19 +101,18 @@
       </div>
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-4">
-            <div class="row align-items-center">
+          <div class="col">
             {{ range .feature_item }}
-            <div class="col-md-6 col-sm-6 mb-4">
-              <div class="feature-card text-center shadow">
-                <h3 class="{{.icon}} mb-3"></h3>
-                <h4 class="mb-1">{{ .name | title }}</h4>
-                <!-- p>{{ .content | markdownify }}</p -->
+            <div class="col">
+              <div class="feature-card mb-3 text-center align-items-center">
+                <div class="row align-items-center">
+                  <h3 class="{{.icon}} mr-3 ml-3"></h3>
+                  <h4 class="mb-1">{{ .name | title }}</h4>                  
+                </div>
                 <a href="{{ .link }}" class="stretched-link"></a>
               </div>
             </div>
-            {{ end }}
-          </div>
+            {{ end }}           
           </div>
           <div class="col-md-8 mb-4 mb-md-0">                
             <img src="{{ .image | absURL }}" class="img-fluid shadow">            
@@ -138,12 +137,12 @@
         <p class="mb-4">{{ .content | markdownify }}</p>
       </div>
       {{ range .feature_item }}
-      <div class="col-md-4 col-sm-6 mb-4">
-        <div class="feature-card">
-          <h2 class="{{.icon}} mb-3"></h2>
+      <div class="col-md-6 col-sm-6 mb-4">
+        <div class="feature-card shadow">
+          <!-- h2 class="{{.icon}} mb-3"></h2 -->
           <h4 class="mb-2">{{ .name | title }}</h4>
           <p>{{ .content | markdownify }}</p>
-          <a href="{{ .link }}" class="stretched-link">Learn more</a>
+          <!-- a href="{{ .link }}" class="stretched-link">Learn more</a -->
         </div>
       </div>
       {{ end }}
