@@ -89,6 +89,35 @@
 {{ end }}
 <!-- main-value-prop -->
 
+<!-- buildingblocks -->
+{{ if site.Data.homepage.buildingblocks.enable }}
+{{ with site.Data.homepage.buildingblocks }}
+<section class="section bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <h2 class="section-title text-center">{{ .title | markdownify }}</h2>
+        <p class="mb-4">{{ .content | markdownify }}</p>
+      </div>
+      <div class="row justify-content-center">
+        {{ range .feature_item }}
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="feature-card text-center">
+            <h2 class="{{.icon}} mb-3"></h2>
+            <h4 class="mb-2">{{ .name | title }}</h4>
+            <p>{{ .content | markdownify }}</p>
+            <a href="{{ .link }}" class="stretched-link"></a>
+          </div>
+        </div>
+        {{ end }}
+    </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+<!-- /buildingblocks -->
+
 <!-- practices -->
 {{ if site.Data.homepage.practices.enable }}
 {{ with site.Data.homepage.practices }}
@@ -173,33 +202,6 @@
 {{ end }}
 {{ end }}
 <!-- /portability -->
-
-<!-- buildingblocks -->
-{{ if site.Data.homepage.buildingblocks.enable }}
-{{ with site.Data.homepage.buildingblocks }}
-<section class="section bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <h2 class="section-title text-center">{{ .title | markdownify }}</h2>
-        <p class="mb-4">{{ .content | markdownify }}</p>
-      </div>
-      {{ range .feature_item }}
-      <div class="col-md-4 col-sm-6 mb-4">
-        <div class="feature-card ">
-          <h2 class="{{.icon}} mb-3"></h2>
-          <h4 class="mb-2">{{ .name | title }}</h4>
-          <p>{{ .content | markdownify }}</p>
-          <a href="{{ .link }}" class="stretched-link">Learn more</a>
-        </div>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-{{ end }}
-{{ end }}
-<!-- /buildingblocks -->
 
 <!-- introvideo -->
 {{ if site.Data.homepage.introvideo.enable }}

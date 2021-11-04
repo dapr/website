@@ -4,7 +4,7 @@ banner:
   image : "images/banner-image.png"
   background_image : "images/bg-hexa-light.png"
   video : "https://www.youtube.com/embed/9o9iDAgYBA8"
-  content : "Fastest way to leverage industry best practices and focus on your application’s logic."
+  content : "Leverage industry best practices and focus on your application’s logic."
   button:
     enable : true
     label : "Get started"
@@ -45,6 +45,70 @@ main:
       -  "images/service-invocation.png"
       -  "images/pubsub.png"
 
+##################### BuildingBlocks ##########################
+buildingblocks:
+  enable : true
+  title : "APIs for solving distributed application challenges"
+  content : "Dapr provides you with APIs that abstract away the complexity of common challenges developers encounter regularly when building distributed applications. These API building blocks can be leveraged as the need arises - use one, several or all to develop your application faster."
+  feature_item:
+    - name : "Service invocation"
+      icon : "ti-exchange-vertical"
+      content : "Service discovery and service to service method calls"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
+
+    - name : "Publish & subscribe"
+      icon : "ti-email"
+      content : "Use asynchronous message topics and subscriptions"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
+    
+    - name : "Secret Management"
+      icon : "ti-shield"
+      content : "Keep application secrets secured with a secret store"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
+
+    - name : "Bindings"
+      icon : "ti-plug"
+      content : "Create event driven workflows and interface with external services"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
+    
+    - name : "State management"
+      icon : "ti-server"
+      content : "Build resilient stateful services with your state store of choice"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
+    
+    - name : "Actors"
+      icon : "ti-layout-grid4"
+      content : "Leverage the actor pattern to scale self-contained units of processing"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
+    # - name : "Service invocation"
+    #   icon : "ti-exchange-vertical"
+    #   content : "Invoke ..."
+    #   link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
+
+    # - name : "Publish & subscribe"
+    #   icon : "ti-email"
+    #   content : "Send messages ..."
+    #   link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
+    
+    # - name : "Secret Management"
+    #   icon : "ti-shield"
+    #   content : "Keep application secrets secured with a secret store and let Dapr manage secret retrieval."
+    #   link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
+
+    # - name : "State management"
+    #   icon : "ti-server"
+    #   content : "Build long running, stateful services with your state store of choice. Dapr provides you with a simple API to store and retrieve state."
+    #   link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
+    
+    # - name : "Bindings"
+    #   icon : "ti-plug"
+    #   content : "Create event driven workflows and interface with external services using Dapr's input triggers and output bindings to dozens of industry leading technologies."
+    #   link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
+    
+    # - name : "Actors"
+    #   icon : "ti-layout-grid4"
+    #   content : "Encapsulate code and data in reusable actor objects deployed at scale with Dapr handling actor placement."
+    #   link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
 
 ##################### Practices ##########################
 practices:
@@ -52,19 +116,13 @@ practices:
   title : "Industry established best practices for reliability"
   content : "Dapr leverages proven practices for distributed application development that enable you to build resilient, secured systems. By adopting Dapr in your application, you adopt these best practices without having to spend time solving common challenges."
   feature_item:
-    # practices item loop
-    - name : "Secret Management"
-      icon : "ti-shield"
-      content : "Keep application secrets secured with a secret store and let Dapr manage secret retrieval."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
+    - name : "State"
       
-    # practices item loop
     - name : "Secured Connections"
       icon : "ti-lock"
       content : "Encrypt communications with mTLS, with certification management, and fine-grained access control."
       link : "https://docs.dapr.io/concepts/security-concept/"
 
-    # practices item loop
     - name : "Observability"
       icon : "ti-eye"
       content : "Quickly diagnose issues in production by collecting traces, metrics, and logs from every part of your distributed application using Dapr's built-in instrumentation."
@@ -94,30 +152,6 @@ portability:
     enable : false
     label : "Learn more"
     link : ""
-
-##################### BuildingBlocks ##########################
-buildingblocks:
-  enable : true
-  title : "More building blocks for solving distributed application challenges"
-  content : "In addition to connectivity between microservices, Dapr APIs help you to connect to commonly used services such as state stores, bind to external systems and adopt the distributed patterns such as the multiple actors pattern."
-  feature_item:
-    # feature item loop
-    - name : "State management"
-      icon : "ti-server"
-      content : "Build long running, stateful services with your state store of choice. Dapr provides you with a simple API to store and retrieve state."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
-    
-    # feature item loop
-    - name : "Bindings"
-      icon : "ti-plug"
-      content : "Create event driven workflows and interface with external services using Dapr's input triggers and output bindings to dozens of industry leading technologies."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
-    
-    # feature item loop
-    - name : "Actors"
-      icon : "ti-layout-grid4"
-      content : "Encapsulate code and data in reusable actor objects deployed at scale with Dapr handling actor placement."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/"
 
 ##################### introvideo #########################
 introvideo:
