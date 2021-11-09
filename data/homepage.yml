@@ -116,18 +116,6 @@ practices:
       content : "Dapr's pub/sub API provides at-least-once message delivery guarantee leveraging the capabilities of the underlying message broker you choose."
       link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
 
-##################### Adoption ##########################
-adoption:
-  enable : true
-  title : "Incremental adoption for existing applications"
-  images :
-      - "images/adoption.gif"
-  content : "As you evolve your existing applications, adding capabilities or refactoring parts of it, you can integrate Dapr in an incremental way and leverage a subset of capabilities in places that make sense to your existing system. As Dapr sidecars are gradually leveraged across your system, you can choose to use more features at your own pace."
-  button :
-    enable : false
-    label : "Learn more"
-    link : ""
-
 ##################### Portability ##########################
 portability:
   enable : true
@@ -135,6 +123,18 @@ portability:
   images :
       - "images/deploy.gif"
   content : "Dapr's component model decouples technology choices from your code making it agnostic to hosting environment and making deployment to multiple environments easier. Dapr runs as a sidecar where your application runs - hosted on Kubernetes or VMs, deployed on the cloud, on-prem or on the edge."
+  button :
+    enable : false
+    label : "Learn more"
+    link : ""
+
+##################### Adoption ##########################
+adoption:
+  enable : true
+  title : "Incremental adoption for existing applications"
+  images :
+      - "images/adoption.gif"
+  content : "As you evolve your existing applications, adding capabilities or refactoring parts of it, you can integrate Dapr in an incremental way and leverage a subset of capabilities in places that make sense to your existing system. As Dapr sidecars are gradually leveraged across your system, you can choose to use more features at your own pace."
   button :
     enable : false
     label : "Learn more"
