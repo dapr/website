@@ -22,6 +22,8 @@ adopters:
   enable : true
   link : "testimonials"
   logos :
+    - image: "images/bosch.png"
+      width: "100px"
     - image: "images/zeiss.png"
       width: "50px"
     - image: "images/alibaba.png"
