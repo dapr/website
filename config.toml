@@ -124,7 +124,7 @@ footer_menu_middle = "Resources"
 footer_menu_left = "Contribute"
 footer_content = "APIs for building portable and reliable microservices"
 # copyright
-copyright = ""
+copyright = "The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/trademark-usage/)."
 
 # Preloader
 [params.preloader]
