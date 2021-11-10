@@ -98,7 +98,7 @@ cta:
   content : "Get Dapr on your local machine and get started in minutes"
   button:
     enable : true
-    label : "Start now"
+    label : "Get started"
     link : "https://docs.dapr.io/getting-started/"
 
 
