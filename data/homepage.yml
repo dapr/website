@@ -43,7 +43,7 @@ adopters:
 main:
   enable : true
   title : "Build connected distributed applications faster"
-  content1 : "Dapr provides developers APIs that simplify microservice connectivity.  Whether your inter-communication pattern is service invocation or pub/sub messaging, Dapr helps you write simpler, more resilient and secured microservices."
+  content1 : "The Distributed Application Runtime (Dapr) provides APIs that simplify microservice connectivity. Whether your communication pattern is service to service invocation or pub/sub messaging, Dapr helps you write resilient and secured microservices."
   content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability, and secret management, you can focus on business logic and keep your code simple."
   images :
       -  "images/service-invocation.png"
@@ -53,7 +53,7 @@ main:
 buildingblocks:
   enable : true
   title : "APIs for solving distributed application challenges"
-  content : "Dapr provides you with APIs that abstract away the complexity of common challenges developers encounter regularly when building distributed applications. These API building blocks can be leveraged as the need arises - use one, several or all to develop your application faster."
+  content : "Dapr provides you with APIs that abstract away the complexity of common challenges developers encounter regularly when building distributed applications. These API building blocks can be leveraged as the need arises - use one, several or all to develop your application faster and deliver your solution on time."
   image : "images/building-blocks.png"
   feature_item:
     - name : "Service invocation"
@@ -95,18 +95,23 @@ practices:
   feature_item:         
     - name : "Secured Connections"
       icon : "ti-lock"
-      content : "Ensure service-to-service communication is encrypted using mTLS while Dapr takes care of certification management, and define allow lists for fine-grained access control. Restrict access to secrets and message topics using scopes."
+      content : "Ensure service-to-service communication is encrypted using mTLS while Dapr takes care of certificate management and defining allow lists for fine-grained access control. Restrict access to secrets and message topics using application scopes."
       link : "https://docs.dapr.io/concepts/security-concept/"
 
     - name : "Observability"
       icon : "ti-eye"
-      content : "Quickly diagnose issues in production by collecting traces, metrics, and logs from every part of your distributed application using Dapr's built-in instrumentation which uses OpenTelemetry."
+      content : "Rapidly diagnose issues in production by collecting traces, metrics, and logs from every part of your application with Dapr's built-in instrumentation using OpenTelemetry."
       link : "https://docs.dapr.io/concepts/observability-concept/"
 
     - name : "Resilient State"
       icon : "ti-infinite"
-      content : "Build resilient, long running, stateful services with the ability to define strong or eventual consistency, state TTL and the concurrency pattern you need. Dapr also allows you to implement reliable actors using transactional data stores."
+      content : "Build resilient, long running, stateful services with the ability to define strong or eventual consistency, state TTL and the concurrency pattern you need."
       link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-stateful-service/"
+
+    - name : "Reliable Actors"
+      icon : "ti-layout-grid4"
+      content : "Dapr virtual actors enable you to build stateful, long running objects that encapsulate code and state and can be massively scaled with demand."
+      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/howto-actors/#actor-state-management"
 
     - name : "Retries"
       icon : "ti-back-right"
@@ -124,7 +129,7 @@ portability:
   title : "Build portable applications"
   images :
       - "images/deploy.gif"
-  content : "Dapr's component model decouples technology choices from your code making it agnostic to hosting environment and making deployment to multiple environments easier. Dapr runs as a sidecar where your application runs - hosted on Kubernetes or VMs, deployed on the cloud, on-prem or on the edge."
+  content : "Dapr’s component model decouples technology choices from your code making it agnostic to hosting environment and enabling application portability. Dapr runs as a sidecar wherever your application runs whether hosted on Kubernetes, VMs, deployed on the cloud, on-premises or on the edge."
   button :
     enable : false
     label : "Learn more"
