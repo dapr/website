@@ -39,24 +39,34 @@ link = "plugins/slick/slick.min.js"
 
 # main menu
 [[menu.main]]
-name = "Blog"
-URL = "https://blog.dapr.io/posts"
+name = "Home"
+URL = "#"
 weight = 1
+
+[[menu.main]]
+name = "Testimonials"
+URL = "testimonials"
+weight = 2
 
 [[menu.main]]
 name = "Docs"
 URL = "https://docs.dapr.io/"
-weight = 2
+weight = 3
+
+[[menu.main]]
+name = "Blog"
+URL = "https://blog.dapr.io/posts"
+weight = 4
 
 [[menu.main]]
 name = "GitHub"
 URL = "https://github.com/dapr"
-weight = 3
+weight = 5
 
 [[menu.main]]
 name = "Discord"
 URL = "https://aka.ms/dapr-discord"
-weight = 4
+weight = 6
 
 # footer menu left
 [[menu.footer_left]]
@@ -102,7 +112,7 @@ weight = 3
 logo = "images/dapr.svg"
 logo_width = "60px"
 # Meta data
-description = "Dapr helps developers build event driven microservices on cloud and edge"
+description = "APIs for building portable and reliable microservices"
 keywords = "dapr, microservices, distributed applications, runtime, kubernetes"
 author = "Dapr Maintainers"
 # contact form action
@@ -112,9 +122,10 @@ contact_form_action = "#" # contact form works with https://formspree.io
 footer_menu_right = "Community"
 footer_menu_middle = "Resources"
 footer_menu_left = "Contribute"
-footer_content = "Event-driven, portable runtime for building microservices on cloud and edge."
-# copyright
-copyright = ""
+footer_content = "APIs for building portable and reliable microservices"
+authors = "Dapr Authors "
+copyright = "The Linux Foundation ®. All rights reserved."
+trademark = "The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/trademark-usage/)."
 
 # Preloader
 [params.preloader]
@@ -124,7 +135,7 @@ preloader = "" # use jpg, png, svg or gif format.
 # Navigation buttons
 [params.navigation_button]
 enable = true
-label = "Try Dapr"
+label = "Get started"
 link = "https://docs.dapr.io/getting-started/"
 
   

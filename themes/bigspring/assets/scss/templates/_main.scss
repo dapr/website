@@ -8,13 +8,13 @@
   padding: 20px;
   transition: .2s ease;
   background-color: $white;
+  height: 100%;
 
   &:hover {
     @extend .shadow;
   }
 
   i {
-    font-size: 30px;
     color: $primary-color;
     display: inline-block;
   }
