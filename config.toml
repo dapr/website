@@ -68,6 +68,11 @@ name = "Discord"
 URL = "https://aka.ms/dapr-discord"
 weight = 6
 
+[[menu.main]]
+name = "中国社区"
+URL = "https://cn.dapr.io"
+weight = 7
+
 # footer menu left
 [[menu.footer_left]]
 name = "How to contribute"
@@ -106,6 +111,10 @@ name = "Twitter"
 URL = "https://twitter.com/daprdev"
 weight = 3
 
+[[menu.footer_right]]
+name = "中国社区"
+URL = "https://cn.dapr.io"
+weight = 4
 
 #################### default parameters ################################
 [params]
