@@ -38,6 +38,11 @@ adopters:
       width: "75px"
     - image: "images/man-group.png"
       width: "60px"
+    - image: "images/atbay.png"
+      width: "60px"
+    - image: "images/wortell.png"
+      width: "60px"
+
 
 ##################### Main ##########################
 main:

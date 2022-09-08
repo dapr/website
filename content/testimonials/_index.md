@@ -6,6 +6,24 @@ description: "This is meta description"
 draft: false
 
 adopters:
+  - logo : "images/atbay.png"
+    icon: "ti-quote-right"
+    summary: "How At-Bay improved operations with Dapr"
+    quote : "At-Bay uses Dapr to better analyze its processes by offering increased visibility and traceability because of the built-in support of Dapr for the OpenTelemetry standard."
+    cta :
+      enable : true
+      label : "Read the story"
+      link : "https://www.cncf.io/case-studies/at-bay/"
+
+  - logo : "images/wortell.png"
+    icon: "ti-quote-right"
+    summary: "Wortell reduced infrastructure complexity with Dapr."
+    quote : "The team were able to remove several software packages and a considerable amount of code from all of their microservices. Plus adopting Dapr APIs from the .NET SDK allowed them to offload dealing with the infrastructure integration and async inter-process communication to the Dapr runtime."
+    cta :
+      enable : true
+      label : "Read the story"
+      link : "https://www.cncf.io/case-studies/wortell/"
+
   - logo : "images/alibaba.png"
     icon: "ti-quote-right"
     summary : "See how at Alibaba Cloud, Dapr is used to solve challenges of multi-language systems, integration with legacy systems, and cloud-to-cloud migration."
