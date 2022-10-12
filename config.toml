@@ -44,7 +44,7 @@ URL = "#"
 weight = 1
 
 [[menu.main]]
-name = "Testimonials"
+name = "Case Studies"
 URL = "testimonials"
 weight = 2
 
@@ -69,9 +69,14 @@ URL = "https://aka.ms/dapr-discord"
 weight = 6
 
 [[menu.main]]
+name = "Community"
+URL = "https://github.com/dapr/community"
+weight = 7
+
+[[menu.main]]
 name = "中国社区"
 URL = "https://cn.dapr.io"
-weight = 7
+weight = 8
 
 # footer menu left
 [[menu.footer_left]]
@@ -143,7 +148,7 @@ preloader = "" # use jpg, png, svg or gif format.
 
 # Navigation buttons
 [params.navigation_button]
-enable = true
+enable = false
 label = "Get started"
 link = "https://docs.dapr.io/getting-started/"
 

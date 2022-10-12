@@ -49,10 +49,10 @@ main:
   enable : true
   title : "Build connected distributed applications faster"
   content1 : "The Distributed Application Runtime (Dapr) provides APIs that simplify microservice connectivity. Whether your communication pattern is service to service invocation or pub/sub messaging, Dapr helps you write resilient and secured microservices."
-  content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability, and secret management, you can focus on business logic and keep your code simple."
-  images :
-      -  "images/service-invocation.png"
-      -  "images/pubsub.png"
+  content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability, and secret management, you can focus on business logic and keep your code simple. ANIMATED GIF BELOW"
+#  images :
+#      -  "images/service-invocation.png"
+#      -  "images/pubsub.png"
 
 ##################### BuildingBlocks ##########################
 buildingblocks:
@@ -61,15 +61,16 @@ buildingblocks:
   content : "Dapr provides you with APIs that abstract away the complexity of common challenges developers encounter regularly when building distributed applications. These API building blocks can be leveraged as the need arises - use one, several or all to develop your application faster and deliver your solution on time."
   image : "images/building-blocks.png"
   feature_item:
-    - name : "Service invocation"
-      icon : "ti-exchange-vertical"
-      content : "Service discovery and service to service method calls"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
 
     - name : "Publish & subscribe"
       icon : "ti-email"
       content : "Use asynchronous message topics and subscriptions"
       link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
+
+    - name : "Service invocation"
+      icon : "ti-exchange-vertical"
+      content : "Service discovery and service to service method calls"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
     
     - name : "Secret Management"
       icon : "ti-shield"

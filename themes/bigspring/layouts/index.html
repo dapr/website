@@ -89,11 +89,6 @@
         </div>
       </div>
       <div class="col-12 shadow rounded-lg bg-body">
-        <div {{if gt (len .images) 1}}class="slider" {{end}}>
-          {{ range .images }}
-          <img src="{{ . | absURL }}" class="img-fluid shadow">
-          {{ end }}
-      </div>
     </div>
   </div>
 </section>
