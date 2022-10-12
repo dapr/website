@@ -6,7 +6,7 @@
         <div class="h3 mb-4">{{ site.Params.footer_menu_left }}</div>
         <ul class="list-unstyled footer-list">
           {{ range site.Menus.footer_left }}
-          <li><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
+          <li><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;">{{ .Name }}</a></li>
           {{ end }}
         </ul>
         {{ end }}
@@ -16,7 +16,7 @@
         <div class="h3 mb-4">{{ site.Params.footer_menu_middle }}</div>
         <ul class="list-unstyled footer-list">
           {{ range site.Menus.footer_middle }}
-          <li><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
+          <li><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;">{{ .Name }}</a></li>
           {{ end }}
         </ul>
         {{ end }}
@@ -26,7 +26,7 @@
         <div class="h3 mb-4">{{ site.Params.footer_menu_right }}</div>
         <ul class="list-unstyled footer-list">
           {{ range site.Menus.footer_right }}
-          <li><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
+          <li><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;">{{ .Name }}</a></li>
           {{ end }}
         </ul>
         {{ end }}
@@ -38,7 +38,7 @@
         {{ if site.Params.social }}
         <ul class="list-inline social-icons">
           {{ range site.Params.social }}
-          <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
+          <li class="list-inline-item"><a href="{{ .link | safeURL }}" onclick="captureOutboundLink('{{ .link | safeURL }}'); return false;"><i class="{{ .icon }}"></i></a></li>
           {{ end }}
         </ul>
         {{ end }}
@@ -61,3 +61,12 @@
 {{ "<!-- Main Script -->" | safeHTML }}
 {{ $script := resources.Get "js/script.js" | minify}}
 <script src="{{ $script.Permalink }}"></script>
+<script src="{{ $script.Permalink }}"></script>
+<script>
+  var captureOutboundLink = function(url) {
+     ga('send', 'event', 'outbound', 'click', url, {
+       'transport': 'beacon',
+       'hitCallback': function(){document.location = url;}
+     });
+  }
+</script>

@@ -6,7 +6,7 @@
     <div class="col-md-10 mx-auto text-center">
       <h1 class="mb-3">DaprCon is returning for 2022!</h1>
       <h4 class="mb-3">DaprCon will take place on Tuesday, October 25th as part of KubeCon North America (NA) 2022.</h4>
-      <a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/attend/experiences/#daprcon"><font size=4>Read more here </font></a>
+      <a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/attend/experiences/#daprcon" onclick="captureOutboundLink('https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/attend/experiences/#daprcon'); return false;"><font size=4>Read more here </font></a>
     </div>
   </div>
 </section>
@@ -41,7 +41,7 @@
 <section class="bg-primary p-3" >
   <div class="container">    
     <div class="col-md-16 mx-auto text-center">
-      <a href="{{ .link | safeURL }}"><font size=4 color=$text-color-dark><i>{{ .prefix }}</i></font><font size=4 color="white"><i>{{ .text }}</i></font></a>
+      <a href="{{ .link | safeURL }}" onclick="captureOutboundLink('{{ .link | safeURL }}'); return false;"><font size=4 color=$text-color-dark><i>{{ .prefix }}</i></font><font size=4 color="white"><i>{{ .text }}</i></font></a>
     </div>
   </div>
 </section>
@@ -121,7 +121,7 @@
                   <h3 class="{{.icon}} mr-3 ml-3"></h3>
                   <h4 class="mb-1">{{ .name | title }}</h4>                  
                 </div>
-                <a href="{{ .link }}" class="stretched-link"></a>
+                <a href="{{ .link }}" onclick="captureOutboundLink('{{ .link }}'); return false;" class="stretched-link"></a>
               </div>
             </div>
             {{ end }}           
@@ -154,7 +154,7 @@
           <h2 class="{{.icon}} mb-3"></h2>
           <h4 class="mb-2">{{ .name | title }}</h4>
           <p>{{ .content | markdownify }}</p>
-          <a href="{{ .link }}" class="stretched-link">Learn more</a>
+          <a href="{{ .link }}" onclick="captureOutboundLink('{{ .link }}'); return false;" class="stretched-link">Learn more</a>
         </div>
       </div>
       {{ end }}
@@ -183,7 +183,7 @@
         <p>{{ .content | markdownify }}</p>
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
+        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
         {{ end }}
         {{ end }}
       </div>      
@@ -205,7 +205,7 @@
         <p>{{ .content | markdownify }}</p>
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
+        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
         {{ end }}
         {{ end }}
       </div>
@@ -234,7 +234,7 @@
         <div class="col-10">
           <div class="shadow border">
             <div class="embed-responsive embed-responsive-16by9 ">
-              <iframe class="embed-responsive-item shadow" src="{{ . | safeURL }}" allowfullscreen></iframe>
+              <iframe class="embed-responsive-item shadow" src="{{ . | safeURL }}" onclick="captureOutboundLink('{{ . | safeURL }}'); return false;" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -261,7 +261,7 @@
         {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" class="btn btn-primary">{{ .label }}</a>
+        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-primary">{{ .label }}</a>
         {{ end }}
         {{ end }}
       </div>
@@ -276,7 +276,7 @@
 <section class="section">
   <div class="container">
     <div class="column align-items-center justify-content-center text-center">
-    <h4>We are a <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a> project.</h4>
+    <h4>We are a <a href="https://www.cncf.io/" onclick="captureOutboundLink('https://www.cncf.io/'); return false;">Cloud Native Computing Foundation</a> project.</h4>
     <img src="images/cncf-color.svg" class="img-fluid" width="300px">
     </div>
   </div>
