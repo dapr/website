@@ -49,7 +49,7 @@ main:
   enable : true
   title : "Build connected distributed applications faster"
   content1 : "The Distributed Application Runtime (Dapr) provides APIs that simplify microservice connectivity. Whether your communication pattern is service to service invocation or pub/sub messaging, Dapr helps you write resilient and secured microservices."
-  content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability, and secret management, you can focus on business logic and keep your code simple. ANIMATED GIF BELOW"
+  content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability, and secret management, you can focus on business logic and keep your code simple. "
 #  images :
 #      -  "images/service-invocation.png"
 #      -  "images/pubsub.png"
