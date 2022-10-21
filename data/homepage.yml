@@ -112,12 +112,12 @@ practices:
     - name : "Resilient State"
       icon : "ti-infinite"
       content : "Build resilient, long running, stateful services with the ability to define strong or eventual consistency, state TTL and the concurrency pattern you need."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-stateful-service/"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
 
     - name : "Reliable Actors"
       icon : "ti-layout-grid4"
       content : "Dapr virtual actors enable you to build stateful, long running objects that encapsulate code and state and can be massively scaled with demand."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/howto-actors/#actor-state-management"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
 
     - name : "Resiliency"
       icon : "ti-back-right"
