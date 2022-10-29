@@ -1,17 +1,5 @@
 {{ define "main" }}
 
-<!-- daprcon -->
-<section class="banner" class="p-5 text-center bg-image" style="background-image: url('images/bg.png'">
-  <div class="container">    
-    <div class="col-md-10 mx-auto text-center">
-      <h1 class="mb-3">DaprCon is returning for 2022!</h1>
-      <h4 class="mb-3">DaprCon will take place on Tuesday, October 25th as part of KubeCon North America (NA) 2022.</h4>
-      <a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/attend/experiences/#daprcon" onclick="captureOutboundLink('https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/attend/experiences/#daprcon'); return false;"><font size=4>Read more here </font></a>
-    </div>
-  </div>
-</section>
-<!-- /daprcon -->
-
 <!-- banner -->
 {{ with site.Data.homepage.banner }}
 <section class="banner" class="p-5 text-center bg-image" style="background-image: url('{{ .background_image | safeURL }}');">
