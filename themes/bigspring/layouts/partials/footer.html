@@ -32,9 +32,9 @@
         {{ end }}
       </div>
       <div class="col-md-3 col-sm-6 mb-5">
-        <a class="d-block mb-3" href="{{ site.BaseURL }}"><img width="{{site.Params.logo_width}}"  class="img-fluid" src="{{ site.Params.logo | absURL }}" alt="{{ site.Title }}"></a>
+        <a class="d-block mb-3" href="{{ site.BaseURL }}"><img width="{{site.Params.logo_width}}" class="img-fluid" src="{{ site.Params.logo | absURL }}" alt="{{ site.Title }}"></a>
         <p class="mb-4">{{ site.Params.footer_content | markdownify }}</p>
-        
+
         {{ if site.Params.social }}
         <ul class="list-inline social-icons">
           {{ range site.Params.social }}
@@ -50,7 +50,6 @@
       <small class="content">{{ site.Params.Trademark | markdownify }}</small>
     </div>
   </div>
-  <img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=4848fb3b-3edb-4329-90a9-a9d79afff054" />
 </footer>
 
 {{ "<!-- JS Plugins -->" | safeHTML }}
@@ -64,10 +63,10 @@
 <script src="{{ $script.Permalink }}"></script>
 <script src="{{ $script.Permalink }}"></script>
 <script>
-  var captureOutboundLink = function(url) {
-     ga('send', 'event', 'outbound', 'click', url, {
-       'transport': 'beacon',
-       'hitCallback': function(){document.location = url;}
-     });
+  var captureOutboundLink = function (url) {
+    ga('send', 'event', 'outbound', 'click', url, {
+      'transport': 'beacon',
+      'hitCallback': function () { document.location = url; }
+    });
   }
 </script>
