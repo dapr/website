@@ -1,269 +1,735 @@
-{{ define "main" }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>Dapr - Distributed Application</title>
+    <style>
+      body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
 
-<!-- banner -->
-{{ with site.Data.homepage.banner }}
-<section class="banner" class="p-5 text-center bg-image" style="background-image: url('{{ .background_image | safeURL }}');">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6 mx-auto text-left">
-        <h2 class="mb-3">{{ .title | markdownify }}</h2>
-        <h4 class="mb-5">{{ .content | markdownify }}</h4>
-        {{ if .button.enable }}
-        {{ with .button }}
-        <div><a href="{{ .link | safeURL }}" class="btn btn-primary ">{{ .label }}</a></div>
-        {{ end }}
-        {{ end }}       
-      </div>
-      <div class="col-md-6 mx-auto text-left">
-        <img src="{{ .image | absURL }}" class="img-fluid mx-auto" width="75%" >
-      </div>
-    </div>
-  </div>
-</section>
-{{ end }}
-<!-- /banner -->
+nav {
+  background: #fff;
+  position: sticky;
+}
 
-<!-- news -->
-{{ if site.Data.homepage.news.enable }}
-{{ with site.Data.homepage.news }}
-<section class="bg-primary p-3" >
-  <div class="container">    
-    <div class="col-md-16 mx-auto text-center">
-      <a href="{{ .link | safeURL }}" onclick="captureOutboundLink('{{ .link | safeURL }}'); return false;"><font size=4 color=$text-color-dark><i>{{ .prefix }}</i></font><font size=4 color="white"><i>{{ .text }}</i></font></a>
-    </div>
-  </div>
-</section>
-{{end}}
-{{end}}
-<!-- /news -->
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
-<!-- adopters -->
-{{ if site.Data.homepage.adopters.enable }}
-{{ with site.Data.homepage.adopters }}
-<section class="bg-body shadow-lg border-0">
-  <a href="{{ .link | absURL }}">
-    <div class="container bg-body">
-      <div class="col-12 text-center">
-        <div class="row align-items-center">
-          {{ range .logos }}            
-            <img src="{{ .image | absURL }}" class="img-fluid mx-auto pl-1 pr-1" width="{{ .width }}">
-          {{ end }}
-        </div>      
-      </div>
-    </div>
-  </a>
-</section>
-{{ end }}
-{{ end }}
-<!-- /adopters -->
 
-<!-- main-value-prop -->
-{{ if site.Data.homepage.main.enable }}
-{{ with site.Data.homepage.main }}
-<section class="section bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 text-center">
-        <h2 class="section-title">{{ .title | markdownify }}</h2>
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 0 20px;
+}
+
+nav i {
+  padding: 0 20px;
+}
+
+h4 > i {
+  padding-right: 10px;
+}
+
+p i {
+  padding-left: 6px;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+    border: none;
+    width: 120px;
+    height: 50px;
+    border-radius: 7px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.img-container-md > img {
+  width: 100%;
+  height: 100%;
+}
+
+.navLink {
+  color: #202192;
+}
+
+.navLink:hover {
+  color: #20229249;
+}
+
+footer .navLink {
+  color: white;
+}
+
+footer .navLink:hover {
+  color: #202192;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.vertical-align-center {
+  margin: 0 auto;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.gap-sm {
+  gap: 20px;
+}
+
+.navbar {
+  padding: 30px 9%;
+  max-width: 1960px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-bold {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.text-underline {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 10px;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-size-24 {
+  font-size: 17px;
+}
+
+.padding-top-down-10 {
+  padding: 10px 0;
+}
+
+.padding-top-down-100 {
+  padding: 100px 0 100px;
+}
+
+.padding-bottom-20 {
+  padding-bottom: 20px;
+}
+
+.padding-bottom-10 {
+  padding-bottom: 10px;
+}
+
+.padding-bottom-100 {
+  padding-bottom: 100px;
+}
+
+.btn-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-primary {
+    background-color: #202192;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #F1F1F1;
+    color: #476581;
+}
+
+.hero-section {
+  background: #fff;
+  color: #202192;
+}
+
+.hero-container {
+  width: 80%;
+  padding: 100px 0 100px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  font-size: 3rem;
+  color: #F8F8F8;
+}
+
+.hero-text-secondary {
+  width: 45%;
+  margin-top: -15px;
+  color: white;
+  font-weight: 300;
+}
+
+.feature-section {
+  padding: 100px 23% 0px;
+}
+
+.font-weight-300 {
+  font-weight: 300;
+}
+
+.feature-item {
+  width: 28em;
+}
+
+.feature-item > p {
+  font-weight: 300;
+}
+
+.feature-item-sm > p {
+  font-weight: 100;
+}
+
+.feature-item-sm {
+  width: 18em;
+  height: 11em;
+  background-color: #F6F6F7;
+}
+
+.text-blue {
+  color: blue;
+}
+
+.banner {
+  padding: 120px 0px 70px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
+
+.banner-link {
+  text-decoration: underline;
+  color: black;
+}
+
+.footer {
+  padding: 50px 20% 50px;
+  color: white;
+  background-color: black;
+  font-weight: 300;
+}
+
+.footer-info-text {
+  font-size: 0.85rem;
+  padding-top: 10px;
+}
+
+.footer-link-text {
+  color: white;
+  text-decoration: underline;
+}
+
+.img-container {
+  width: 300px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.img-container-md {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.bg-grey-white {
+  background: #FCFCFC;
+}
+
+.width-20 {
+  width: 20%;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+.width-60 {
+  width: 60%;
+}
+
+.logo {
+  width: 140px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo > a > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* .logo > img {
+  width: 20px;
+  height: 20px;
+} */
+
+.media-section {
+  display: flex;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+#mobile-menu {
+  display: none;
+}
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* .video-embed {
+  width: 60%;
+  height: 300px;
+} */
+
+.embed-responsive-item {
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media only screen and (max-width: 786px) {
+  .media-section {
+    display: none;
+  }
+
+  #mobile-menu {
+    display: block;
+  }
+
+  .menu-toggle {
+    justify-self: end;
+  }
+
+  nav {
+    position: fixed;
+    width: 100vw;
+  }
+
+  .navbar {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .navbar-linkss {
+    display: none;
+  }
+
+  .menu-toggle, .bar {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #3f3f3f;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+
+  .navLinkContainer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: start;
+    top: 60px;
+    bottom: 0;
+    background-color: #fff;
+    width: 100vw;
+    height: calc(100% - 60px);
+    transform: translate(-12%);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .navbar li {
+    padding: 25px;
+  }
+
+  .navbar li:first-child {
+    margin-top: 50px;
+  }
+
+  .navbar .navLink {
+    color: black;
+    font-size: 1.3rem;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  #mobile-menu.is-active .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+    -ms-transform: translateY(8px) rotate(45deg);
+    -o-transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  #mobile-menu.is-active .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+    -ms-transform: translateY(-8px) rotate(-45deg);
+    -o-transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero-container {
+    width: 90%;
+  }
+  
+  .hero-text-secondary {
+    width: 70%;
+  }
+
+  .footer {
+    padding: 50px 5% 50px;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 5px;
+    gap: 5px;
+  }
+
+  .feature-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .feature-section-mobile {
+    padding: 100px 3% 0px;
+  }
+
+  .feature-section {
+    padding: 100px 3% 0px;
+  }
+
+  .feature-item {
+    width: 24em;
+    margin: 0 auto;
+  }
+
+  .feature-item-sm {
+    margin: 0 auto;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="flex navbar justify-content-space-between align-items-center">
+        <div class="logo">
+          <a href="#"><img src="./images/dapr.svg" alt="vineyard logo" /></a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu" onClick="handleToggle()">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="flex vertical-align-center" id="navLinkWrapper">
+          <li><a href="#" class="navLink">Home</a></li>
+          <li><a href="#" class="navLink">Docs</a></li>
+          <li><a href="#" class="navLink">Download</a></li>
+          <li><a href="#" class="navLink">Community</a></li>
+        </ul>
+        <div class="flex media-section">
+          <a href="https://slack.cncf.io/" class="text-black"><i class="fab fa-slack"></i></a>
+          <a href="https://github.com/v6d-io/v6d" class="text-black"><i class="fab fa-github"></i></a>
+        </div>
       </div>
-      <div class="col-12 text-left">
-        <div class="row justify-content-center">
-          <div class="col-6 text-left">
-            <p class="mb-4">{{ .content1 | markdownify }}</p>
+    </nav>
+    <section class="bg-grey-white">
+      <div class="flex justify-content-space-between hero-container">
+        <div>
+          <h2>APIs for building secure and reliable Microservices</h2>
+          <p>Leverage industry best practices and focus on your application's logic.</p>
+          <div class="btn-container">
+            <a href="#"><button class="btn-primary">Get Started</button></a>
+            <a href="#"><button class="btn-secondary">API Reference</button></a>
           </div>
-          <div class="col-6 text-left">
-            <p class="mb-4">{{ .content2 | markdownify }}</p>
+        </div>
+        <div>
+          <img src="./images/image-card.png" alt="image card">
+        </div>
+      </div>
+    </section>
+    <section class="width-80 vertical-align-center">
+      <p class="text-center padding-top-down-10">Trusted and Adopted by</p>
+      <div class="flex">
+        <div class="img-container-md">
+          <img src="./images/ignition-group.png" alt="ignition-group logo">
+        </div>
+        <div class="img-container-md">
+          <img src="./images/bosch.png" alt="bosch logo">
+        </div>
+        <div class="img-container-md">
+          <img src="./images/wortell.png" alt="wortell logo">
+        </div>
+        <div class="img-container-md">
+          <img src="./images/alibaba.png" alt="alibaba logo">
+        </div>
+        <div class="img-container-md">
+          <img src="./images/zeiss.png" alt="zeiss logo">
+        </div>
+        <div class="img-container-md">
+          <img src="./images/atbay.png" alt="atbay logo">
+        </div>
+        <div class="img-container-md">
+          <img src="./images/man-group.png" alt="man group logo">
+        </div>
+      </div>
+    </section>
+    <section class="width-60 vertical-align-center padding-top-down-100">
+      <h4 class="text-center">Build event driven apps faster</h4>
+      <p class="text-justify">
+        Dapr is set of APIs with built-in best practices to build cloud-native event-driven applications. <br>
+        Dapr increases your developer productivity by 20-40% with built-in features such as workflow, pub/sub, state management, secret stores, configuration stores, bindings, actors and distributed lock and covers cross-cutting concerns including security, observability and resiliency.
+      </p>
+    </section>
+    <section>
+      <div class="flex justify-content-space-between padding-top-down-100 width-60 vertical-align-center">
+        <div class="width-60">
+          <h5>Automate your business processes</h5>
+          <p>Dapr workflow is simplifying complex, stateful coordination requirements in event-driven applications.</p>
+          <p>Workflow makes it easy to implement patterns such as function chaining or aggregate over them in parallel. It support long running processes and has resiliency built-in.</p>
+        </div>
+        <div>
+          <img src="./images/image-card.png" alt="image card">
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="flex justify-content-space-between flex-row-reverse padding-top-down-100 width-60 vertical-align-center">
+        <div class="width-60">
+          <h5>Best practices to build resilient and scalable applications</h5>
+          <p>Modern cloud-native applications are inherently async and react to events. Dapr enables the creation of event-driven applications by providing a common set of APIs across 100+ cloud-native back-ends and brokers. It offers guaranteed message delivery, built-in resiliency, observability and security.</p>
+        </div>
+        <div>
+          <img src="./images/image-card.png" alt="image card">
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="flex justify-content-space-between padding-top-down-100 width-60 vertical-align-center">
+        <div class="width-60">
+          <h5>Integrate with the infrastructure of your choice</h5>
+          <p>Dapr's component model decouples technology choices from your code making it agnostic to hosting environments and enabling application portability. Dapr runs as a sidecar wherever your application runs whether hosted on Kubernetes, VMs, deployed on the cloud, on-premises or on the edge.</p>
+        </div>
+        <div>
+          <img src="./images/image-card.png" alt="image card">
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="padding-bottom-100">
+        <h4 class="text-center">Building block APIs</h4>
+        <div class="flex justify-content-space-between width-80 vertical-align-center padding-bottom-20">
+          <div class="width-20">
+            <h5>Service Invocation</h5>
+            <p>Dapr shares immutable data across different systems using shared memory without extra overheads, eliminating the overhead of serialization/deserialization</p>
+          </div>
+          <div class="width-20">
+            <h5>Publish Subscribe</h5>
+            <p>Dapr defines a metadata-payload separated data model to capture the payload commonalities and method commonalities between sharable objects</p>
+          </div>
+          <div class="width-20">
+            <h5>State Management</h5>
+            <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
+          </div>
+        </div>
+        <div class="flex justify-content-space-between width-80 vertical-align-center">
+          <div class="width-20">
+            <h5>Actors</h5>
+            <p>Dapr provides common manipulation routines for immutable data as drivers, which extend the capabilities of data structures by registering appropriate drivers</p>
+          </div>
+          <div class="width-20">
+            <h5>Workflow</h5>
+            <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
+          </div>
+          <div class="width-20">
+            <h5>Secrets</h5>
+            <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
           </div>
         </div>
       </div>
-      <div class="col-12 shadow rounded-lg bg-body">
-    </div>
-  </div>
-</section>
-{{ end }}
-{{ end }}
-<!-- main-value-prop -->
-
-<!-- buildingblocks -->
-{{ if site.Data.homepage.buildingblocks.enable }}
-{{ with site.Data.homepage.buildingblocks }}
-<section class="section bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <h2 class="section-title text-center">{{ .title | markdownify }}</h2>
-        <p class="mb-4">{{ .content | markdownify }}</p>
-      </div>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col">
-            {{ range .feature_item }}
-            <div class="col">
-              <div class="feature-card mb-3 bg-body text-center align-items-center border">
-                <div class="row align-items-center">
-                  <h3 class="{{.icon}} mr-3 ml-3"></h3>
-                  <h4 class="mb-1">{{ .name | title }}</h4>                  
-                </div>
-                <a href="{{ .link }}" onclick="captureOutboundLink('{{ .link }}'); return false;" class="stretched-link"></a>
-              </div>
-            </div>
-            {{ end }}           
+    </section>
+    <section>
+      <div class="padding-top-down-100">
+        <h4 class="text-center">Fundamentals</h4>
+        <div class="flex justify-content-space-between width-80 vertical-align-center padding-bottom-20">
+          <div class="width-20">
+            <h5>Security</h5>
+            <p>Dapr shares immutable data across different systems using shared memory without extra overheads, eliminating the overhead of serialization/deserialization</p>
           </div>
-          <div class="col-md-8 mb-4 mb-md-0">                
-            <img src="{{ .image | absURL }}" class="img-fluid shadow">            
+          <div class="width-20">
+            <h5>Observability</h5>
+            <p>Dapr defines a metadata-payload separated data model to capture the payload commonalities and method commonalities between sharable objects</p>
+          </div>
+          <div class="width-20">
+            <h5>Resiliency</h5>
+            <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-{{ end }}
-{{ end }}
-<!-- /buildingblocks -->
-
-<!-- practices -->
-{{ if site.Data.homepage.practices.enable }}
-{{ with site.Data.homepage.practices }}
-<section class="section bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <h2 class="section-title text-center">{{ .title | markdownify }}</h2>
-        <p class="mb-4">{{ .content | markdownify }}</p>
-      </div>
-      {{ range .feature_item }}
-      <div class="col-md-4 col-sm-6 mb-4">
-        <div class="feature-card border bg-body">
-          <h2 class="{{.icon}} mb-3"></h2>
-          <h4 class="mb-2">{{ .name | title }}</h4>
-          <p>{{ .content | markdownify }}</p>
-          <a href="{{ .link }}" onclick="captureOutboundLink('{{ .link }}'); return false;" class="stretched-link">Learn more</a>
+    </section>
+    <section>
+      <div class="padding-bottom-20">
+        <h4 class="text-center">Watch a Quick Introduction to Dapr</h4>
+        <div class="video-embed text-center">
+          <iframe width="860" height="515" src="https://www.youtube.com/embed/9o9iDAgYBA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-{{ end }}
-{{ end }}
-<!-- /practices -->
-
-<!-- portability -->
-{{ if site.Data.homepage.portability.enable }}
-{{ with site.Data.homepage.portability }}
-<section class="section bg-light">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-8 mb-4 mb-md-0">
-        <div {{if gt (len .images) 1}}class="slider border shadow" {{end}}>
-          {{ range .images }}
-          <img src="{{ . | absURL }}" class="img-fluid border  shadow">
-          {{ end }}
-        </div>
-      </div>
-      <div class="col-md-4 ">
-        <h2 class="section-title">{{ .title | markdownify }}</h2>
-        <p>{{ .content | markdownify }}</p>
-        {{ if .button.enable }}
-        {{ with .button }}
-        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
-        {{ end }}
-        {{ end }}
-      </div>      
-    </div>
-  </div>
-</section>
-{{ end }}
-{{ end }}
-<!-- /portability -->
-
-<!-- adoption -->
-{{ if site.Data.homepage.adoption.enable }}
-{{ with site.Data.homepage.adoption }}
-<section class="section bg-light">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-4 ">
-        <h2 class="section-title">{{ .title | markdownify }}</h2>
-        <p>{{ .content | markdownify }}</p>
-        {{ if .button.enable }}
-        {{ with .button }}
-        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn-link">{{ .label }} <i class="ti-arrow-right"></i></a>
-        {{ end }}
-        {{ end }}
-      </div>
-      <div class="col-md-8 mb-4 mb-md-0">
-        <div {{if gt (len .images) 1}}class="slider" {{end}}>
-          {{ range .images }}
-          <img src="{{ . | absURL }}" class="img-fluid border shadow">
-          {{ end }}
-        </div>
+    </section>
+    <div class="banner text-center">
+      <p>Dapr is a <a href="https://www.cncf.io/sandbox-projects/" class="banner-link">Cloud Native Computing Foundation incubation project</a></p>
+      <div class="img-container">
+        <img src="./images/cncf-color.svg" alt="cncf logo" />
       </div>
     </div>
-  </div>
-</section>
-{{ end }}
-{{ end }}
-<!-- /adoption -->
-
-<!-- introvideo -->
-{{ if site.Data.homepage.introvideo.enable }}
-{{ with site.Data.homepage.introvideo }}
-<section class="section bg-light">
-  <div class="container">        
-      <div class="row justify-content-center">
-        <h2 class="section-title">{{ .title | title }}</h2>
-        {{with .video}}
-        <div class="col-10">
-          <div class="shadow border">
-            <div class="embed-responsive embed-responsive-16by9 ">
-              <iframe class="embed-responsive-item shadow" src="{{ . | safeURL }}" onclick="captureOutboundLink('{{ . | safeURL }}'); return false;" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-        {{end}}
-        </div>
-      </div>    
-  </div>
-</section>
-{{ end }}
-{{ end }}
-<!-- /introvideo -->
-
-<!-- call to action -->
-{{ if site.Data.homepage.call_to_action.enable }}
-{{ with site.Data.homepage.call_to_action }}
-<section class="section">
-  <div class="container section shadow border rounded-lg px-4">
-    <div class="row align-items-center justify-content-center text-center text-md-left">
-      <div class="col-lg-4 col-md-5 mb-4 mb-md-0">
-        <img src="{{ .image | absURL }}" class="img-fluid" width="200px">
+    <footer class="footer">
+      <div class="flex justify-content-space-between footer-container">
+        <ul>
+          <li class="text-bold padding-bottom-20">Docs</li>
+          <li class="padding-bottom-10"><a href="#" class="navLink">Getting Started</a></li>
+          <li class="padding-bottom-10"><a href="#" class="navLink">Key Concepts</a></li>
+          <li><a href="#" class="navLink">Architecture</a></li>
+        </ul>
+        <ul>
+          <li class="text-bold padding-bottom-20">Community</li>
+          <li class="padding-bottom-10"><a href="#" class="navLink">GitHub</a></li>
+          <li class="padding-bottom-10"><a href="#" class="navLink">Slack</a></li>
+          <li><a href="#" class="navLink">Twitter</a></li>
+        </ul>
+        <ul>
+          <li class="text-bold padding-bottom-20">More</li>
+          <li><a href="#" class="navLink">Faq</a></li>
+        </ul>
+        <ul>
+          <li class="text-bold padding-bottom-20">Legal</li>
+          <li class="padding-bottom-10"><a href="#" class="navLink">Terms</a></li>
+          <li class="padding-bottom-10"><a href="#" class="navLink">Privacy</a></li>
+          <li><a href="#" class="navLink">Trademarks</a></li>
+        </ul>
       </div>
-      <div class="col-lg-5 col-md-6">
-        <h2 class="section-title">{{ .title | markdownify }}</h2>
-        {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
-        {{ if .button.enable }}
-        {{ with .button }}
-        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-primary">{{ .label }}</a>
-        {{ end }}
-        {{ end }}
+      <div class="text-center footer-info-text">
+        <p>Copyright &copy; 2023, The Dapr Authors</p>
+        <p>
+          The Linux Foundation has registered trademarks and uses trademarks.
+          For a list of trademarks of The Linux Foundation, please see our
+          <a href="https://www.linuxfoundation.org/legal/trademark-usage" class="footer-link-text">Trademark Usage page.</a>
+        </p>
       </div>
-    </div>
-  </div>
-</section>
-{{ end }}
-{{ end }}
-<!-- /call to action -->
+    </footer>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/91dde3bebe.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const handleToggle = () => {
+        const menuToggleNode = document.getElementById("mobile-menu");
+        let navBarLinkContainer = document.getElementById("navLinkWrapper");
 
-<!-- cncf -->
-<section class="section">
-  <div class="container">
-    <div class="column align-items-center justify-content-center text-center">
-    <h4>We are a <a href="https://www.cncf.io/" onclick="captureOutboundLink('https://www.cncf.io/'); return false;">Cloud Native Computing Foundation</a> project.</h4>
-    <img src="images/cncf-color.svg" class="img-fluid" width="300px">
-    </div>
-  </div>
-</section>
-<!-- /cncf -->
+          if (menuToggleNode.className === "menu-toggle") {
+            menuToggleNode.className = "menu-toggle is-active";
+            navBarLinkContainer.style.display = "flex";
+            navBarLinkContainer.className = "navLinkContainer";
+          } else {
+              menuToggleNode.className = "menu-toggle";
+              navBarLinkContainer.style.display = "none";
+          };     
+    };
 
-{{ end }}
+    // This logic makes navbar fixed on scroll
+    // let nav = document.querySelector(".navbar");
+    // let sticky = nav.offsetTop;
+    
+    // window.onscroll = function () {
+    //   sticker();
+    // };
+    
+    // function sticker() {
+    //   if (window.pageYOffset >= sticky) {
+    //     nav.classList.add("sticky");
+    //   } else {
+    //     nav.classList.remove("sticky");
+    //   }
+    // }
+  </script>
+</html>
