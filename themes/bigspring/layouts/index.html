@@ -120,6 +120,26 @@ footer .navLink:hover {
   gap: 20px;
 }
 
+.grid {
+  display: grid;
+}
+
+.grid-column-auto {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 1rem;
+}
+
+.grid-row-auto {
+  grid-auto-rows: minmax(0,1fr);
+}
+
+.card {
+  box-shadow: 0px 2px 10px rgba(20,26,31,.15);
+  background-color: rgb(255 255 255 1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
 .navbar {
   padding: 30px 9%;
   max-width: 1960px;
@@ -159,6 +179,10 @@ footer .navLink:hover {
 
 .padding-top-down-10 {
   padding: 10px 0;
+}
+
+.padding-top-40 {
+  padding-top: 40px;
 }
 
 .padding-top-down-100 {
@@ -286,7 +310,6 @@ footer .navLink:hover {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  margin: 0 auto;
 }
 
 .bg-grey-white {
@@ -354,6 +377,17 @@ footer .navLink:hover {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+@media only screen and (max-width: 1016px) {
+  .grid-column-auto {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 1.5rem;
+  }
+  
+  .grid-row-auto {
+    grid-auto-rows: minmax(0,1fr);
+  }
 }
 
 @media only screen and (max-width: 786px) {
@@ -495,7 +529,7 @@ footer .navLink:hover {
     <nav>
       <div class="flex navbar justify-content-space-between align-items-center">
         <div class="logo">
-          <a href="#"><img src="./images/dapr.svg" alt="vineyard logo" /></a>
+          <a href="#"><img src="images/dapr.svg" alt="dapr logo" /></a>
         </div>
         <div class="menu-toggle" id="mobile-menu" onClick="handleToggle()">
           <span class="bar"></span>
@@ -530,28 +564,46 @@ footer .navLink:hover {
       </div>
     </section>
     <section class="width-80 vertical-align-center">
-      <p class="text-center padding-top-down-10">Trusted and Adopted by</p>
-      <div class="flex">
-        <div class="img-container-md">
-          <img src="./images/ignition-group.png" alt="ignition-group logo">
+      <div class="grid grid-column-auto grid-row-auto padding-top-40">
+        <div class="card">
+          <div class="img-container-md">
+            <img src="./images/ignition-group.png" alt="ignition-group logo">
+          </div>
+          <p>Ignition group chooses dapr for business process automation</p>
+          <div class="flex">
+            <a href="#">Video</a>
+            <a href="#">Blog</a>
+          </div>
         </div>
-        <div class="img-container-md">
-          <img src="./images/bosch.png" alt="bosch logo">
+        <div class="card">
+          <div class="img-container-md">
+            <img src="./images/bosch.png" alt="bosch logo">
+          </div>
+          <p>Ignition group chooses dapr for business process automation</p>
+          <div class="flex">
+            <a href="#">Video</a>
+            <a href="#">Blog</a>
+          </div>
         </div>
-        <div class="img-container-md">
-          <img src="./images/wortell.png" alt="wortell logo">
+        <div class="card">
+          <div class="img-container-md">
+            <img src="./images/wortell.png" alt="wortell logo">
+          </div>
+          <p>Ignition group chooses dapr for business process automation</p>
+          <div class="flex">
+            <a href="#">Video</a>
+            <a href="#">Blog</a>
+          </div>
         </div>
-        <div class="img-container-md">
-          <img src="./images/alibaba.png" alt="alibaba logo">
-        </div>
-        <div class="img-container-md">
-          <img src="./images/zeiss.png" alt="zeiss logo">
-        </div>
-        <div class="img-container-md">
-          <img src="./images/atbay.png" alt="atbay logo">
-        </div>
-        <div class="img-container-md">
-          <img src="./images/man-group.png" alt="man group logo">
+        <div class="card">
+          <div class="img-container-md">
+            <img src="./images/alibaba.png" alt="alibaba logo">
+          </div>
+          <p>Ignition group chooses dapr for business process automation</p>
+          <div class="flex">
+            <a href="#">Video</a>
+            <a href="#">Blog</a>
+          </div>
         </div>
       </div>
     </section>
@@ -632,7 +684,7 @@ footer .navLink:hover {
     <section>
       <div class="padding-top-down-100">
         <h4 class="text-center">Fundamentals</h4>
-        <div class="flex justify-content-space-between width-80 vertical-align-center padding-bottom-20">
+        <div class="flex justify-content-space-between width-80 vertical-align-center">
           <div class="width-20">
             <h5>Security</h5>
             <p>Dapr shares immutable data across different systems using shared memory without extra overheads, eliminating the overhead of serialization/deserialization</p>
@@ -645,6 +697,32 @@ footer .navLink:hover {
             <h5>Resiliency</h5>
             <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
           </div>
+        </div>
+      </div>
+    </section>
+    <section class="width-80 vertical-align-center padding-top-down-100">
+      <p class="text-center padding-top-down-10">Trusted and Adopted by</p>
+      <div class="flex">
+        <div class="img-container-md vertical-align-center">
+          <img src="./images/ignition-group.png" alt="ignition-group logo">
+        </div>
+        <div class="img-container-md vertical-align-center">
+          <img src="./images/bosch.png" alt="bosch logo">
+        </div>
+        <div class="img-container-md vertical-align-center">
+          <img src="./images/wortell.png" alt="wortell logo">
+        </div>
+        <div class="img-container-md vertical-align-center">
+          <img src="./images/alibaba.png" alt="alibaba logo">
+        </div>
+        <div class="img-container-md vertical-align-center">
+          <img src="./images/zeiss.png" alt="zeiss logo">
+        </div>
+        <div class="img-container-md vertical-align-center">
+          <img src="./images/atbay.png" alt="atbay logo">
+        </div>
+        <div class="img-container-md vertical-align-center">
+          <img src="./images/man-group.png" alt="man group logo">
         </div>
       </div>
     </section>
