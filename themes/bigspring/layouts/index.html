@@ -43,7 +43,7 @@ li {
 }
 
 nav i {
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 h4 > i {
@@ -120,6 +120,10 @@ footer .navLink:hover {
   gap: 20px;
 }
 
+.gap-xsm {
+  gap: 10px;
+}
+
 .grid {
   display: grid;
 }
@@ -169,12 +173,32 @@ footer .navLink:hover {
   color: white;
 }
 
+.highlight-hippie-blue {
+  background-color: #489FB5;
+  color: white;
+  padding: 0 10px;
+}
+
+.highlight-golden {
+  background-color: #EFCA08;
+  color: white;
+  padding: 0 10px;
+}
+
 .text-black {
   color: black;
 }
 
+.text-denim-blue {
+  color: #202192;
+}
+
 .text-size-24 {
   font-size: 17px;
+}
+
+.text-size-large {
+  font-size: 3rem;
 }
 
 .padding-top-down-10 {
@@ -343,6 +367,19 @@ footer .navLink:hover {
   width: 20px;
   height: 20px;
 } */
+
+.border-decoration {
+  border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.dotted-space {
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  width: 6px;
+  height: 6px;
+  margin-top: 100%;
+}
 
 .media-section {
   display: flex;
@@ -538,20 +575,25 @@ footer .navLink:hover {
         </div>
         <ul class="flex vertical-align-center" id="navLinkWrapper">
           <li><a href="#" class="navLink">Home</a></li>
+          <li><a href="#" class="navLink">Use Cases</a></li>
           <li><a href="#" class="navLink">Docs</a></li>
-          <li><a href="#" class="navLink">Download</a></li>
+          <li><a href="#" class="navLink">Learn</a></li>
+          <li><a href="#" class="navLink">Blog</a></li>
           <li><a href="#" class="navLink">Community</a></li>
+          <li><a href="#" class="navLink">Enterprise</a></li>
         </ul>
         <div class="flex media-section">
-          <a href="https://slack.cncf.io/" class="text-black"><i class="fab fa-slack"></i></a>
+          <a href="#" class="text-black"><i class="fab fa-discord"></i></a>
+          <a href="#" class="text-black"><i class="fab fa-twitter"></i></a>
           <a href="https://github.com/v6d-io/v6d" class="text-black"><i class="fab fa-github"></i></a>
+          <a href="#" class="text-black"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </nav>
     <section class="bg-grey-white">
       <div class="flex justify-content-space-between hero-container">
-        <div>
-          <h2>APIs for building secure and reliable Microservices</h2>
+        <div class="text-denim-blue">
+          <h2 class="text-size-large">APIs for building <span class="highlight-hippie-blue">Secure</span> and <span class="highlight-golden">Reliable</span> Microservices</h2>
           <p>Leverage industry best practices and focus on your application's logic.</p>
           <div class="btn-container">
             <a href="#"><button class="btn-primary">Get Started</button></a>
@@ -569,9 +611,14 @@ footer .navLink:hover {
           <div class="img-container-md">
             <img src="./images/ignition-group.png" alt="ignition-group logo">
           </div>
-          <p>Ignition group chooses dapr for business process automation</p>
-          <div class="flex">
+          <div class="border-decoration">
+            <p>Ignition group chooses dapr for business process automation</p>
+          </div>
+          <div class="flex padding-top-down-10 gap-xsm">
             <a href="#">Video</a>
+            <div>
+              <div class="dotted-space"></div>
+            </div>
             <a href="#">Blog</a>
           </div>
         </div>
@@ -579,9 +626,14 @@ footer .navLink:hover {
           <div class="img-container-md">
             <img src="./images/bosch.png" alt="bosch logo">
           </div>
-          <p>Ignition group chooses dapr for business process automation</p>
-          <div class="flex">
+          <div class="border-decoration">
+            <p>Ignition group chooses dapr for business process automation</p>
+          </div>
+          <div class="flex padding-top-down-10 gap-xsm">
             <a href="#">Video</a>
+            <div>
+              <div class="dotted-space"></div>
+            </div>
             <a href="#">Blog</a>
           </div>
         </div>
@@ -589,9 +641,14 @@ footer .navLink:hover {
           <div class="img-container-md">
             <img src="./images/wortell.png" alt="wortell logo">
           </div>
-          <p>Ignition group chooses dapr for business process automation</p>
-          <div class="flex">
+          <div class="border-decoration">
+            <p>Ignition group chooses dapr for business process automation</p>
+          </div>          
+          <div class="flex padding-top-down-10 gap-xsm">
             <a href="#">Video</a>
+            <div>
+              <div class="dotted-space"></div>
+            </div>
             <a href="#">Blog</a>
           </div>
         </div>
@@ -599,9 +656,14 @@ footer .navLink:hover {
           <div class="img-container-md">
             <img src="./images/alibaba.png" alt="alibaba logo">
           </div>
-          <p>Ignition group chooses dapr for business process automation</p>
-          <div class="flex">
+          <div class="border-decoration">
+            <p>Ignition group chooses dapr for business process automation</p>
+          </div>          
+          <div class="flex padding-top-down-10 gap-xsm">
             <a href="#">Video</a>
+            <div>
+              <div class="dotted-space"></div>
+            </div>
             <a href="#">Blog</a>
           </div>
         </div>
