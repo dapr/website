@@ -1,27 +1,27 @@
 ####################### Banner #########################
 banner:
-  title : "APIs for building portable and reliable microservices"
-  image : "images/banner-image.png"
-  background_image : "images/bg-hexa-light.png"
-  video : "https://www.youtube-nocookie.com/embed/9o9iDAgYBA8"
-  content : "Leverage industry best practices and focus on your application’s logic."
+  title: "APIs for building portable and reliable microservices"
+  image: "images/banner-image.png"
+  background_image: "images/bg-hexa-light.png"
+  video: "https://www.youtube-nocookie.com/embed/9o9iDAgYBA8"
+  content: "Leverage industry best practices and focus on your application’s logic."
   button:
-    enable : true
-    label : "Get started"
-    link : "https://docs.dapr.io/getting-started/"
-    
+    enable: true
+    label: "Get started"
+    link: "https://docs.dapr.io/getting-started/"
+
 ##################### News #########################
 news:
-  enable : false
-  prefix : "Announcement "
-  text : "Dapr joins CNCF as an incubating project! Learn more >>"
-  link : "https://blog.dapr.io/posts/2021/11/03/dapr-joins-cncf-as-an-incubating-project/"
+  enable: false
+  prefix: "Announcement "
+  text: "Dapr joins CNCF as an incubating project! Learn more >>"
+  link: "https://blog.dapr.io/posts/2021/11/03/dapr-joins-cncf-as-an-incubating-project/"
 
 ##################### Adopters #########################
 adopters:
-  enable : true
-  link : "testimonials"
-  logos :
+  enable: true
+  link: "testimonials"
+  logos:
     - image: "images/bosch.png"
       width: "100px"
     - image: "images/zeiss.png"
@@ -30,8 +30,8 @@ adopters:
       width: "75px"
     - image: "images/ignition-group.png"
       width: "100px"
-    - image: "images/roadwork.png"
-      width: "100px"        
+    - image: "images/composabl.png"
+      width: "100px"
     - image: "images/autonavi.png"
       width: "75px"
     - image: "images/legentic.png"
@@ -43,134 +43,131 @@ adopters:
     - image: "images/wortell.png"
       width: "60px"
 
-
 ##################### Main ##########################
 main:
-  enable : true
-  title : "Build connected distributed applications faster"
-  content1 : "The Distributed Application Runtime (Dapr) provides APIs that simplify microservice connectivity. Whether your communication pattern is service to service invocation or pub/sub messaging, Dapr helps you write resilient and secured microservices."
-  content2 : "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability, and secret management, you can focus on business logic and keep your code simple. "
+  enable: true
+  title: "Build connected distributed applications faster"
+  content1: "The Distributed Application Runtime (Dapr) provides APIs that simplify microservice connectivity. Whether your communication pattern is service to service invocation or pub/sub messaging, Dapr helps you write resilient and secured microservices."
+  content2: "By letting Dapr's sidecar take care of the complex challenges such as service discovery, message broker integration, encryption, observability, and secret management, you can focus on business logic and keep your code simple. "
 #  images :
 #      -  "images/service-invocation.png"
 #      -  "images/pubsub.png"
 
 ##################### BuildingBlocks ##########################
 buildingblocks:
-  enable : true
-  title : "APIs for solving distributed application challenges"
-  content : "Dapr provides you with APIs that abstract away the complexity of common challenges developers encounter regularly when building distributed applications. These API building blocks can be leveraged as the need arises - use one, several or all to develop your application faster and deliver your solution on time."
-  image : "images/building-blocks.png"
+  enable: true
+  title: "APIs for solving distributed application challenges"
+  content: "Dapr provides you with APIs that abstract away the complexity of common challenges developers encounter regularly when building distributed applications. These API building blocks can be leveraged as the need arises - use one, several or all to develop your application faster and deliver your solution on time."
+  image: "images/building-blocks.png"
   feature_item:
+    - name: "Publish & subscribe"
+      icon: "ti-email"
+      content: "Use asynchronous message topics and subscriptions"
+      link: "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
 
-    - name : "Publish & subscribe"
-      icon : "ti-email"
-      content : "Use asynchronous message topics and subscriptions"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
+    - name: "Service invocation"
+      icon: "ti-exchange-vertical"
+      content: "Service discovery and service to service method calls"
+      link: "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
 
-    - name : "Service invocation"
-      icon : "ti-exchange-vertical"
-      content : "Service discovery and service to service method calls"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
-    
-    - name : "Secret Management"
-      icon : "ti-shield"
-      content : "Keep application secrets secured with a secret store"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
+    - name: "Secret Management"
+      icon: "ti-shield"
+      content: "Keep application secrets secured with a secret store"
+      link: "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
 
-    - name : "Input/Output Bindings"
-      icon : "ti-plug"
-      content : "Create event driven workflows and interface with external services"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
-    
-    - name : "State management"
-      icon : "ti-server"
-      content : "Build resilient stateful services with your state store of choice"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
-    
-    - name : "Virtual Actors"
-      icon : "ti-layout-grid4"
-      content : "Leverage the actor pattern to scale self-contained units of processing"
-      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
-    
+    - name: "Input/Output Bindings"
+      icon: "ti-plug"
+      content: "Create event driven workflows and interface with external services"
+      link: "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
+
+    - name: "State management"
+      icon: "ti-server"
+      content: "Build resilient stateful services with your state store of choice"
+      link: "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
+
+    - name: "Virtual Actors"
+      icon: "ti-layout-grid4"
+      content: "Leverage the actor pattern to scale self-contained units of processing"
+      link: "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
 
 ##################### Practices ##########################
 practices:
-  enable : true
-  title : "Industry established best practices for reliability"
-  content : "Dapr leverages proven practices for distributed application development that enable you to build resilient, secured systems. By adopting Dapr in your application, you adopt these best practices without having to spend time solving common challenges."
-  feature_item:         
-    - name : "Secured Connections"
-      icon : "ti-lock"
-      content : "Ensure service-to-service communication is encrypted using mTLS while Dapr takes care of certificate management and defining allow lists for fine-grained access control. Restrict access to secrets and message topics using application scopes."
-      link : "https://docs.dapr.io/concepts/security-concept/"
+  enable: true
+  title: "Industry established best practices for reliability"
+  content: "Dapr leverages proven practices for distributed application development that enable you to build resilient, secured systems. By adopting Dapr in your application, you adopt these best practices without having to spend time solving common challenges."
+  feature_item:
+    - name: "Secured Connections"
+      icon: "ti-lock"
+      content: "Ensure service-to-service communication is encrypted using mTLS while Dapr takes care of certificate management and defining allow lists for fine-grained access control. Restrict access to secrets and message topics using application scopes."
+      link: "https://docs.dapr.io/concepts/security-concept/"
 
-    - name : "Observability"
-      icon : "ti-eye"
-      content : "Rapidly diagnose issues in production by collecting traces, metrics, and logs from every part of your application with Dapr's built-in instrumentation using OpenTelemetry."
-      link : "https://docs.dapr.io/concepts/observability-concept/"
+    - name: "Observability"
+      icon: "ti-eye"
+      content: "Rapidly diagnose issues in production by collecting traces, metrics, and logs from every part of your application with Dapr's built-in instrumentation using OpenTelemetry."
+      link: "https://docs.dapr.io/concepts/observability-concept/"
 
-    - name : "Resilient State"
-      icon : "ti-infinite"
-      content : "Build resilient, long running, stateful services with the ability to define strong or eventual consistency, state TTL and the concurrency pattern you need."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
+    - name: "Resilient State"
+      icon: "ti-infinite"
+      content: "Build resilient, long running, stateful services with the ability to define strong or eventual consistency, state TTL and the concurrency pattern you need."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
 
-    - name : "Reliable Actors"
-      icon : "ti-layout-grid4"
-      content : "Dapr virtual actors enable you to build stateful, long running objects that encapsulate code and state and can be massively scaled with demand."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
+    - name: "Reliable Actors"
+      icon: "ti-layout-grid4"
+      content: "Dapr virtual actors enable you to build stateful, long running objects that encapsulate code and state and can be massively scaled with demand."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
 
-    - name : "Resiliency"
-      icon : "ti-back-right"
-      content : "Dapr provides a capability for defining and applying fault tolerance resiliency policies via policy specs. Configure Dapr retries, timeouts, and circuit breakers for any/all APIs. "
-      link : "https://docs.dapr.io/operations/resiliency/resiliency-overview/"
+    - name: "Resiliency"
+      icon: "ti-back-right"
+      content: "Dapr provides a capability for defining and applying fault tolerance resiliency policies via policy specs. Configure Dapr retries, timeouts, and circuit breakers for any/all APIs. "
+      link: "https://docs.dapr.io/operations/resiliency/resiliency-overview/"
 
-    - name : "Message Guarantee"
-      icon : "ti-check-box"
-      content : "Dapr's pub/sub API provides at-least-once message delivery guarantee leveraging the capabilities of the underlying message broker you choose."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
+    - name: "Message Guarantee"
+      icon: "ti-check-box"
+      content: "Dapr's pub/sub API provides at-least-once message delivery guarantee leveraging the capabilities of the underlying message broker you choose."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/"
 
 ##################### Portability ##########################
 portability:
-  enable : true
-  title : "Build portable applications"
-  images :
-      - "images/deploy.gif"
-  content : "Dapr’s component model decouples technology choices from your code making it agnostic to hosting environment and enabling application portability. Dapr runs as a sidecar wherever your application runs whether hosted on Kubernetes, VMs, deployed on the cloud, on-premises or on the edge."
-  button :
-    enable : false
-    label : "Learn more"
-    link : ""
+  enable: true
+  title: "Build portable applications"
+  images:
+    - "images/deploy.gif"
+  content: "Dapr’s component model decouples technology choices from your code making it agnostic to hosting environment and enabling application portability. Dapr runs as a sidecar wherever your application runs whether hosted on Kubernetes, VMs, deployed on the cloud, on-premises or on the edge."
+  button:
+    enable: false
+    label: "Learn more"
+    link: ""
 
 ##################### Adoption ##########################
 adoption:
-  enable : true
-  title : "Incremental adoption for existing applications"
-  images :
-      - "images/adoption.gif"
-  content : "As you evolve your existing applications, adding capabilities or refactoring parts of it, you can integrate Dapr in an incremental way and leverage a subset of capabilities in places that make sense to your existing system. As Dapr sidecars are gradually leveraged across your system, you can choose to use more features at your own pace."
-  button :
-    enable : false
-    label : "Learn more"
-    link : ""
+  enable: true
+  title: "Incremental adoption for existing applications"
+  images:
+    - "images/adoption.gif"
+  content: "As you evolve your existing applications, adding capabilities or refactoring parts of it, you can integrate Dapr in an incremental way and leverage a subset of capabilities in places that make sense to your existing system. As Dapr sidecars are gradually leveraged across your system, you can choose to use more features at your own pace."
+  button:
+    enable: false
+    label: "Learn more"
+    link: ""
 
 ##################### introvideo #########################
 introvideo:
-  enable : true
-  title : "Watch a quick introduction to Dapr"
+  enable: true
+  title: "Watch a quick introduction to Dapr"
   video: "https://www.youtube-nocookie.com/embed/9o9iDAgYBA8"
-  content : "Dapr helps developers build event-driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic."
-  button: 
-    enable : true
-    label : "Learn more about Dapr concepts"
-    link : "https://docs.dapr.io/concepts/"
+  content: "Dapr helps developers build event-driven, resilient distributed applications. Whether on-premises, in the cloud, or on an edge device, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic."
+  button:
+    enable: true
+    label: "Learn more about Dapr concepts"
+    link: "https://docs.dapr.io/concepts/"
 
 ##################### Call to action #####################
 call_to_action:
-  enable : true
-  title : "Ready to get started?"
-  image : "images/app.png"
-  content : "Install Dapr on your local machine and get started in minutes."
+  enable: true
+  title: "Ready to get started?"
+  image: "images/app.png"
+  content: "Install Dapr on your local machine and get started in minutes."
   button:
-    enable : true
-    label : "Get started"
-    link : "https://docs.dapr.io/getting-started/"
+    enable: true
+    label: "Get started"
+    link: "https://docs.dapr.io/getting-started/"
