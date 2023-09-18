@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css" />
     <title>Dapr - Distributed Application</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
       body {
   font-family: "Lato", sans-serif;
@@ -353,6 +354,8 @@ footer .navLink:hover {
   text-align: center;
   border: 1px solid #EAEAEA;
   border-radius: 6px;
+  color: #3EA9F5;
+  font-size: 32px;
 }
 
 .bg-grey-white {
@@ -735,47 +738,79 @@ footer .navLink:hover {
         <div class="flex justify-content-space-between width-80 vertical-align-center padding-bottom-20">
           <div class="width-20">
             <div class="icon-container">
-              <i class="fa fa-share"></i>
+              <iconify-icon icon="fluent:arrow-step-in-right-24-regular"></iconify-icon>
             </div>
             <h3>Service Invocation</h3>
-            <p>Dapr shares immutable data across different systems using shared memory without extra overheads, eliminating the overhead of serialization/deserialization</p>
+            <p>Service invocation enables applications to communicate with each other through well-known endpoints in the form of http or gRPC messages. Dapr provides an endpoint that acts as a combination of a reverse proxy with built-in service discovery, while leveraging built-in distributed tracing and error handling.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"> &gt; Read more about service invocation</a></p>
           </div>
           <div class="width-20">
             <div class="icon-container">
-              <i class="fa fa-envelope"></i>
+              <iconify-icon icon="fluent:mail-copy-24-regular"></iconify-icon>
             </div>
             <h3>Publish Subscribe</h3>
-            <p>Dapr defines a metadata-payload separated data model to capture the payload commonalities and method commonalities between sharable objects</p>
+            <p>Pub/Sub is a loosely coupled messaging pattern where senders (or publishers) publish messages to a topic, to which subscribers subscribe. Dapr supports the pub/sub pattern between applications.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/"> &gt; Read more about publish subscribe</a></p>
           </div>
           <div class="width-20">
             <div class="icon-container">
-              <i class="fa fa-database"></i>
+              <iconify-icon icon="fluent:database-24-regular"></iconify-icon>
             </div>
             <h3>State Management</h3>
-            <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
+            <p>Application state is anything an application wants to preserve beyond a single session. Dapr provides a key/value-based state and query APIs with pluggable state stores for persistence.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/state-management/"> &gt; Read more about state management</a></p>
           </div>
         </div>
         <div class="flex justify-content-space-between width-80 vertical-align-center">
           <div class="width-20">
             <div class="icon-container">
-              <i class="fa fa-th"></i>
+              <iconify-icon icon="fluent:people-team-24-regular"></iconify-icon>
             </div>
             <h3>Actors</h3>
-            <p>Dapr provides common manipulation routines for immutable data as drivers, which extend the capabilities of data structures by registering appropriate drivers</p>
+            <p>An actor is an isolated, independent unit of compute and state with single-threaded execution. Dapr provides an actor implementation based on the virtual actor pattern which provides a single-threaded programming model and where actors are garbage collected when not in use.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/actors/"> &gt; Read more about actors</a></p>
           </div>
           <div class="width-20">
             <div class="icon-container">
-              <i class="fa fa-random"></i>
+              <iconify-icon icon="fluent:flowchart-24-regular"></iconify-icon>
             </div>
             <h3>Workflow</h3>
-            <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
+            <p>The Workflow API enables you to define long running, persistent processes or data flows that span multiple microservices using Dapr workflows or workflow components. The Workflow API can be combined with other Dapr API building blocks.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/workflow/">Read more about workflow.</a></p>
           </div>
           <div class="width-20">
             <div class="icon-container">
-              <i class="fa fa-user-secret"></i>
+              <iconify-icon icon="fluent:key-24-regular"></iconify-icon>
             </div>
             <h3>Secrets</h3>
-            <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
+            <p>Dapr provides a secrets building block API and integrates with secret stores such as public cloud stores, local stores and Kubernetes to store the secrets. Services can call the secrets API to retrieve secrets, for example to get a connection string to a database.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/workflow/"> &gt; Read more about secrets</a></p>
+          </div>
+        </div>
+        <div class="flex justify-content-space-between width-80 vertical-align-center">
+          <div class="width-20">
+            <div class="icon-container">
+              <iconify-icon icon="fluent:settings-cog-multiple-24-regular"></iconify-icon>
+            </div>
+            <h3>Configuration</h3>
+            <p>The Configuration API enables you to retrieve and subscribe to application configuration items for supported configuration stores. This enables an application to retrieve specific configuration information, for example, at start up or when configuration changes are made in the store.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/configuration/"> &gt; Read more about configuration</a></p>
+          </div>
+          <div class="width-20">
+            <div class="icon-container">
+              <iconify-icon icon="fluent:plug-disconnected-24-regular"></iconify-icon>
+            </div>
+            <h3>Bindings</h3>
+            <p>A binding provides a bi-directional connection to an external cloud/on-premise service or system. Dapr allows you to invoke the external service through the Dapr binding API, and it allows your application to be triggered by events sent by the connected service.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/bindings/"> &gt; Read more about bindings</a></p>
+          </div>
+          <div class="width-20">
+            <div class="icon-container">
+              <iconify-icon icon="fluent:table-lock-24-regular"></iconify-icon>
+            </div>
+            <h3>Distributed lock</h3>
+            <p>The distributed lock API enables you to take a lock on a resource so that multiple instances of an application can access the resource without conflicts and provide consistency guarantees.</p>
+            <p><a href="https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/"> &gt; Read more about distributed lock</a></p>
           </div>
         </div>
       </div>
@@ -786,24 +821,27 @@ footer .navLink:hover {
         <div class="flex justify-content-space-between width-80 vertical-align-center">
           <div class="width-20">
             <div class="icon-container">
-              <i class="fa fa-lock"></i>
+              <iconify-icon class="fundamental" icon="fluent:lock-shield-24-regular"></iconify-icon>
             </div>
             <h3>Security</h3>
-            <p>Dapr shares immutable data across different systems using shared memory without extra overheads, eliminating the overhead of serialization/deserialization</p>
+            <p>Dapr provides end-to-end security with the service invocation API, with the ability to authenticate an application with Dapr and set endpoint access policies. For pub/sub components, you can limit which topic types and applications are allowed to publish and subscribe to specific topics.</p>
+            <p><a href="https://docs.dapr.io/concepts/security-concept/"> &gt; Read more about security</a></p>
           </div>
           <div class="width-20">
             <div class="icon-container">
-              <i class="fa fa-eye"></i>
+              <iconify-icon class="fundamental" icon="fluent:heart-pulse-24-regular"></iconify-icon>
             </div>
             <h3>Observability</h3>
-            <p>Dapr defines a metadata-payload separated data model to capture the payload commonalities and method commonalities between sharable objects</p>
+            <p>Dapr can be configured to emit tracing data using the widely adopted protocols of Open Telemetry (OTEL) and Zipkin. This makes it easily integrated with multiple observability tools.</p>
+            <p><a href="https://docs.dapr.io/concepts/observability-concept/"> &gt; Read more about observability</a></p>
           </div>
           <div class="width-20">
             <div class="icon-container">
-              <i class="ti-infinite"></i>
+              <iconify-icon class="fundamental" icon="fluent:arrow-clockwise-24-regular"></iconify-icon>
             </div>
             <h3>Resiliency</h3>
-            <p>Dapr provides efficient distributed data sharing in cloud-native environments by embracing cloud-native big data processing</p>
+            <p>Dapr provides a capability for defining and applying fault tolerance resiliency policies to your application. You can define policies for following resiliency patterns: timeouts, retries/back-offs, circuit breakers. These policies can be applied to any Dapr API calls when calling components with a resiliency spec.</p>
+            <p><a href="https://docs.dapr.io/concepts/resiliency-concept/"> &gt; Read more about resiliency</a></p>
           </div>
         </div>
       </div>
