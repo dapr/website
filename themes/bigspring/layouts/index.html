@@ -270,6 +270,21 @@ footer .navLink:hover {
   font-weight: 300;
 }
 
+#sub-menu {
+  box-shadow: 0px 2px 10px rgba(20,26,31,.15);
+  background-color: rgb(255 255 255 1);
+        color: black;
+        font-weight: bold;
+        padding: 4px 8px;
+        font-size: 13px;
+        border-radius: 4px;
+        display: none;
+      }
+
+      #sub-menu[data-show] {
+        display: block;
+      }
+
 .feature-section {
   padding: 100px 23% 0px;
 }
@@ -451,6 +466,11 @@ footer .navLink:hover {
   .width-100-tablet {
     width: 100%;
   }
+
+  iframe {
+    width: 90%;
+    height: 414px;
+  }
 }
 
 @media only screen and (max-width: 786px) {
@@ -583,11 +603,15 @@ footer .navLink:hover {
   }
 
   iframe {
-    width: 100%;
+    height: 313px;
   }
 
   .padding-top-100-mobile {
     padding-top: 100px;
+  }
+
+  .padding-bottom-20-mobile {
+    padding-bottom: 20px;
   }
 
   .align-self-center-mobile {
@@ -636,10 +660,17 @@ footer .navLink:hover {
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
+        <div id="sub-menu" role="tooltip">
+          <div class="flex flex-column">
+            <p><a href="#" class="navLink">Quickstart</a></p>
+            <p><a href="#" class="navLink">Concepts</a></p>
+            <p><a href="#" class="navLink">Operations</a></p>
+          </div>
+        </div>
         <ul class="flex vertical-align-center" id="navLinkWrapper">
           <li><a href="#" class="navLink">Home</a></li>
           <li><a href="#" class="navLink">Use Cases</a></li>
-          <li><a href="#" class="navLink">Docs</a></li>
+          <li id="navbar-dropdown"><a href="#" class="navLink">Docs</a></li>
           <li><a href="#" class="navLink">Learn</a></li>
           <li><a href="#" class="navLink">Blog</a></li>
           <li><a href="#" class="navLink">Community</a></li>
@@ -776,8 +807,8 @@ footer .navLink:hover {
     <section>
       <div class="padding-bottom-100 font-weight-300">
         <h2 class="text-center padding-bottom-70">Building block APIs</h2>
-        <div class="flex justify-content-space-between width-80 vertical-align-center padding-bottom-20">
-          <div class="width-20">
+        <div class="flex justify-content-space-between width-80 vertical-align-center padding-bottom-20 column-mobile">
+          <div class="width-20 width-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:arrow-step-in-right-24-regular"></iconify-icon>
             </div>
@@ -785,7 +816,7 @@ footer .navLink:hover {
             <p>Service invocation enables applications to communicate with each other through well-known endpoints in the form of http or gRPC messages. Dapr provides an endpoint that acts as a combination of a reverse proxy with built-in service discovery, while leveraging built-in distributed tracing and error handling.</p>
             <p><a href="https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"> &gt; Read more about service invocation</a></p>
           </div>
-          <div class="width-20">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:mail-copy-24-regular"></iconify-icon>
             </div>
@@ -793,7 +824,7 @@ footer .navLink:hover {
             <p>Pub/Sub is a loosely coupled messaging pattern where senders (or publishers) publish messages to a topic, to which subscribers subscribe. Dapr supports the pub/sub pattern between applications.</p>
             <p><a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/"> &gt; Read more about publish subscribe</a></p>
           </div>
-          <div class="width-20">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:database-24-regular"></iconify-icon>
             </div>
@@ -802,8 +833,8 @@ footer .navLink:hover {
             <p><a href="https://docs.dapr.io/developing-applications/building-blocks/state-management/"> &gt; Read more about state management</a></p>
           </div>
         </div>
-        <div class="flex justify-content-space-between width-80 vertical-align-center">
-          <div class="width-20">
+        <div class="flex justify-content-space-between width-80 vertical-align-center column-mobile">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:people-team-24-regular"></iconify-icon>
             </div>
@@ -811,7 +842,7 @@ footer .navLink:hover {
             <p>An actor is an isolated, independent unit of compute and state with single-threaded execution. Dapr provides an actor implementation based on the virtual actor pattern which provides a single-threaded programming model and where actors are garbage collected when not in use.</p>
             <p><a href="https://docs.dapr.io/developing-applications/building-blocks/actors/"> &gt; Read more about actors</a></p>
           </div>
-          <div class="width-20">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:flowchart-24-regular"></iconify-icon>
             </div>
@@ -819,7 +850,7 @@ footer .navLink:hover {
             <p>The Workflow API enables you to define long running, persistent processes or data flows that span multiple microservices using Dapr workflows or workflow components. The Workflow API can be combined with other Dapr API building blocks.</p>
             <p><a href="https://docs.dapr.io/developing-applications/building-blocks/workflow/">Read more about workflow.</a></p>
           </div>
-          <div class="width-20">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:key-24-regular"></iconify-icon>
             </div>
@@ -828,8 +859,8 @@ footer .navLink:hover {
             <p><a href="https://docs.dapr.io/developing-applications/building-blocks/workflow/"> &gt; Read more about secrets</a></p>
           </div>
         </div>
-        <div class="flex justify-content-space-between width-80 vertical-align-center">
-          <div class="width-20">
+        <div class="flex justify-content-space-between width-80 vertical-align-center column-mobile">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:settings-cog-multiple-24-regular"></iconify-icon>
             </div>
@@ -837,7 +868,7 @@ footer .navLink:hover {
             <p>The Configuration API enables you to retrieve and subscribe to application configuration items for supported configuration stores. This enables an application to retrieve specific configuration information, for example, at start up or when configuration changes are made in the store.</p>
             <p><a href="https://docs.dapr.io/developing-applications/building-blocks/configuration/"> &gt; Read more about configuration</a></p>
           </div>
-          <div class="width-20">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:plug-disconnected-24-regular"></iconify-icon>
             </div>
@@ -845,7 +876,7 @@ footer .navLink:hover {
             <p>A binding provides a bi-directional connection to an external cloud/on-premise service or system. Dapr allows you to invoke the external service through the Dapr binding API, and it allows your application to be triggered by events sent by the connected service.</p>
             <p><a href="https://docs.dapr.io/developing-applications/building-blocks/bindings/"> &gt; Read more about bindings</a></p>
           </div>
-          <div class="width-20">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon icon="fluent:table-lock-24-regular"></iconify-icon>
             </div>
@@ -858,9 +889,9 @@ footer .navLink:hover {
     </section>
     <section>
       <div class="padding-top-down-100 font-weight-300">
-        <h2 class="text-center padding-bottom-70">Fundamentals</h2>
-        <div class="flex justify-content-space-between width-80 vertical-align-center">
-          <div class="width-20">
+        <h2 class="text-center padding-bottom-70 padding-bottom-20-mobile">Fundamentals</h2>
+        <div class="flex justify-content-space-between width-80 vertical-align-center column-mobile">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon class="fundamental" icon="fluent:lock-shield-24-regular"></iconify-icon>
             </div>
@@ -868,7 +899,7 @@ footer .navLink:hover {
             <p>Dapr provides end-to-end security with the service invocation API, with the ability to authenticate an application with Dapr and set endpoint access policies. For pub/sub components, you can limit which topic types and applications are allowed to publish and subscribe to specific topics.</p>
             <p><a href="https://docs.dapr.io/concepts/security-concept/"> &gt; Read more about security</a></p>
           </div>
-          <div class="width-20">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon class="fundamental" icon="fluent:heart-pulse-24-regular"></iconify-icon>
             </div>
@@ -876,7 +907,7 @@ footer .navLink:hover {
             <p>Dapr can be configured to emit tracing data using the widely adopted protocols of Open Telemetry (OTEL) and Zipkin. This makes it easily integrated with multiple observability tools.</p>
             <p><a href="https://docs.dapr.io/concepts/observability-concept/"> &gt; Read more about observability</a></p>
           </div>
-          <div class="width-20">
+          <div class="width-20 width-100-mobile padding-top-100-mobile">
             <div class="icon-container">
               <iconify-icon class="fundamental" icon="fluent:arrow-clockwise-24-regular"></iconify-icon>
             </div>
@@ -889,7 +920,7 @@ footer .navLink:hover {
     </section>
     <section class="width-80 vertical-align-center padding-top-down-100">
       <h2 class="text-center padding-top-down-10">Trusted and Adopted by</h2>
-      <div class="flex">
+      <div class="flex column-mobile">
         <div class="img-container-md vertical-align-center">
           <img src="./images/roadwork.png" alt="roadwork logo">
         </div>
@@ -966,6 +997,7 @@ footer .navLink:hover {
     src="https://kit.fontawesome.com/91dde3bebe.js"
     crossorigin="anonymous"
   ></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script>
     const handleToggle = () => {
         const menuToggleNode = document.getElementById("mobile-menu");
@@ -996,5 +1028,62 @@ footer .navLink:hover {
     //     nav.classList.remove("sticky");
     //   }
     // }
+  </script>
+  <script>
+    const button = document.querySelector('#navbar-dropdown');
+    const tooltip = document.querySelector('#sub-menu');
+
+    const popperInstance = Popper.createPopper(button, tooltip, {
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 8],
+          },
+        },
+      ],
+    });
+
+    function show() {
+      // Make the tooltip visible
+      tooltip.setAttribute('data-show', '');
+
+      // Enable the event listeners
+      popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+          ...options.modifiers,
+          { name: 'eventListeners', enabled: true },
+        ],
+      }));
+
+      // Update its position
+      popperInstance.update();
+    }
+
+    function hide() {
+      // Hide the tooltip
+      tooltip.removeAttribute('data-show');
+
+      // Disable the event listeners
+      popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+          ...options.modifiers,
+          { name: 'eventListeners', enabled: false },
+        ],
+      }));
+    }
+
+    const showEvents = ['mouseenter', 'focus'];
+    const hideEvents = ['mouseleave', 'blur'];
+
+    showEvents.forEach((event) => {
+      button.addEventListener(event, show);
+    });
+
+    hideEvents.forEach((event) => {
+      button.addEventListener(event, hide);
+    });
   </script>
 </html>
