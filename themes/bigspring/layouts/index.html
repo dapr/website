@@ -447,9 +447,37 @@ footer .navLink:hover {
   .grid-row-auto {
     grid-auto-rows: minmax(0,1fr);
   }
+
+  .width-100-tablet {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 786px) {
+  .grid-column-auto {
+    grid-template-columns: repeat(1,minmax(0,1fr));
+  }
+
+  .text-justify-mobile {
+    text-align: justify;
+  }
+
+  .text-center-mobile {
+    text-align: center;
+  }
+
+  .column-mobile {
+    flex-direction: column;
+  }
+
+  .column-reverse-mobile {
+    flex-direction: column-reverse;
+  }
+
+  .width-100-mobile {
+    width: 100%;
+  }
+
   .media-section {
     display: none;
   }
@@ -460,6 +488,7 @@ footer .navLink:hover {
 
   .menu-toggle {
     justify-self: end;
+    padding-right: 40px;
   }
 
   nav {
@@ -553,6 +582,18 @@ footer .navLink:hover {
     padding: 50px 5% 50px;
   }
 
+  iframe {
+    width: 100%;
+  }
+
+  .padding-top-100-mobile {
+    padding-top: 100px;
+  }
+
+  .align-self-center-mobile {
+    align-self: center;
+  }
+
   .footer-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -613,7 +654,7 @@ footer .navLink:hover {
       </div>
     </nav>
     <section class="bg-grey-white">
-      <div class="flex justify-content-space-between hero-container">
+      <div class="flex justify-content-space-between hero-container column-mobile">
         <div class="text-denim-blue">
           <h2 class="text-size-large">APIs for building <span class="highlight-hippie-blue">Secure</span> and <span class="highlight-golden">Reliable</span> Microservices</h2>
           <p>Leverage industry best practices and focus on your application's logic.</p>
@@ -622,7 +663,7 @@ footer .navLink:hover {
             <a href="#"><button class="btn-secondary">API Reference</button></a>
           </div>
         </div>
-        <div>
+        <div class="padding-top-100-mobile align-self-center-mobile">
           <img src="./images/image-card.png" alt="image card">
         </div>
       </div>
@@ -699,11 +740,11 @@ footer .navLink:hover {
       </p>
     </section>
     <section>
-      <div class="flex justify-content-space-between padding-top-down-100 width-60 vertical-align-center">
-        <div class="width-60 font-weight-300">
-          <h3>Automate your business processes</h3>
-          <p>Dapr workflow is simplifying complex, stateful coordination requirements in event-driven applications.</p>
-          <p>Workflow makes it easy to implement patterns such as function chaining or aggregate over them in parallel. It support long running processes and has resiliency built-in.</p>
+      <div class="flex justify-content-space-between padding-top-down-100 width-60 vertical-align-center column-reverse-mobile">
+        <div class="width-60 font-weight-300 width-100-mobile">
+          <h3 class="text-center-mobile">Automate your business processes</h3>
+          <p class="text-justify-mobile">Dapr workflow is simplifying complex, stateful coordination requirements in event-driven applications.</p>
+          <p class="text-justify-mobile">Workflow makes it easy to implement patterns such as function chaining or aggregate over them in parallel. It support long running processes and has resiliency built-in.</p>
         </div>
         <div>
           <img src="./images/image-card.png" alt="image card">
@@ -711,10 +752,10 @@ footer .navLink:hover {
       </div>
     </section>
     <section>
-      <div class="flex justify-content-space-between flex-row-reverse padding-top-down-100 width-60 vertical-align-center">
-        <div class="width-60 font-weight-300">
-          <h3>Best practices to build resilient and scalable applications</h3>
-          <p>Modern cloud-native applications are inherently async and react to events. Dapr enables the creation of event-driven applications by providing a common set of APIs across 100+ cloud-native back-ends and brokers. It offers guaranteed message delivery, built-in resiliency, observability and security.</p>
+      <div class="flex justify-content-space-between flex-row-reverse padding-top-down-100 width-60 vertical-align-center column-reverse-mobile">
+        <div class="width-60 font-weight-300 width-100-mobile">
+          <h3 class="text-center-mobile">Best practices to build resilient and scalable applications</h3>
+          <p class="text-justify-mobile">Modern cloud-native applications are inherently async and react to events. Dapr enables the creation of event-driven applications by providing a common set of APIs across 100+ cloud-native back-ends and brokers. It offers guaranteed message delivery, built-in resiliency, observability and security.</p>
         </div>
         <div>
           <img src="./images/image-card.png" alt="image card">
@@ -722,10 +763,10 @@ footer .navLink:hover {
       </div>
     </section>
     <section>
-      <div class="flex justify-content-space-between padding-top-down-100 width-60 vertical-align-center">
-        <div class="width-60 font-weight-300">
-          <h3>Integrate with the infrastructure of your choice</h3>
-          <p>Dapr's component model decouples technology choices from your code making it agnostic to hosting environments and enabling application portability. Dapr runs as a sidecar wherever your application runs whether hosted on Kubernetes, VMs, deployed on the cloud, on-premises or on the edge.</p>
+      <div class="flex justify-content-space-between padding-top-down-100 width-60 vertical-align-center column-reverse-mobile">
+        <div class="width-60 font-weight-300 width-100-mobile">
+          <h3 class="text-center-mobile">Integrate with the infrastructure of your choice</h3>
+          <p class="text-justify-mobile">Dapr's component model decouples technology choices from your code making it agnostic to hosting environments and enabling application portability. Dapr runs as a sidecar wherever your application runs whether hosted on Kubernetes, VMs, deployed on the cloud, on-premises or on the edge.</p>
         </div>
         <div>
           <img src="./images/image-card.png" alt="image card">
