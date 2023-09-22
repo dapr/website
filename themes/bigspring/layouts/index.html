@@ -660,17 +660,17 @@ footer .navLink:hover {
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
-        <div id="sub-menu" role="tooltip">
-          <div class="flex flex-column">
-            <p><a href="#" class="navLink">Quickstart</a></p>
-            <p><a href="#" class="navLink">Concepts</a></p>
-            <p><a href="#" class="navLink">Operations</a></p>
-          </div>
-        </div>
         <ul class="flex vertical-align-center" id="navLinkWrapper">
           <li><a href="#" class="navLink">Home</a></li>
           <li><a href="#" class="navLink">Use Cases</a></li>
-          <li id="navbar-dropdown"><a href="#" class="navLink">Docs</a></li>
+          <li id="navbar-dropdown"><a href="#" class="navLink">Docs</a>
+            <div id="sub-menu" role="tooltip">
+              <div class="flex flex-column">
+                <p><a href="#" class="navLink">Quickstart</a></p>
+                <p><a href="#" class="navLink">Concepts</a></p>
+                <p><a href="#" class="navLink">Operations</a></p>
+              </div>
+            </div></li>
           <li><a href="#" class="navLink">Learn</a></li>
           <li><a href="#" class="navLink">Blog</a></li>
           <li><a href="#" class="navLink">Community</a></li>
@@ -1075,15 +1075,15 @@ footer .navLink:hover {
       }));
     }
 
-    const showEvents = ['mouseenter', 'focus'];
-    const hideEvents = ['mouseleave', 'blur'];
+    const showEvents = ['mouseover'];
+    const hideEvents = ['mouseout'];
 
     showEvents.forEach((event) => {
       button.addEventListener(event, show);
     });
 
     hideEvents.forEach((event) => {
-      button.addEventListener(event, hide);
+      tooltip.addEventListener(event, hide);
     });
   </script>
 </html>
