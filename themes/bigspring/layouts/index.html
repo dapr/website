@@ -453,6 +453,35 @@ footer .navLink:hover {
     border: 0;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-item.is-active .navbar-dropdown, .navbar-item.is-hoverable:focus .navbar-dropdown, .navbar-item.is-hoverable:focus-within .navbar-dropdown, .navbar-item.is-hoverable:hover .navbar-dropdown {
+    display: block;
+}
+
+.navbar-dropdown {
+    background-color: #fff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 8px 8px rgba(10,10,10,.1);
+    display: none;
+    font-size: .875rem;
+    left: 0;
+    min-width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: 20;
+    padding: 0.5rem 5px 0.5rem 20px;
+}
+
+.navbar-dropdown .navbar-item {
+    padding: 0.7rem 0px;
+    white-space: nowrap;
+}
+
 @media only screen and (max-width: 1016px) {
   .grid-column-auto {
     grid-template-columns: repeat(2,minmax(0,1fr));
@@ -663,12 +692,15 @@ footer .navLink:hover {
         <ul class="flex vertical-align-center" id="navLinkWrapper">
           <li><a href="#" class="navLink">Home</a></li>
           <li><a href="#" class="navLink">Use Cases</a></li>
-          <li id="navbar-dropdown"><a href="#" class="navLink">Docs</a>
-            <div id="sub-menu" role="tooltip">
+          <li class="dropdown navbar-item is-hoverable"><a href="#" class="navLink">Docs</a>
+            <span class="icon is-small text-denim-blue">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+            <div class="navbar-dropdown" role="menu">
               <div class="flex flex-column">
-                <p><a href="#" class="navLink">Quickstart</a></p>
-                <p><a href="#" class="navLink">Concepts</a></p>
-                <p><a href="#" class="navLink">Operations</a></p>
+                <a href="#" class="navLink navbar-item">Quickstart</a>
+                <a href="#" class="navLink navbar-item">Concepts</a>
+                <a href="#" class="navLink navbar-item">Operations</a>
               </div>
             </div></li>
           <li><a href="#" class="navLink">Learn</a></li>
@@ -1028,62 +1060,5 @@ footer .navLink:hover {
     //     nav.classList.remove("sticky");
     //   }
     // }
-  </script>
-  <script>
-    const button = document.querySelector('#navbar-dropdown');
-    const tooltip = document.querySelector('#sub-menu');
-
-    const popperInstance = Popper.createPopper(button, tooltip, {
-      modifiers: [
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 8],
-          },
-        },
-      ],
-    });
-
-    function show() {
-      // Make the tooltip visible
-      tooltip.setAttribute('data-show', '');
-
-      // Enable the event listeners
-      popperInstance.setOptions((options) => ({
-        ...options,
-        modifiers: [
-          ...options.modifiers,
-          { name: 'eventListeners', enabled: true },
-        ],
-      }));
-
-      // Update its position
-      popperInstance.update();
-    }
-
-    function hide() {
-      // Hide the tooltip
-      tooltip.removeAttribute('data-show');
-
-      // Disable the event listeners
-      popperInstance.setOptions((options) => ({
-        ...options,
-        modifiers: [
-          ...options.modifiers,
-          { name: 'eventListeners', enabled: false },
-        ],
-      }));
-    }
-
-    const showEvents = ['mouseover'];
-    const hideEvents = ['mouseout'];
-
-    showEvents.forEach((event) => {
-      button.addEventListener(event, show);
-    });
-
-    hideEvents.forEach((event) => {
-      tooltip.addEventListener(event, hide);
-    });
   </script>
 </html>
