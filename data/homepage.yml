@@ -1,14 +1,31 @@
-####################### Banner #########################
-banner:
-  title : "APIs for building portable and reliable microservices"
-  image : "images/banner-image.png"
-  background_image : "images/bg-hexa-light.png"
-  video : "https://www.youtube-nocookie.com/embed/9o9iDAgYBA8"
-  content : "Leverage industry best practices and focus on your application’s logic."
-  button:
-    enable : true
-    label : "Get started"
-    link : "https://docs.dapr.io/getting-started/"
+####################### Case study #########################
+caseStudy:
+  enable : true
+  stories:
+    - name : "At-Bay"
+      title: "How At-Bay improved operations with Dapr."
+      image : "images/atbay.png"
+      content : "At-Bay uses Dapr to better analyze its processes by offering increased visibility and traceability because of the built-in support of Dapr for the OpenTelemetry standard."
+      link : "https://www.cncf.io/case-studies/at-bay/"
+
+    - name : "Bosch"
+      title: "Bosch’s Residential IoT Services GmbH (RIoT) uses Dapr actors and Java SDK to build a large scale smart home IoT solution."
+      image : "images/bosch.png"
+      content : "We used the Dapr SDK to publish events, which gave us the time to focus on what we wanted to communicate, instead of, ‘How do I get this communication implemented?’ We could focus on the real things that matter."
+      link : "https://customers.microsoft.com/en-us/story/1435725395247777374-bosch-builds-smart-homes-using-dapr-azure"
+
+    - name : "Wortell"
+      title: "Wortell reduced infrastructure complexity with Dapr."
+      image : "images/wortell.png"
+      content : "The team were able to remove several software packages and a considerable amount of code from all of their microservices. Plus adopting Dapr APIs from the .NET SDK allowed them to offload dealing with the infrastructure integration and async inter-process communication to the Dapr runtime."
+      link : "https://www.cncf.io/case-studies/wortell/"
+
+    - name : "Alibaba"
+      title: "See how at Alibaba Cloud, Dapr is used to solve challenges of multi-language systems, integration with legacy systems, and cloud-to-cloud migration."
+      image : "images/alibaba.png"
+      content : "At Alibaba Cloud, we believe Dapr will lead the evolution of microservices. By adopting Dapr, our customers now enjoy increased velocity for building portable and robust distributed systems."
+      link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
+    
     
 ##################### News #########################
 news:
@@ -22,26 +39,20 @@ adopters:
   enable : true
   link : "testimonials"
   logos :
-    - image: "images/bosch.png"
-      width: "100px"
-    - image: "images/zeiss.png"
-      width: "50px"
-    - image: "images/alibaba.png"
-      width: "75px"
-    - image: "images/ignition-group.png"
-      width: "100px"
     - image: "images/roadwork.png"
-      width: "100px"        
+      name: "Roadwork"        
     - image: "images/autonavi.png"
-      width: "75px"
+      name: "Auto navi"
     - image: "images/legentic.png"
-      width: "75px"
-    - image: "images/man-group.png"
-      width: "60px"
+      name: "Legentic"
+    - image: "images/alibaba.png"
+      name: "Alibaba"
+    - image: "images/zeiss.png"
+      name: "Zeiss"
     - image: "images/atbay.png"
-      width: "60px"
-    - image: "images/wortell.png"
-      width: "60px"
+      name: "At Bay"
+    - image: "images/man-group.png"
+      name: "Man group"
 
 
 ##################### Main ##########################
