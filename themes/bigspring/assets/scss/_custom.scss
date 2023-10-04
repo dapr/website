@@ -215,6 +215,16 @@ footer .navLink:hover {
         width: 90%;
         height: 414px;
    }
+
+   .img-container-fullwidth-mobile {
+    width: 90%;
+    height: 500px;
+    object-fit: contain;
+}
+    .img-container-fullwidth-mobile > img {
+        width: 100%;
+        height: 100%;
+    }
 }
 @media only screen and (max-width: 786px) {
    /* grid */
@@ -245,6 +255,9 @@ footer .navLink:hover {
     .align-self-center-mobile {
         align-self: center;
    }
+   .width-80-mobile {
+        width: 80%;
+    }
     .width-100-mobile {
         width: 100%;
    }
