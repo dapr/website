@@ -1,6 +1,6 @@
 {{ "<!-- navigation -->" | safeHTML }}
 <nav>
-  <div class="flex navbar justify-content-space-between align-items-center">
+  <div class="flex navbar justify-content-space-evenly align-items-center">
     <div class="logo">
       {{ with site.Params.logo}}
       <a href="#"><img src="{{ . | absURL }}" alt="{{ site.Title }}" /></a>
@@ -32,6 +32,7 @@
       {{ end }}
     </ul>
     <div class="flex media-section">
+      <div><a class="highlight-orange" href="https://bit.ly/dapr-discord">Join our Discord</a></div>
       {{ range site.Menus.media }}
       <a href="{{ .URL | absURL }}" class="text-black"><i class="fab fa-{{ .Name }}"></i></a>
       {{ end }}

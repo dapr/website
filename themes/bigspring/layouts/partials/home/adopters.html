@@ -1,8 +1,8 @@
 {{ if site.Data.homepage.adopters.enable }}
 {{ with site.Data.homepage.adopters }}
-<section class="width-80 vertical-align-center padding-top-down-100">
+<section class="width-80 vertical-align-center padding-top-down-50">
     <h2 class="text-center padding-top-down-10">Trusted and Adopted by</h2>
-    <div class="flex column-mobile">
+    <div id="adopters" class="flex column-mobile">
     {{ range .logos }}
       <div class="img-container-md vertical-align-center">
         <img src="{{ .image | absURL }}" alt="{{ .name }} logo">

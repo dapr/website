@@ -9,7 +9,9 @@
         </div>
         <div class="border-decoration">
           <p>{{ .title }}</p>
+          {{ if .content }}
           <p class="italic">"{{ .content }}"</p>
+          {{ end }}
         </div>
         <div class="flex padding-top-down-10 gap-xsm">
           <a href="{{ .link | absURL }}">Read the article</a>

@@ -2,30 +2,41 @@
 caseStudy:
   enable : true
   stories:
+    - name : "HDFC Bank"
+      title: "Handling millions of transactions efficiently with Dapr."
+      image : "images/adoptedby/hdfcbank.png"
+      content :
+      link : "https://www.cncf.io/case-studies/at-bay/"
+
+    - name : "DeFacto"
+      title: "How DeFacto migrated to an event-driven architecture with Dapr."
+      image : "images/adoptedby/defacto.png"
+      content :
+      link : "https://www.cncf.io/case-studies/at-bay/"
+    
     - name : "At-Bay"
       title: "How At-Bay improved operations with Dapr."
       image : "images/atbay.png"
-      content : "At-Bay uses Dapr to better analyze its processes by offering increased visibility and traceability because of the built-in support of Dapr for the OpenTelemetry standard."
+      content :
       link : "https://www.cncf.io/case-studies/at-bay/"
 
     - name : "Bosch"
       title: "Bosch’s Residential IoT Services GmbH (RIoT) uses Dapr actors and Java SDK to build a large scale smart home IoT solution."
       image : "images/bosch.png"
-      content : "We used the Dapr SDK to publish events, which gave us the time to focus on what we wanted to communicate, instead of, ‘How do I get this communication implemented?’ We could focus on the real things that matter."
+      content :
       link : "https://customers.microsoft.com/en-us/story/1435725395247777374-bosch-builds-smart-homes-using-dapr-azure"
 
-    - name : "Wortell"
-      title: "Wortell reduced infrastructure complexity with Dapr."
-      image : "images/wortell.png"
-      content : "The team were able to remove several software packages and a considerable amount of code from all of their microservices. Plus adopting Dapr APIs from the .NET SDK allowed them to offload dealing with the infrastructure integration and async inter-process communication to the Dapr runtime."
-      link : "https://www.cncf.io/case-studies/wortell/"
+    # - name : "Wortell"
+    #   title: "Wortell reduced infrastructure complexity with Dapr."
+    #   image : "images/wortell.png"
+    #   content : 
+    #   link : "https://www.cncf.io/case-studies/wortell/"
 
-    - name : "Alibaba"
-      title: "See how at Alibaba Cloud, Dapr is used to solve challenges of multi-language systems, integration with legacy systems, and cloud-to-cloud migration."
-      image : "images/alibaba.png"
-      content : "At Alibaba Cloud, we believe Dapr will lead the evolution of microservices. By adopting Dapr, our customers now enjoy increased velocity for building portable and robust distributed systems."
-      link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
-    
+    # - name : "Alibaba"
+    #   title: "See how at Alibaba Cloud, Dapr is used to solve challenges of multi-language systems, integration with legacy systems, and cloud-to-cloud migration."
+    #   image : "images/alibaba.png"
+    #   content : 
+    #   link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
     
 ##################### News #########################
 news:
@@ -39,19 +50,39 @@ adopters:
   enable : true
   link : "testimonials"
   logos :
-    - image: "images/roadwork.png"
-      name: "Roadwork"        
-    - image: "images/autonavi.png"
-      name: "Auto navi"
-    - image: "images/legentic.png"
-      name: "Legentic"
-    - image: "images/alibaba.png"
-      name: "Alibaba"
-    - image: "images/zeiss.png"
+    - image: "images/adoptedby/ibm.png"
+      name: "IBM"
+    - image: "images/adoptedby/zeiss.png"
       name: "Zeiss"
-    - image: "images/atbay.png"
+    - image: "images/adoptedby/nasa.png"
+      name: "NASA"
+    - image: "images/adoptedby/intel.png"
+      name: "Intel"
+    - image: "images/adoptedby/zscaler.png"
+      name: "Zscaler"
+    - image: "images/adoptedby/alibaba.png"
+      name: "Alibaba"
+    - image: "images/adoptedby/bosch.png"
+      name: "Bosch"
+    - image: "images/adoptedby/microsoft.png"
+      name: "Microsoft"
+    - image: "images/adoptedby/wortell.png"
+      name: "Wortell"
+    - image: "images/adoptedby/fujitsu.png"
+      name: "Fujitsu"
+    - image: "images/adoptedby/hdfcbank.png"
+      name: "HDFC Bank"
+    - image: "images/adoptedby/defacto.png"
+      name: "DeFactor"
+    - image: "images/adoptedby/roadwork.png"
+      name: "Roadwork"
+    - image: "images/adoptedby/autonavi.png"
+      name: "Auto navi"
+    - image: "images/adoptedby/legentic.png"
+      name: "Legentic"
+    - image: "images/adoptedby/atbay.png"
       name: "At Bay"
-    - image: "images/man-group.png"
+    - image: "images/adoptedby/man-group.png"
       name: "Man group"
 
 

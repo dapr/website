@@ -14,6 +14,10 @@
     margin-top: 100%;
 }
 
+.joindiscord {
+    color: #FF4E00;
+}
+
 /* images */
 .img-container {
     width: 300px;
@@ -22,8 +26,8 @@
     margin: 0 auto;
 }
 .img-container-md {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
 }
 .img-container-md > img {
@@ -35,7 +39,7 @@ footer .navLink {
     color: white;
 }
 footer .navLink:hover {
-    color: #202192;
+    color: #efca08;
 }
 .footer {
     padding: 50px 20% 50px;
@@ -54,7 +58,20 @@ footer .navLink:hover {
 /* flexbox */
 .flex {
     display: flex;
+    justify-content: center;
 }
+
+#adopters.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+
+#adopters>.img-container-md {
+    width: 150px;
+    height: 150px;
+}
+
 .flex-column {
     flex-direction: column;
 }
@@ -67,8 +84,8 @@ footer .navLink:hover {
 .vertical-align-center {
     margin: 0 auto;
 }
-.justify-content-space-between {
-    justify-content: space-between;
+.justify-content-space-evenly {
+    justify-content: space-evenly;
 }
 .justify-content-center {
     justify-content: center;
@@ -96,12 +113,25 @@ footer .navLink:hover {
     background-color: #489fb5;
     color: white;
     padding: 0 10px;
+    border-radius: 5px;
 }
 .highlight-golden {
     background-color: #efca08;
     color: white;
     padding: 0 10px;
+    border-radius: 5px;
 }
+.highlight-orange {
+    background-color: #ff4e00;
+    color: white;
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+.highlight-orange:hover {
+    background-color: white;
+    color: #ff4e00;
+}
+
 /* spacing */
 .padding-left-6 {
     padding-left: 6px;
@@ -127,11 +157,11 @@ footer .navLink:hover {
 .padding-bottom-70 {
     padding-bottom: 70px;
 }
-.padding-top-down-100 {
-    padding: 100px 0 100px;
+.padding-top-down-50 {
+    padding: 50px 0 50px;
 }
-.padding-bottom-100 {
-    padding-bottom: 100px;
+.padding-bottom-50 {
+    padding-bottom: 50px;
 }
 .width-20 {
     width: 20%;
@@ -152,7 +182,7 @@ footer .navLink:hover {
 }
 .hero-container {
     width: 80%;
-    padding: 100px 0 100px;
+    padding: 50px 0 50px;
     margin: 0 auto;
 }
 .hero-text {
