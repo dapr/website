@@ -84,6 +84,9 @@ footer .navLink:hover {
 .flex-row-reverse {
     flex-direction: row-reverse;
 }
+.flex-wrap {
+    flex-wrap: wrap;
+}
 .align-items-center {
     align-items: center;
 }
@@ -93,14 +96,23 @@ footer .navLink:hover {
 .justify-content-space-evenly {
     justify-content: space-evenly;
 }
+.justify-content-space-between {
+    justify-content: space-between;
+}
 .justify-content-center {
     justify-content: center;
+}
+.gap-xsm {
+    gap: 10px;
 }
 .gap-sm {
     gap: 20px;
 }
-.gap-xsm {
-    gap: 10px;
+.gap-md {
+    gap: 100px;
+}
+.row-gap-20 {
+    row-gap: 20px;
 }
 /* grid */
 .grid {
@@ -171,6 +183,9 @@ footer .navLink:hover {
 }
 .width-20 {
     width: 20%;
+}
+.width-40 {
+    width: 40%;
 }
 .width-50 {
     width: 50%;
@@ -293,6 +308,9 @@ footer .navLink:hover {
    }
    .width-80-mobile {
         width: 80%;
+    }
+    .width-90-mobile {
+        width: 90%;
     }
     .width-100-mobile {
         width: 100%;
