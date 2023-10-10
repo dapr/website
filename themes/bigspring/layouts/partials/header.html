@@ -3,7 +3,7 @@
   <div class="flex navbar justify-content-space-between align-items-center">
     <div class="logo">
       {{ with site.Params.logo}}
-      <a href="#"><img src="{{ . | absURL }}" alt="{{ site.Title }}" /></a>
+      <a href="{{ site.BaseURL }}"><img src="{{ . | absURL }}" alt="{{ site.Title }}" /></a>
       {{ else }}{{site.Title}}{{end}}
     </div>
     <div class="menu-toggle" id="mobile-menu" onClick="handleToggle()">

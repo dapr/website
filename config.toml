@@ -92,7 +92,7 @@ weight = 1
 
 [[menu.main]]
 name = "Case studies"
-URL = "https://dapr.io/testimonials/"
+URL = "/testimonials/"
 parent = "News & Media"
 weight = 2
 
@@ -145,7 +145,7 @@ weight = 1
 
 [[menu.footer_column3]]
 name = "Case studies"
-URL = "https://dapr.io/testimonials/"
+URL = "/testimonials/"
 weight = 2
 
 [[menu.footer_column3]]
