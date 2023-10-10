@@ -205,10 +205,6 @@ footer_menu_column1 = "Learn"
 footer_menu_column2 = "Community"
 footer_menu_column3 = "News & Media"
 footer_menu_column4 = "Legal"
-footer_content = "APIs for building portable and reliable microservices"
-authors = "Dapr Authors "
-copyright = "The Linux Foundation ®. All rights reserved."
-trademark = "The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/trademark-usage/)."
 
 # Preloader
 [params.preloader]
