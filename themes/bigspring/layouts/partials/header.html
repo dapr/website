@@ -1,46 +1,42 @@
 {{ "<!-- navigation -->" | safeHTML }}
-<header class="navigation">
-  <div class="container">
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-      <a class="navbar-brand" href="{{ site.BaseURL }}">
-        {{ with site.Params.logo}}
-        <img width="{{site.Params.logo_width}}" class="img-fluid" src="{{ . | absURL }}" alt="{{ site.Title }}">
-        {{ else }}{{site.Title}}{{end}}
-      <a>
-      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
-        <i class="ti-menu"></i>
-      </button>
-
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav mx-auto">
-          {{ range site.Menus.main }}
-          {{ if .HasChildren }}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-              {{ .Name }}
-            </a>
-            <div class="dropdown-menu">
-              {{ range .Children }}
-              <a class="dropdown-item" href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return true;">{{ .Name }}</a>
-              {{ end }}
+<nav>
+  <div class="flex navbar justify-content-space-between align-items-center">
+    <div class="logo">
+      {{ with site.Params.logo}}
+      <a href="{{ site.BaseURL }}"><img src="{{ . | absURL }}" alt="{{ site.Title }}" /></a>
+      {{ else }}{{site.Title}}{{end}}
+    </div>
+    <div class="menu-toggle" id="mobile-menu" onClick="handleToggle()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="flex vertical-align-center list-style-none" id="navLinkWrapper">
+      {{ range site.Menus.main }}
+        {{ if .HasChildren }}
+          <li class="dropdown navbar-item is-hoverable padding-left-right-20"><span href="#" class="navLink">{{ .Name }}</span>
+            <span class="icon is-small text-denim-blue">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+            <div class="navbar-dropdown" role="menu">
+              <div class="flex flex-column">
+                {{ range .Children }}
+                <a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink navbar-item">{{ .Name }}</a>
+                {{ end }}
+              </div>
             </div>
           </li>
-          {{ else }}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return true;">{{ .Name }}</a>
-          </li>
-          {{ end }}
-          {{ end }}
-        </ul>        
-        <a class="github-button ml-3" href="https://github.com/dapr/dapr" target="_blank" onclick="captureOutboundLink('https://github.com/dapr/dapr'); return true;" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star dapr/dapr on GitHub">Star</a>
-        {{ if site.Params.navigation_button.enable }}
-        {{ with site.Params.navigation_button }}
-        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return true;" class="btn btn-sm btn-primary ml-3">{{ .label }}</a>
+        {{ else }}
+          <li class="padding-left-right-20"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
         {{ end }}
-        {{ end }}
-      </div>
-    </nav>
+      {{ end }}
+    </ul>
+    <div class="flex media-section">
+      <div><a class="highlight-orange" href="https://bit.ly/dapr-discord">Join our Discord</a></div>
+      {{ range site.Menus.media }}
+      <a href="{{ .URL | absURL }}" class="text-black"><i class="fab fa-{{ .Name }}"></i></a>
+      {{ end }}
+    </div>
   </div>
-</header>
+</nav>
 {{ "<!-- /navigation -->" | safeHTML }}

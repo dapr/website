@@ -1,24 +1,53 @@
-.nav-item {
-  margin: 0;
-
-  .nav-link {
-    text-transform: capitalize;
-    font-weight: 400;
-  }
+/* nav styles */
+nav {
+  background: #fff;
+  position: sticky;
 }
-
-.navbar-light .navbar-nav .nav-link {
-  color: $text-color-dark;
-
-  &:hover {
-    color: $primary-color;
-  }
+nav i {
+  padding: 0 10px;
 }
-
-.navbar-expand-lg .navbar-nav .nav-link {
-  padding: 20px;
-
-  @include desktop {
-    padding: 10px;
-  }
+.navbar {
+  padding: 30px 9%;
+  max-width: 1960px;
+  margin: 0 auto;
+}
+.navLink {
+  color: #202192;
+}
+.navLink:hover {
+  color: rgba(32, 34, 146, 0.286);
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.navbar-item.is-active .navbar-dropdown, .navbar-item.is-hoverable:focus .navbar-dropdown, .navbar-item.is-hoverable:focus-within .navbar-dropdown, .navbar-item.is-hoverable:hover .navbar-dropdown {
+  display: block;
+}
+.navbar-dropdown {
+  background-color: #fff;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);
+  display: none;
+  font-size: 0.875rem;
+  left: 0;
+  min-width: 100%;
+  position: absolute;
+  top: 100%;
+  z-index: 20;
+  padding: 0.5rem 5px 0.5rem 20px;
+}
+.navbar-dropdown .navbar-item {
+  padding: 0.7rem 0px;
+  white-space: nowrap;
+}
+.logo {
+  width: 140px;
+  height: 40px;
+  object-fit: contain;
+}
+.logo > a > img {
+  max-width: 100%;
+  max-height: 100%;
 }

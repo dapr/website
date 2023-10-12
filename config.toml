@@ -20,8 +20,6 @@ unsafe = true
 
 # CSS Plugins
 [[params.plugins.css]]
-link = "plugins/bootstrap/bootstrap.min.css"
-[[params.plugins.css]]
 link = "plugins/themify-icons/themify-icons.css"
 [[params.plugins.css]]
 link = "plugins/slick/slick.css"
@@ -30,8 +28,6 @@ link = "plugins/slick/slick.css"
 [[params.plugins.js]]
 link = "plugins/jQuery/jquery.min.js"
 [[params.plugins.js]]
-link = "plugins/bootstrap/bootstrap.min.js"
-[[params.plugins.js]]
 link = "plugins/slick/slick.min.js"
 
 
@@ -39,86 +35,158 @@ link = "plugins/slick/slick.min.js"
 
 # main menu
 [[menu.main]]
-name = "Home"
-URL = "#"
+name = "Docs"
+URL = "https://docs.dapr.io/"
 weight = 1
 
 [[menu.main]]
-name = "Case Studies"
-URL = "testimonials"
+name = "Learn"
+identifier = "learn"
 weight = 2
 
 [[menu.main]]
-name = "Docs"
-URL = "https://docs.dapr.io/"
+name = "Concepts"
+URL = "https://docs.dapr.io/concepts/"
+parent = "learn"
+weight = 1
+
+[[menu.main]]
+name = "Getting Started"
+URL = "https://docs.dapr.io/getting-started/"
+parent = "learn"
+weight = 2
+
+[[menu.main]]
+name = "Quickstarts"
+URL = "https://docs.dapr.io/getting-started/quickstarts/"
+parent = "learn"
 weight = 3
-
-[[menu.main]]
-name = "Blog"
-URL = "https://blog.dapr.io/posts"
-weight = 4
-
-[[menu.main]]
-name = "GitHub"
-URL = "https://github.com/dapr"
-weight = 5
-
-[[menu.main]]
-name = "Discord"
-URL = "https://aka.ms/dapr-discord"
-weight = 6
 
 [[menu.main]]
 name = "Community"
+identifier = "community"
+weight = 3
+
+[[menu.main]]
+name = "GitHub"
 URL = "https://github.com/dapr/community"
-weight = 7
+parent = "community"
+weight = 1
+
+[[menu.main]]
+name = "Discord"
+URL = "http://bit.ly/dapr-discord"
+parent = "community"
+weight = 2
+
+[[menu.main]]
+name = "News & Media"
+identifier = "News & Media"
+weight = 4
+
+[[menu.main]]
+name = "Blog"
+URL = "https://blog.dapr.io/posts"
+parent = "News & Media"
+weight = 1
+
+[[menu.main]]
+name = "Case studies"
+URL = "/testimonials/"
+parent = "News & Media"
+weight = 2
+
+[[menu.main]]
+name = "Logos"
+URL = "https://github.com/cncf/artwork/blob/master/examples/incubating.md#dapr-logos"
+parent = "News & Media"
+weight = 3
+
+[[menu.main]]
+name = "Enterprise"
+URL = "#"
+weight = 5
 
 [[menu.main]]
 name = "中国社区"
 URL = "https://cn.dapr.io"
-weight = 8
+weight = 6
 
-# footer menu left
-[[menu.footer_left]]
-name = "How to contribute"
-URL = "https://docs.dapr.io/contributing/"
+# footer menu
+[[menu.footer_column1]]
+name = "Concepts"
+URL = "https://docs.dapr.io/concepts/"
 weight = 1
 
-[[menu.footer_left]]
-name = "GitHub"
-URL = "https://github.com/dapr"
+[[menu.footer_column1]]
+name = "Getting Started"
+URL = "https://docs.dapr.io/getting-started/"
 weight = 2
 
-# footer menu middle
-[[menu.footer_middle]]
+[[menu.footer_column1]]
+name = "Quickstarts"
+URL = "https://docs.dapr.io/getting-started/quickstarts/"
+weight = 3
+
+[[menu.footer_column2]]
+name = "GitHub"
+URL = "https://github.com/dapr/community"
+weight = 1
+
+[[menu.footer_column2]]
+name = "Discord"
+URL = "http://bit.ly/dapr-discord"
+weight = 2
+
+[[menu.footer_column3]]
 name = "Blog"
 URL = "https://blog.dapr.io/posts"
 weight = 1
 
-[[menu.footer_middle]]
-name = "Docs"
-URL = "https://docs.dapr.io/"
+[[menu.footer_column3]]
+name = "Case studies"
+URL = "/testimonials/"
 weight = 2
 
-# footer menu right
-[[menu.footer_right]]
-name = "Community calls"
-URL = "https://github.com/dapr/community#community-meetings"
-weight = 1
-
-[[menu.footer_right]]
-name = "Discord"
-URL = "https://aka.ms/dapr-discord"
-weight = 2
-
-[[menu.footer_right]]
-name = "Twitter"
-URL = "https://twitter.com/daprdev"
+[[menu.footer_column3]]
+name = "Logos"
+URL = "https://github.com/cncf/artwork/blob/master/examples/incubating.md#dapr-logos"
 weight = 3
 
-[[menu.footer_right]]
-name = "中国社区"
-URL = "https://cn.dapr.io"
+[[menu.footer_column4]]
+name = "Terms"
+URL = "https://www.linuxfoundation.org/legal/terms"
+weight = 1
+
+[[menu.footer_column4]]
+name = "Privacy"
+URL = "https://www.linuxfoundation.org/legal/privacy-policy"
+weight = 2
+
+[[menu.footer_column4]]
+name = "Trademarks"
+URL = "https://www.linuxfoundation.org/legal/trademark-usage"
+weight = 3
+
+# menu media
+[[menu.media]]
+name = "discord"
+URL = "https://bit.ly/dapr-discord"
+weight = 1
+
+[[menu.media]]
+name = "twitter"
+URL = "https://twitter.com/daprdev"
+weight = 2
+
+[[menu.media]]
+name = "github"
+URL = "https://github.com/dapr"
+weight = 3
+
+[[menu.media]]
+name = "youtube"
+URL = "https://www.youtube.com/@daprdev"
 weight = 4
 
 #################### default parameters ################################
@@ -133,13 +201,10 @@ author = "Dapr Maintainers"
 contact_form_action = "#" # contact form works with https://formspree.io
 
 ########### footer content ##########
-footer_menu_right = "Community"
-footer_menu_middle = "Resources"
-footer_menu_left = "Contribute"
-footer_content = "APIs for building portable and reliable microservices"
-authors = "Dapr Authors "
-copyright = "The Linux Foundation ®. All rights reserved."
-trademark = "The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/trademark-usage/)."
+footer_menu_column1 = "Learn"
+footer_menu_column2 = "Community"
+footer_menu_column3 = "News & Media"
+footer_menu_column4 = "Legal"
 
 # Preloader
 [params.preloader]
@@ -151,25 +216,3 @@ preloader = "" # use jpg, png, svg or gif format.
 enable = false
 label = "Get started"
 link = "https://docs.dapr.io/getting-started/"
-
-  
-############################# social site ########################
-[[params.social]]
-title = "discord"
-icon = "ti-comments" # themify icon : https://themify.me/themify-icons
-link = "http://aka.ms/dapr-discord"
-
-[[params.social]]
-title = "twitter"
-icon = "ti-twitter-alt" # themify icon : https://themify.me/themify-icons
-link = "https://twitter.com/daprdev"
-
-[[params.social]]
-title = "github"
-icon = "ti-github" # themify icon : https://themify.me/themify-icons
-link = "https://github.com/dapr"
-
-[[params.social]]
-title = "youtube"
-icon = "ti-youtube" # themify icon : https://themify.me/themify-icons
-link = "https://www.youtube.com/channel/UCtpSQ9BLB_3EXdWAUQYwnRA"

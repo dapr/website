@@ -3,22 +3,23 @@
 {{ partial "page-header.html" . }}
 
 {{ with .Params }}
-<section class="section bg-light">
-  <div class="container">
-    <div class="row justify-content-center">     
+<section class="bg-light">
+  <div class="width-80 vertical-align-center">
+    <div class="grid grid-column-auto grid-row-auto padding-top-40">
       {{ range .adopters }}
-      <div class="col-md-6 col-sm-6 mb-4">
-        <div class="feature-card bg-body text-center">
-            <img src="{{ .logo | absURL }}" class="img-fluid mx-auto" width="200px">
-            <p>{{ .summary | markdownify }}</p>         
-            <p><i>"{{ .quote | markdownify }}"</i></p>    
-            <p>{{ .person | markdownify }}</p>
-            {{ if .cta.enable }}
-            <a href="{{ .cta.link | absURL }}" onclick="captureOutboundLink('{{ .cta.link | absURL }}'); return false;" class="stretched-link"><b>{{ .cta.label }}</b></a>
-            {{end}}
+      <div class="feature-card">
+        <div class="img-container-md">
+          <img src="{{ .logo | absURL }}" alt="{{ .summary | markdownify }}">
+        </div>
+        <div class="border-decoration">
+          <p>{{ .summary | markdownify }}</p>
+          <p class="italic">"{{ .quote | markdownify }}"</p>
+        </div>
+        <div class="flex padding-top-down-10 gap-xsm">
+          <a href="{{ .cta.link | absURL }}">Read the story</a>
         </div>
       </div>
-      {{ end }}
+    {{ end }}
     </div>
   </div>
 </section>
@@ -26,21 +27,14 @@
 
 <!-- panel -->
 {{ with .Params.panel }}
-<section class="section bg-light">
-  <div class="container">        
-      <div class="row justify-content-center">
-        <h2 class="section-title">{{ .title | title }}</h2>
-        {{with .video}}
-        <div class="col-10">
-          <div class="shadow">
-            <div class="embed-responsive mt-3 embed-responsive-16by9 ">
-              <iframe class="embed-responsive-item shadow" src="{{ . | safeURL }}" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-        {{end}}
-        </div>
-      </div>    
+<section class="bg-light padding-top-80">
+  <div class="padding-bottom-20">
+    <h2 class="text-center">{{ .title | title }}</h2>
+    {{with .video}}
+    <div class="text-center">
+      <iframe width="860" height="515" src="{{ . | safeURL }}" title="YouTube video player" class="iframe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    {{end}}
   </div>
 </section>
 {{ end }}
@@ -49,17 +43,17 @@
 <!-- call to action -->
 {{ with .Params.cta }}
 <section class="section">
-  <div class="container section shadow border rounded-lg px-4">
-    <div class="row align-items-center justify-content-center text-center text-md-left">
-      <div class="col-lg-4 col-md-5 mb-4 mb-md-0">
+  <div class="feature-card width-60 vertical-align-center width-80-mobile">
+    <div class="flex align-items-center justify-content-center gap-md column-mobile">
+      <div>
         <img src="{{ .image | absURL }}" class="img-fluid" width="200px">
       </div>
-      <div class="col-lg-5 col-md-6">
-        <h2 class="section-title">{{ .title | markdownify }}</h2>
+      <div class="text-center-mobile">
+        <h2>{{ .title | markdownify }}</h2>
         {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-primary stretched-link">{{ .label }}</a>
+        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-primary stretched-link"><button class="btn-primary btn-md">{{ .label }}</button></a>
         {{ end }}
         {{ end }}
       </div>

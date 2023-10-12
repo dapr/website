@@ -1,54 +1,48 @@
-<footer class="bg-light section pb-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-sm-6 mb-5">
-        {{ if site.Menus.footer_left }}
-        <div class="h3 mb-4">{{ site.Params.footer_menu_left }}</div>
-        <ul class="list-unstyled footer-list">
-          {{ range site.Menus.footer_left }}
-          <li><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;">{{ .Name }}</a></li>
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
-      <div class="col-md-3 col-sm-6 mb-5">
-        {{ if site.Menus.footer_middle }}
-        <div class="h3 mb-4">{{ site.Params.footer_menu_middle }}</div>
-        <ul class="list-unstyled footer-list">
-          {{ range site.Menus.footer_middle }}
-          <li><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;">{{ .Name }}</a></li>
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
-      <div class="col-md-3 col-sm-6 mb-5">
-        {{ if site.Menus.footer_right }}
-        <div class="h3 mb-4">{{ site.Params.footer_menu_right }}</div>
-        <ul class="list-unstyled footer-list">
-          {{ range site.Menus.footer_right }}
-          <li><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;">{{ .Name }}</a></li>
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
-      <div class="col-md-3 col-sm-6 mb-5">
-        <a class="d-block mb-3" href="{{ site.BaseURL }}"><img width="{{site.Params.logo_width}}" class="img-fluid" src="{{ site.Params.logo | absURL }}" alt="{{ site.Title }}"></a>
-        <p class="mb-4">{{ site.Params.footer_content | markdownify }}</p>
+<footer class="footer">
+  <div class="flex justify-content-space-evenly footer-container">
+    {{ if site.Menus.footer_column1 }}
+    <ul class="list-style-none">
+      <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column1 }}</li>
+      {{ range site.Menus.footer_column1 }}
+      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
 
-        {{ if site.Params.social }}
-        <ul class="list-inline social-icons">
-          {{ range site.Params.social }}
-          <li class="list-inline-item"><a href="{{ .link | safeURL }}" onclick="captureOutboundLink('{{ .link | safeURL }}'); return false;"><i class="{{ .icon }}"></i></a></li>
-          {{ end }}
-        </ul>
-        {{ end }}
-      </div>
-    </div>
-    <div class="border-top border-default text-center py-4 mt-4">
-      <small class="content">© {{now.Format "2006"}} {{ site.Params.Authors | markdownify }}</small><br></br>
-      <small class="content">Copyright © {{now.Format "2006"}} {{ site.Params.Copyright | markdownify }}</small><br></br>
-      <small class="content">{{ site.Params.Trademark | markdownify }}</small>
-    </div>
+    {{ if site.Menus.footer_column2 }}
+    <ul class="list-style-none">
+      <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column2 }}</li>
+      {{ range site.Menus.footer_column2 }}
+      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}  
+
+    {{ if site.Menus.footer_column3 }}
+    <ul class="list-style-none">
+      <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column3 }}</li>
+      {{ range site.Menus.footer_column3 }}
+      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
+    
+    {{ if site.Menus.footer_column4 }}
+    <ul class="list-style-none">
+      <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column4 }}</li>
+      {{ range site.Menus.footer_column4 }}
+      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}  
+  </div>
+  <div class="text-center footer-info-text">
+    <p>Copyright &copy; 2023, The Dapr Authors</p>
+    <p>
+      The Linux Foundation has registered trademarks and uses trademarks.
+      For a list of trademarks of The Linux Foundation, please see our
+      <a href="https://www.linuxfoundation.org/legal/trademark-usage" class="footer-link-text">Trademark Usage page.</a>
+    </p>
   </div>
 </footer>
 
@@ -69,4 +63,24 @@
       'hitCallback': function () { document.location = url; }
     });
   }
+</script>
+<script
+src="https://kit.fontawesome.com/91dde3bebe.js"
+crossorigin="anonymous"
+></script>
+<script>
+// hamburger menu logic
+const handleToggle = () => {
+  const menuToggleNode = document.getElementById("mobile-menu");
+  let navBarLinkContainer = document.getElementById("navLinkWrapper");
+
+  if (menuToggleNode.className === "menu-toggle") {
+    menuToggleNode.className = "menu-toggle is-active";
+    navBarLinkContainer.style.display = "flex";
+    navBarLinkContainer.className = "navLinkContainer list-style-none";
+  } else {
+    menuToggleNode.className = "menu-toggle";
+    navBarLinkContainer.style.display = "none";
+  };     
+};
 </script>
