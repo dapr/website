@@ -14,7 +14,7 @@
     <ul class="flex vertical-align-center list-style-none" id="navLinkWrapper">
       {{ range site.Menus.main }}
         {{ if .HasChildren }}
-          <li class="dropdown navbar-item is-hoverable padding-left-right-20"><span href="#" class="navLink">{{ .Name }}</span>
+          <li class="dropdown navbar-item is-hoverable padding-left-right-10"><span href="#" class="navLink">{{ .Name }}</span>
             <span class="icon is-small text-denim-blue">
               <i class="fas fa-angle-down" aria-hidden="true"></i>
             </span>
@@ -27,7 +27,7 @@
             </div>
           </li>
         {{ else }}
-          <li class="padding-left-right-20"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
+          <li class="padding-left-right-10"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
         {{ end }}
       {{ end }}
     </ul>
