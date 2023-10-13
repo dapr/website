@@ -159,8 +159,21 @@ footer .navLink:hover {
     margin-top: 30px;
 }
 
-.value-prop-text > h3, p {
-    margin: 0 10px 0;
+.value-prop-text > h3 {
+    margin: 10px 10px;
+    color: $text-color-dark;
+}
+
+.text-blue {
+    color: $text-color-blue;
+}
+
+.text-dark {
+    color: $text-color-dark;
+}
+
+.value-prop-text >  p {
+    margin: 20px 10px;
 }
 
 .fas {

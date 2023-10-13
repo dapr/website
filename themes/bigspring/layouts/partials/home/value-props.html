@@ -2,7 +2,7 @@
 {{ with site.Data.homepage.values }}
 <section class="bg-grey">
 <section class="width-60 width-80-mobile vertical-align-center padding-top-down-30 value-prop-text ">
-    <h2 class="text-center">{{ .title }}</h2>
+    <h2 class="text-center text-dark">{{ .title }}</h2>
     <p class="text-justify font-weight-300">
       {{ .content }}
     </p>
@@ -14,7 +14,7 @@
     {{ else }}
         <div class="flex justify-content-space-evenly padding-top-down-50 width-60 width-80-mobile vertical-align-center column-reverse-mobile">
     {{ end }}
-      <div class="width-60 width-100-mobile font-weight-300 value-prop-text ">
+      <div class="width-60 width-100-mobile font-weight-300 value-prop-text">
         <h3 class="text-center-mobile">{{ $featureItem.name }}</h3>
         <p class="text-justify-mobile">{{ $featureItem.content }}</p>
         {{  if $featureItem.content2 }}
