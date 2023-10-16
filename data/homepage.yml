@@ -148,8 +148,8 @@ values:
   feature_item:
     - name : "Automate your business processes"
       image : "images/image-card.png"
-      content : "Dapr workflow is simplifying complex, stateful coordination requirements in event-driven applications."
-      content2 : "Workflow makes it easy to implement orchestration patterns such as task chaining, fan-out/fan-in, monitor, and external system interaction. Workflow can be combined with the other Dapr APIs so developers can automate business processes quickly."
+      content : "Author workflows in code to automate complex business processes that are stateful and potentially long-running."
+      content2 : "Use workflow patterns such as task chaining, fan-out/fan-in, monitor, and external system interaction. Combine Dapr workflow with the other integrated APIs to orchestrate tasks and build reliable workflows."
 
     - name : "Best practices to build secure and resilient applications"
       image : "images/image-card.png"
