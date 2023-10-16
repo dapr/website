@@ -144,8 +144,8 @@ buildingBlock:
 values:
   enable : true
   title : "Build event driven apps faster"
-  content : "Dapr is set of unified APIs with built-in best practices to build cloud-native event-driven applications. Dapr increases your developer productivity by 20-40% with out-of-the-box features such as workflow, pub/sub, state management, secret stores, configuration stores, bindings, actors and distributed lock and covers cross-cutting concerns including security, observability and resiliency."
-  feature_item:         
+  content : "Dapr is set of integrated APIs with built-in best practices and patterns to build distributed applications. Dapr increases your developer productivity by 20-40% with out-of-the-box features such as workflow, pub/sub, state management, secret stores, external configuration, bindings, actors, distributed lock, and cryptography. You can benefit from the built-in security, reliability, and observability capabilities, so you don't need to write boilerplate code to achieve production-ready applications."
+  feature_item:
     - name : "Automate your business processes"
       image : "images/image-card.png"
       content : "Dapr workflow is simplifying complex, stateful coordination requirements in event-driven applications."
