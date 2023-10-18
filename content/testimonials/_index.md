@@ -6,6 +6,24 @@ description: "This is meta description"
 draft: false
 
 adopters:
+  - logo : "images/adoptedby/hdfcbank.png"
+    icon: "ti-quote-right"
+    summary: "Throttling incoming traffic requests without changing the core banking system"
+    quote : "HDFC Bank handles close to 750 million transactions/month however the UPI transaction rate varies throughout the day. Dapr metrics along with KEDA have been leveraged to scale out horizontally based on the incoming HTTP traffic allowing the number of replicas of Governor to scale up and down without any issues."
+    cta :
+      enable : true
+      label : "Read the story"
+      link : "https://www.cncf.io/case-studies/hdfc-bank/"
+
+  - logo : "images/adoptedby/defacto.png"
+    icon: "ti-quote-right"
+    summary: "How DeFacto migrated to an event-driven architecture"
+    quote : "In a short time, as a result of adopting Dapr, DeFacto’s developers rapidly deployed a significant number of services into all environments. With multiple development teams working on different scopes and solution areas, interdependencies between services under the control of different teams added further complexity to the development process. However, Dapr’s service invocation API building block streamlined the development process by simplifying the discoverability and calling between multiple services."
+    cta :
+      enable : true
+      label : "Read the story"
+      link : "https://www.cncf.io/case-studies/defacto/"
+
   - logo : "images/adoptedby/atbay.png"
     icon: "ti-quote-right"
     summary: "How At-Bay improved operations with Dapr"
