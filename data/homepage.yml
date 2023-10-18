@@ -149,15 +149,17 @@ values:
     - name : "Automate your business processes"
       image : "images/image-card.png"
       content : "Author workflows in code to automate complex business processes that are stateful and potentially long-running."
-      content2 : "Use workflow patterns such as task chaining, fan-out/fan-in, monitor, and external system interaction. Combine Dapr workflow with the other integrated APIs to orchestrate tasks and build reliable workflows."
+      content2 : "Use workflow patterns such as task chaining, fan-out/fan-in, monitor, timers, and external system interaction. Combine Dapr workflow with the other integrated APIs to orchestrate tasks and build reliable workflows."
 
     - name : "Best practices to build secure and resilient applications"
       image : "images/image-card.png"
-      content : "Modern cloud-native applications are inherently async and react to events. Dapr enables the creation of event-driven applications by providing a unified set of APIs across 100+ cloud-native back-ends and brokers. It offers guaranteed message delivery, built-in resiliency, observability and security."
+      content : "Dapr includes an “on by default”, automatic mTLS that provides in-transit encryption for traffic between Dapr sidecars. Next to that, scoping access policies can be applied for service-to-service or service-to-component communication to limit access to specific services or resources."
+      content2 : "Dapr also provides resiliency policies for configuring retries/back-offs, and circuit breakers."
 
     - name : "Integrate with the infrastructure of your choice"
       image : "images/image-card.png"
-      content : "Dapr's component model decouples technology choices from your code making it agnostic to hosting environments and enabling application portability. Dapr runs as a sidecar wherever your application runs whether hosted on Kubernetes, VMs, deployed on the cloud, on-premises or on the edge."
+      content : "Dapr's component model decouples the integrated API with the underlying resources. For instance, when you're using the Dapr publish subscribe API, you can change the message broker by swapping out a yaml component file to switch from RabbitMQ, to Kafka (or any other supported broker), without changing your application code."
+      content2: "Dapr applications run on Kubernetes or run self-hosted on any virtual or physical machine, so you can run Dapr applications on any cloud or edge."
 
     - name : "Incrementally adopt"
       image : "images/image-card.png"
