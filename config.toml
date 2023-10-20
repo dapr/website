@@ -104,7 +104,7 @@ weight = 3
 
 [[menu.main]]
 name = "Enterprise"
-URL = "#"
+URL = "/enterprise/"
 weight = 5
 
 [[menu.main]]
