@@ -89,7 +89,7 @@ adopters:
 ##################### Building Block APIs ##########################
 buildingBlock:
   enable : true
-  title : "Unified APIs"
+  title : "APIs"
   content : ""
   feature_item:
     - name : "service invocation"
