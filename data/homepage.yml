@@ -119,7 +119,7 @@ buildingBlock:
 
     - name : "Secrets"
       icon : "key"
-      content : "Dapr provides a secrets building block API and integrates with secret stores such as public cloud stores, local stores and Kubernetes to store the secrets. Services can call the secrets API to retrieve secrets, for example to get a connection string to a database."
+      content : "Dapr provides a secrets API and integrates with secret stores such as public cloud stores, local stores and Kubernetes to store the secrets. Services can call the secrets API to retrieve secrets, for example to get a connection string to a database."
       link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
 
     - name : "External configuration"
@@ -139,7 +139,7 @@ buildingBlock:
 
     - name : "Cryptography"
       icon : "lock-closed-key"
-      content : "With the cryptography building block, you can leverage cryptography in a safe and consistent way. Dapr exposes APIs that allow you to perform operations, such as encrypting and decrypting messages, within key vaults or the Dapr sidecar, without exposing cryptographic keys to your application."
+      content : "With the cryptography API, you can leverage cryptography in a safe and consistent way. Dapr exposes APIs that allow you to perform operations, such as encrypting and decrypting messages, within key vaults or the Dapr sidecar, without exposing cryptographic keys to your application."
       link : "https://docs.dapr.io/developing-applications/building-blocks/cryptography/cryptography-overview/"
 
 
