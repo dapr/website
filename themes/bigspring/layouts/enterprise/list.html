@@ -5,21 +5,20 @@
 {{ with .Params }}
 <section class="bg-light">
   <div class="width-80 vertical-align-center">
-    <div class="grid grid-column-auto grid-row-auto padding-top-40">
-      {{ range .adopters }}
+    <div class="grid grid-row-auto grid-spacing padding-top-down-30">
+      {{ range .companies }}
       <div class="feature-card">
         <div class="img-container-md">
-          <img src="{{ .logo | absURL }}" alt="{{ .summary | markdownify }}">
+          <img src="{{ .logo | absURL }}" alt="{{ .alt | markdownify }}">
         </div>
         <div class="border-decoration">
           <p>{{ .summary | markdownify }}</p>
-          <p class="italic">"{{ .quote | markdownify }}"</p>
         </div>
         <div class="flex padding-top-down-10 gap-xsm">
           <a href="{{ .cta.link | absURL }}">{{ .cta.label }}</a>
         </div>
       </div>
-    {{ end }}
+      {{ end }}
     </div>
   </div>
 </section>
@@ -32,7 +31,10 @@
     <h2 class="text-center">{{ .title | title }}</h2>
     {{with .video}}
     <div class="text-center">
-      <iframe width="860" height="515" src="{{ . | safeURL }}" title="YouTube video player" class="iframe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe width="860" height="515" src="{{ . | safeURL }}" title="YouTube video player" class="iframe"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </div>
     {{end}}
   </div>
@@ -53,7 +55,8 @@
         {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-primary stretched-link"><button class="btn-primary btn-md">{{ .label }}</button></a>
+        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;"
+          class="btn btn-primary stretched-link"><button class="btn-primary btn-md">{{ .label }}</button></a>
         {{ end }}
         {{ end }}
       </div>
