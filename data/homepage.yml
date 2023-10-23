@@ -92,53 +92,56 @@ buildingBlock:
   title : "Unified APIs"
   content : ""
   feature_item:
-    - name : "service invocation"
+    - name : "Service invocation"
       icon : "arrow-step-in-right"
       content : "Service invocation enables applications to communicate with each other through well-known endpoints in the form of http or gRPC messages. Dapr provides an endpoint that acts as a combination of a reverse proxy with built-in service discovery, while leveraging built-in distributed tracing and error handling."
       link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
 
-    - name : "publish subscribe"
+    - name : "Publish subscribe"
       icon : "mail-copy"
       content : "Pub/Sub is a loosely coupled messaging pattern where senders (or publishers) publish messages to a topic, to which subscribers subscribe. Dapr supports the pub/sub pattern between applications."
       link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/"
     
-    - name : "state management"
+    - name : "State management"
       icon : "database"
       content : "Application state is anything an application wants to preserve beyond a single session. Dapr provides a key/value-based state and query APIs with pluggable state stores for persistence."
       link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
 
-    - name : "actors"
+    - name : "Actors"
       icon : "people-team"
       content : "An actor is an isolated, independent unit of compute and state with single-threaded execution. Dapr provides an actor implementation based on the virtual actor pattern which provides a single-threaded programming model and where actors are garbage collected when not in use."
       link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
 
-    - name : "workflows"
+    - name : "Workflow"
       icon : "flowchart"
       content : "The Workflow API enables you to define long running, persistent processes or data flows that span multiple microservices using Dapr workflows or workflow components. The Workflow API can be combined with other Dapr API building blocks."
       link : "https://docs.dapr.io/developing-applications/building-blocks/workflow/"
 
-    - name : "secrets"
+    - name : "Secrets"
       icon : "key"
       content : "Dapr provides a secrets building block API and integrates with secret stores such as public cloud stores, local stores and Kubernetes to store the secrets. Services can call the secrets API to retrieve secrets, for example to get a connection string to a database."
       link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
 
-    - name : "configuration"
+    - name : "External configuration"
       icon : "settings-cog-multiple"
       content : "The Configuration API enables you to retrieve and subscribe to application configuration items for supported configuration stores. This enables an application to retrieve specific configuration information, for example, at start up or when configuration changes are made in the store."
       link : "https://docs.dapr.io/developing-applications/building-blocks/configuration/"
 
-    - name : "bindings"
+    - name : "Bindings"
       icon : "plug-disconnected"
       content : "A binding provides a bi-directional connection to an external cloud/on-premise service or system. Dapr allows you to invoke the external service through the Dapr binding API, and it allows your application to be triggered by events sent by the connected service."
       link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
 
-    - name : "distributed lock"
+    - name : "Distributed lock"
       icon : "table-lock"
       content : "The distributed lock API enables you to take a lock on a resource so that multiple instances of an application can access the resource without conflicts and provide consistency guarantees."
       link : "https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/"
-    
-    
-    
+
+    - name : "Cryptography"
+      icon : "lock-closed-key"
+      content : "With the cryptography building block, you can leverage cryptography in a safe and consistent way. Dapr exposes APIs that allow you to perform operations, such as encrypting and decrypting messages, within key vaults or the Dapr sidecar, without exposing cryptographic keys to your application."
+      link : "https://docs.dapr.io/developing-applications/building-blocks/cryptography/cryptography-overview/"
+
 
 ##################### Value Propositions ##########################
 values:
@@ -170,17 +173,17 @@ concerns:
   title : "Cross Cutting Concerns"
   content : ""
   feature_item:         
-    - name : "security"
+    - name : "Security"
       icon : "lock-shield"
       content : "Dapr provides end-to-end security with the service invocation API, with the ability to authenticate an application with Dapr and set endpoint access policies. For pub/sub components, you can limit which topic types and applications are allowed to publish and subscribe to specific topics."
       link : "https://docs.dapr.io/concepts/security-concept/"
 
-    - name : "observability"
+    - name : "Observability"
       icon : "heart-pulse"
       content : "Dapr can be configured to emit tracing data using the widely adopted protocols of Open Telemetry (OTEL) and Zipkin. This makes it easily integrated with multiple observability tools."
       link : "https://docs.dapr.io/concepts/observability-concept/"
     
-    - name : "resiliency"
+    - name : "Resiliency"
       icon : "arrow-clockwise"
       content : "Dapr provides a capability for defining and applying fault tolerance resiliency policies to your application. You can define policies for following resiliency patterns: timeouts, retries/back-offs, circuit breakers. These policies can be applied to any Dapr API calls when calling components with a resiliency spec."
       link : "https://docs.dapr.io/concepts/resiliency-concept/"
