@@ -194,7 +194,7 @@ weight = 4
 logo = "images/dapr.svg"
 logo_width = "60px"
 # Meta data
-description = "APIs for building portable and reliable microservices"
+description = "APIs for building secure, and reliable microservices"
 keywords = "dapr, microservices, distributed applications, runtime, kubernetes"
 author = "Dapr Maintainers"
 # contact form action
