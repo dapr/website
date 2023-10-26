@@ -27,7 +27,7 @@
 }
 .img-container-md {
     width: 120px;
-    height: 120px;
+    height: auto;
     object-fit: contain;
 }
 .img-container-lg {
@@ -70,7 +70,7 @@ footer .navLink:hover {
 #adopters.flex {
     display: flex;
     flex-wrap: wrap;
-    gap: 70px;
+    gap: 10px 50px;
 }
 
 #adopters>.img-container-md {
