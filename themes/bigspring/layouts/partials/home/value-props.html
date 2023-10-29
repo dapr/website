@@ -1,7 +1,7 @@
 {{ if site.Data.homepage.values.enable }}
 {{ with site.Data.homepage.values }}
 <section class="bg-grey">
-<section class="width-60 width-80-mobile vertical-align-center padding-top-down-30 value-prop-text ">
+<section class="width-80 width-80-mobile vertical-align-center padding-top-down-30 value-prop-text ">
     <h2 class="text-center">{{ .title }}</h2>
     <p class="text-justify font-weight-300">
       {{ .content }}
@@ -10,11 +10,11 @@
   {{ range $index, $featureItem := .feature_item }}
   <section>
     {{if not (modBool $index 2)}}
-        <div class="flex justify-content-space-evenly flex-row-reverse padding-top-down-50 width-60 width-80-mobile vertical-align-center column-reverse-mobile">
+        <div class="flex justify-content-space-evenly flex-row-reverse padding-top-down-50 width-80 width-80-mobile vertical-align-center column-reverse-mobile">
     {{ else }}
-        <div class="flex justify-content-space-evenly padding-top-down-50 width-60 width-80-mobile vertical-align-center column-reverse-mobile">
+        <div class="flex justify-content-space-evenly padding-top-down-50 width-80 width-80-mobile vertical-align-center column-reverse-mobile">
     {{ end }}
-      <div class="width-60 width-100-mobile font-weight-300 value-prop-text">
+      <div class="width-80 width-100-mobile font-weight-300 value-prop-text">
         <h3 class="text-center-mobile">{{ $featureItem.name }}</h3>
         <p class="text-justify">{{ $featureItem.content }}</p>
         {{  if $featureItem.content2 }}
@@ -22,7 +22,11 @@
         {{ end }}
       </div>
       <div class="align-self-center-mobile">
-        <img src="{{ $featureItem.image }}" alt="image describing {{ $featureItem.name }}">
+        <video class="value-prop" controls autoplay loop muted>
+          <source src="{{ $featureItem.video }}" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <!-- <img src="{{ $featureItem.image }}" alt="image describing {{ $featureItem.name }}"> -->
       </div>
     </div>
   </section>

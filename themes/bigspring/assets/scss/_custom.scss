@@ -67,6 +67,12 @@ footer .navLink:hover {
     justify-content: center;
 }
 
+.flex-left {
+    display: flex;
+    justify-content: left;
+}
+
+
 #adopters.flex {
     display: flex;
     flex-wrap: wrap;
@@ -127,6 +133,11 @@ footer .navLink:hover {
     grid-row-gap: 1.5rem;
 }
 
+video.value-prop {
+    border-radius: 0.5em;
+    width: 500px;
+}
+
 /* hero highlight text */
 .highlight-light-blue {
     background-color: #3ea9f5;
@@ -167,7 +178,7 @@ a.highlight-orange:hover {
 }
 
 .value-prop-text > h3 {
-    margin: 10px 10px;
+    margin: 20px 50px 20px;
     color: $text-color-dark;
 }
 
@@ -179,8 +190,9 @@ a.highlight-orange:hover {
     color: $text-color-dark;
 }
 
-.value-prop-text >  p {
-    margin: 20px 10px;
+.value-prop-text > p {
+    margin: 20px 50px 20px;
+    line-height: 1.5;
 }
 
 .fas {
