@@ -136,7 +136,7 @@ footer .navLink:hover {
 
 video.value-prop {
     border-radius: 0.5em;
-    width: 500px;
+    width: 575px;
 }
 
 /* hero highlight text */
@@ -388,6 +388,10 @@ a.highlight-orange:hover {
    /* hero section */
    /* footer */
    /* iframe */
+   video.value-prop {
+    border-radius: 0.5em;
+        width: 450px;
+    }
     .grid-column-auto {
         grid-template-columns: repeat(1, minmax(0, 1fr));
    }
