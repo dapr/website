@@ -134,9 +134,16 @@ footer .navLink:hover {
     grid-row-gap: 1.5rem;
 }
 
+.value-prop-video {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
 video.value-prop {
     border-radius: 0.5em;
-    width: 575px;
+    width: 600px;
 }
 
 /* hero highlight text */
@@ -176,6 +183,13 @@ a.highlight-orange:hover {
 
 .margin-top-30 {
     margin-top: 30px;
+}
+
+.value-prop-text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 .value-prop-text > h3 {
