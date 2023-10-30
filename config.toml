@@ -169,25 +169,21 @@ URL = "https://www.linuxfoundation.org/legal/trademark-usage"
 weight = 3
 
 # menu media
-[[menu.media]]
-name = "discord"
-URL = "https://bit.ly/dapr-discord"
-weight = 1
 
 [[menu.media]]
 name = "twitter"
 URL = "https://twitter.com/daprdev"
-weight = 2
+weight = 1
 
 [[menu.media]]
 name = "github"
 URL = "https://github.com/dapr"
-weight = 3
+weight = 2
 
 [[menu.media]]
 name = "youtube"
 URL = "https://www.youtube.com/@daprdev"
-weight = 4
+weight = 3
 
 #################### default parameters ################################
 [params]

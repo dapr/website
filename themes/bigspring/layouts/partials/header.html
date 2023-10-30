@@ -30,6 +30,12 @@
           <li class="padding-left-right-10"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
         {{ end }}
       {{ end }}
+      <div class="flex media-section-mobile">
+        <div><a class="highlight-orange" href="https://bit.ly/dapr-discord">Join our Discord</a></div>
+        {{ range site.Menus.media }}
+          <a href="{{ .URL | absURL }}" class="text-black"><i class="fab fa-{{ .Name }}"></i></a>
+        {{ end }}
+      </div>
     </ul>
     <div class="flex media-section">
       <div><a class="highlight-orange" href="https://bit.ly/dapr-discord">Join our Discord</a></div>

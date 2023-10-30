@@ -312,6 +312,11 @@ a.highlight-orange:hover {
 .media-section {
     display: flex;
 }
+
+.media-section-mobile {
+    display: none;
+}
+
 /* hamburger menu */
 #mobile-menu {
     display: none;
@@ -389,6 +394,9 @@ a.highlight-orange:hover {
     .media-section {
         display: none;
    }
+   .media-section-mobile {
+        display: flex;
+    }
     #mobile-menu {
         display: block;
    }
