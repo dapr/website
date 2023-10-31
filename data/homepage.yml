@@ -64,8 +64,6 @@ adopters:
       name: "Electronic Arts"
     - image: "images/adoptedby/zeiss.png"
       name: "Zeiss"
-    - image: "images/adoptedby/tesla.png"
-      name: "Tesla"
     - image: "images/adoptedby/nasa.png"
       name: "NASA"
     - image: "images/adoptedby/intel.png"
