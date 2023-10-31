@@ -506,10 +506,10 @@ a.highlight-orange:hover {
         height: calc(100% - 60px);
         transform: translate(-12%);
         text-align: center;
-        overflow: hidden;
+        overflow: scroll;
    }
     .navbar li {
-        padding: 1.5rem 0 0.5rem;
+        padding: 1rem 0 0.5rem;
    }
     .navbar li:first-child {
         margin-top: 1rem;
