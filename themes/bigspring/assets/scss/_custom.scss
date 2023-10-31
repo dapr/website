@@ -514,10 +514,12 @@ a.highlight-orange:hover {
     .navbar li:first-child {
         margin-top: 1rem;
    }
-    .navbar .navLink {
-        color: black;
+    li.navbar-item, li > a.navLink {
         font-size: 1.3rem;
    }
+   a.navbar-item {
+    font-size: 1rem;
+}
     .hero-container {
         width: 90%;
    }

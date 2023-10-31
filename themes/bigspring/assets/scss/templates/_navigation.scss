@@ -24,6 +24,8 @@ nav i {
 .navbar-item.is-active .navbar-dropdown, .navbar-item.is-hoverable:focus .navbar-dropdown, .navbar-item.is-hoverable:focus-within .navbar-dropdown, .navbar-item.is-hoverable:hover .navbar-dropdown {
   display: block;
 }
+
+@media only screen and (min-width: 786px) {
 .navbar-dropdown {
   background-color: #fff;
   border-bottom-left-radius: 6px;
@@ -36,7 +38,7 @@ nav i {
   position: absolute;
   top: 100%;
   z-index: 20;
-  // padding: 0.5rem 5px 0.5rem 20px;
+}
 }
 .navbar-dropdown .navbar-item {
   padding: 1rem 1rem;
@@ -50,4 +52,16 @@ nav i {
 .logo > a > img {
   max-width: 100%;
   max-height: 100%;
+}
+
+@media only screen and (max-width: 786px) {
+  .navbar-dropdown {
+    background-color: #fff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);
+    display: block;
+    font-size: 0.875rem;
+    min-width: 100%;
+  }
 }
