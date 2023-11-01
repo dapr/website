@@ -70,6 +70,8 @@ adopters:
       name: "Cisco"
     - image: "images/adoptedby/rakuten.png"
       name: "Rakuten"
+    - image: "images/adoptedby/lufthansa.png"
+      name: "Lufthansa"
     - image: "images/adoptedby/zscaler.png"
       name: "Zscaler"
     - image: "images/adoptedby/bosch.png"
