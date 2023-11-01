@@ -80,6 +80,12 @@ parent = "community"
 weight = 2
 
 [[menu.main]]
+name = "YouTube"
+URL = "https://www.youtube.com/@daprdev"
+parent = "community"
+weight = 3
+
+[[menu.main]]
 name = "News & Media"
 identifier = "News & Media"
 weight = 4
@@ -94,7 +100,7 @@ weight = 1
 name = "Case studies"
 URL = "/testimonials/"
 parent = "News & Media"
-weight = 2
+weight = 1
 
 [[menu.main]]
 name = "Logos"
@@ -190,7 +196,7 @@ weight = 3
 logo = "images/dapr.svg"
 logo_width = "60px"
 # Meta data
-description = "APIs for building secure, and reliable microservices"
+description = "APIs for building secure and reliable microservices"
 keywords = "dapr, microservices, distributed applications, runtime, kubernetes"
 author = "Dapr Maintainers"
 # contact form action
