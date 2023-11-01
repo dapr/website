@@ -24,4 +24,13 @@ companies:
       label : "Visit website"
       link : "https://www.diagrid.io/"
 
+  - logo : "images/enterprise/intentarchitect.png"
+    alt: "Intent Architect"
+    title: "Intent Architect"
+    summary: "Pick your architecture, technologies and coding standards and write your next .NET application in no time. A next generation platform to control your architecture, your way. Massively boost your developers’ productivity, consistency and accuracy without sacrificing codebase control and customizability."
+    cta :
+      enable : true
+      label : "Visit website"
+      link : "https://intentarchitect.com/"
+
 ---
