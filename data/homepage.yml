@@ -4,25 +4,25 @@ caseStudy:
   stories:
     - name : "HDFC Bank"
       title: "Handling millions of transactions efficiently with Dapr."
-      image : "images/adoptedby/hdfcbank.png"
+      image : "images/casestudy/case-study-hdfc.png"
       content :
       link : "https://www.cncf.io/case-studies/at-bay/"
 
     - name : "DeFacto"
       title: "How DeFacto migrated to an event-driven architecture with Dapr."
-      image : "images/adoptedby/defacto.png"
+      image : "images/casestudy/case-study-defacto.png"
       content :
       link : "https://www.cncf.io/case-studies/at-bay/"
     
     - name : "At-Bay"
       title: "How At-Bay improved operations with Dapr."
-      image : "images/adoptedby/atbay.png"
+      image : "images/casestudy/case-study-atbay.png"
       content :
       link : "https://www.cncf.io/case-studies/at-bay/"
 
     - name : "Bosch"
       title: "Bosch’s Residential IoT Services GmbH (RIoT) uses Dapr actors and Java SDK to build a large scale smart home IoT solution."
-      image : "images/adoptedby/bosch.png"
+      image : "images/casestudy/case-study-bosch.png"
       content :
       link : "https://customers.microsoft.com/en-us/story/1435725395247777374-bosch-builds-smart-homes-using-dapr-azure"
 
