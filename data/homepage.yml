@@ -12,7 +12,7 @@ caseStudy:
       title: "How DeFacto migrated to an event-driven architecture with Dapr."
       image : "images/casestudy/case-study-defacto.png"
       content :
-      link : "https://www.cncf.io/case-studies/at-bay/"
+      link : "https://www.cncf.io/case-studies/defacto/"
     
     - name : "At-Bay"
       title: "How At-Bay improved operations with Dapr."
