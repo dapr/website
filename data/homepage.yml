@@ -6,7 +6,7 @@ caseStudy:
       title: "Handling millions of transactions efficiently with Dapr."
       image : "images/casestudy/case-study-hdfc.png"
       content :
-      link : "https://www.cncf.io/case-studies/at-bay/"
+      link : "https://www.cncf.io/case-studies/hdfc-bank/"
 
     - name : "DeFacto"
       title: "How DeFacto migrated to an event-driven architecture with Dapr."
