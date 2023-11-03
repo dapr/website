@@ -86,6 +86,8 @@ adopters:
       name: "Man group"
     - image: "images/adoptedby/wortell.png"
       name: "Wortell"
+    - image: "images/adoptedby/composabl.png"
+      name: "Composabl"
     # - image: "images/adoptedby/apple.png"
     #   name: "Apple"
     # - image: "images/adoptedby/ea.png"
