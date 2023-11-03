@@ -1,0 +1,70 @@
+{{ define "main" }}
+
+{{ partial "page-header.html" . }}
+
+{{ with .Params }}
+<section class="bg-light">
+  <div class="width-80 vertical-align-center">
+    <div class="grid grid-row-auto grid-spacing padding-top-down-30">
+      {{ range .companies }}
+      <div class="feature-card">
+        <div class="img-container-md">
+          <img src="{{ .logo | absURL }}" alt="{{ .alt | markdownify }}">
+        </div>
+        <h3>{{ .title }}</h3>
+        <div class="border-decoration">
+          <p>{{ .summary | markdownify }}</p>
+        </div>
+        <div class="flex-left padding-top-down-10 gap-xsm">
+          <a href="{{ .cta.link | absURL }}">{{ .cta.label }}</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{end}}
+
+<!-- panel -->
+{{ with .Params.panel }}
+<section class="bg-light padding-top-80">
+  <div class="padding-bottom-20">
+    <h2 class="text-center">{{ .title | title }}</h2>
+    {{with .video}}
+    <div class="text-center">
+      <iframe width="860" height="515" src="{{ . | safeURL }}" title="YouTube video player" class="iframe"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+    {{end}}
+  </div>
+</section>
+{{ end }}
+<!-- /panel -->
+
+<!-- call to action -->
+{{ with .Params.cta }}
+<section class="section">
+  <div class="feature-card width-60 vertical-align-center width-80-mobile">
+    <div class="flex align-items-center justify-content-center gap-md column-mobile">
+      <div>
+        <img src="{{ .image | absURL }}" class="img-fluid" width="200px">
+      </div>
+      <div class="text-center-mobile">
+        <h2>{{ .title | markdownify }}</h2>
+        {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
+        {{ if .button.enable }}
+        {{ with .button }}
+        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;"
+          class="btn btn-primary stretched-link"><button class="btn-primary btn-md">{{ .label }}</button></a>
+        {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+<!-- /call to action -->
+
+{{ end }}
