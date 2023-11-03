@@ -176,8 +176,8 @@ values:
     - name : "Best practices to build secure and resilient applications"
       image : "images/2_best_practices.gif"
       video : "images/2_best_practices.mp4"
-      content : "Dapr includes an “on by default”, automatic mTLS that provides in-transit encryption. Using access policies you can scope service-to-service or service-to-component communication to limit access to specific services or resources."
-      content2 : "Dapr also provides resiliency policies for configuring retries/back-offs, and circuit breakers."
+      content : "Dapr includes built-in security features that are “on by default".  E.g. developers and ops can set application-centric policies on APIs, services, and components to limit access without getting into low level networking concerns.  Communication is automatically encrypted in-transit with mTLS. "
+      content2 : "Dapr also provides resiliency policies protect against failures due to any number of issues, including hardware failures, unexpected throughput, or application lifecycle events, such as scaling out and application restarts. Dapr provides specific capabilities that detect failures and enable configurable retries, back-offs, circuit breakers and timeouts."
 
     - name : "Integrate with the infrastructure of your choice"
       image : "images/3_integrate.gif"
