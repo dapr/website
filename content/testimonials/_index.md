@@ -102,11 +102,11 @@ adopters:
       label : "Read the article"
       link : "https://blog.dapr.io/posts/2021/09/02/how-dapr-helped-autonavi-build-a-new-serverless-solution/"
 
-  - logo : "images/adoptedby/roadwork.png"
+  - logo : "images/adoptedby/composabl.png"
     icon: "ti-quote-right"
-    summary : "Roadwork uses Dapr with KEDA to build a portabnle, cloud-agnostic, web automation solution."
+    summary : "Composabl uses Dapr with KEDA to build a portable, cloud-agnostic, web automation solution."
     quote : "Without Dapr, we would need multiple weeks to integrate the different services together as well as create our own scaling infrastructure and service discovery tooling."
-    person : "-- Xavier Geerinck, Founder, Roadwork"
+    person : "-- Xavier Geerinck, Founder, Composabl"
     cta :
       enable : true
       label : "Read the article"
