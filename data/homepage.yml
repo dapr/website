@@ -90,6 +90,8 @@ adopters:
       name: "Bosch"
     - image: "images/adoptedby/fujitsu.png"
       name: "Fujitsu"
+    - image: "images/adoptedby/grafana.png"
+      name: "Grafana"
     - image: "images/adoptedby/defacto.png"
       name: "DeFacto"
     - image: "images/adoptedby/atbay.png"
