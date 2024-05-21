@@ -34,7 +34,6 @@
   {{ with .Params.Image }}
   <meta property="og:image" content="{{ . | absURL }}" />
   {{ end }}
-  {{ template "_internal/google_analytics_async.html" . }}
 
   {{ "<!--Iconify-->" | safeHTML }}
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
