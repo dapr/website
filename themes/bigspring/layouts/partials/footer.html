@@ -4,7 +4,7 @@
     <ul class="list-style-none">
       <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column1 }}</li>
       {{ range site.Menus.footer_column1 }}
-      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink">{{ .Name }}</a></li>
+      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
       {{ end }}
     </ul>
     {{ end }}
@@ -13,7 +13,7 @@
     <ul class="list-style-none">
       <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column2 }}</li>
       {{ range site.Menus.footer_column2 }}
-      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink">{{ .Name }}</a></li>
+      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
       {{ end }}
     </ul>
     {{ end }}  
@@ -22,7 +22,7 @@
     <ul class="list-style-none">
       <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column3 }}</li>
       {{ range site.Menus.footer_column3 }}
-      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink">{{ .Name }}</a></li>
+      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
       {{ end }}
     </ul>
     {{ end }}
@@ -31,7 +31,7 @@
     <ul class="list-style-none">
       <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column4 }}</li>
       {{ range site.Menus.footer_column4 }}
-      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink">{{ .Name }}</a></li>
+      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
       {{ end }}
     </ul>
     {{ end }}  
