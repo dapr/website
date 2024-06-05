@@ -55,15 +55,6 @@
 {{ "<!-- Main Script -->" | safeHTML }}
 {{ $script := resources.Get "js/script.js" | minify}}
 <script src="{{ $script.Permalink }}"></script>
-<script src="{{ $script.Permalink }}"></script>
-<script>
-  var captureOutboundLink = function (url) {
-    ga('send', 'event', 'outbound', 'click', url, {
-      'transport': 'beacon',
-      'hitCallback': function () { document.location = url; }
-    });
-  }
-</script>
 <script
 src="https://kit.fontawesome.com/91dde3bebe.js"
 crossorigin="anonymous"
