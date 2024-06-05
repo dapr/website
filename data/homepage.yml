@@ -2,6 +2,18 @@
 caseStudy:
   enable : true
   stories:
+    - name : "Derivco"
+      title: "Performing near-real-time personalized recommendations at scale with Dapr."
+      image : "images/casestudy/case-study-derivco.png"
+      content :
+      link : "https://www.cncf.io/case-studies/derivco/"
+
+    - name : "Tempestive"
+      title: "Tempestive uses Dapr and Kubernetes to track billions of messages on IoT devices while reducing costs."
+      image : "images/casestudy/case-study-tempestive.png"
+      content :
+      link : "https://www.cncf.io/case-studies/tempestive/"
+
     - name : "HDFC Bank"
       title: "Handling millions of transactions efficiently with Dapr."
       image : "images/casestudy/case-study-hdfc.png"
@@ -78,6 +90,8 @@ adopters:
       name: "Bosch"
     - image: "images/adoptedby/fujitsu.png"
       name: "Fujitsu"
+    - image: "images/adoptedby/grafana.png"
+      name: "Grafana"
     - image: "images/adoptedby/defacto.png"
       name: "DeFacto"
     - image: "images/adoptedby/atbay.png"
@@ -88,6 +102,10 @@ adopters:
       name: "Wortell"
     - image: "images/adoptedby/composabl.png"
       name: "Composabl"
+    - image: "images/adoptedby/derivco.png"
+      name: "Derivco"
+    - image: "images/adoptedby/tempestive.png"
+      name: "Tempestive"
     # - image: "images/adoptedby/apple.png"
     #   name: "Apple"
     # - image: "images/adoptedby/ea.png"
