@@ -21,7 +21,7 @@
             <div class="navbar-dropdown" role="menu">
               <div class="flex flex-column">
                 {{ range .Children }}
-                <a href="{{ .URL | absURL }}" onclick="captureOutboundLink('{{ .URL | absURL }}'); return false;" class="navLink navbar-item">{{ .Name }}</a>
+                <a href="{{ .URL | absURL }}" class="navLink navbar-item">{{ .Name }}</a>
                 {{ end }}
               </div>
             </div>

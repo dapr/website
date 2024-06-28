@@ -18,7 +18,7 @@
             </ul>
             {{ if .button.enable }}
             {{ with .button }}
-            <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-outline-primary">{{ .label }}</a>
+            <a href="{{ .link | absURL }}" class="btn btn-outline-primary">{{ .label }}</a>
             {{ end }}
             {{ end }}
           </div>
@@ -39,7 +39,7 @@
             </ul>
             {{ if .button.enable }}
             {{ with .button }}
-            <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-primary">{{ .label }}</a>
+            <a href="{{ .link | absURL }}" class="btn btn-primary">{{ .label }}</a>
             {{ end }}
             {{ end }}
           </div>
@@ -60,7 +60,7 @@
             </ul>
             {{ if .button.enable }}
             {{ with .button }}
-            <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-outline-primary">{{ .label }}</a>
+            <a href="{{ .link | absURL }}" class="btn btn-outline-primary">{{ .label }}</a>
             {{ end }}
             {{ end }}
           </div>
@@ -85,7 +85,7 @@
         {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;" class="btn btn-primary">{{ .label }}</a>
+        <a href="{{ .link | absURL }}" class="btn btn-primary">{{ .label }}</a>
         {{ end }}
         {{ end }}
       </div>

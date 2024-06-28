@@ -56,7 +56,7 @@
         {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" onclick="captureOutboundLink('{{ .link | absURL }}'); return false;"
+        <a href="{{ .link | absURL }}" 
           class="btn btn-primary stretched-link"><button class="btn-primary btn-md">{{ .label }}</button></a>
         {{ end }}
         {{ end }}
