@@ -1,0 +1,7 @@
+{{ if site.Data.homepage.news.enable }}
+{{ with site.Data.homepage.news }}
+<div class="news text-center highlight-golden">
+  <a href="{{ .link | safeURL }}">{{ .text }}</a>
+</div>
+{{end}}
+{{end}}
