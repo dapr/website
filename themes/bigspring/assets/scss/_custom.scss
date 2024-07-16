@@ -306,6 +306,15 @@ h2.video {
     text-decoration: underline;
     color: black;
 }
+.news {
+    padding: 10px 0px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.news > a {
+    text-decoration: underline;
+    color: black;
+}
 /* icon */
 .icon-container {
     width: 34px;

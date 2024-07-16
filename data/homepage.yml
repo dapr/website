@@ -52,10 +52,10 @@ caseStudy:
     
 ##################### News #########################
 news:
-  enable : false
+  enable : true
   prefix : "Announcement "
-  text : "Dapr joins CNCF as an incubating project! Learn more >>"
-  link : "https://blog.dapr.io/posts/2021/11/03/dapr-joins-cncf-as-an-incubating-project/"
+  text : "RSVP for the Dapr 1.14 celebration webinar on July 31st!"
+  link : "https://diagrid.ws/3VYgLhb"
 
 ##################### Adopters #########################
 adopters:
