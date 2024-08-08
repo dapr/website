@@ -155,6 +155,11 @@ buildingBlock:
       content : "The Workflow API enables you to define long running, persistent processes or data flows that span multiple microservices using Dapr workflows or workflow components. The Workflow API can be combined with other Dapr API building blocks."
       link : "https://docs.dapr.io/developing-applications/building-blocks/workflow/"
 
+    - name : "Jobs"
+      icon : "clock"
+      content : "Many applications require job scheduling, the need to take an action in the future. The jobs API is an orchestrator for scheduling these jobs in the future, either at a specific time or a specific interval."
+      link : "https://docs.dapr.io/developing-applications/building-blocks/jobs/"
+
     - name : "Secrets"
       icon : "key"
       content : "Dapr provides a secrets API and integrates with secret stores such as public cloud stores, local stores and Kubernetes to store the secrets. Services can call the secrets API to retrieve secrets, for example to get a connection string to a database."
