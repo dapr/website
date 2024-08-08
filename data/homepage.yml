@@ -54,8 +54,8 @@ caseStudy:
 news:
   enable : true
   prefix : "Announcement "
-  text : "RSVP for the Dapr 1.14 celebration webinar on July 31st!"
-  link : "https://diagrid.ws/3VYgLhb"
+  text : "Join our community call live streams on YouTube!"
+  link : "https://www.youtube.com/@DaprDev/streams"
 
 ##################### Adopters #########################
 adopters:
