@@ -2,6 +2,11 @@
 caseStudy:
   enable : true
   stories:
+    - name : "Grafana"
+      title: "How Grafana Security is using Dapr to improve vulnerability scanning."
+      image : "images/casestudy/case-study-grafana.png"
+      content :
+      link : "https://www.cncf.io/case-studies/grafana/"
     - name : "Derivco"
       title: "Performing near-real-time personalized recommendations at scale with Dapr."
       image : "images/casestudy/case-study-derivco.png"
@@ -32,11 +37,11 @@ caseStudy:
       content :
       link : "https://www.cncf.io/case-studies/at-bay/"
 
-    - name : "Bosch"
-      title: "Bosch’s Residential IoT Services GmbH (RIoT) uses Dapr actors and Java SDK to build a large scale smart home IoT solution."
-      image : "images/casestudy/case-study-bosch.png"
-      content :
-      link : "https://customers.microsoft.com/en-us/story/1435725395247777374-bosch-builds-smart-homes-using-dapr-azure"
+    # - name : "Bosch"
+    #   title: "Bosch’s Residential IoT Services GmbH (RIoT) uses Dapr actors and Java SDK to build a large scale smart home IoT solution."
+    #   image : "images/casestudy/case-study-bosch.png"
+    #   content :
+    #   link : "https://customers.microsoft.com/en-us/story/1435725395247777374-bosch-builds-smart-homes-using-dapr-azure"
 
     # - name : "Wortell"
     #   title: "Wortell reduced infrastructure complexity with Dapr."
