@@ -73,7 +73,7 @@ weight = 1
 
 [[menu.main]]
 name = "Discord"
-URL = "http://bit.ly/dapr-discord"
+URL = "https://bit.ly/dapr-discord"
 parent = "community"
 weight = 2
 
@@ -139,7 +139,7 @@ weight = 1
 
 [[menu.footer_column2]]
 name = "Discord"
-URL = "http://bit.ly/dapr-discord"
+URL = "https://bit.ly/dapr-discord"
 weight = 2
 
 [[menu.footer_column3]]
