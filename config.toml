@@ -62,8 +62,13 @@ weight = 3
 
 [[menu.main]]
 name = "Community"
-identifier = "community"
+URL = "/community/"
 weight = 3
+
+[[menu.main]]
+name = "Enterprise"
+
+weight = 5
 
 [[menu.main]]
 name = "GitHub"
