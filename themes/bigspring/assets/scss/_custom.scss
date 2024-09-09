@@ -37,7 +37,7 @@
     height: auto;
     object-fit: contain;
 }
-.img-container-md > img, .img-container-lg > img {
+.img-container-md img, .img-container-lg img {
     max-width: 100%;
     height: auto;
 }
@@ -160,13 +160,13 @@ video.value-prop {
     border-radius: 5px;
 }
 .highlight-golden {
-    background-color: #efca08;
+    background-color: $highlight-color2;
     color: white;
     padding: 0 10px;
     border-radius: 5px;
 }
 .highlight-orange {
-    background-color: #ff4e00;
+    background-color: $highlight-color1;
     color: white;
     padding: 4px 6px;
     border-radius: 5px;

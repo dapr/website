@@ -2,6 +2,8 @@
 button {
   border: none;
   border-radius: 7px;
+  font-family: "Noto Sans", sans-serif;
+  
 }
 .btn-md {
   width: 120px;
@@ -10,15 +12,23 @@ button {
   font-size: 0.95rem;
 }
 .btn-primary {
-  background-color: #202192;
+  background-color: $primary-color;
+  // background-color: #202192;
   color: white;
 }
+
 .btn-secondary {
-  background-color: #f1f1f1;
-  color: #476581;
+  background-color: $white;
+  color: $text-color-mid;
 }
+
 .btn-container {
   display: flex;
   gap: 15px;
   margin-top: 30px;
+}
+
+.btn-feature {
+  width: fit-content;
+  padding: 10px 20px;
 }
