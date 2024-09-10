@@ -4,6 +4,10 @@ description: "Dapr Meteors Program"
 draft: false
 image: "images/community/dapr-meteor-logo.png"
 alt: "Dapr Meteors Logo"
+sponsor :
+  image: "images/community/diagrid.png"
+  alt: "Diagrid Sponsor Logo"
+  link: "https://www.diagrid.io/"
 
 program:
   - title: "What is the Dapr Meteors program? 🌠"

@@ -54,6 +54,12 @@
       </div>
       {{ end }}
     </div>
+    <div class="sponsor-image">
+      <p>The Dapr Meteors program is sponsored by</p>
+      <a href="{{ .sponsor.link | absURL }}">
+        <img src="{{ .sponsor.image | absURL }}" alt="{{ .sponsor.alt | markdownify }}">
+      </a>
+    </div>
   </div>
 </section>
 {{ end }}
