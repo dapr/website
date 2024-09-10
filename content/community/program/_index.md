@@ -38,36 +38,4 @@ program:
       label : "Fill in the Dapr Meteor Nomination Form"
       link : "https://bit.ly/dapr-meteor-form"
 
-meteors:
-  - picture : "images/community/meteors/alexmang.png"
-    name: "Alex Mang"
-    bio: "Alex Mang is a Microsoft Regional Director, Azure Most Valuable Professional, working as a cloud architect, consultant, trainer, software developer but also regularly seen at conferences and user groups speaking mostly on cloud-computing topics. His main goal is to help developers better understand the implications of cloud-computing as a whole, from as many perspectives as possible. Alex was invited three times in a row as a featured speaker at Microsoft Ignite, the company’s largest and most important technical conference gathering nearly 35,000 attendees. Since 2011, Alex runs KeyTicket Solutions, a company focused on democratizing access control, ticketing and management solutions for every single vertical in the world. For his experience on cloud-driven solutions, his Microsoft Certified Trainer, Microsoft Certified Solution Developer (MCSD), Microsoft Certified Solution Associate (MCSA) and Microsoft Certified Solutions Expert (MCSE) stand as proof and so do the many happy customers he had the pleasure to work with for the past many years."
-    cta :
-      enable : true
-      label : "LinkedIn"
-      link : "https://www.linkedin.com/in/iamalexmang/"
-
-  - picture : "images/community/meteors/edwinvanwijk.png"
-    name: "Edwin van Wijk"
-    bio: "I have been working in IT since 1999 and I'm currently working as Principal Solution Architect, managing consultant and Microsoft Community Lead at Info Support in The Netherlands. I'm a Microsoft MVP in the Developer Technologies category (since 2016). My primary areas of expertise are: building distributed systems, systems integration, (cloud-native) software architecture and patterns, software craftsmanship, .NET (Core) development, Azure and DevOps. I love sharing my experience and knowledge about these subjects by training people, publishing [videos](www.youtube.com/dotnetflix) and speaking at conferences."
-    cta :
-      enable : true
-      label : "LinkedIn"
-      link : "https://www.linkedin.com/in/edwinvwijk/"
-
-  - picture : "images/community/meteors/sandermolenkamp.png"
-    name: "Sander Molenkamp"
-    bio: "Sander Molenkamp is a principal cloud architect and Microsoft Azure MVP with over 25 years of professional experience. He works for [Info Support](http://www.infosupport.com) designing and developing customer solutions using cloud native architectures Sander is also an accomplished speaker, having shared his insights and expertise at numerous international conferences. He is passionate about technology and freely shares his knowledge through the [dotnetFlix YouTube channel](www.youtube.com/dotnetflix). Furthermore, Sander actively contributes to the organization of multiple free community events, including the Dutch Azure Meetup, Azure Fest, and Bitbash. In his free time, Sander enjoys traveling, is (still) learning to play the ukelele, and tinkers with technology and LEGO. He has also defeated the sword master of Mêlée Island™️."
-    cta :
-      enable : true
-      label : "LinkedIn"
-      link : "https://nl.linkedin.com/in/amolenk"
-
-  - picture : "images/community/meteors/willvelida.png"
-    name: "Will Velida"
-    bio: "Will is a Lead Software Engineer at Mantel Group, where he helps customers build reliable and resilient applications using Microsoft Azure, and loves using serverless and container technologies. Will has extensive experience in software development, building solutions in the financial, health and agricultural industries. Will is a Microsoft MVP for Cloud Native Technologies, and was part of the Fast Track for Azure team during his time at Microsoft. Will regularly speaks at conferences, user groups and developer events around the world. When he is away from his keyboard, you'll find him hiking around the countryside."
-    cta :
-      enable : true
-      label : "LinkedIn"
-      link : "https://www.linkedin.com/in/willvelida/"
 ---
