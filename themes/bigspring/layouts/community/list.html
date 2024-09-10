@@ -2,10 +2,12 @@
 
 {{ partial "page-header.html" . }}
 
+
 {{ with .Params }}
+{{ if .community }}
 <section class="bg-light">
   <div class="width-80 vertical-align-center">
-    <div class="grid grid-row-auto grid-spacing padding-top-down-30">
+    <div class="grid grid-column-auto grid-spacing padding-top-down-30">
       {{ range .community }}
       <div class="feature-card">
         <div class="img-container-md">
@@ -25,7 +27,37 @@
     </div>
   </div>
 </section>
-{{end}}
+{{ end }}
+{{ end }}
+
+<!-- Community Program -->
+{{ with .Params }}
+{{ if .program }}
+
+<section class="bg-light">
+  <div class="width-80 vertical-align-center">
+    <div class="hero-image">
+      <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+    </div>
+    <div class="grid grid-row-fit grid-spacing padding-top-down-30">
+      {{ range .program }}
+      <div class="feature-card">
+        <h3>{{ .title }}</h3>
+        <div>
+          <p>{{ .summary | markdownify }}</p>
+        </div>
+        {{ if .cta.enable }}
+        <div class="flex-left padding-top-down-10 gap-xsm">
+          <a href="{{ .cta.link | absURL }}"><button class="btn-feature btn-secondary btn-md">{{ .cta.label }}</button></a>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
 
 <!-- panel -->
 {{ with .Params.panel }}

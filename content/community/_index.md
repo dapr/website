@@ -1,11 +1,10 @@
 ---
 title: "Join the Dapr community!"
-#subtitle: ""
-# meta description
 description: "Join the Dapr community!"
 draft: false
 
 community:
+
   - logo : "images/community/discord-logo.png"
     alt: "Dapr Discord"
     title: "Join the Dapr Discord"
@@ -33,4 +32,21 @@ community:
       label : "Go to the Dapr YouTube channel"
       link : "https://www.youtube.com/daprdev"
 
+  - logo : "images/community/x-logo-black.png"
+    alt: "Dapr X (Twitter)"
+    title: "Follow us on X"
+    summary: "Important news such as new releases, case studies, and Dapr related events are shared on X. Follow us there to stay up to date with the latest Dapr news."
+    cta :
+      enable : true
+      label : "Go to the Dapr on X"
+      link : "https://x.com/daprdev"
+
+  - logo : "images/community/dapr-meteor-logo.png"
+    alt: "Become a Dapr Meteor"
+    title: "Become a Dapr Meteor"
+    summary: "Dapr Meteors are a group of Dapr enthusiasts who make a big impact in the community by helping others, creating content, and contributing to the project. If you're passionate about Dapr and want to help others, consider becoming a Dapr Meteor."
+    cta :
+      enable : true
+      label : "Learn about the Dapr Meteors Program"
+      link : "community/program"
 ---
