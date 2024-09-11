@@ -23,6 +23,15 @@ community:
       label : "Visit the Dapr org on GitHub"
       link : "https://www.github.com/dapr"
 
+  - logo : "images/community/dapr-presentation.png"
+    alt: "Dapr Presentation"
+    title: "Give a Dapr presentation"
+    summary: "There are many Dapr enthusiasts who give presentations at local meetups, global conferences, or interally at work. Dapr provides a complete PowerPoint slide deck that can be used for this purpose. Use this deck as a starting point and customize it to your needs. visit the Dapr docs to download the slide deck. Claim the [Dapr presenter badge](https://github.com/dapr/community/tree/master/presentations) once you've given a Dapr presentation!"
+    cta :
+      enable : true
+      label : "Download the Dapr slide deck"
+      link : "https://docs.dapr.io/contributing/presentations/"
+
   - logo : "images/community/youtube-logo.png"
     alt: "Dapr YouTube"
     title: "Subscribe to the Dapr YouTube channel"
