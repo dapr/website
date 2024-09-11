@@ -14,14 +14,14 @@ community:
       label : "Go to the Dapr Discord"
       link : "https://bit.ly/dapr-discord"
 
-  - logo : "images/community/github-logo.png"
-    alt: "Dapr GitHub"
-    title: "Help contribute to Dapr"
-    summary: "Dapr is completely open source and part of the [Cloud Native Computing Foundation](https://www.cncf.io/projects/dapr/). We welcome all sorts of contributions from the community, from website improvements, better docs, bug fixes, or new features. If you're interested in contributing to Dapr, please check out the GitHub organization and the [contribution guidelines](https://docs.dapr.io/contributing/) in the docs."
+  - logo : "images/community/dapr-community-calls.png"
+    alt: "Dapr Community Calls"
+    title: "Join our community calls"
+    summary: "Every other week we live stream our community call to [YouTube](https://www.youtube.com/@daprdev/streams). During these calls, we invite maintainers, contributors, Dapr end users, and Dapr community members, to share new features and their experiences. This is a great opportunity to ask questions and learn from your peers. Do you want to speak at one of our calls? Add a comment to one of the [Community Call issues](https://github.com/dapr/community/issues?q=is%3Aissue+is%3Aopen+label%3A%22community+call%22) on GitHub."
     cta :
       enable : true
-      label : "Visit the Dapr org on GitHub"
-      link : "https://www.github.com/dapr"
+      label : "Watch our community calls"
+      link : "https://www.youtube.com/@daprdev/streams"
 
   - logo : "images/community/dapr-presentation.png"
     alt: "Dapr Presentation"
@@ -31,6 +31,24 @@ community:
       enable : true
       label : "Download the Dapr slide deck"
       link : "https://docs.dapr.io/contributing/presentations/"
+
+  - logo : "images/community/dapr-badges.png"
+    alt: "Dapr Badges"
+    title: "Collect Dapr badges"
+    summary: "When you contribute to Dapr, either with code, docs, doing presentations, or writing blog posts, you can earn digital [Dapr badges](https://www.holopin.io/@dapr). Code contributions are awarded via regular pull requests. [Writer](https://github.com/dapr/community/tree/master/blogposts) and [Presenter](https://github.com/dapr/community/tree/master/presentations) badges are awarded via the community repo. You can claim the [Dapr Community Supporter badge](https://bit.ly/dapr-supporter) right now! Please share your badges on social media."
+    cta :
+      enable : true
+      label : "Claim the Community Supporter badge"
+      link : "https://bit.ly/dapr-supporter"
+
+  - logo : "images/community/github-logo.png"
+    alt: "Dapr GitHub"
+    title: "Help contribute to Dapr"
+    summary: "Dapr is completely open source and part of the [Cloud Native Computing Foundation](https://www.cncf.io/projects/dapr/). We welcome all sorts of contributions from the community, from website improvements, better docs, bug fixes, or new features. If you're interested in contributing to Dapr, please check out the GitHub organization and the [contribution guidelines](https://docs.dapr.io/contributing/) in the docs."
+    cta :
+      enable : true
+      label : "Visit the Dapr org on GitHub"
+      link : "https://www.github.com/dapr"
 
   - logo : "images/community/youtube-logo.png"
     alt: "Dapr YouTube"
