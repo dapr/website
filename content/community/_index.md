@@ -62,16 +62,16 @@ community:
   - logo : "images/community/x-logo-black.png"
     alt: "Dapr X (Twitter)"
     title: "Follow us on X"
-    summary: "Important news such as new releases, case studies, and Dapr related events are shared on X. Follow us there to stay up to date with the latest Dapr news."
+    summary: "Important news such as new releases, case studies, and Dapr related events are shared on X. Follow us there to stay up to date with the latest Dapr news. If you're sharing Dapr news, use the #dapr hashtag and we'll highlight your message during community calls."
     cta :
       enable : true
-      label : "Go to the Dapr on X"
+      label : "Follow Dapr on X"
       link : "https://x.com/daprdev"
 
   - logo : "images/community/dapr-meteor-logo.png"
     alt: "Become a Dapr Meteor"
     title: "Become a Dapr Meteor"
-    summary: "Dapr Meteors are a group of Dapr enthusiasts who make a big impact in the community by helping others, creating content, and contributing to the project. If you're passionate about Dapr and want to help others, consider becoming a Dapr Meteor."
+    summary: "Dapr Meteors are a group of Dapr enthusiasts who make a big impact in the community by helping others, creating content, and contributing to the project. If you're passionate about Dapr and are active in the community, consider nominating yourself to become a Dapr Meteor."
     cta :
       enable : true
       label : "Learn about the Dapr Meteors Program"
