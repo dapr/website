@@ -2,7 +2,7 @@
 title: "Dapr Meteors Program"
 description: "Dapr Meteors Program"
 draft: false
-image: "images/community/dapr-meteor-logo.png"
+image: "images/community/dapr-meteors-logo.png"
 alt: "Dapr Meteors Logo"
 sponsor :
   image: "images/community/diagrid.png"
@@ -11,7 +11,7 @@ sponsor :
 
 program:
   - title: "What is the Dapr Meteors program? 🌠"
-    summary: "Dapr Meteors make a big impact in the Dapr community! The Dapr Meteors program is brought to life to recognize and celebrate the contributions of experts within the Dapr community. These individuals have demonstrated exceptional knowledge and dedication to the Dapr ecosystem. By highlighting their achievements, the program aims to foster a sense of community and encourage more people to get involved with Dapr."
+    summary: "Dapr Meteors make a big impact in the Dapr community! The Dapr Meteors program is brought to life to recognize and celebrate the contributions of experts within the Dapr community. These individuals have demonstrated exceptional knowledge and are regularly found orbiting the Dapr ecosystem. By highlighting their achievements, the program aims to foster a sense of community and encourage more people to get involved with Dapr."
 
   - title: "Requirements ✅"
     summary: "Dapr Meteors are selected based on their active involvement and impact within the Dapr community. This can include contributions such as writing blog posts, creating videos, speaking at conferences and meetups, helping people on Dapr Discord, or contributing documentation or code to the Dapr OSS project itself."
