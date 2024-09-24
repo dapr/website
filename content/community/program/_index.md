@@ -27,8 +27,7 @@ program:
     - Receive unique and amazing Dapr swag!
     
     - Have access to a budget used for organizing local Dapr meetups.
-    
-    - Have free access to Diagrid tools, such as Conductor Enterprise and Catalyst."
+  
   - title: "Community ❤️"
     summary: "We have an incredible Dapr community distributed across the globe! The strength of our community lies in its members' commitment to being kind and respectful towards one another, even when viewpoints may differ. By valuing each other's contributions and offering support, the community ensures that everyone feels welcome and empowered to share their ideas. This culture of respect and kindness not only enhances the overall experience for all members but also drives the continuous growth and success of the Dapr ecosystem."
   - title: "How to become a Dapr Meteor? 📝"
