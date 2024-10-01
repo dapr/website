@@ -66,8 +66,8 @@ caseStudy:
 news:
   enable : true
   prefix : "Announcement "
-  text : "Join our community call live streams on YouTube!"
-  link : "https://www.youtube.com/@DaprDev/streams"
+  text : "Register for Dapr Day to celebrate 5 years of Dapr!"
+  link : "https://community.cncf.io/events/details/cncf-virtual-project-events-2024-hosted-by-cncf-presents-dapr-day-virtual-october-2024/"
 
 ##################### Adopters #########################
 adopters:
