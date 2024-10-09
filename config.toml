@@ -62,26 +62,13 @@ weight = 3
 
 [[menu.main]]
 name = "Community"
-identifier = "community"
+URL = "/community/"
 weight = 3
 
 [[menu.main]]
-name = "GitHub"
-URL = "https://github.com/dapr/community"
-parent = "community"
-weight = 1
+name = "Enterprise"
 
-[[menu.main]]
-name = "Discord"
-URL = "https://bit.ly/dapr-discord"
-parent = "community"
-weight = 2
-
-[[menu.main]]
-name = "YouTube"
-URL = "https://www.youtube.com/@daprdev"
-parent = "community"
-weight = 3
+weight = 5
 
 [[menu.main]]
 name = "News & Media"
