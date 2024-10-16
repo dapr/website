@@ -60,6 +60,29 @@
         <img src="{{ .sponsor.image | absURL }}" alt="{{ .sponsor.alt | markdownify }}">
       </a>
     </div>
+
+    {{ if .meteors }}
+    <div class="text-center padding-top-down-10">
+      <h2>Meet the Meteors 🌠</h2>
+    </div>
+    <div class="grid grid-row-fit grid-spacing padding-top-down-30">
+      {{ range .meteors }}
+      <div class="feature-card">
+        <div class="img-container-md">
+          <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+        </div>
+        <h3>{{ .name }}</h3>
+        <div class="border-decoration">
+          <p>{{ .bio | markdownify }}</p>
+        </div>
+        <div class="flex-left padding-top-down-10 gap-xsm">
+          <a href="{{ .linkedin | absURL }}"><button class="btn-feature btn-secondary btn-md">LinkedIn</button></a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
   </div>
 </section>
 {{ end }}
