@@ -66,8 +66,8 @@ caseStudy:
 news:
   enable : true
   prefix : "Announcement "
-  text : "Join us for Dapr Day today, register now!"
-  link : "https://community.cncf.io/events/details/cncf-virtual-project-events-2024-hosted-by-cncf-presents-dapr-day-virtual-october-2024/"
+  text : "Read about our Dapr Meteors community program! ☄️ "
+  link : "https://dapr.io/community/program/"
 
 ##################### Adopters #########################
 adopters:
