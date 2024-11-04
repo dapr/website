@@ -30,6 +30,23 @@
 {{ end }}
 {{ end }}
 
+<!-- YouTube Playlists -->
+{{ with .Params }}
+{{ if .playlists }}
+<section class="bg-light">
+  <div class="width-80 vertical-align-center">
+    <div class="grid grid-row-fit grid-spacing padding-top-down-30">
+      {{ range .playlists }}
+      <h3 class="text-center">{{ .title }}</h3>
+      <iframe width="560" height="315" src={{ .link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+
 <!-- Community Program -->
 {{ with .Params }}
 {{ if .program }}
