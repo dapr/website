@@ -6,6 +6,51 @@ description: "This is meta description"
 draft: false
 
 adopters:
+  - logo : "images/adoptedby/vonage.png"
+    icon: "ti-quote-right"
+    summary: "How Vonage is using Dapr to secure and modernize their tech stack"
+    quote : "Dapr proved to be a phenomenal fit for both our new systems and our existing stacks; whether its written in Java, Dotnet, Golang or Javascript and running on metal, VMs, Nomad or Kubernetes we were able to standardize tracing, AuthNZ and resilient service-to-service communication."
+    cta :
+      enable : true
+      label : "Read the article"
+      link : "https://www.cncf.io/case-studies/vonage/"
+
+  - logo : "images/adoptedby/wattswater.png"
+    icon: "ti-quote-right"
+    summary: "How Dapr enabled lightning speed development at Watts Water Technologies"
+    quote : "Thanks to Dapr, development teams at Watts don’t face the context switching associated with abundant SDKs and the maintenance / nuances between them – we’re able to largely look at integrations through the lens of Dapr. Debugging is a breeze with a local Dapr install which gives developers the confidence they need when deploying new services as well as the hand-off between developers and the DevOps team."
+    cta :
+      enable : true
+      label : "Read the article"
+      link : "https://www.cncf.io/case-studies/wattswatertechnologies/"
+
+  - logo : "images/adoptedby/grafana.png"
+    icon: "ti-quote-right"
+    summary: "How Grafana Security is using Dapr to improve vulnerability scanning"
+    quote : "Thanks to Dapr, implementing an event-driven architecture was easy and efficient. Each pod lives his own lifecycle, dependless of the others with Dapr handling the complexities of communication and authentication. This allowed us to focus on developing a quicker working solution. Integrating with AWS SQS is effortless due to Dapr bindings, eliminating the need for custom code to handle message queuing."
+    cta :
+      enable : true
+      label : "Read the article"
+      link : "https://www.cncf.io/case-studies/grafana/"
+
+  - logo : "images/adoptedby/derivco.png"
+    icon: "ti-quote-right"
+    summary: "Performing near-real-time personalized recommendations at scale with Dapr"
+    quote : "Derivco was able to build from scratch and deploy a system into production in under 6 months. This system easily and reliably handles up to 320 million events per day with more than 1000 events per second flowing through the actors. At the height of feature delivery, they were deploying up to 80 times per day into production without dropping a single event."
+    cta :
+      enable : true
+      label : "Read the article"
+      link : "https://www.cncf.io/case-studies/derivco/"
+
+  - logo : "images/adoptedby/tempestive.png"
+    icon: "ti-quote-right"
+    summary: "Tempestive uses Dapr and Kubernetes to track billions of messages on IoT devices while reducing costs"
+    quote : "The transformation with Dapr has been nothing short of revolutionary. We achieved platform independence, freeing ourselves from the constraints of the underlying technologies. The modular nature of the new Nuboj platform made it easy to adapt to different scales and needs."
+    cta :
+      enable : true
+      label : "Read the article"
+      link : "https://www.cncf.io/case-studies/tempestive/"
+  
   - logo : "images/adoptedby/hdfcbank.png"
     icon: "ti-quote-right"
     summary: "Throttling incoming traffic requests without changing the core banking system"
