@@ -14,6 +14,15 @@ community:
       label : "Go to the Dapr Discord"
       link : "https://bit.ly/dapr-discord"
 
+  - logo : "images/community/dapr-meteor-logo.png"
+    alt: "Become a Dapr Meteor"
+    title: "Become a Dapr Meteor"
+    summary: "Dapr Meteors are a group of Dapr enthusiasts who make a big impact in the community by helping others, creating content, and contributing to the project. If you're passionate about Dapr and are active in the community, consider nominating yourself to become a Dapr Meteor."
+    cta :
+      enable : true
+      label : "Learn about the Dapr Meteors Program"
+      link : "community/program"
+
   - logo : "images/community/dapr-community-calls.png"
     alt: "Dapr Community Calls"
     title: "Join our community calls"
@@ -59,6 +68,15 @@ community:
       label : "Go to the Dapr YouTube channel"
       link : "https://www.youtube.com/daprdev"
 
+  - logo : "images/community/bluesky-logo.png"
+    alt: "Dapr Bluesky"
+    title: "Follow us on Bluesky"
+    summary: "Important news such as new releases, case studies, and Dapr related events are shared on Bluesky. Follow us there to stay up to date with the latest Dapr news. If you're sharing Dapr news, use the #dapr hashtag and we'll highlight your message during community calls."
+    cta :
+      enable : true
+      label : "Follow Dapr on Bluesky"
+      link : "https://bsky.app/profile/daprdev.bsky.social"
+
   - logo : "images/community/x-logo-black.png"
     alt: "Dapr X (Twitter)"
     title: "Follow us on X"
@@ -68,12 +86,11 @@ community:
       label : "Follow Dapr on X"
       link : "https://x.com/daprdev"
 
-  - logo : "images/community/dapr-meteor-logo.png"
-    alt: "Become a Dapr Meteor"
-    title: "Become a Dapr Meteor"
-    summary: "Dapr Meteors are a group of Dapr enthusiasts who make a big impact in the community by helping others, creating content, and contributing to the project. If you're passionate about Dapr and are active in the community, consider nominating yourself to become a Dapr Meteor."
-    cta :
-      enable : true
-      label : "Learn about the Dapr Meteors Program"
-      link : "community/program"
+playlists:
+  - title: "Diagrid Dapr Playlist"
+    link: "https://www.youtube.com/embed/videoseries?si=skFV-EtWo7qqqLMr&amp;list=PLdl4NkEiMsJuxL1FlopLJmiZOWTYeDgi-"
+  - title: "Dapr Community Call Playlist"
+    link: "https://www.youtube.com/embed/videoseries?si=KHBQ5BOWZ9cNV6Fy&amp;list=PLcip_LgkYwzuF-OV6zKRADoiBvUvGhkao"
+  - title: "Dapr Day Oct 2024 Sessions"
+    link: "https://www.youtube.com/embed/videoseries?si=Y99c5aXc2J41juVo&amp;list=PLcip_LgkYwzsFZ65fIzeOmJBQHwcPQ_gE"
 ---
