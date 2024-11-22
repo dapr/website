@@ -15,6 +15,9 @@ program:
 
   - title: "Requirements ✅"
     summary: "Dapr Meteors are selected based on their active involvement and impact within the Dapr community. This can include contributions such as writing blog posts, creating videos, speaking at conferences and meetups, helping people on Dapr Discord, or contributing documentation or code to the Dapr OSS project itself."
+    image: "images/community/meteors/meteors-neon.jpg"
+    alt: "Dapr Meteors with Dapr Neon Sign"
+  
   - title: "Benefits 🤩"
     summary: "Being recognized as a Dapr Meteor comes with several benefits:
     

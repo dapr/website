@@ -77,6 +77,15 @@ community:
       label : "Follow Dapr on Bluesky"
       link : "https://bsky.app/profile/daprdev.bsky.social"
 
+  - logo : "images/community/linkedin-logo.png"
+    alt: "Dapr LinkedIn"
+    title: "Follow us on LinkedIn"
+    summary: "LinkedIn is used to share important news such as new releases, case studies, and Dapr related events. If you're sharing Dapr news, mention the Dapr page or use the #dapr hashtag and we'll highlight your message during community calls."
+    cta :
+      enable : true
+      label : "Follow Dapr on LinkedIn"
+      link : "https://www.linkedin.com/company/daprdev"
+
   - logo : "images/community/x-logo-black.png"
     alt: "Dapr X (Twitter)"
     title: "Follow us on X"
