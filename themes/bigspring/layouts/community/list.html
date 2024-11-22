@@ -50,7 +50,6 @@
 <!-- Community Program -->
 {{ with .Params }}
 {{ if .program }}
-
 <section class="bg-light">
   <div class="width-80 vertical-align-center">
     <div class="hero-image">
@@ -69,6 +68,11 @@
         </div>
         {{ end }}
       </div>
+      {{ if .image }}
+      <div class="community-hero-image">
+        <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+      </div>
+      {{ end }}
       {{ end }}
     </div>
     <div class="sponsor-image">
