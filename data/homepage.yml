@@ -66,8 +66,8 @@ caseStudy:
 news:
   enable : true
   prefix : "Announcement "
-  text: "Join the Dapr 1.15 celebration event during Diagrid Launch Week!"
-  link: "https://diagrid.ws/launch-week"
+  text: "Help us improve Dapr by taking the State of Dapr Survey!"
+  link: "http://diagrid.ws/stateofdapr"
   #text : "Read about our Dapr Meteors community program!"
   #link : "https://dapr.io/community/program/"
 
