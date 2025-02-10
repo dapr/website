@@ -66,8 +66,8 @@ caseStudy:
 news:
   enable : true
   prefix : "Announcement "
-  text: "Join the Dapr Community!"
-  link: "https://dapr.io/community/"
+  text: "Learn Dapr with Dapr University!"
+  link: "https://www.diagrid.io/dapr-university"
   #text : "Read about our Dapr Meteors community program!"
   #link : "https://dapr.io/community/program/"
 
