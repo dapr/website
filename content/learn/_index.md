@@ -27,7 +27,7 @@ learn:
       link : "https://docs.dapr.io/getting-started/quickstarts/"
 
   - title: "Dapr University"
-    summary: "Learn Dapr through Dapr University, a free, self-paced learning program that provides hands-on courses to learn Dapr. It uses a cloud-based sandbox environment and requires no local setup, you only need a browser. Dapr University is community sponsored by Diagrid."
+    summary: "Learn Dapr through Dapr University, a free, self-paced learning program that provides hands-on courses to learn Dapr. It uses a cloud-based sandbox environment, so it requires no local setup, you only need a browser. Dapr University is community sponsored by Diagrid."
     cta :
       enable : true
       label : "Try the Dapr University courses"
