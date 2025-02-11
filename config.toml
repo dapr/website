@@ -100,6 +100,11 @@ name = "Quickstarts"
 URL = "https://docs.dapr.io/getting-started/quickstarts/"
 weight = 3
 
+[[menu.footer_column1]]
+name = "Dapr University"
+URL = "https://www.diagrid.io/dapr-university"
+weight = 4
+
 [[menu.footer_column2]]
 name = "GitHub"
 URL = "https://github.com/dapr/community"
@@ -109,6 +114,16 @@ weight = 1
 name = "Discord"
 URL = "https://bit.ly/dapr-discord"
 weight = 2
+
+[[menu.footer_column2]]
+name = "YouTube"
+URL = "https://www.youtube.com/@daprdev"
+weight = 3
+
+[[menu.footer_column2]]
+name = "LinkedIn"
+URL = "https://www.linkedin.com/company/daprdev/"
+weight = 4
 
 [[menu.footer_column3]]
 name = "Blog"
