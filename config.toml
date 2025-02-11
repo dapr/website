@@ -39,26 +39,8 @@ weight = 1
 
 [[menu.main]]
 name = "Learn"
-identifier = "learn"
+URL = "/learn/"
 weight = 2
-
-[[menu.main]]
-name = "Concepts"
-URL = "https://docs.dapr.io/concepts/"
-parent = "learn"
-weight = 1
-
-[[menu.main]]
-name = "Getting Started"
-URL = "https://docs.dapr.io/getting-started/"
-parent = "learn"
-weight = 2
-
-[[menu.main]]
-name = "Quickstarts"
-URL = "https://docs.dapr.io/getting-started/quickstarts/"
-parent = "learn"
-weight = 3
 
 [[menu.main]]
 name = "Community"
@@ -67,7 +49,6 @@ weight = 3
 
 [[menu.main]]
 name = "Enterprise"
-
 weight = 5
 
 [[menu.main]]
