@@ -217,7 +217,7 @@ platform:
     - name : "High reliability and resiliency"
       content : "Dapr improves application resiliency by providing platform engineers with configurable policies for retries, circuit breakers, and timeouts. These policies can be scoped to specific applications, infrastructure resources (components), enabling fine-grained control and improved application uptime. "
     - name : "Platform integration capabilities"
-      content : "Dapr provides Kubernetes-native custom resource definitions to configure applications and infrastructure resources (components), enabling platform engineers to leverage GitOps and tools like ArgoCD. Dapr integrates with policy engines like Kyverno and OPA, simplifying the tasks related to compliance and governance, protecting product teams from misconfigurations."
+      content : "Dapr provides Kubernetes-native custom resource definitions to configure applications and infrastructure resources (components), enabling platform engineers to leverage GitOps and tools like Argo CD and Flux CD. Dapr integrates with policy engines like Kyverno and OPA, simplifying the tasks related to compliance and governance, protecting product teams from misconfigurations."
 
 ##################### Value Propositions ##########################
 values:
