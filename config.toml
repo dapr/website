@@ -4,8 +4,6 @@ title = "Dapr - Distributed Application Runtime"
 theme = "bigspring"
 languageName = "En"
 languageCode = "en-us"
-# post pagination
-pagination.pagerSize = "3"
 # post excerpt
 summaryLength = "15"
 # disqus short name
