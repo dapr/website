@@ -1,0 +1,7 @@
+{{ if site.Data.homepage.banner.enable }}
+{{ with site.Data.homepage.banner }}
+<div class="banner text-center highlight-golden">
+  <a href="{{ .link | safeURL }}">{{ .text }}</a>
+</div>
+{{end}}
+{{end}}

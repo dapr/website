@@ -62,14 +62,29 @@ caseStudy:
     #   content : 
     #   link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
     
-##################### News #########################
-news:
+##################### Banner #########################
+banner:
   enable : true
   prefix : "Announcement "
   text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
   link: "https://www.diagrid.io/dapr-university"
   #text : "Read about our Dapr Meteors community program!"
   #link : "https://dapr.io/community/program/"
+
+##################### News (max 2 items) #########################
+news:
+  enable : true
+  news_items:
+  - title: "Dapr Agents"
+    date: "March 12th 2025"
+    content: "Use Dapr Agents to build autonomous, resilient and observable AI agents with built-in workflow orchestration, security, statefulness and telemetry."
+    link: "https://github.com/dapr/dapr-agents"
+    linktext: "Learn more"
+  - title: "Dapr v1.15 release"
+    date: "February 27th 2025"
+    content: "Dapr release 1.15 is now available and brings a stable Workflow API, a new LLM Conversation API, and many reliability improvements."
+    link: "https://blog.dapr.io/posts/2025/02/27/dapr-v1.15-is-now-available/"
+    linktext: "Read more"
 
 ##################### Adopters #########################
 adopters:
