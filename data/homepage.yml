@@ -78,7 +78,7 @@ news:
   - title: "Dapr Agents"
     date: "March 12th 2025"
     content: "Use Dapr Agents to build autonomous, resilient and observable AI agents with built-in workflow orchestration, security, statefulness and telemetry."
-    link: "https://github.com/dapr/dapr-agents"
+    link: "https://www.cncf.io/blog/2025/03/12/announcing-dapr-ai-agents/"
     linktext: "Learn more"
   - title: "Dapr v1.15 release"
     date: "February 27th 2025"
