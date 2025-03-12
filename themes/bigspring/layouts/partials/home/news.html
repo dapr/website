@@ -1,7 +1,25 @@
 {{ if site.Data.homepage.news.enable }}
 {{ with site.Data.homepage.news }}
-<div class="news text-center highlight-golden">
-  <a href="{{ .link | safeURL }}">{{ .text }}</a>
-</div>
-{{end}}
-{{end}}
+<!-- <div class="news text-center highlight-golden">
+  {{ range .news_items }}
+    <p>{{ .text }}</p>
+    <a href="{{ .link | safeURL }}">{{ .linktext }}</a>
+  {{ end }}
+</div> -->
+
+<section>
+  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
+    <!-- <h2 class="text-center">News</h2> -->
+    <div class="flex flex-wrap gap-l row-gap-20 vertical-align-center column-mobile">
+    {{ range $newsItem := .news_items }}
+    <div class="feature-card width-40 width-90-mobile">
+      <h3 class="text-center-mobile">{{ $newsItem.title }} <span class="news-date">{{ $newsItem.date }}</span></h3>
+      <p class="text-justify">{{ $newsItem.content }}</p>
+      <a href="{{ $newsItem.link | safeURL }}">{{ $newsItem.linktext }}</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+</section>
+{{ end }}
+{{ end }}
