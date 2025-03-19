@@ -359,15 +359,23 @@ h2.video {
     text-decoration: underline;
     color: black;
 }
-.news {
+.banner {
     padding: 10px 0px;
     font-weight: 500;
     font-size: 1.5rem;
 }
-.news > a {
+.banner > a {
     text-decoration: underline;
     color: black;
 }
+/* news */
+.news-date {
+    font-style: italic;
+    font-weight: 300;
+    font-size: smaller;
+    margin-left: 1em;
+}
+
 /* icon */
 .icon-container {
     width: 34px;
