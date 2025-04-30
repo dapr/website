@@ -209,7 +209,7 @@ buildingBlock:
     - name : "LLM Conversation"
       icon : "chat"
       content : "The conversation API reduces the complexity of securely and reliably interacting with Large Language Models (LLM) at scale. The API includes prompt caching, and PII obfuscation to prevent sending sensitive information to the LLM."
-      link : "https://v1-15.docs.dapr.io/developing-applications/building-blocks/conversation/conversation-overview/"
+      link : "https://docs.dapr.io/developing-applications/building-blocks/conversation/conversation-overview/"
 
     - name : "Distributed lock"
       icon : "table-lock"
