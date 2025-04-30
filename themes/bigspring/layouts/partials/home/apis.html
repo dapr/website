@@ -1,13 +1,17 @@
 {{ if site.Data.homepage.buildingBlock.enable }}
 {{ with site.Data.homepage.buildingBlock }}
 <section>
-  <div class="padding-top-down-30 font-weight-300">
+  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
+  
     <h2 class="text-center padding-bottom-20 text-blue">{{ .title }}</h2>
+    <img src="{{ .image }}" alt="{{ .imagealt }}">
     {{ if .content }}
     <p class="text-justify font-weight-300">
       {{ .content }}
     </p>
     {{ end }}
+    </section>
+    <section>
     <div class="flex flex-wrap gap-md row-gap-20 width-80 vertical-align-center padding-bottom-20 column-mobile">
       {{ range .feature_item }}
       <div class="feature-card width-20 width-90-mobile">
@@ -20,7 +24,6 @@
       </div>
       {{ end }}
     </div>
-  </div>
 </section>
 {{ end }}
 {{ end }}
