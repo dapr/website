@@ -157,7 +157,9 @@ adopters:
 buildingBlock:
   enable : true
   title : "APIs"
-  content : ""
+  image: "images/dapr-apis-overview.png"
+  imagealt: "Dapr APIs Overview"
+  content : "The Dapr building block APIs allow you to build distributed applications quicker. The built-in resiliency, security, and observability features help you to focus on your business logic."
   feature_item:
     - name : "Service invocation"
       icon : "arrow-step-in-right"
@@ -203,6 +205,11 @@ buildingBlock:
       icon : "plug-disconnected"
       content : "A binding provides a bi-directional connection to an external cloud/on-premise service or system. Dapr allows you to invoke the external service through the Dapr binding API, and it allows your application to be triggered by events sent by the connected service."
       link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
+
+    - name : "LLM Conversation"
+      icon : "chat"
+      content : "The conversation API reduces the complexity of securely and reliably interacting with Large Language Models (LLM) at scale. The API includes prompt caching, and PII obfuscation to prevent sending sensitive information to the LLM."
+      link : "https://docs.dapr.io/developing-applications/building-blocks/conversation/conversation-overview/"
 
     - name : "Distributed lock"
       icon : "table-lock"
