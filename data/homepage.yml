@@ -33,7 +33,7 @@ caseStudy:
       link : "https://www.cncf.io/case-studies/hdfc-bank/"
 
     - name : "DataGalaxy"
-      title: "Simplifying Complexity: Using Dapr to Build a More Maintainable Software Ecosystem"
+      title: "Simplifying Complexity: Using Dapr to build a more maintainable software ecosystem"
       image : "images/casestudy/case-study-datagalaxy.png"
       content :
       link : "https://www.cncf.io/case-studies/datagalaxy/"
