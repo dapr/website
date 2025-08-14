@@ -9,7 +9,7 @@ adopters:
 
   - logo : "images/adoptedby/datagalaxy.png"
     icon: "ti-quote-right"
-    summary: "Simplifying Complexity: Using Dapr to Build a More Maintainable Software Ecosystem"
+    summary: "Simplifying Complexity: Using Dapr to build a more maintainable software ecosystem"
     quote : "Our development teams have experienced a significant boost in productivity. Developers can now focus on feature development without being bogged down by legacy constraints. The streamlined architecture has improved maintainability, making it easier to onboard new team members and accelerate development cycles."
     cta :
       enable : true
