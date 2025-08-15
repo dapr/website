@@ -7,25 +7,43 @@
   <div class="width-80 vertical-align-center">
     <div class="grid grid-row-fit grid-spacing padding-top-down-30">
       {{ range .companies }}
+      {{ $company := . }}  <!-- keep a handle to the company map -->
       <div class="feature-card">
         <div class="img-container-sm">
-          <a href="{{ .cta.link | absURL }}" alt="{{ .cta.label }}">
-            <img src="{{ .logo | absURL }}" alt="{{ .alt | markdownify }}">
+          <a href="{{ $company.cta.link | absURL }}">
+            <img src="{{ $company.logo | absURL }}" alt="{{ $company.alt }}">
           </a>
         </div>
-        <h3>{{ .title }}</h3>
-        <div class="border-decoration">
-          <p>{{ .summary | markdownify }}</p>
+
+        <!-- Product 1 -->
+        <h3>{{ $company.title }}</h3>
+        <div>
+          <p>{{ $company.summary | markdownify }}</p>
         </div>
+
+        <!-- Optional Product 2 -->
+        {{ with $company.title2 }}
+          <h3 class="margin-top-10">{{ . }}</h3>
+          {{ with $company.summary2 }}
+            <div>
+              <p>{{ . | markdownify }}</p>
+            </div>
+          {{ end }}
+        {{ end }}
+
         <div class="flex-left padding-top-down-10 gap-xsm">
-          <a href="{{ .cta.link | absURL }}"><button class="btn-feature btn-secondary btn-md">{{ .cta.label }}</button></a>
+          {{ if $company.cta.enable }}
+          <a href="{{ $company.cta.link | absURL }}">
+            <button class="btn-feature btn-secondary btn-md">{{ $company.cta.label }}</button>
+          </a>
+          {{ end }}
         </div>
       </div>
       {{ end }}
     </div>
   </div>
 </section>
-{{end}}
+{{ end }}
 
 <!-- panel -->
 {{ with .Params.panel }}
