@@ -33,5 +33,11 @@ learn:
       label : "Try the Dapr University courses"
       link : "https://www.diagrid.io/dapr-university"
 
+  - title: "Dapr YouTube channel"
+    summary: "Discover use cases, conference presentations and our regular community meetings on the Dapr YouTube channel."
+    cta :
+      enable : true
+      label : "Explore Dapr on YouTube"
+      link : "https://www.youtube.com/daprdev"
 
 ---
