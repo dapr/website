@@ -10,7 +10,7 @@ companies:
   - logo : "images/enterprise/diagrid.png"
     alt: "Diagrid Enterprise for Dapr"
     title: "Diagrid Enterprise Support for Dapr"
-    summary: "<b>Diagrid Enterprise</b> makes running Dapr easier and more secure. It includes 24/7 production support, expert guidance, OSS CVE resolution, and architectural reviews & training. It also provides access to Conductor, a solution to fully automate & monitor Dapr across all your Kubernetes clusters, and D3E, a security enhanced, signed Dapr binaries including enterprise features for multi-tenancy and minimized RBAC permissions."
+    summary: "<b>Diagrid Enterprise</b> makes running Dapr easier and more secure. It includes 24/7 production support, expert guidance, OSS CVE resolution, and architectural reviews & training. It also provides access to Conductor, a solution to fully automate & monitor Dapr across all your Kubernetes clusters, and D3E, a security enhanced Dapr distribution including enterprise features for multi-tenancy and minimized RBAC permissions."
     title2: "Diagrid Catalyst"
     summary2: "<b>Diagrid Catalyst</b> provides workflows and Agentic AI for the Enterprise. With fail-proof workflows and durable agents, your distributed applications are smarter, more reliable, more portable.  Spend less time worrying, and more time building."
     cta :
