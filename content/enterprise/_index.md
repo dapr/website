@@ -12,7 +12,7 @@ companies:
     title: "Diagrid Enterprise Support for Dapr"
     summary: "[Diagrid Enterprise](https://www.diagrid.io/dapr-for-enterprise) makes running Dapr easier and more secure. It includes 24/7 production support, expert guidance, OSS CVE resolution, and architectural reviews & training. It also provides access to Conductor, a solution to fully automate & monitor Dapr across all your Kubernetes clusters, and D3E, a security enhanced Dapr distribution including enterprise features for multi-tenancy and minimized RBAC permissions."
     title2: "Diagrid Catalyst"
-    summary2: "<b>Diagrid Catalyst</b> is an Enterprise application platform for Dapr Workflows and Dapr AI Agents. Catalyst provide enterprise management on the Dapr APIs"
+    summary2: "[Diagrid Catalyst](https://www.diagrid.io/catalyst) is an Enterprise application platform for Dapr Workflows and Dapr AI Agents. Catalyst provides enterprise management on the Dapr APIs"
     cta :
       enable : true
       label : "Visit website"
