@@ -6,6 +6,16 @@ description: "This is meta description"
 draft: false
 
 adopters:
+
+  - logo : "images/adoptedby/datagalaxy.png"
+    icon: "ti-quote-right"
+    summary: "Simplifying Complexity: Using Dapr to build a more maintainable software ecosystem"
+    quote : "Our development teams have experienced a significant boost in productivity. Developers can now focus on feature development without being bogged down by legacy constraints. The streamlined architecture has improved maintainability, making it easier to onboard new team members and accelerate development cycles."
+    cta :
+      enable : true
+      label : "Read the article"
+      link : "https://www.cncf.io/case-studies/datagalaxy/"
+
   - logo : "images/adoptedby/vonage.png"
     icon: "ti-quote-right"
     summary: "How Vonage is using Dapr to secure and modernize their tech stack"

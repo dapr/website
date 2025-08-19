@@ -32,11 +32,11 @@ caseStudy:
       content :
       link : "https://www.cncf.io/case-studies/hdfc-bank/"
 
-    - name : "DeFacto"
-      title: "How DeFacto migrated to an event-driven architecture with Dapr."
-      image : "images/casestudy/case-study-defacto.png"
+    - name : "DataGalaxy"
+      title: "Simplifying Complexity: Using Dapr to build a more maintainable software ecosystem"
+      image : "images/casestudy/case-study-datagalaxy.png"
       content :
-      link : "https://www.cncf.io/case-studies/defacto/"
+      link : "https://www.cncf.io/case-studies/datagalaxy/"
     
     # - name : "At-Bay"
     #   title: "How At-Bay improved operations with Dapr."
