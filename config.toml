@@ -51,12 +51,18 @@ weight = 3
 
 [[menu.main]]
 name = "Enterprise"
+URL = "/enterprise/"
+weight = 4
+
+[[menu.main]]
+name = "Platform Engineering"
+URL = "/platform-engineering/"
 weight = 5
 
 [[menu.main]]
 name = "News & Media"
 identifier = "News & Media"
-weight = 4
+weight = 6
 
 [[menu.main]]
 name = "Blog"
@@ -77,14 +83,9 @@ parent = "News & Media"
 weight = 3
 
 [[menu.main]]
-name = "Enterprise"
-URL = "/enterprise/"
-weight = 5
-
-[[menu.main]]
 name = "中国社区"
 URL = "https://cn.dapr.io"
-weight = 6
+weight = 7
 
 # footer menu
 [[menu.footer_column1]]
