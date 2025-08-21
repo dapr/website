@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+{{ partial "page-header.html" . }}
+
+{{ with .Params }}
+{{ with .platform }}
+<section class="bg-light">
+  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
+    <img src="../{{ .image }}" alt="{{ .imagealt }}">
+    <p class="text-justify font-weight-300">
+      {{ .content }}
+    </p>
+
+    <div class="flex flex-wrap gap-l row-gap-20 vertical-align-center column-mobile">
+      {{ range $index, $featureItem := .feature_item }}
+      <div class="width-45 width-100-mobile font-weight-300">
+        <h3 class="text-center-mobile">{{ $featureItem.name }}</h3>
+        <p class="text-justify">{{ $featureItem.content }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}

@@ -42,7 +42,7 @@
 }
 
 .img-container-md img {
-    max-height: 5em;
+    max-height: 3em;
 }
 
 .img-container-md2 img {
@@ -168,16 +168,16 @@ footer .navLink:hover {
     display: grid;
 }
 .grid-column-auto {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 1rem;
 }
 .grid-row-auto {
     grid-auto-rows: minmax(0, 1fr);
-    grid-row-gap: 1.5rem;
+    grid-row-gap: 1rem;
 }
 
 .grid-row-fit {
-    grid-row-gap: 1.5rem;
+    grid-row-gap: 1rem;
     justify-content: center;
 }
 
@@ -325,6 +325,9 @@ h2.video {
 .width-80 {
     width: 80%;
 }
+.width-90 {
+    width: 90%;
+}
 .width-60 {
     width: 60%;
 }
@@ -419,6 +422,9 @@ h2.video {
     .width-80 {
         width: 70%;
     }
+    .width-90 {
+        width: 80%;
+    }
 }
 
 @media only screen and (min-width: 1800px) {
@@ -427,6 +433,9 @@ h2.video {
     }
     .width-80 {
         width: 60%;
+    }
+    .width-90 {
+        width: 80%;
     }
 }
 
