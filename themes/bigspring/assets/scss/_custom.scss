@@ -167,7 +167,11 @@ footer .navLink:hover {
 .grid {
     display: grid;
 }
-.grid-column-auto {
+.grid-column-auto-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+.grid-column-auto-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 1rem;
 }

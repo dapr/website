@@ -18,6 +18,7 @@ button {
 }
 
 .btn-secondary {
+  border: 1px solid $primary-color;
   background-color: $white;
   color: $text-color-mid;
 }
