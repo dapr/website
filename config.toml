@@ -180,8 +180,8 @@ weight = 3
 logo = "images/dapr.svg"
 logo_width = "60px"
 # Meta data
-description = "APIs for building secure and reliable microservices"
-keywords = "dapr, microservices, distributed applications, runtime, kubernetes"
+description = "APIs for building secure and reliable microservices, durable workflows, and agentic AI"
+keywords = "dapr, microservices, distributed applications, runtime, kubernetes, agentic ai"
 author = "Dapr Maintainers"
 # contact form action
 contact_form_action = "#" # contact form works with https://formspree.io
