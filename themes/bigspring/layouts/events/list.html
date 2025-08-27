@@ -1,0 +1,106 @@
+{{ define "main" }}
+
+{{ partial "page-header.html" . }}
+
+
+{{ with .Params }}
+{{ if .events }}
+<section class="bg-light">
+  <div class="width-80 vertical-align-center">
+    <div class="grid grid-column-auto-3 grid-spacing padding-top-down-30">
+      {{ range .community }}
+      <div class="feature-card">
+        <div class="img-container-lg">
+          <a href="{{ .cta.link | absURL }}" alt="{{ .cta.label }}">
+            <img src="{{ .logo | absURL }}" alt="{{ .alt | markdownify }}">
+          </a>
+        </div>
+        <h3>{{ .title }}</h3>
+        <div class="border-decoration">
+          <p>{{ .summary | markdownify }}</p>
+        </div>
+        <div class="flex-left padding-top-down-10 gap-xsm">
+          <a href="{{ .cta.link | absURL }}"><button class="btn-feature btn-secondary btn-md">{{ .cta.label }}</button></a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+
+<!-- Single Event -->
+{{ with .Params }}
+{{ if .event }}
+<section class="bg-light">
+  <div class="width-80 vertical-align-center">
+    <div class="hero-image">
+      <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+    </div>
+    <div class="grid grid-row-fit grid-spacing padding-top-down-30">
+      {{ range .event }}
+      <div class="feature-card">
+        <h3>{{ .title }}</h3>
+        <div>
+          <p>{{ .summary | markdownify }}</p>
+        </div>
+        {{ if .cta.enable }}
+        <div class="flex-left padding-top-down-10 gap-xsm">
+          <a href="{{ .cta.link | absURL }}"><button class="btn-feature btn-secondary btn-md">{{ .cta.label }}</button></a>
+        </div>
+        {{ end }}
+      </div>
+      {{ if .image }}
+      <div class="community-hero-image">
+        <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+
+    {{ if .speakers }}
+    <div class="text-center padding-top-down-10">
+      <h2>Speakers 🎤</h2>
+    </div>
+    <div class="grid grid-row-fit grid-spacing padding-top-down-30">
+      {{ range .speakers }}
+      <div class="feature-card">
+        <div class="img-container-md">
+          <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+        </div>
+        <h3>{{ .name }}</h3>
+        <div class="border-decoration">
+          <p>{{ .bio | markdownify }}</p>
+        </div>
+        <div class="flex-left padding-top-down-10 gap-xsm">
+          <a href="{{ .linkedin | absURL }}"><button class="btn-feature btn-secondary btn-md">LinkedIn</button></a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+<!-- YouTube Playlists -->
+{{ with .Params }}
+{{ if .playlists }}
+<section class="bg-light">
+  <div class="width-80 vertical-align-center">
+    <div class="grid grid-row-fit grid-spacing padding-top-down-30">
+      {{ range .playlists }}
+      <h3 class="text-center">{{ .title }}</h3>
+      <iframe width="560" height="315" src={{ .link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{ end }}
