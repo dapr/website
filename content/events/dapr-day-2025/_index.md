@@ -26,7 +26,7 @@ event:
   - title: "Topics"
     summary: "Topics that will be covered during Dapr Day include:
 
-    - Customer case studies
+    - Case studies
 
     - Tips for running Dapr in production
 
