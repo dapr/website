@@ -11,7 +11,7 @@ event:
     summary: "Dapr Day is a virtual event for developers and platform engineers to learn about Dapr, the distributed application runtime, a graduated CNCF project used by many organizations to build secure and reliable microservices and agentic AI systems.
 
 
-    During Dapr Day, you'll hear from customers how they use Dapr in production and learn from subject matter experts and maintainers how to use the latest Dapr features.
+    During Dapr Day, you'll hear from users how they use Dapr in production and learn from subject matter experts and maintainers how to use the latest Dapr features.
 
 
     Dapr Day will be held on November 5th, 2025, 17:00 - 22:00 CET / 8am - 1pm PST."
