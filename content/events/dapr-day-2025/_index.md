@@ -32,7 +32,7 @@ event:
 
     - Dapr and agentic AI
 
-    - Dapr and workflow durable execution
+    - Dapr and workflows based on durable execution
 
     - Dapr API deep dives"
 
