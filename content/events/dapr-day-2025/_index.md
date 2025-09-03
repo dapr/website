@@ -16,13 +16,6 @@ event:
 
     Dapr Day will be held on November 5th, 2025, 17:00 - 22:00 CET / 8am - 1pm PST."
 
-  - title: "Registration"
-    summary: "Dapr Day is a free community event that is open for everyone. Registration for this event will open soon."
-    cta :
-      enable : false
-      label : "Register"
-      link : ""
-
   - title: "Topics"
     summary: "Topics that will be covered during Dapr Day include:
 
@@ -42,6 +35,9 @@ event:
       enable : true
       label : "Submit your CfP"
       link : "https://sessionize.com/dapr-day-2025/"
+
+  - title: "Registration"
+    summary: "Dapr Day is a free community event that is open for everyone. Register using the form below."
 
 playlists:
   - title: "Dapr Day Oct 2024 Sessions"

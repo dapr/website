@@ -19,9 +19,11 @@
         <div class="border-decoration">
           <p>{{ .summary | markdownify }}</p>
         </div>
+        {{ if .cta }}
         <div class="flex-left padding-top-down-10 gap-xsm">
           <a href="{{ .cta.link | absURL }}"><button class="btn-feature btn-secondary btn-md">{{ .cta.label }}</button></a>
         </div>
+        {{ end }}
       </div>
       {{ end }}
     </div>
@@ -59,6 +61,15 @@
       {{ end }}
       {{ end }}
     </div>
+
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        portalId: "22146261",
+        formId: "37002a48-7eda-41b5-97b8-70fec7fe7782",
+        region: "na1"
+      });
+    </script>
 
     {{ if .speakers }}
     <div class="text-center padding-top-down-10">
