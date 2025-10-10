@@ -71,22 +71,19 @@
       });
     </script>
 
-    {{ if .speakers }}
+    {{ if .sessions }}
     <div class="text-center padding-top-down-10">
-      <h2>Speakers 🎤</h2>
+      <h2>Agenda</h2>
     </div>
     <div class="grid grid-row-fit grid-spacing padding-top-down-30">
-      {{ range .speakers }}
+      {{ range .sessions }}
       <div class="feature-card">
-        <div class="img-container-md">
-          <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+        <h3>{{ .title }}</h3>
+        <div>
+          <p>{{ .speaker | markdownify }} | {{ .role | markdownify }}</p>
         </div>
-        <h3>{{ .name }}</h3>
-        <div class="border-decoration">
-          <p>{{ .bio | markdownify }}</p>
-        </div>
-        <div class="flex-left padding-top-down-10 gap-xsm">
-          <a href="{{ .linkedin | absURL }}"><button class="btn-feature btn-secondary btn-md">LinkedIn</button></a>
+        <div>
+          <p>{{ .abstract | markdownify }}</p>
         </div>
       </div>
       {{ end }}
