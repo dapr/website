@@ -75,11 +75,11 @@ sessions:
     role: "UNIVILLE, Professor"
     abstract: "Azure IoT Operations (AIO) is the new Industrial IoT platform from Microsoft Azure, and it's using Dapr as the default way to develop new modules to publish into the AIO Kubernetes device.
     
-    
+
     This presentation will demonstrate how to use the Dapr Runtime to build an MCP Server, publish it to a Kubernetes cluster running Azure IoT Operations, and query real-state data from an integrated industrial device over the OPC UA protocol."
 
   - title: "Accelerating Modernization at Elation Health with Dapr and Event-Driven Architecture"
-    speaker: "Patrick"
+    speaker: "Patrick Assuied"
     role: "Elation Health, Director Engineering, Platform"
     abstract: "Elation Health, a mission-driven Health Tech company, has supported independent Primary Care providers for 15 years with an All-in-One EHR solution, initially built on a monolithic architecture internally branded as \"hippo.\" As the company scaled, the growing complexity of this monolith increasingly hampered the engineering team's ability to rapidly deliver value and innovation. An initial attempt to introduce microservices resulted in a brittle \"distributed monolith\" due to a lack of standardized framework. To address this, the engineering team pivoted to an event-driven architecture (EDA), leveraging Apache Kafka (managed through Confluent) as the communication backbone. This transition, while necessary, introduced new complexity for engineers managing Pub/Sub applications, leading to inconsistent implementations and inadequate guardrails for fault tolerance (e.g., retries, Dead Letter Queues).
 
