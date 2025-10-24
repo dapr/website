@@ -11,35 +11,27 @@ event:
     summary: "Dapr Day is a virtual event for developers and platform engineers to learn about Dapr, the distributed application runtime, a graduated CNCF project used by many organizations to build secure and reliable microservices and agentic AI systems.
 
 
-    During Dapr Day, you'll hear from users how they use Dapr in production and learn from subject matter experts and maintainers how to use the latest Dapr features.
+    During Dapr Day, you'll hear from users how they use Dapr in production and learn from subject matter experts and maintainers how to use the latest Dapr features. Scroll down to see the full agenda and register for free!
 
 
-    Dapr Day will be held on November 5th, 2025, 17:00 - 22:00 CET / 8am - 1pm PST."
-
-  - title: "Topics"
-    summary: "Topics that will be covered during Dapr Day include:
-
-    - Case studies
-
-    - Tips for running Dapr in production
-
-    - Dapr and agentic AI
-
-    - Dapr and workflows based on durable execution
-
-    - Dapr API deep dives
-    
-    
-    Scroll down to see the agenda and speakers."
+    Dapr Day will be held on November 5th, 2025, 17:00 - 21:30 CET / 8am - 12:30pm PST."
 
   - title: "Registration"
-    summary: "Dapr Day is a free community event that is open for everyone. Register using the form below."
+    summary: "Dapr Day is a free community event that is open for everyone. Register using the form below. You'll first receive a confirmation email. A week before the event you'll receive another email with the link to join the live event."
 
 playlists:
   - title: "Dapr Day Oct 2024 Sessions"
     link: "https://www.youtube.com/embed/videoseries?si=Y99c5aXc2J41juVo&amp;list=PLcip_LgkYwzsFZ65fIzeOmJBQHwcPQ_gE"
 
 sessions:
+  - title: "Opening"
+    speaker: "Dana Arsovska, Cecil Phillip & Marc Duiker"
+    role: "Dapr Community Managers"
+
+  - title: "Dapr Roadmap"
+    speaker: "Mark Fussell & Yaron Scnheider"
+    role: "Dapr co-creators"
+
   - title: "Building and running applications using Dapr since 2020"
     speaker: "Fabian Steinbach"
     role: "Software architect at ZEISS Group"
@@ -92,24 +84,6 @@ This success led us to generalize Dapr across our stack. We developed a comprehe
 
 Our Dapr journey is now accelerating our path toward becoming an AI-native EHR. The immediate integration of features like Dapr Workflows is instrumental in quickly innovating and building new AI use cases. Dapr has proven to be a critical accelerator, transforming our delivery velocity and empowering our small, mighty team to focus on clinical value rather than infrastructure complexity."
 
-  - title: "Glueing .NET Aspire Services with Container Apps and Dapr"
-    speaker: "Eduard Keilholz"
-    role: "Cloud Solution Architect @ 4Dotnet | Book Author | International Conference Speaker | Founder of https://spreaview.com"
-    abstract: "Ready to move your .NET Aspire project from local development to a production-ready cloud environment? This session provides a practical roadmap for deploying multi-service .NET solutions using Azure Container Apps and Dapr, tackling the common challenges of scaling, inter-service communication, and resilience.
-
-
-In this session, you will learn how to:
-
-* Containerize .NET Aspire services for a seamless deployment to Azure Container Apps.
-
-* Leverage built-in Dapr components for robust service invocation, pub/sub messaging, and state management.
-
-* Enhance communication and reliability between services without writing complex, boilerplate code.
-
-* Create a clear strategy for streamlining the deployment and operation of your applications on Azure.
-
-
-Join us to gain the skills and confidence needed to operate modern, cloud-native .NET solutions in production. This session is essential for developers and architects looking to simplify their service landscape and accelerate their deployment pipeline."
 
   - title: "AI-Powered Banking with Dapr: Cloud-Native Transformation & Fraud Detection"
     speaker: "Rajender Chilukala"
@@ -124,4 +98,26 @@ Fraud detection is evolving from static rule sets to adaptive machine learning m
 
 
 This talk also addresses the challenges of integrating Dapr-enabled microservices with established mainframes, meeting diverse regulatory demands, and ensuring data protection. Attendees will gain practical insights into how Dapr empowers banks to deliver elastic scalability, secure customer experiences, and future-ready architectures turning compliance and innovation into complementary forces."
+
+  - title: "Glueing .NET Aspire Services with Container Apps and Dapr"
+    speaker: "Eduard Keilholz"
+    role: "Cloud Solution Architect @ 4Dotnet | Book Author | International Conference Speaker | Founder of https://spreaview.com"
+    abstract: "Ready to move your .NET Aspire project from local development to a production-ready cloud environment? This session provides a practical roadmap for deploying multi-service .NET solutions using Azure Container Apps and Dapr, tackling the common challenges of scaling, inter-service communication, and resilience.
+
+In this session, you will learn how to:
+
+* Containerize .NET Aspire services for a seamless deployment to Azure Container Apps.
+
+* Leverage built-in Dapr components for robust service invocation, pub/sub messaging, and state management.
+
+* Enhance communication and reliability between services without writing complex, boilerplate code.
+
+* Create a clear strategy for streamlining the deployment and operation of your applications on Azure.
+
+
+Join us to gain the skills and confidence needed to operate modern, cloud-native .NET solutions in production. This session is essential for developers and architects looking to simplify their service landscape and accelerate their deployment pipeline."
+
+  - title: "Prize Draw & Closing"
+    speaker: "Dana Arsovska, Cecil Phillip & Marc Duiker"
+    role: "Dapr Community Managers"
 ---
