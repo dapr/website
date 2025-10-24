@@ -104,6 +104,22 @@
     </div>
     {{ end }}
 
+    {{ if .alumni_meteors }}
+    <div class="text-center padding-top-down-10">
+      <h2>Alumni Meteors</h2>
+    </div>
+    <div class="flex flex-wrap gap-md row-gap-20 width-80 vertical-align-center padding-bottom-20 column-mobile">
+      {{ range .alumni_meteors }}
+      <div class="feature-card width-20 width-90-mobile">
+        <div class="img-container-md">
+          <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+        </div>
+        <h3>{{ .name }}</h3>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
   </div>
 </section>
 {{ end }}
