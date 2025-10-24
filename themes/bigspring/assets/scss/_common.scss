@@ -51,6 +51,7 @@ a,
 a:hover,
 a:focus {
   text-decoration: underline;
+  text-underline-offset: 0.3em;
   text-decoration-color: $primary-color;
   text-decoration-style: dashed;
 }
