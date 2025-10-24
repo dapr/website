@@ -107,16 +107,6 @@ adopters:
       label : "Read the article"
       link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
 
-  - logo : "images/adoptedby/bosch.png"
-    icon: "ti-quote-right"
-    summary : "Bosch's Residential IoT Services GmbH (RIoT) uses Dapr actors and Java SDK to build a large scale smart home IoT solution."
-    quote : "We used the Dapr SDK to publish events, which gave us the time to focus on what we wanted to communicate, instead of, ‘How do I get this communication implemented?’ We could focus on the real things that matter."
-    person : "-- Jasper Mang, Lead Developer, RIoT"        
-    cta : 
-      enable : true
-      label : "Read the article"
-      link : "https://customers.microsoft.com/en-us/story/1435725395247777374-bosch-builds-smart-homes-using-dapr-azure"
-
   - logo : "images/adoptedby/zeiss.png"
     icon: "ti-quote-right"
     summary : "ZEISS uses Dapr's actor framework to manage the life-cycle of orders in a global scale production system running on Microsoft Azure."
