@@ -51,16 +51,17 @@ sessions:
 
     With a practical example on how Dapr Workflow integrates with Spring AI, this session is designed to give Java developers an overview about how they can start using Dapr with their Spring Boot and Quarkus applications."
   
-  - title: "Electronic Prior Authorization with Dapr: Microservices & Agentic AI PoC for the Healthcare Industry"
-    speaker: "Vishwasrao Salunkhe"
-    role: "Healthcare Enthusiast, Technical Geek, Loves programming."
-    abstract: "This presentation demonstrates a real-world proof-of-concept for an electronic prior authorization (e-PA) workflow, built with the dapr. The solution uses microservices for different e-PA stages, leveraging dapr's Pub/Sub and State Management building blocks for orchestration and state persistence. 
-    
+  - title: "Dapr for Reliable Distributed Payments: Idempotency, Guarantees, and Scale"
+    speaker: "Krishna Dusad"
+    role: "Senior Software Engineer"
+    abstract: "Distributed payment systems must operate reliably in environments of latency, retries, and partial failures. This talk demonstrates how Dapr can help engineers tame asynchrony and build resilient, scalable financial infrastructures.
 
-    A key highlight is Dapr's seamless integration with Da Vinci Project standards—specifically, the Coverage Requirements Discovery (CRD), Documentation Templates and Rules (DTR), and Prior Authorization Support (PAS) implementation guides via CDS Hooks technology. This approach directly aligns with the CMS HTI-4 Rule (CMS-0057-F) to improve e-PA processes.
-    
 
-    The talk also features an advanced Agentic AI use case, where dapr agents automate decision-making. Attendees will learn how to use multiple dapr building blocks to create a scalable, standards-compliant solution for complex healthcare workflows, providing a valuable blueprint for developing future-proof applications."
+We’ll cover a fault-tolerant ledger abstraction that separates transaction intent from execution, ensuring safe retries and preventing duplicates through idempotency markers. Next, we’ll explore workflow patterns—outbox/inbox messaging, compensation logic, and time-bounded state machines—to address concurrency, ordering, and regulatory timing constraints.
+
+
+The session also highlights continuous reconciliation, where streaming verification and anomaly detection provide real-time recovery and minimize discrepancies. Benchmarks demonstrate how these patterns sustain billions of transactions with sub-minute latency during peak loads.
+By adopting Dapr’s building blocks—service invocation, state stores, and actors—organizations can simplify complexity, maintain compliance, and scale distributed payments seamlessly."
 
   - title: "Building MCP Server with Dapr to ask questions to an Industrial device with Azure IoT Operations"
     speaker: "Walter Coan"
