@@ -66,10 +66,8 @@ caseStudy:
 banner:
   enable : true
   prefix : "Announcement "
-  text: "Dapr Day is happening on Nov 5th! Register for this free community event!"
-  link: "https://dapr.io/events/dapr-day-2025/"
-  #text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
-  #link: "https://www.diagrid.io/dapr-university"
+  text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
+  link: "https://www.diagrid.io/dapr-university"
   #text : "Read about our Dapr Meteors community program!"
   #link : "https://dapr.io/community/program/"
 
