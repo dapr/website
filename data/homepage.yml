@@ -66,8 +66,10 @@ caseStudy:
 banner:
   enable : true
   prefix : "Announcement "
-  text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
-  link: "https://www.diagrid.io/dapr-university"
+  text: "Try the Diagrid Dashboard to inspect local Dapr workflow executions!"
+  link: "https://diagrid.ws/diagrid-dashboard-docs"
+  #text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
+  #link: "https://www.diagrid.io/dapr-university"
   #text : "Read about our Dapr Meteors community program!"
   #link : "https://dapr.io/community/program/"
 
