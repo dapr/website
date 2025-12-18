@@ -26,10 +26,6 @@ link = "plugins/jQuery/jquery.min.js"
 [[params.plugins.js]]
 link = "plugins/slick/slick.min.js"
 
-# Reo
-[params.reo]
-clientID = "5901cc15fcf7e10"
-
 
 ############################## navigation ###############################
 
