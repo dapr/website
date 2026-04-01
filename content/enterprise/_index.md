@@ -8,11 +8,11 @@ draft: false
 companies:
 
   - logo : "images/enterprise/diagrid.png"
-    alt: "Diagrid Enterprise for Dapr"
-    title: "Diagrid Enterprise Support for Dapr"
-    summary: "[Diagrid Enterprise](https://www.diagrid.io/dapr-for-enterprise) makes running Dapr easier and more secure. It includes 24/7 production support, expert guidance, OSS CVE resolution, and architectural reviews & training. It also provides access to Conductor, a solution to fully automate & monitor Dapr across all your Kubernetes clusters, and D3E, a security enhanced Dapr distribution including enterprise features for multi-tenancy and minimized RBAC permissions."
-    title2: "Diagrid Catalyst"
-    summary2: "[Diagrid Catalyst](https://www.diagrid.io/catalyst) is an Enterprise application platform for Dapr Workflows and Dapr AI Agents. Catalyst provides enterprise management on the Dapr APIs"
+    alt: "Dapr Support"
+    title: "Dapr Support"
+    summary: "[Diagrid Dapr Support](https://www.diagrid.io/dapr-enterprise) provides comprehensive support for Dapr OSS along with tools to manage Dapr on Kubernetes. Dapr support includes 24/7 production support, expert guidance, CVE resolution, and architectural reviews & training. Support includes [Diagrid Conductor](https://www.diagrid.io/conductor), a solution to fully automate & monitor Dapr across all your Kubernetes clusters, and Diagrid Dapr Distribution (D3E), a security enhanced Dapr distribution including enterprise features for multi-tenancy, minimized RBAC permissions and FIPS compliance."
+    title2: "Diagrid Catalyst Enterprise"
+    summary2: "[Diagrid Catalyst Enterprise](https://www.diagrid.io/catalyst) is an application platform for Dapr Workflows and Dapr AI Agents. Catalyst Enterprise ensures AI agent frameworks can be deployed reliably into production and makes MCP servers reliable and secure. Catalyst Enterprise provides management of Dapr APIs, including Workflows, Pub/Sub, Service Invocation and more."
     cta :
       enable : true
       label : "Visit website"

@@ -1,43 +1,43 @@
 ####################### Case study #########################
 caseStudy:
-  enable : true
+  enable: true
   stories:
-    - name : "Watts Water"
+    - name: "Watts Water"
       title: "How Dapr enabled lightning speed development at Watts Water Technologies."
-      image : "images/casestudy/case-study-watts-water.png"
-      content :
-      link : "https://www.cncf.io/case-studies/wattswatertechnologies/"
+      image: "images/casestudy/case-study-watts-water.png"
+      content:
+      link: "https://www.cncf.io/case-studies/wattswatertechnologies/"
 
-    - name : "Grafana"
+    - name: "Grafana"
       title: "How Grafana Security is using Dapr to improve vulnerability scanning."
-      image : "images/casestudy/case-study-grafana.png"
-      content :
-      link : "https://www.cncf.io/case-studies/grafana/"
+      image: "images/casestudy/case-study-grafana.png"
+      content:
+      link: "https://www.cncf.io/case-studies/grafana/"
 
-    - name : "Derivco"
+    - name: "Derivco"
       title: "Performing near-real-time personalized recommendations at scale with Dapr."
-      image : "images/casestudy/case-study-derivco.png"
-      content :
-      link : "https://www.cncf.io/case-studies/derivco/"
+      image: "images/casestudy/case-study-derivco.png"
+      content:
+      link: "https://www.cncf.io/case-studies/derivco/"
 
-    - name : "Tempestive"
+    - name: "Tempestive"
       title: "Tempestive uses Dapr and Kubernetes to track billions of messages on IoT devices while reducing costs."
-      image : "images/casestudy/case-study-tempestive.png"
-      content :
-      link : "https://www.cncf.io/case-studies/tempestive/"
+      image: "images/casestudy/case-study-tempestive.png"
+      content:
+      link: "https://www.cncf.io/case-studies/tempestive/"
 
-    - name : "HDFC Bank"
+    - name: "HDFC Bank"
       title: "Handling millions of transactions efficiently with Dapr."
-      image : "images/casestudy/case-study-hdfc.png"
-      content :
-      link : "https://www.cncf.io/case-studies/hdfc-bank/"
+      image: "images/casestudy/case-study-hdfc.png"
+      content:
+      link: "https://www.cncf.io/case-studies/hdfc-bank/"
 
-    - name : "DataGalaxy"
+    - name: "DataGalaxy"
       title: "Simplifying Complexity: Using Dapr to build a more maintainable software ecosystem"
-      image : "images/casestudy/case-study-datagalaxy.png"
-      content :
-      link : "https://www.cncf.io/case-studies/datagalaxy/"
-    
+      image: "images/casestudy/case-study-datagalaxy.png"
+      content:
+      link: "https://www.cncf.io/case-studies/datagalaxy/"
+
     # - name : "At-Bay"
     #   title: "How At-Bay improved operations with Dapr."
     #   image : "images/casestudy/case-study-atbay.png"
@@ -53,21 +53,23 @@ caseStudy:
     # - name : "Wortell"
     #   title: "Wortell reduced infrastructure complexity with Dapr."
     #   image : "images/wortell.png"
-    #   content : 
+    #   content :
     #   link : "https://www.cncf.io/case-studies/wortell/"
 
     # - name : "Alibaba"
     #   title: "See how at Alibaba Cloud, Dapr is used to solve challenges of multi-language systems, integration with legacy systems, and cloud-to-cloud migration."
     #   image : "images/alibaba.png"
-    #   content : 
+    #   content :
     #   link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
-    
+
 ##################### Banner #########################
 banner:
-  enable : true
-  prefix : "Announcement "
-  text: "Try the Diagrid Dashboard to inspect local Dapr workflow executions!"
-  link: "https://diagrid.ws/diagrid-dashboard-docs"
+  enable: true
+  prefix: "Announcement "
+  text: "Dapr Support provided by Diagrid "
+  link: "https://www.diagrid.io/dapr-enterprise"
+  #text: "Try the Diagrid Dashboard to inspect local Dapr workflow executions!"
+  #link: "https://diagrid.ws/diagrid-dashboard-docs"
   #text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
   #link: "https://www.diagrid.io/dapr-university"
   #text : "Read about our Dapr Meteors community program!"
@@ -90,9 +92,9 @@ banner:
 
 ##################### Adopters #########################
 adopters:
-  enable : true
-  link : "testimonials"
-  logos :
+  enable: true
+  link: "testimonials"
+  logos:
     - image: "images/adoptedby/ibm.png"
       name: "IBM"
     - image: "images/adoptedby/pwc.png"
@@ -154,123 +156,120 @@ adopters:
     # - image: "images/adoptedby/loreal.png"
     #   name: "L'Oreal"
 
-
 ##################### Building Block APIs ##########################
 buildingBlock:
-  enable : true
-  title : "APIs"
+  enable: true
+  title: "APIs"
   image: "images/dapr-apis-overview.png"
   imagealt: "Dapr APIs Overview"
-  content : "The Dapr building block APIs allow you to build distributed applications quicker. The built-in resiliency, security, and observability features help you to focus on your business logic."
+  content: "The Dapr building block APIs allow you to build distributed applications quicker. The built-in resiliency, security, and observability features help you to focus on your business logic."
   feature_item:
-    - name : "Service invocation"
-      icon : "arrow-step-in-right"
-      content : "Service invocation enables applications to communicate with each other through well-known endpoints in the form of http or gRPC messages. Dapr provides an endpoint that acts as a combination of a reverse proxy with built-in service discovery, while leveraging built-in distributed tracing and error handling."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
+    - name: "Service invocation"
+      icon: "arrow-step-in-right"
+      content: "Service invocation enables applications to communicate with each other through well-known endpoints in the form of http or gRPC messages. Dapr provides an endpoint that acts as a combination of a reverse proxy with built-in service discovery, while leveraging built-in distributed tracing and error handling."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
 
-    - name : "Publish subscribe"
-      icon : "mail-copy"
-      content : "Pub/Sub is a loosely coupled messaging pattern where senders (or publishers) publish messages to a topic, to which subscribers subscribe. Dapr supports the pub/sub pattern between applications."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/pubsub/"
-    
-    - name : "State management"
-      icon : "database"
-      content : "Application state is anything an application wants to preserve beyond a single session. Dapr provides a key/value-based state and query APIs with pluggable state stores for persistence."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
+    - name: "Publish subscribe"
+      icon: "mail-copy"
+      content: "Pub/Sub is a loosely coupled messaging pattern where senders (or publishers) publish messages to a topic, to which subscribers subscribe. Dapr supports the pub/sub pattern between applications."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/pubsub/"
 
-    - name : "Actors"
-      icon : "people-team"
-      content : "An actor is an isolated, independent unit of compute and state with single-threaded execution. Dapr provides an actor implementation based on the virtual actor pattern which provides a single-threaded programming model and where actors are garbage collected when not in use."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
+    - name: "State management"
+      icon: "database"
+      content: "Application state is anything an application wants to preserve beyond a single session. Dapr provides a key/value-based state and query APIs with pluggable state stores for persistence."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/"
 
-    - name : "Workflow"
-      icon : "flowchart"
-      content : "The Workflow API enables you to define long running, persistent processes or data flows that span multiple microservices using Dapr workflows or workflow components. The Workflow API can be combined with other Dapr API building blocks."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/workflow/"
+    - name: "Actors"
+      icon: "people-team"
+      content: "An actor is an isolated, independent unit of compute and state with single-threaded execution. Dapr provides an actor implementation based on the virtual actor pattern which provides a single-threaded programming model and where actors are garbage collected when not in use."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
 
-    - name : "Jobs"
-      icon : "clock"
-      content : "Many applications require job scheduling, the need to take an action in the future. The jobs API is an orchestrator for scheduling these jobs in the future, either at a specific time or a specific interval."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/jobs/"
+    - name: "Workflow"
+      icon: "flowchart"
+      content: "The Workflow API enables you to define long running, persistent processes or data flows that span multiple microservices using Dapr workflows or workflow components. The Workflow API can be combined with other Dapr API building blocks."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/workflow/"
 
-    - name : "Secrets"
-      icon : "key"
-      content : "Dapr provides a secrets API and integrates with secret stores such as public cloud stores, local stores and Kubernetes to store the secrets. Services can call the secrets API to retrieve secrets, for example to get a connection string to a database."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
+    - name: "Jobs"
+      icon: "clock"
+      content: "Many applications require job scheduling, the need to take an action in the future. The jobs API is an orchestrator for scheduling these jobs in the future, either at a specific time or a specific interval."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/jobs/"
 
-    - name : "External configuration"
-      icon : "settings-cog-multiple"
-      content : "The Configuration API enables you to retrieve and subscribe to application configuration items for supported configuration stores. This enables an application to retrieve specific configuration information, for example, at start up or when configuration changes are made in the store."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/configuration/"
+    - name: "Secrets"
+      icon: "key"
+      content: "Dapr provides a secrets API and integrates with secret stores such as public cloud stores, local stores and Kubernetes to store the secrets. Services can call the secrets API to retrieve secrets, for example to get a connection string to a database."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/"
 
-    - name : "Bindings"
-      icon : "plug-disconnected"
-      content : "A binding provides a bi-directional connection to an external cloud/on-premise service or system. Dapr allows you to invoke the external service through the Dapr binding API, and it allows your application to be triggered by events sent by the connected service."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
+    - name: "External configuration"
+      icon: "settings-cog-multiple"
+      content: "The Configuration API enables you to retrieve and subscribe to application configuration items for supported configuration stores. This enables an application to retrieve specific configuration information, for example, at start up or when configuration changes are made in the store."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/configuration/"
 
-    - name : "LLM Conversation"
-      icon : "chat"
-      content : "The conversation API reduces the complexity of securely and reliably interacting with Large Language Models (LLM) at scale. The API includes prompt caching, and PII obfuscation to prevent sending sensitive information to the LLM."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/conversation/conversation-overview/"
+    - name: "Bindings"
+      icon: "plug-disconnected"
+      content: "A binding provides a bi-directional connection to an external cloud/on-premise service or system. Dapr allows you to invoke the external service through the Dapr binding API, and it allows your application to be triggered by events sent by the connected service."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/"
 
-    - name : "Distributed lock"
-      icon : "table-lock"
-      content : "The distributed lock API enables you to take a lock on a resource so that multiple instances of an application can access the resource without conflicts and provide consistency guarantees."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/"
+    - name: "LLM Conversation"
+      icon: "chat"
+      content: "The conversation API reduces the complexity of securely and reliably interacting with Large Language Models (LLM) at scale. The API includes prompt caching, and PII obfuscation to prevent sending sensitive information to the LLM."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/conversation/conversation-overview/"
 
-    - name : "Cryptography"
-      icon : "lock-closed-key"
-      content : "With the cryptography API, you can leverage cryptography in a safe and consistent way. Dapr exposes APIs that allow you to perform operations, such as encrypting and decrypting messages, within key vaults or the Dapr sidecar, without exposing cryptographic keys to your application."
-      link : "https://docs.dapr.io/developing-applications/building-blocks/cryptography/cryptography-overview/"
+    - name: "Distributed lock"
+      icon: "table-lock"
+      content: "The distributed lock API enables you to take a lock on a resource so that multiple instances of an application can access the resource without conflicts and provide consistency guarantees."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/distributed-lock/"
 
+    - name: "Cryptography"
+      icon: "lock-closed-key"
+      content: "With the cryptography API, you can leverage cryptography in a safe and consistent way. Dapr exposes APIs that allow you to perform operations, such as encrypting and decrypting messages, within key vaults or the Dapr sidecar, without exposing cryptographic keys to your application."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/cryptography/cryptography-overview/"
 
 ##################### Value Propositions ##########################
 values:
-  enable : true
-  title : "Build distributed applications faster"
-  content : "Dapr is a set of integrated APIs with built-in best practices and patterns to build distributed applications. Dapr increases your developer productivity by 30% with out-of-the-box features such as workflow, agentic AI, pub/sub, state management, secret stores, external configuration, bindings, actors, jobs, distributed lock, and cryptography. You benefit from the built-in security, reliability, and observability capabilities, so you don't need to write boilerplate code to achieve production-ready applications."
+  enable: true
+  title: "Build distributed applications faster"
+  content: "Dapr is a set of integrated APIs with built-in best practices and patterns to build distributed applications. Dapr increases your developer productivity by 30% with out-of-the-box features such as workflow, agentic AI, pub/sub, state management, secret stores, external configuration, bindings, actors, jobs, distributed lock, and cryptography. You benefit from the built-in security, reliability, and observability capabilities, so you don't need to write boilerplate code to achieve production-ready applications."
   feature_item:
-    - name : "Automate your business processes"
-      image : "images/1_automate.gif"
-      video : "images/1_automate.mp4"
-      content : "Author workflows in code to automate complex business processes that are stateful, durable, and long-running."
-      content2 : "Take advantage of workflow patterns such as task chaining, fan-out/fan-in, monitor, timers, and external system interaction. Combine Dapr workflow with the Dapr APIs to send messages, invoke services, and store key/value data. Workflow state can be stored in any database of your choice."
+    - name: "Automate your business processes"
+      image: "images/1_automate.gif"
+      video: "images/1_automate.mp4"
+      content: "Author workflows in code to automate complex business processes that are stateful, durable, and long-running."
+      content2: "Take advantage of workflow patterns such as task chaining, fan-out/fan-in, monitor, timers, and external system interaction. Combine Dapr workflow with the Dapr APIs to send messages, invoke services, and store key/value data. Workflow state can be stored in any database of your choice."
 
-    - name : "Best practices to build secure and resilient applications"
-      image : "images/2_best_practices.gif"
-      video : "images/2_best_practices.mp4"
-      content : "Dapr includes built-in security features that are \"on by default\". Developers and ops can set application-centric policies on APIs, services, and components to limit access without getting into low level networking concerns.  Communication is automatically encrypted in-transit with mTLS."
-      content2 : "Dapr also provides resiliency policies to protect against failures due to any number of issues, including hardware failures, unexpected throughput, or application lifecycle events, such as scaling out and application restarts. Dapr provides specific capabilities that detect failures and enable configurable retries, back-offs, circuit breakers and timeouts."
+    - name: "Best practices to build secure and resilient applications"
+      image: "images/2_best_practices.gif"
+      video: "images/2_best_practices.mp4"
+      content: 'Dapr includes built-in security features that are "on by default". Developers and ops can set application-centric policies on APIs, services, and components to limit access without getting into low level networking concerns.  Communication is automatically encrypted in-transit with mTLS.'
+      content2: "Dapr also provides resiliency policies to protect against failures due to any number of issues, including hardware failures, unexpected throughput, or application lifecycle events, such as scaling out and application restarts. Dapr provides specific capabilities that detect failures and enable configurable retries, back-offs, circuit breakers and timeouts."
 
-    - name : "Integrate with the infrastructure of your choice"
-      image : "images/3_integrate.gif"
-      video : "images/3_integrate.mp4"
-      content : "Dapr's component model decouples the integrated API with the underlying resources. For instance, when you're using the Dapr publish subscribe API, you can change the message broker by swapping out a yaml component file to switch from RabbitMQ, to Kafka (or any other supported broker), without changing your application code."
+    - name: "Integrate with the infrastructure of your choice"
+      image: "images/3_integrate.gif"
+      video: "images/3_integrate.mp4"
+      content: "Dapr's component model decouples the integrated API with the underlying resources. For instance, when you're using the Dapr publish subscribe API, you can change the message broker by swapping out a yaml component file to switch from RabbitMQ, to Kafka (or any other supported broker), without changing your application code."
       content2: "Dapr applications run on Kubernetes or run self-hosted on any virtual or physical machine, so you can run Dapr applications on any cloud or edge."
 
-    - name : "Incrementally adopt"
-      image : "images/4_adopt.gif"
-      video : "images/4_adopt.mp4"
-      content : "Dapr can be introduced into an existing architecture incrementally. Dapr applications can call non-Dapr endpoints while still having the Dapr benefits of having resiliency policies, observability, security access through scoping and more."
-
+    - name: "Incrementally adopt"
+      image: "images/4_adopt.gif"
+      video: "images/4_adopt.mp4"
+      content: "Dapr can be introduced into an existing architecture incrementally. Dapr applications can call non-Dapr endpoints while still having the Dapr benefits of having resiliency policies, observability, security access through scoping and more."
 
 ##################### Cross Cutting Concerns ##########################
 concerns:
-  enable : true
-  title : "Cross Cutting Concerns"
-  content : ""
-  feature_item:         
-    - name : "Security"
-      icon : "lock-shield"
-      content : "Dapr provides end-to-end security with the service invocation API, with the ability to authenticate an application with Dapr and set endpoint access policies. For pub/sub components, you can limit which topic types and applications are allowed to publish and subscribe to specific topics."
-      link : "https://docs.dapr.io/concepts/security-concept/"
+  enable: true
+  title: "Cross Cutting Concerns"
+  content: ""
+  feature_item:
+    - name: "Security"
+      icon: "lock-shield"
+      content: "Dapr provides end-to-end security with the service invocation API, with the ability to authenticate an application with Dapr and set endpoint access policies. For pub/sub components, you can limit which topic types and applications are allowed to publish and subscribe to specific topics."
+      link: "https://docs.dapr.io/concepts/security-concept/"
 
-    - name : "Observability"
-      icon : "heart-pulse"
-      content : "Dapr can be configured to emit tracing data using the widely adopted protocols of Open Telemetry (OTEL) and Zipkin. This makes it easily integrated with multiple observability tools."
-      link : "https://docs.dapr.io/concepts/observability-concept/"
-    
-    - name : "Resiliency"
-      icon : "arrow-clockwise"
-      content : "Dapr provides a capability for defining and applying fault tolerance resiliency policies to your application. You can define policies for following resiliency patterns: timeouts, retries/back-offs, circuit breakers. These policies can be applied to any Dapr API calls when calling components with a resiliency spec."
-      link : "https://docs.dapr.io/concepts/resiliency-concept/"
+    - name: "Observability"
+      icon: "heart-pulse"
+      content: "Dapr can be configured to emit tracing data using the widely adopted protocols of Open Telemetry (OTEL) and Zipkin. This makes it easily integrated with multiple observability tools."
+      link: "https://docs.dapr.io/concepts/observability-concept/"
+
+    - name: "Resiliency"
+      icon: "arrow-clockwise"
+      content: "Dapr provides a capability for defining and applying fault tolerance resiliency policies to your application. You can define policies for following resiliency patterns: timeouts, retries/back-offs, circuit breakers. These policies can be applied to any Dapr API calls when calling components with a resiliency spec."
+      link: "https://docs.dapr.io/concepts/resiliency-concept/"
