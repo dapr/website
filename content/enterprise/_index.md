@@ -36,4 +36,13 @@ companies:
       label : "Visit website"
       link : "https://intentarchitect.com/"
 
+  - logo : "images/enterprise/procedure.png"
+    alt: "Procedure"
+    title: "Procedure"
+    summary: "Procedure provides cloud-native consulting and Dapr implementation services for engineering teams building distributed applications. We help organizations adopt Dapr for microservices communication, state management, and workflow orchestration on Kubernetes."
+    cta :
+      enable : true
+      label : "Visit website"
+      link : "https://procedure.tech"
+
 ---
