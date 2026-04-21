@@ -1,7 +1,25 @@
 {{ if site.Data.homepage.banner.enable }}
 {{ with site.Data.homepage.banner }}
+{{ $messages := .messages }}
+{{ if not $messages }}
+  {{ $messages = slice (dict "prefix" .prefix "text" .text "link" .link) }}
+{{ end }}
+{{ $count := len $messages }}
 <div class="banner text-center highlight-golden">
-  <a href="{{ .link | safeURL }}">{{ .text }}</a>
+  {{ if gt $count 1 }}
+  <div class="banner-carousel"
+       aria-live="polite"
+       data-autoplay-speed="{{ .autoplaySpeed | default 6000 }}"
+       data-pause-on-hover="{{ .pauseOnHover | default true }}">
+    {{ range $messages }}
+    <div class="banner-slide"><a href="{{ .link | safeURL }}">{{ with .prefix }}{{ . }}{{ end }}{{ .text }}</a></div>
+    {{ end }}
+  </div>
+  {{ else }}
+    {{ with index $messages 0 }}
+    <a href="{{ .link | safeURL }}">{{ with .prefix }}{{ . }}{{ end }}{{ .text }}</a>
+    {{ end }}
+  {{ end }}
 </div>
 {{end}}
 {{end}}
