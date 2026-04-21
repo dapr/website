@@ -9,7 +9,7 @@
       {{ range .adopters }}
       <div class="feature-card">
         <div class="img-container-md2">
-          <img src="{{ .logo | absURL }}" alt="{{ .summary | markdownify }}">
+          <img src="{{ .logo | absURL }}" alt="{{ with .alt }}{{ . }}{{ else }}{{ .summary | plainify | truncate 80 }} logo{{ end }}">
         </div>
         <div class="border-decoration">
           <p>{{ .summary | markdownify }}</p>
