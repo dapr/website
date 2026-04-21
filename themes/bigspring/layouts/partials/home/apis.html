@@ -4,7 +4,7 @@
   <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
   
     <h2 class="text-center padding-bottom-20 text-blue">{{ .title }}</h2>
-    <img src="{{ .image }}" alt="{{ .imagealt }}">
+    <img src="{{ .image }}" alt="{{ .imagealt }}" loading="lazy">
     {{ if .content }}
     <p class="text-justify font-weight-300">
       {{ .content }}

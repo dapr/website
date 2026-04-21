@@ -5,7 +5,7 @@
     <div id="adopters" class="flex column-mobile">
     {{ range .logos }}
       <div class="img-container-md2 vertical-align-center">
-        <img src="{{ .image | absURL }}" alt="{{ .name }} logo">
+        <img src="{{ .image | absURL }}" alt="{{ .name }} logo" loading="lazy">
       </div>
     {{ end }}
     </div>
