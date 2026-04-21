@@ -2,7 +2,7 @@
 title: "Enterprise solutions in the Dapr ecosystem"
 #subtitle: ""
 # meta description
-description: "Enterprise solutions for the Dapr ecosystem"
+description: "Enterprise-grade Dapr offerings: Diagrid Dapr Support, Conductor, Catalyst, plus Azure Container Apps and Intent Architect. 24/7 support, FIPS compliance, and managed Dapr at scale."
 draft: false
 
 companies:
