@@ -3,6 +3,7 @@ baseURL = "https://dapr.io/"
 title = "Dapr - Distributed Application Runtime"
 theme = "bigspring"
 enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
 languageName = "En"
 languageCode = "en-us"
 # post excerpt
