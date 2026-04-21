@@ -19,9 +19,6 @@
   {{ $style := resources.Get "scss/style.scss" | toCSS | minify }}
   <link href="{{ $style.Permalink }}" rel="stylesheet" media="screen"/>
 
-  {{ "<!-- Font Awesome -->" | safeHTML }}
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"/>
-
   {{ "<!-- Google Font CDN -->" | safeHTML }}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
