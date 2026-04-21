@@ -1,6 +1,6 @@
 ---
 title: "Join the Dapr community!"
-description: "Join the Dapr community!"
+description: "Join the Dapr community: Discord, community calls, the Dapr Meteors program, and the GitHub org. Connect with maintainers and other Dapr users building distributed applications."
 draft: false
 
 community:
