@@ -65,15 +65,18 @@ caseStudy:
 ##################### Banner #########################
 banner:
   enable: true
-  prefix: "Announcement "
-  text: "Dapr Support provided by Diagrid "
-  link: "https://www.diagrid.io/dapr-enterprise"
-  #text: "Try the Diagrid Dashboard to inspect local Dapr workflow executions!"
-  #link: "https://diagrid.ws/diagrid-dashboard-docs"
-  #text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
-  #link: "https://www.diagrid.io/dapr-university"
-  #text : "Read about our Dapr Meteors community program!"
-  #link : "https://dapr.io/community/program/"
+  autoplaySpeed: 4000   # milliseconds between slides
+  pauseOnHover: true
+  messages:
+    - text: "The State of Dapr Report 2026 is now available!"
+      link: "https://www.diagrid.io/reports-and-ebooks/state-of-dapr-2026"
+    - prefix: "Announcement: "
+      text: "Dapr Support provided by Diagrid "
+      link: "https://www.diagrid.io/dapr-enterprise"
+    - text: "Try the Diagrid Dashboard to inspect local Dapr workflow executions!"
+      link: "https://diagrid.ws/diagrid-dashboard-docs"
+    - text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
+      link: "https://www.diagrid.io/dapr-university"
 
 ##################### News (max 2 items) #########################
 # news:

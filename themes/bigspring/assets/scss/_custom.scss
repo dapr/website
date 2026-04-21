@@ -375,6 +375,61 @@ h2.video {
     text-decoration: underline;
     color: black;
 }
+/* banner carousel */
+.banner-carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    line-height: 1.4;
+    padding: 0 120px;
+}
+.banner-carousel .banner-slide {
+    outline: none;
+}
+.banner-carousel .banner-slide > a {
+    text-decoration: underline;
+    color: black;
+}
+/* hide extra slides until Slick initializes to prevent flash of stacked items */
+.banner-carousel:not(.slick-initialized) .banner-slide + .banner-slide {
+    display: none;
+}
+.banner-carousel .banner-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 4px 8px;
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 2;
+}
+.banner-carousel .banner-arrow:hover,
+.banner-carousel .banner-arrow:focus {
+    opacity: 1;
+    outline: none;
+}
+.banner-carousel .slick-prev {
+    left: 80px;
+}
+.banner-carousel .slick-next {
+    right: 80px;
+}
+@media (max-width: 768px) {
+    .banner-carousel {
+        padding: 0 48px;
+    }
+    .banner-carousel .slick-prev {
+        left: 16px;
+    }
+    .banner-carousel .slick-next {
+        right: 16px;
+    }
+}
 /* news */
 .news-date {
     font-style: italic;
