@@ -32,9 +32,19 @@
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
   
   {{ template "_internal/opengraph.html" . }}
-  {{ with .Params.Image }}
-  <meta property="og:image" content="{{ . | absURL }}" />
-  {{ end }}
+
+  {{ $ogImage := site.Params.og_image_default }}
+  {{ with .Params.Image }}{{ $ogImage = . }}{{ end }}
+  <meta property="og:image" content="{{ $ogImage | absURL }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ with .Params.Title }}{{ . }}{{ else }}{{ site.Title }}{{ end }}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="{{ site.Params.twitter_handle }}">
+  <meta name="twitter:title" content="{{ with .Params.Title }}{{ . }}{{ else }}{{ site.Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ with .Params.Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta name="twitter:image" content="{{ $ogImage | absURL }}">
 
   {{ "<!--Iconify-->" | safeHTML }}
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
