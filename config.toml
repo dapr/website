@@ -178,6 +178,8 @@ logo = "images/dapr.svg"
 logo_width = "60px"
 # Meta data
 description = "APIs for building secure and reliable microservices, durable workflows, and agentic AI"
+twitter_handle = "@daprdev"
+og_image_default = "images/dapr-og-default.png"
 keywords = "dapr, microservices, distributed applications, runtime, kubernetes, agentic ai"
 author = "Dapr Maintainers"
 # contact form action
