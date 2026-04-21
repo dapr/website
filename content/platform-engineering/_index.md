@@ -1,6 +1,6 @@
 ---
 title: "Solving Platform Engineering Challenges with Dapr"
-description: "Solving Platform Engineering Challenges"
+description: "How platform teams use Dapr to tame infrastructure complexity, observability, security, resiliency, and Kubernetes-native integration with GitOps tools like Argo CD and Flux."
 draft: false
 
 platform:
