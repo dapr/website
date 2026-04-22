@@ -1,6 +1,7 @@
 ---
-title: "Dapr Meteors Program"
-description: "Dapr Meteors Program"
+title: "Dapr Meteors Program: Recognizing Community Experts"
+description: "The Dapr Meteors program recognizes community experts who contribute to Dapr through blogs, videos, talks, and code. Learn how to become a Dapr Meteor."
+meta_keywords: "dapr meteors, dapr community experts, dapr champions, dapr recognition program, dapr contributor program, open source recognition"
 draft: false
 image: "images/community/dapr-meteors-logo.png"
 alt: "Dapr Meteors Logo"

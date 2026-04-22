@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+{{ partial "page-header.html" . }}
+
+{{ with .Params }}
+{{ with .ai }}
+<section class="bg-light">
+  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
+    <p class="text-justify font-weight-300">
+      {{ .content }}
+    </p>
+
+    <div class="flex flex-wrap gap-l row-gap-20 vertical-align-center column-mobile">
+      {{ range $index, $featureItem := .feature_item }}
+      <div class="width-45 width-100-mobile font-weight-300">
+        <h3 class="text-center-mobile">{{ $featureItem.name }}</h3>
+        <p class="text-justify">{{ $featureItem.content }}</p>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ with .cta }}
+    <div class="padding-top-40 text-center">
+      <div class="btn-container">
+        {{ with .primary }}
+        <a href="{{ .link }}"><button class="btn-primary btn-md">{{ .label }}</button></a>
+        {{ end }}
+        {{ with .secondary }}
+        <a href="{{ .link }}"><button class="btn-secondary btn-md">{{ .label }}</button></a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+</section>
+{{ end }}
+{{ end }}
+{{ end }}

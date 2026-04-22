@@ -9,7 +9,7 @@
       {{ range .adopters }}
       <div class="feature-card">
         <div class="img-container-md2">
-          <img src="{{ .logo | absURL }}" alt="{{ .summary | markdownify }}">
+          <img src="{{ .logo | absURL }}" alt="{{ with .alt }}{{ . }}{{ else }}{{ .summary | plainify | truncate 80 }} logo{{ end }}" loading="lazy">
         </div>
         <div class="border-decoration">
           <p>{{ .summary | markdownify }}</p>
@@ -46,7 +46,7 @@
   <div class="feature-card width-60 vertical-align-center width-80-mobile">
     <div class="flex align-items-center justify-content-center gap-md column-mobile">
       <div>
-        <img src="{{ .image | absURL }}" class="img-fluid" width="200px">
+        <img src="{{ .image | absURL }}" class="img-fluid" width="200px" loading="lazy">
       </div>
       <div class="text-center-mobile">
         <h2>{{ .title | markdownify }}</h2>

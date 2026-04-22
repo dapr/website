@@ -37,7 +37,7 @@
     {{ end }}  
   </div>
   <div class="text-center footer-info-text">
-    <p>Copyright &copy; 2025, The Dapr Authors</p>
+    <p>Copyright &copy; {{ now.Year }}, The Dapr Authors</p>
     <p>
       The Linux Foundation has registered trademarks and uses trademarks.
       For a list of trademarks of The Linux Foundation, please see our
@@ -49,8 +49,8 @@
 {{ "<!-- JS Plugins -->" | safeHTML }}
 {{ range site.Params.plugins.js}}
 <script src="{{ .link | absURL }}"></script>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
 {{ end }}
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 
 
 

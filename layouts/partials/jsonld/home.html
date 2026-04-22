@@ -1,0 +1,29 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.BaseURL }}#organization",
+      "name": "Dapr",
+      "url": "{{ site.BaseURL }}",
+      "logo": "{{ `images/dapr.svg` | absURL }}",
+      "sameAs": [
+        "https://github.com/dapr",
+        "https://twitter.com/daprdev",
+        "https://www.youtube.com/@daprdev",
+        "https://www.linkedin.com/company/daprdev/",
+        "https://bsky.app/profile/daprdev.bsky.social"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.BaseURL }}#website",
+      "url": "{{ site.BaseURL }}",
+      "name": "{{ site.Title }}",
+      "description": "{{ site.Params.description }}",
+      "publisher": { "@id": "{{ site.BaseURL }}#organization" }
+    }
+  ]
+}
+</script>

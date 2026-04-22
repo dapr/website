@@ -2,12 +2,14 @@
 title: "Companies building with Dapr"
 #subtitle: ""
 # meta description
-description: "This is meta description"
+description: "Real-world case studies of enterprises using Dapr: Alibaba, Grafana, HDFC Bank, Vonage, ZEISS, and more — how teams build reliable distributed apps."
+meta_keywords: "dapr case studies, dapr adopters, dapr customer stories, dapr alibaba, dapr grafana, dapr zeiss, dapr in production, dapr enterprise use cases"
 draft: false
 
 adopters:
 
   - logo : "images/adoptedby/datagalaxy.png"
+    company: "DataGalaxy"
     icon: "ti-quote-right"
     summary: "Simplifying Complexity: Using Dapr to build a more maintainable software ecosystem"
     quote : "Our development teams have experienced a significant boost in productivity. Developers can now focus on feature development without being bogged down by legacy constraints. The streamlined architecture has improved maintainability, making it easier to onboard new team members and accelerate development cycles."
@@ -17,6 +19,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/datagalaxy/"
 
   - logo : "images/adoptedby/vonage.png"
+    company: "Vonage"
     icon: "ti-quote-right"
     summary: "How Vonage is using Dapr to secure and modernize their tech stack"
     quote : "Dapr proved to be a phenomenal fit for both our new systems and our existing stacks; whether its written in Java, Dotnet, Golang or Javascript and running on metal, VMs, Nomad or Kubernetes we were able to standardize tracing, AuthNZ and resilient service-to-service communication."
@@ -26,6 +29,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/vonage/"
 
   - logo : "images/adoptedby/wattswater.png"
+    company: "Watts Water Technologies"
     icon: "ti-quote-right"
     summary: "How Dapr enabled lightning speed development at Watts Water Technologies"
     quote : "Thanks to Dapr, development teams at Watts don’t face the context switching associated with abundant SDKs and the maintenance / nuances between them – we’re able to largely look at integrations through the lens of Dapr. Debugging is a breeze with a local Dapr install which gives developers the confidence they need when deploying new services as well as the hand-off between developers and the DevOps team."
@@ -35,6 +39,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/wattswatertechnologies/"
 
   - logo : "images/adoptedby/grafana.png"
+    company: "Grafana Labs"
     icon: "ti-quote-right"
     summary: "How Grafana Security is using Dapr to improve vulnerability scanning"
     quote : "Thanks to Dapr, implementing an event-driven architecture was easy and efficient. Each pod lives his own lifecycle, dependless of the others with Dapr handling the complexities of communication and authentication. This allowed us to focus on developing a quicker working solution. Integrating with AWS SQS is effortless due to Dapr bindings, eliminating the need for custom code to handle message queuing."
@@ -44,6 +49,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/grafana/"
 
   - logo : "images/adoptedby/derivco.png"
+    company: "Derivco"
     icon: "ti-quote-right"
     summary: "Performing near-real-time personalized recommendations at scale with Dapr"
     quote : "Derivco was able to build from scratch and deploy a system into production in under 6 months. This system easily and reliably handles up to 320 million events per day with more than 1000 events per second flowing through the actors. At the height of feature delivery, they were deploying up to 80 times per day into production without dropping a single event."
@@ -53,6 +59,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/derivco/"
 
   - logo : "images/adoptedby/tempestive.png"
+    company: "Tempestive"
     icon: "ti-quote-right"
     summary: "Tempestive uses Dapr and Kubernetes to track billions of messages on IoT devices while reducing costs"
     quote : "The transformation with Dapr has been nothing short of revolutionary. We achieved platform independence, freeing ourselves from the constraints of the underlying technologies. The modular nature of the new Nuboj platform made it easy to adapt to different scales and needs."
@@ -62,6 +69,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/tempestive/"
   
   - logo : "images/adoptedby/hdfcbank.png"
+    company: "HDFC Bank"
     icon: "ti-quote-right"
     summary: "Throttling incoming traffic requests without changing the core banking system"
     quote : "HDFC Bank handles close to 750 million transactions/month however the UPI transaction rate varies throughout the day. Dapr metrics along with KEDA have been leveraged to scale out horizontally based on the incoming HTTP traffic allowing the number of replicas of Governor to scale up and down without any issues."
@@ -71,6 +79,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/hdfc-bank/"
 
   - logo : "images/adoptedby/defacto.png"
+    company: "DeFacto"
     icon: "ti-quote-right"
     summary: "How DeFacto migrated to an event-driven architecture"
     quote : "In a short time, as a result of adopting Dapr, DeFacto’s developers rapidly deployed a significant number of services into all environments. With multiple development teams working on different scopes and solution areas, interdependencies between services under the control of different teams added further complexity to the development process. However, Dapr’s service invocation API building block streamlined the development process by simplifying the discoverability and calling between multiple services."
@@ -80,6 +89,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/defacto/"
 
   - logo : "images/adoptedby/atbay.png"
+    company: "At-Bay"
     icon: "ti-quote-right"
     summary: "How At-Bay improved operations with Dapr"
     quote : "At-Bay uses Dapr to better analyze its processes by offering increased visibility and traceability because of the built-in support of Dapr for the OpenTelemetry standard."
@@ -89,6 +99,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/at-bay/"
 
   - logo : "images/adoptedby/wortell.png"
+    company: "Wortell"
     icon: "ti-quote-right"
     summary: "Wortell reduced infrastructure complexity with Dapr."
     quote : "The team were able to remove several software packages and a considerable amount of code from all of their microservices. Plus adopting Dapr APIs from the .NET SDK allowed them to offload dealing with the infrastructure integration and async inter-process communication to the Dapr runtime."
@@ -98,6 +109,7 @@ adopters:
       link : "https://www.cncf.io/case-studies/wortell/"
 
   - logo : "images/adoptedby/alibaba.png"
+    company: "Alibaba Cloud"
     icon: "ti-quote-right"
     summary : "See how at Alibaba Cloud, Dapr is used to solve challenges of multi-language systems, integration with legacy systems, and cloud-to-cloud migration."
     quote : "At Alibaba Cloud, we believe Dapr will lead the evolution of microservices. By adopting Dapr, our customers now enjoy increased velocity for building portable and robust distributed systems."
@@ -108,6 +120,7 @@ adopters:
       link : "https://blog.dapr.io/posts/2021/03/19/how-alibaba-is-using-dapr/"
 
   - logo : "images/adoptedby/zeiss.png"
+    company: "ZEISS"
     icon: "ti-quote-right"
     summary : "ZEISS uses Dapr's actor framework to manage the life-cycle of orders in a global scale production system running on Microsoft Azure."
     quote : "Dapr really simplifies the case of distributed application architectures. With Dapr, any developer can do it."
@@ -118,6 +131,7 @@ adopters:
       link : "https://customers.microsoft.com/en-us/story/1336089737047375040-zeiss-accelerates-cloud-first-development-on-azure-and-streamlines-order-processing"
       
   - logo : "images/adoptedby/ignition-group.png"
+    company: "Ignition Group"
     icon: "ti-quote-right"
     summary : "See how Ignition Group sped up the development of an order processing and payment system with Dapr."
     quote : "Using Dapr with Azure makes it very easy to bolt in new pieces of infrastructure without changing anything else. It changed our business."
@@ -128,6 +142,7 @@ adopters:
       link : "https://customers.microsoft.com/en-us/story/1335733425802443016-ignition-group-speeds-development-and-payment-processing-using-dapr-and-azure"
 
   - logo : "images/adoptedby/legentic.png"
+    company: "Legentic"
     icon: "ti-quote-right"
     summary : "Legentic leverages Dapr in it's solution with Python and FastAPI running on AWS."
     quote : "The fact that we could focus on the core logic and let Dapr deal with the underlying messaging systems allowed us to iterate much faster than we expected."
@@ -138,6 +153,7 @@ adopters:
       link : "https://www.youtube.com/watch?v=Mn0vjMMktGA"
 
   - logo : "images/adoptedby/autonavi.png"
+    company: "AutoNavi"
     icon: "ti-quote-right"
     summary : "See how AutoNavi built a new serverless solution for car navigation with Dapr running on Alibaba Cloud."
     quote : "Dapr is really a perfect solution for invoking backend services in our multi-language serverless runtime."
@@ -148,6 +164,7 @@ adopters:
       link : "https://blog.dapr.io/posts/2021/09/02/how-dapr-helped-autonavi-build-a-new-serverless-solution/"
 
   - logo : "images/adoptedby/composabl.png"
+    company: "Composabl"
     icon: "ti-quote-right"
     summary : "Composabl uses Dapr with KEDA to build a portable, cloud-agnostic, web automation solution."
     quote : "Without Dapr, we would need multiple weeks to integrate the different services together as well as create our own scaling infrastructure and service discovery tooling."
@@ -158,6 +175,7 @@ adopters:
       link : "https://blog.dapr.io/posts/2021/02/09/running-dapr-in-production-at-roadwork/"
 
   - logo : "images/adoptedby/man-group.png"
+    company: "Man Group"
     icon: "ti-quote-right"
     summary: "Man Group used Dapr to modernize its trading platform which runs on VMs deployed on-prem."
     quote : "With Dapr we can introduce platform-wide capabilities across a broad spectrum of technologies and deployment models with minimal effort, allowing us to more effectively evolve our core trading system."

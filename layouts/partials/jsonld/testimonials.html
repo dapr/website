@@ -1,0 +1,38 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ .Title }}",
+  "description": "{{ .Params.description }}",
+  "url": "{{ .Permalink }}",
+  "numberOfItems": {{ len .Params.adopters }},
+  "itemListElement": [
+    {{ range $i, $a := .Params.adopters }}{{ if $i }},{{ end }}
+    {
+      "@type": "ListItem",
+      "position": {{ add $i 1 }},
+      "item": {
+        "@type": "Review",
+        "reviewBody": "{{ $a.quote }}",
+        "name": "{{ $a.summary }}",
+        "author": {
+          "@type": "Organization",
+          "name": "{{ $a.company }}"
+        },
+        "itemReviewed": { "@id": "{{ site.BaseURL }}#dapr-software" }{{ with $a.cta.link }},
+        "url": "{{ . }}"{{ end }}
+      }
+    }
+    {{ end }}
+  ],
+  "about": {
+    "@type": "SoftwareApplication",
+    "@id": "{{ site.BaseURL }}#dapr-software",
+    "name": "Dapr",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Cross-platform",
+    "url": "{{ site.BaseURL }}",
+    "publisher": { "@id": "{{ site.BaseURL }}#organization" }
+  }
+}
+</script>
