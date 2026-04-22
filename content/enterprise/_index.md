@@ -2,7 +2,8 @@
 title: "Enterprise solutions in the Dapr ecosystem"
 #subtitle: ""
 # meta description
-description: "Enterprise-grade Dapr offerings: Diagrid Dapr Support, Conductor, Catalyst, plus Azure Container Apps and Intent Architect. 24/7 support, FIPS compliance, and managed Dapr at scale."
+description: "Enterprise-grade Dapr: Diagrid support, Conductor, Catalyst Enterprise, Azure Container Apps, and Intent Architect. 24/7 support and managed Dapr."
+meta_keywords: "dapr enterprise, dapr support, diagrid, dapr conductor, dapr catalyst, azure container apps, managed dapr, fips compliance, enterprise microservices"
 draft: false
 
 companies:
