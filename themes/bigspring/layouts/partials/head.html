@@ -50,35 +50,8 @@
   {{ "<!--Iconify-->" | safeHTML }}
   <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-  {{ if .IsHome }}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "{{ site.BaseURL }}#organization",
-        "name": "Dapr",
-        "url": "{{ site.BaseURL }}",
-        "logo": "{{ `images/dapr.svg` | absURL }}",
-        "sameAs": [
-          "https://github.com/dapr",
-          "https://twitter.com/daprdev",
-          "https://www.youtube.com/@daprdev",
-          "https://www.linkedin.com/company/daprdev/",
-          "https://bsky.app/profile/daprdev.bsky.social"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "{{ site.BaseURL }}#website",
-        "url": "{{ site.BaseURL }}",
-        "name": "{{ site.Title }}",
-        "description": "{{ site.Params.description }}",
-        "publisher": { "@id": "{{ site.BaseURL }}#organization" }
-      }
-    ]
-  }
-  </script>
+  {{ if .IsHome }}{{ partial "jsonld/home.html" . }}
+  {{ else if and (eq .Section "events") .Params.start_date }}{{ partial "jsonld/event.html" . }}
+  {{ else if and (eq .Section "testimonials") .Params.adopters }}{{ partial "jsonld/testimonials.html" . }}
   {{ end }}
 </head>
