@@ -6,6 +6,7 @@
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  {{/* Per-page uses meta_keywords; Hugo reserves .Keywords as a whitespace-tokenized slice that renders as garbage. Site-wide fallback comes from config.toml [params] as a raw TOML string. */}}
   <meta name="keywords" content="{{ with .Params.meta_keywords }}{{ . }}{{ else }}{{ with site.Params.keywords }}{{ . }}{{ end }}{{ end }}">
   {{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ hugo.Generator }}

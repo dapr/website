@@ -11,9 +11,11 @@ Scope is limited to what search engines actually reward: `<title>`, `<meta name=
 
 ## Mechanics
 
-No template changes required. `themes/bigspring/layouts/partials/head.html:9` already reads `.Params.Keywords` with fallback to `site.Params.keywords`. OG and Twitter tags already fall back to each page's `title` / `description`.
+> **Implementation correction (post-design):** Hugo reserves the page-level `keywords` frontmatter field and normalizes it into a whitespace-tokenized `[]string`, which renders as garbage through a bare `{{ . }}`. The implementation therefore uses a custom frontmatter field `meta_keywords` (a raw string) for per-page values, and `themes/bigspring/layouts/partials/head.html:9` was updated to read `.Params.meta_keywords` with fallback to `site.Params.keywords`. The original claim below ("no template changes required") applied to the site-wide fallback path only — per-page required both a template change and a different field name.
 
-The entire change is frontmatter in the `_index.md` files, plus `config.toml` for the home page's site-wide defaults.
+`themes/bigspring/layouts/partials/head.html:9` reads `.Params.meta_keywords` with fallback to `site.Params.keywords`. OG and Twitter tags fall back to each page's `title` / `description` without modification.
+
+The change is frontmatter in the `_index.md` files (using `meta_keywords:`), `config.toml` for the home page's site-wide defaults (using `keywords =` at the TOML level), and one line in the template partial.
 
 ## Style rules
 
@@ -30,49 +32,49 @@ Legend: fields marked → change; fields marked "keep" are unchanged.
 
 - **title:** keep — `Dapr - Distributed Application Runtime`
 - **description →:** `Dapr is a graduated CNCF project providing APIs for building secure, reliable microservices, durable workflows, and agentic AI on Kubernetes and beyond.`
-- **keywords →:** `dapr, distributed application runtime, microservices, durable workflows, agentic ai, cncf, kubernetes, sidecar pattern, pub/sub, service invocation`
+- **keywords →:** `dapr, distributed application runtime, microservices, durable workflows, agentic ai, cncf, kubernetes, sidecar pattern, pub/sub, service invocation` (set as TOML `keywords = "..."` in `[params]`, not `meta_keywords`)
 
 ### `/ai/` (`content/ai/_index.md`)
 
 - **title:** keep — `Build Production-Ready AI Agents with Dapr`
 - **description:** keep — `Dapr Agents is an open source framework for building stateful, durable, observable AI agents. Run multi-agent workflows reliably in production.`
-- **keywords →:** `dapr agents, ai agents framework, agentic ai, multi-agent systems, durable ai agents, llm orchestration, model context protocol, mcp servers`
+- **meta_keywords →:** `dapr agents, ai agents framework, agentic ai, multi-agent systems, durable ai agents, llm orchestration, model context protocol, mcp servers`
 
 ### `/workflow/` (`content/workflow/_index.md`)
 
 - **title:** keep — `Durable Workflows for Distributed Applications`
 - **description →:** `Dapr Workflow: durable execution for long-running processes — retries, timers, human approvals, and sagas, without operating a workflow engine.`
-- **keywords →:** `dapr workflow, durable workflows, durable execution, saga pattern, workflow engine, workflow orchestration, long-running processes, human-in-the-loop`
+- **meta_keywords →:** `dapr workflow, durable workflows, durable execution, saga pattern, workflow engine, workflow orchestration, long-running processes, human-in-the-loop`
 
 ### `/learn/` (`content/learn/_index.md`)
 
 - **title →:** `Learn Dapr: Docs, Quickstarts, and Dapr University`
 - **description →:** `Learn Dapr through official docs, quickstarts in .NET, Java, Python, Go, and JavaScript, Dapr University courses, and the Dapr YouTube channel.`
-- **keywords →:** `learn dapr, dapr tutorial, dapr university, dapr quickstarts, dapr documentation, dapr getting started, dapr for beginners, dapr courses`
+- **meta_keywords →:** `learn dapr, dapr tutorial, dapr university, dapr quickstarts, dapr documentation, dapr getting started, dapr for beginners, dapr courses`
 
 ### `/platform-engineering/` (`content/platform-engineering/_index.md`)
 
 - **title:** keep — `Solving Platform Engineering Challenges with Dapr`
 - **description →:** `How platform teams use Dapr to tame infrastructure complexity, observability, security, and Kubernetes-native GitOps with Argo CD and Flux.`
-- **keywords →:** `platform engineering, internal developer platform, dapr kubernetes, gitops, argo cd, flux cd, dapr components, opentelemetry, mtls, kyverno`
+- **meta_keywords →:** `platform engineering, internal developer platform, dapr kubernetes, gitops, argo cd, flux cd, dapr components, opentelemetry, mtls, kyverno`
 
 ### `/enterprise/` (`content/enterprise/_index.md`)
 
 - **title:** keep — `Enterprise solutions in the Dapr ecosystem`
 - **description →:** `Enterprise-grade Dapr: Diagrid support, Conductor, Catalyst Enterprise, Azure Container Apps, and Intent Architect. 24/7 support and managed Dapr.`
-- **keywords →:** `dapr enterprise, dapr support, diagrid, dapr conductor, dapr catalyst, azure container apps, managed dapr, fips compliance, enterprise microservices`
+- **meta_keywords →:** `dapr enterprise, dapr support, diagrid, dapr conductor, dapr catalyst, azure container apps, managed dapr, fips compliance, enterprise microservices`
 
 ### `/community/` (`content/community/_index.md`)
 
 - **title →:** `Join the Dapr Community: Discord, Calls, Meteors`
 - **description →:** `Join the Dapr community: Discord, bi-weekly community calls, the Dapr Meteors program, and the GitHub org. Connect with maintainers and Dapr users.`
-- **keywords →:** `dapr community, dapr discord, dapr meteors, dapr contributor, dapr open source, cncf community, dapr maintainers, dapr github`
+- **meta_keywords →:** `dapr community, dapr discord, dapr meteors, dapr contributor, dapr open source, cncf community, dapr maintainers, dapr github`
 
 ### `/community/program/` (`content/community/program/_index.md`)
 
 - **title →:** `Dapr Meteors Program: Recognizing Community Experts`
 - **description →:** `The Dapr Meteors program recognizes community experts who contribute to Dapr through blogs, videos, talks, and code. Learn how to become a Dapr Meteor.`
-- **keywords →:** `dapr meteors, dapr community experts, dapr champions, dapr recognition program, dapr contributor program, open source recognition`
+- **meta_keywords →:** `dapr meteors, dapr community experts, dapr champions, dapr recognition program, dapr contributor program, open source recognition`
 
 ### `/events/dapr-day-2025/` (`content/events/dapr-day-2025/_index.md`)
 
@@ -80,13 +82,13 @@ The event ran 2025-11-05, so the page is now an archive. Metadata reframes it as
 
 - **title →:** `Dapr Day 2025: Watch Free Virtual Event Sessions`
 - **description →:** `Dapr Day 2025 featured Dapr maintainers, adopters, and community experts on microservices and agentic AI. Watch the recorded sessions on YouTube.`
-- **keywords →:** `dapr day 2025, dapr virtual event, dapr conference, cncf event, microservices conference, agentic ai event, dapr roadmap, dapr community call`
+- **meta_keywords →:** `dapr day 2025, dapr virtual event, dapr conference, cncf event, microservices conference, agentic ai event, dapr roadmap, dapr community call`
 
 ### `/testimonials/` (`content/testimonials/_index.md`)
 
 - **title:** keep — `Companies building with Dapr`
 - **description →:** `Real-world case studies of enterprises using Dapr: Alibaba, Grafana, HDFC Bank, Vonage, ZEISS, and more — how teams build reliable distributed apps.`
-- **keywords →:** `dapr case studies, dapr adopters, dapr customer stories, dapr alibaba, dapr grafana, dapr zeiss, dapr in production, dapr enterprise use cases`
+- **meta_keywords →:** `dapr case studies, dapr adopters, dapr customer stories, dapr alibaba, dapr grafana, dapr zeiss, dapr in production, dapr enterprise use cases`
 
 ## Out of scope
 
