@@ -178,10 +178,10 @@ weight = 3
 logo = "images/dapr.svg"
 logo_width = "60px"
 # Meta data
-description = "APIs for building secure and reliable microservices, durable workflows, and agentic AI"
+description = "Dapr is a graduated CNCF project providing APIs for building secure, reliable microservices, durable workflows, and agentic AI on Kubernetes and beyond."
 twitter_handle = "@daprdev"
 og_image_default = "images/dapr-og-default.png"
-keywords = "dapr, microservices, distributed applications, runtime, kubernetes, agentic ai"
+keywords = "dapr, distributed application runtime, microservices, durable workflows, agentic ai, cncf, kubernetes, sidecar pattern, pub/sub, service invocation"
 author = "Dapr Maintainers"
 # contact form action
 contact_form_action = "#" # contact form works with https://formspree.io
