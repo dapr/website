@@ -63,11 +63,13 @@
     flex-direction: column;
 }
 
-.hero-image > img {
+.hero-image > img,
+.hero-image > picture > img {
     width: 60%;
 }
 
-.community-hero-image > img {
+.community-hero-image > img,
+.community-hero-image > picture > img {
     width: 90%;
 }
 

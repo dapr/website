@@ -14,13 +14,12 @@
         </div>
       </div>
       <div class="padding-top-100-mobile align-self-center-mobile img-container-lg img-container-fullwidth-mobile">
-        <picture>
-          <source type="image/webp" srcset="{{ `images/dapr_hero.webp` | absURL }}">
-          <img src="{{ `images/dapr_hero.png` | absURL }}"
-               alt="Dapr architecture illustration: a central Dapr logo connected to an App and Dapr building blocks including Workflow, Database, and Message Broker"
-               width="832" height="670"
-               loading="eager" fetchpriority="high" decoding="async">
-        </picture>
+        {{ partial "responsive-image.html" (dict
+          "src" "images/dapr_hero.png"
+          "alt" "Dapr architecture illustration: a central Dapr logo connected to an App and Dapr building blocks including Workflow, Database, and Message Broker"
+          "sizes" "(max-width: 786px) 90vw, 600px"
+          "loading" "eager"
+          "fetchpriority" "high") }}
       </div>
     </div>
   </section>
