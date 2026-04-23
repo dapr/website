@@ -13,7 +13,21 @@
     <ul class="list-style-none">
       <li class="text-bold padding-bottom-20">{{ site.Params.footer_menu_column2 }}</li>
       {{ range site.Menus.footer_column2 }}
-      <li class="padding-bottom-10"><a href="{{ .URL | absURL }}" class="navLink">{{ .Name }}</a></li>
+      {{ $socialName := lower .Name }}
+      <li class="padding-bottom-10">
+        <a href="{{ .URL | absURL }}" class="navLink footer-social-link">
+          {{ if eq $socialName "github" }}
+          <iconify-icon icon="mdi:github" class="footer-social-icon" aria-hidden="true"></iconify-icon>
+          {{ else if eq $socialName "discord" }}
+          <iconify-icon icon="mdi:discord" class="footer-social-icon" aria-hidden="true"></iconify-icon>
+          {{ else if eq $socialName "youtube" }}
+          <iconify-icon icon="mdi:youtube" class="footer-social-icon" aria-hidden="true"></iconify-icon>
+          {{ else if eq $socialName "linkedin" }}
+          <iconify-icon icon="mdi:linkedin" class="footer-social-icon" aria-hidden="true"></iconify-icon>
+          {{ end }}
+          <span>{{ .Name }}</span>
+        </a>
+      </li>
       {{ end }}
     </ul>
     {{ end }}  

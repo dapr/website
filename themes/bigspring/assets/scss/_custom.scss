@@ -84,6 +84,15 @@ footer .navLink {
 footer .navLink:hover {
     color: #efca08;
 }
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.footer-social-icon {
+    font-size: 18px;
+    line-height: 1;
+}
 .footer {
     padding: 50px 20% 50px;
     color: white;
