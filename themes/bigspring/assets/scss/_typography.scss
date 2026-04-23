@@ -1,4 +1,10 @@
 /* typography */
+/*
+ * Type scale (fluid tokens):
+ *   display-lg (.text-size-large): clamp(1.75rem, calc(1rem + 3vw), 3rem)  — hero H1
+ *   body-bold  (.text-bold):       1.1rem desktop / 1rem <576px      — footer headings
+ *   small      (.text-size-24):    17px                              — compact labels
+ */
 .italic {
   font-style: italic;
   font-weight: 300;
@@ -33,8 +39,15 @@
   font-size: 17px;
 }
 .text-size-large {
-  font-size: 3rem;
+  font-size: clamp(1.75rem, calc(1rem + 3vw), 3rem);
+  line-height: 1.15;
 }
 .font-weight-300 {
   font-weight: 300;
+}
+
+@media (max-width: 575px) {
+  .text-bold {
+    font-size: 1rem;
+  }
 }
