@@ -601,21 +601,34 @@ h2.video {
         display: flex;
     }
     #mobile-menu {
-        display: block;
+        display: inline-flex;
    }
     .menu-toggle {
-        justify-content: flex-end;
-        padding-right: 40px;
-   }
-    .menu-toggle, .bar {
-        display: block;
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 0;
+        margin-right: 16px;
+        background: transparent;
+        border: 0;
         cursor: pointer;
    }
+    .menu-toggle:focus-visible {
+        outline: 2px solid $primary-color;
+        outline-offset: 2px;
+   }
+    .bar {
+        display: block;
+   }
     .menu-toggle .bar {
-        width: 25px;
+        width: 28px;
         height: 3px;
+        border-radius: 2px;
         background-color: #3f3f3f;
-        margin: 5px auto;
         -webkit-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
@@ -624,16 +637,16 @@ h2.video {
         opacity: 0;
    }
     #mobile-menu.is-active .bar:nth-child(1) {
-        -webkit-transform: translateY(8px) rotate(45deg);
-        -ms-transform: translateY(8px) rotate(45deg);
-        -o-transform: translateY(8px) rotate(45deg);
-        transform: translateY(8px) rotate(45deg);
+        -webkit-transform: translateY(13px) rotate(45deg);
+        -ms-transform: translateY(13px) rotate(45deg);
+        -o-transform: translateY(13px) rotate(45deg);
+        transform: translateY(13px) rotate(45deg);
    }
     #mobile-menu.is-active .bar:nth-child(3) {
-        -webkit-transform: translateY(-8px) rotate(-45deg);
-        -ms-transform: translateY(-8px) rotate(-45deg);
-        -o-transform: translateY(-8px) rotate(-45deg);
-        transform: translateY(-8px) rotate(-45deg);
+        -webkit-transform: translateY(-13px) rotate(-45deg);
+        -ms-transform: translateY(-13px) rotate(-45deg);
+        -o-transform: translateY(-13px) rotate(-45deg);
+        transform: translateY(-13px) rotate(-45deg);
    }
     nav {
         position: fixed;

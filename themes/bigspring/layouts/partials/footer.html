@@ -69,11 +69,13 @@ const handleToggle = () => {
 
   if (menuToggleNode.className === "menu-toggle") {
     menuToggleNode.className = "menu-toggle is-active";
+    menuToggleNode.setAttribute("aria-expanded", "true");
     navBarLinkContainer.style.display = "flex";
     navBarLinkContainer.className = "navLinkContainer list-style-none";
   } else {
     menuToggleNode.className = "menu-toggle";
+    menuToggleNode.setAttribute("aria-expanded", "false");
     navBarLinkContainer.style.display = "none";
-  };     
+  };
 };
 </script>
