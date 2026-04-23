@@ -41,6 +41,8 @@
 }
 .img-container-sm img {
     max-height: 2.5em;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .img-container-md img {
@@ -193,12 +195,15 @@ footer .navLink:hover {
 .grid {
     display: grid;
 }
+.grid > * {
+    min-width: 0;
+}
 .grid-column-auto-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(#{"min(100%, 320px)"}, 1fr));
     gap: 1rem;
 }
 .grid-column-auto-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(#{"min(100%, 180px)"}, 1fr));
     gap: 1rem;
 }
 .grid-row-auto {
