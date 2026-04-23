@@ -212,6 +212,7 @@ footer .navLink:hover {
 }
 
 .grid-row-fit {
+    grid-template-columns: minmax(0, 1fr);
     grid-row-gap: 1rem;
     justify-content: center;
 }
@@ -277,7 +278,7 @@ a.highlight-orange:hover {
 }
 
 .value-prop-text > h3 {
-    margin: 20px 50px 20px;
+    margin: 20px clamp(1rem, 5vw, 3rem);
     color: $text-color-dark;
 }
 
@@ -290,7 +291,7 @@ a.highlight-orange:hover {
 }
 
 .value-prop-text > p {
-    margin: 20px 50px 20px;
+    margin: 20px clamp(1rem, 5vw, 3rem);
     line-height: 1.5;
 }
 
