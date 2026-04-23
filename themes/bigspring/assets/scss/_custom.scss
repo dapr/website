@@ -407,7 +407,6 @@ h2.video {
     max-width: 100%;
     margin: 0 auto;
     line-height: 1.4;
-    padding: 0 120px;
 }
 .banner-carousel .banner-slide {
     outline: none;
@@ -420,40 +419,20 @@ h2.video {
 .banner-carousel:not(.slick-initialized) .banner-slide + .banner-slide {
     display: none;
 }
-.banner-carousel .banner-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: 0;
-    color: white;
-    font-size: 1.2rem;
-    line-height: 1;
-    padding: 4px 8px;
-    cursor: pointer;
-    opacity: 0.8;
-    z-index: 2;
+.banner-carousel .slick-dots li,
+.banner-carousel .slick-dots li button {
+    width: 20px;
+    height: 20px;
 }
-.banner-carousel .banner-arrow:hover,
-.banner-carousel .banner-arrow:focus {
-    opacity: 1;
-    outline: none;
-}
-.banner-carousel .slick-prev {
-    left: 80px;
-}
-.banner-carousel .slick-next {
-    right: 80px;
+.banner-carousel .slick-dots li button::before {
+    font-size: 10px;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
 }
 @media (max-width: 768px) {
-    .banner-carousel {
-        padding: 0 48px;
-    }
-    .banner-carousel .slick-prev {
-        left: 16px;
-    }
-    .banner-carousel .slick-next {
-        right: 16px;
+    .banner {
+        font-size: 1rem;
     }
 }
 /* news */
@@ -665,10 +644,6 @@ h2.video {
         -o-transform: translateY(-13px) rotate(-45deg);
         transform: translateY(-13px) rotate(-45deg);
    }
-    nav {
-        position: fixed;
-        width: 100vw;
-   }
     .navbar {
         width: 90%;
         margin: 0 auto;
@@ -679,19 +654,25 @@ h2.video {
     .navbar ul {
         display: none;
    }
+    .menu-toggle {
+        position: relative;
+        z-index: 10;
+   }
     .navLinkContainer {
         display: flex;
         flex-direction: column;
         position: fixed;
         justify-content: flex-start;
-        top: 60px;
+        top: 0;
         bottom: 0;
+        left: 0;
         background-color: #fff;
         width: 100vw;
-        height: calc(100% - 60px);
-        transform: translate(-12%);
+        height: 100%;
+        padding-top: 60px;
         text-align: center;
-        overflow: scroll;
+        overflow: auto;
+        z-index: 9;
    }
     .navbar li {
         padding: 1rem 0 0.5rem;
