@@ -26,16 +26,18 @@
     margin: 0 auto;
 }
 .img-container-md {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     height: auto;
     object-fit: contain;
+    margin-inline: auto;
 }
 .img-container-lg {
     width: 100%;
-    min-width: 400px;
     max-width: 700px;
     height: auto;
     object-fit: contain;
+    margin-inline: auto;
 }
 .img-container-sm img {
     max-height: 2.5em;
@@ -65,7 +67,9 @@
 
 .hero-image > img,
 .hero-image > picture > img {
-    width: 60%;
+    width: 100%;
+    height: auto;
+    max-width: 600px;
 }
 
 .community-hero-image > img,
@@ -689,8 +693,4 @@ h2.video {
     .iframe {
         height: 313px;
    }
-
-  .img-container-lg {
-    min-width: 100%;
-  }
 }
