@@ -5,8 +5,11 @@
   right: 0;
   bottom: 0;
   width: 100%;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
   z-index: 1000;
-  background-color: $white;
+  background-color: #fff;
   border-top: 1px solid $border-color;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
   font-family: $primary-font;
