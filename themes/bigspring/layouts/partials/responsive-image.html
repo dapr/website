@@ -1,0 +1,75 @@
+{{- /*
+  responsive-image.html — emits <picture> with a WebP <source> and a PNG/JPEG <img> fallback,
+  each with a multi-width srcset. Reads the source from the Hugo asset pipeline.
+  Inline style max-width:100%;height:auto neutralises the width/height HTML
+  attributes as presentational CSS (browsers promote them to width:Npx/height:Npx)
+  while still letting the browser use them to reserve aspect-ratio space pre-layout.
+
+  Params (dict):
+    src           (string, required)  Path under assets/, e.g. "images/dapr_hero.png".
+    alt           (string, required)  Alt text. Pass "" for purely decorative images.
+    sizes         (string)            sizes attribute. Default: "100vw".
+    class         (string)            class attribute applied to the <img>.
+    loading       (string)            "eager" | "lazy". Default: "lazy".
+    fetchpriority (string)            "high" | "low" | "auto". Default omitted.
+    widths        (slice of int)      Candidate widths. Default: 400 800 1200 1600.
+                                      Widths above the source's intrinsic width are skipped.
+    quality       (int)               WebP quality. Default: 82.
+*/ -}}
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $sizes := .sizes | default "100vw" -}}
+{{- $class := .class -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $fetchpriority := .fetchpriority -}}
+{{- $widths := .widths | default (slice 400 800 1200 1600) -}}
+{{- $quality := .quality | default 82 -}}
+{{- $img := resources.Get $src -}}
+{{- if not $img -}}
+  {{- /*
+      Graceful fallback: the source isn't under assets/ (probably still in static/).
+      Emit a plain <img> at the original URL so the build keeps working — log a
+      warning so the missing migration is visible in CI output.
+  */ -}}
+  {{- warnf "responsive-image: %q not in assets/, emitting plain <img> fallback" $src -}}
+  <img src="{{ $src | absURL }}"
+       alt="{{ $alt }}"
+       loading="{{ $loading }}"
+       decoding="async"
+       style="max-width:100%;height:auto"
+       {{- with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}
+       {{- with $class }} class="{{ . }}"{{ end }}>
+{{- else -}}
+{{- $origW := $img.Width -}}
+{{- $origH := $img.Height -}}
+{{- $eligible := slice -}}
+{{- range $widths -}}
+  {{- if le . $origW -}}
+    {{- $eligible = $eligible | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- if eq (len $eligible) 0 -}}
+  {{- $eligible = slice $origW -}}
+{{- end -}}
+{{- $origSrcset := slice -}}
+{{- $webpSrcset := slice -}}
+{{- range $eligible -}}
+  {{- $r := $img.Resize (printf "%dx" .) -}}
+  {{- $w := $img.Resize (printf "%dx webp q%d" . $quality) -}}
+  {{- $origSrcset = $origSrcset | append (printf "%s %dw" $r.RelPermalink .) -}}
+  {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $w.RelPermalink .) -}}
+{{- end -}}
+<picture>
+  <source type="image/webp" srcset="{{ delimit $webpSrcset ", " }}" sizes="{{ $sizes }}">
+  <img src="{{ $img.RelPermalink }}"
+       srcset="{{ delimit $origSrcset ", " }}"
+       sizes="{{ $sizes }}"
+       alt="{{ $alt }}"
+       width="{{ $origW }}" height="{{ $origH }}"
+       loading="{{ $loading }}"
+       decoding="async"
+       style="max-width:100%;height:auto"
+       {{- with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}
+       {{- with $class }} class="{{ . }}"{{ end }}>
+</picture>
+{{- end -}}

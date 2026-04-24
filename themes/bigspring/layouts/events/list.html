@@ -39,7 +39,12 @@
 <section class="bg-light">
   <div class="width-80 vertical-align-center">
     <div class="hero-image">
-      <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+      {{ partial "responsive-image.html" (dict
+        "src" .image
+        "alt" (.alt | markdownify)
+        "sizes" "(max-width: 786px) 48vw, 576px"
+        "loading" "eager"
+        "fetchpriority" "high") }}
     </div>
     <div class="grid grid-row-fit grid-spacing padding-top-down-30">
       {{ range .event }}
@@ -56,7 +61,10 @@
       </div>
       {{ if .image }}
       <div class="community-hero-image">
-        <img src="{{ .image | absURL }}" alt="{{ .alt | markdownify }}">
+        {{ partial "responsive-image.html" (dict
+          "src" .image
+          "alt" (.alt | markdownify)
+          "sizes" "(max-width: 786px) 72vw, 864px") }}
       </div>
       {{ end }}
       {{ end }}
@@ -103,7 +111,9 @@
     <div class="grid grid-row-fit grid-spacing padding-top-down-30">
       {{ range .playlists }}
       <h3 class="text-center">{{ .title }}</h3>
-      <iframe width="560" height="315" src={{ .link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="embed-16x9">
+        <iframe src={{ .link}} title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
       {{ end }}
     </div>
   </div>

@@ -6,11 +6,11 @@
       <a href="{{ site.BaseURL }}"><img src="{{ . | absURL }}" alt="{{ site.Title }}" /></a>
       {{ else }}{{site.Title}}{{end}}
     </div>
-    <div class="menu-toggle" id="mobile-menu" onClick="handleToggle()">
+    <button type="button" class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation" aria-controls="navLinkWrapper" aria-expanded="false" onClick="handleToggle()">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
-    </div>
+    </button>
     <ul class="flex vertical-align-center list-style-none" id="navLinkWrapper">
       {{ range site.Menus.main }}
         {{ if .HasChildren }}
