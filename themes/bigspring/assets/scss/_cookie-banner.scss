@@ -1,0 +1,81 @@
+.cookie-banner {
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  background-color: #fff;
+  border-top: 1px solid $border-color;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+  font-family: $primary-font;
+  color: $text-color;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__inner {
+    box-sizing: border-box;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 12px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  &__text {
+    flex: 1 1 320px;
+    min-width: 0;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  &__actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  &__btn {
+    // Override .btn-md's fixed 120x50 sizing so banner buttons fit their content.
+    width: auto;
+    min-width: 88px;
+    height: auto;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  &__btn:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cookie-banner__inner {
+    padding: 10px 14px;
+  }
+
+  .cookie-banner__text {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .cookie-banner__actions {
+    flex-basis: 100%;
+  }
+}
