@@ -113,7 +113,7 @@ weight = 1
 
 [[menu.footer_column2]]
 name = "Discord"
-URL = "https://bit.ly/dapr-discord"
+URL = "https://diagrid.ws/dapr-discord"
 weight = 2
 
 [[menu.footer_column2]]
