@@ -1,0 +1,73 @@
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "PR/issue number to act on"
+        required: true
+      recipient:
+        description: "GitHub username to award (omit @)"
+        required: true
+      method:
+        description: "How to trigger Holopin"
+        required: true
+        type: choice
+        options:
+          - comment
+          - label
+      token:
+        description: "Which identity posts the trigger"
+        required: true
+        type: choice
+        options:
+          - github_token   # github-actions[bot]
+          - pat            # machine user (HOLOPIN_AWARD_TOKEN)
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (for holopin.yml)
+        uses: actions/checkout@v4
+
+      - name: Resolve default sticker alias
+        id: alias
+        run: |
+          DEFAULT_ID=$(yq '.defaultSticker' .github/holopin.yml)
+          ALIAS=$(yq ".stickers[] | select(.id == \"$DEFAULT_ID\") | .alias" .github/holopin.yml)
+          echo "alias=$ALIAS" >> "$GITHUB_OUTPUT"
+          echo "Resolved alias: $ALIAS"
+
+      - name: Pick token
+        id: pick
+        run: |
+          if [ "${{ inputs.token }}" = "pat" ]; then
+            echo "value=${{ secrets.HOLOPIN_AWARD_TOKEN }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${{ secrets.GITHUB_TOKEN }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger via comment
+        if: inputs.method == 'comment'
+        env:
+          GH_TOKEN: ${{ steps.pick.outputs.value }}
+          ALIAS: ${{ steps.alias.outputs.alias }}
+        run: |
+          gh issue comment "${{ inputs.pr_number }}" \
+            --repo "${{ github.repository }}" \
+            --body "@holopin-bot @${{ inputs.recipient }} $ALIAS"
+
+      - name: Trigger via label
+        if: inputs.method == 'label'
+        env:
+          GH_TOKEN: ${{ steps.pick.outputs.value }}
+          ALIAS: ${{ steps.alias.outputs.alias }}
+        run: |
+          # Label name must equal the sticker alias. Create it if missing.
+          gh label create "$ALIAS" --repo "${{ github.repository }}" --force >/dev/null 2>&1 || true
+          gh issue edit "${{ inputs.pr_number }}" \
+            --repo "${{ github.repository }}" \
+            --add-label "$ALIAS"
