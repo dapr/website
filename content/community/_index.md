@@ -13,7 +13,7 @@ community:
     cta :
       enable : true
       label : "Go to the Dapr Discord"
-      link : "https://bit.ly/dapr-discord"
+      link : "https://diagrid.ws/dapr-discord"
 
   - logo : "images/community/dapr-meteor-logo.png"
     alt: "Become a Dapr Meteor"
