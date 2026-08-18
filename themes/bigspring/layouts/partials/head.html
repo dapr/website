@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  {{ "<!-- Reo analytics (loaded only with cookie consent) -->" | safeHTML }}
+  {{ "<!-- Reo + Scarf analytics (loaded only with cookie consent) -->" | safeHTML }}
   <script>
   (function () {
     var COOKIE_NAME = "dapr_cookie_consent";
@@ -29,8 +29,23 @@
       document.head.appendChild(s);
     };
 
+    // Scarf pixel. docs.dapr.io already carries one; the website did not, so
+    // referral traffic to dapr.io was invisible to the project. Requests a 1x1
+    // image, which Scarf resolves to coarse company/location data. No cookies
+    // are set and no identifiers are stored by the pixel itself.
+    var scarfInjected = false;
+    window.daprInjectScarf = function () {
+      if (scarfInjected) { return; }
+      scarfInjected = true;
+      var pixelId = "0f63416a-15c2-4ccd-bae0-001898f75f8f";
+      var pixel = new Image();
+      pixel.referrerPolicy = "no-referrer-when-downgrade";
+      pixel.src = "https://static.scarf.sh/a.png?x-pxid=" + pixelId;
+    };
+
     if (readConsent() === "accepted") {
       window.daprInjectReo();
+      window.daprInjectScarf();
     }
   })();
   </script>
