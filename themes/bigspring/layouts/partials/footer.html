@@ -139,6 +139,9 @@ const handleToggle = () => {
         if (typeof window.daprInjectReo === "function") {
           window.daprInjectReo();
         }
+        if (typeof window.daprInjectScarf === "function") {
+          window.daprInjectScarf();
+        }
       });
     }
 
