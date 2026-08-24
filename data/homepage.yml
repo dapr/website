@@ -70,6 +70,8 @@ banner:
   messages:
     - text: "The State of Dapr Report 2026 is now available!"
       link: "https://www.diagrid.io/reports-and-ebooks/state-of-dapr-2026"
+    - text: "Download the community-sponsored State of Dapr 2023 Report, donated back to the community!"
+      link: "https://pages.diagrid.io/hubfs/State%20of%20Dapr/State%20of%20Dapr%202023%20Report.pdf?hsLang=en"
     - prefix: "Announcement: "
       text: "Dapr Support provided by Diagrid "
       link: "https://www.diagrid.io/dapr-enterprise"
