@@ -73,8 +73,8 @@ banner:
     - prefix: "Announcement: "
       text: "Dapr Support provided by Diagrid "
       link: "https://www.diagrid.io/dapr-enterprise"
-    - text: "Try the Diagrid Dashboard to inspect local Dapr workflow executions!"
-      link: "https://diagrid.ws/diagrid-dashboard-docs"
+    - text: "Try the Dapr Dev Dashboard to inspect local Dapr workflow executions!"
+      link: "https://docs.diagrid.io/dapr-open-source/dapr-dev-dashboard/"
     - text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
       link: "https://www.diagrid.io/dapr-university"
 
@@ -159,14 +159,45 @@ adopters:
     # - image: "images/adoptedby/loreal.png"
     #   name: "L'Oreal"
 
+##################### Use Cases ##########################
+useCases:
+  enable: true
+  title: "What you can build"
+  content: "Durable execution means every step of your application's work is checkpointed as it runs. When a process crashes, a pod restarts, or a network call fails, Dapr resumes from the last completed step instead of starting over or leaving work half-finished."
+  feature_item:
+    - name: "Durable Workflows"
+      icon: "flowchart"
+      content: "Orchestrate long-running, stateful processes that always run to completion. Retries, timers, human approvals, and sagas, without operating a separate workflow engine."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-overview/"
+
+    - name: "Durable AI Agents"
+      icon: "bot"
+      content: "Build AI agents that reason, call tools, and recover from any point of failure. Every step of an agent's plan is checkpointed and resumable."
+      link: "https://docs.dapr.io/developing-ai/dapr-agents/dapr-agents-introduction/"
+
+    - name: "Microservices"
+      icon: "arrow-step-in-right"
+      content: "Service-to-service calls with built-in service discovery, mTLS, retries, and distributed tracing through a single API."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/"
+
+    - name: "Event-Driven Architecture"
+      icon: "mail-copy"
+      content: "Decouple publishers from subscribers with pub/sub messaging that works across any supported message broker without code changes."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/pubsub/"
+
 ##################### Building Block APIs ##########################
 buildingBlock:
   enable: true
-  title: "APIs"
+  title: "The APIs behind it"
   image: "images/dapr-apis-overview.png"
   imagealt: "Dapr APIs Overview"
-  content: "The Dapr building block APIs allow you to build distributed applications quicker. The built-in resiliency, security, and observability features help you to focus on your business logic."
+  content: "Durable execution is one of a set of integrated Dapr APIs. The building block APIs allow you to build distributed applications quicker. The built-in resiliency, security, and observability features help you to focus on your business logic."
   feature_item:
+    - name: "Workflow"
+      icon: "flowchart"
+      content: "The Workflow API enables you to define long running, persistent processes or data flows that span multiple microservices using Dapr workflows or workflow components. The Workflow API can be combined with other Dapr API building blocks."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/workflow/"
+
     - name: "Service invocation"
       icon: "arrow-step-in-right"
       content: "Service invocation enables applications to communicate with each other through well-known endpoints in the form of http or gRPC messages. Dapr provides an endpoint that acts as a combination of a reverse proxy with built-in service discovery, while leveraging built-in distributed tracing and error handling."
@@ -186,11 +217,6 @@ buildingBlock:
       icon: "people-team"
       content: "An actor is an isolated, independent unit of compute and state with single-threaded execution. Dapr provides an actor implementation based on the virtual actor pattern which provides a single-threaded programming model and where actors are garbage collected when not in use."
       link: "https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/"
-
-    - name: "Workflow"
-      icon: "flowchart"
-      content: "The Workflow API enables you to define long running, persistent processes or data flows that span multiple microservices using Dapr workflows or workflow components. The Workflow API can be combined with other Dapr API building blocks."
-      link: "https://docs.dapr.io/developing-applications/building-blocks/workflow/"
 
     - name: "Jobs"
       icon: "clock"
@@ -224,22 +250,22 @@ buildingBlock:
 
     - name: "Cryptography"
       icon: "lock-closed-key"
-      content: "With the cryptography API, you can leverage cryptography in a safe and consistent way. Dapr exposes APIs that allow you to perform operations, such as encrypting and decrypting messages, within key vaults or the Dapr sidecar, without exposing cryptographic keys to your application."
+      content: "With the cryptography API, you can use cryptography in a safe and consistent way. Dapr exposes APIs that allow you to perform operations, such as encrypting and decrypting messages, within key vaults or the Dapr sidecar, without exposing cryptographic keys to your application."
       link: "https://docs.dapr.io/developing-applications/building-blocks/cryptography/cryptography-overview/"
 
 ##################### Value Propositions ##########################
 values:
   enable: true
-  title: "Build distributed applications faster"
-  content: "Dapr is a set of integrated APIs with built-in best practices and patterns to build distributed applications. Dapr increases your developer productivity by 30% with out-of-the-box features such as workflow, agentic AI, pub/sub, state management, secret stores, external configuration, bindings, actors, jobs, distributed lock, and cryptography. You benefit from the built-in security, reliability, and observability capabilities, so you don't need to write boilerplate code to achieve production-ready applications."
+  title: "Build durable applications faster"
+  content: "Dapr is a set of integrated APIs with built-in best practices and patterns to build distributed applications. Dapr increases your developer productivity by 30% with out-of-the-box features such as durable workflow, agentic AI, pub/sub, state management, secret stores, external configuration, bindings, actors, jobs, distributed lock, and cryptography. You benefit from the built-in security, reliability, and observability capabilities, so you don't need to write boilerplate code to achieve production-ready applications."
   feature_item:
-    - name: "Automate your business processes"
+    - name: "Durable execution for your business processes"
       image: "images/1_automate.gif"
       video: "images/1_automate.mp4"
-      content: "Author workflows in code to automate complex business processes that are stateful, durable, and long-running."
+      content: "Author workflows in code to automate complex business processes that are stateful, durable, and long-running. Every step is checkpointed to your state store, so a crash or restart resumes from the last completed step rather than starting the process over."
       content2: "Take advantage of workflow patterns such as task chaining, fan-out/fan-in, monitor, timers, and external system interaction. Combine Dapr workflow with the Dapr APIs to send messages, invoke services, and store key/value data. Workflow state can be stored in any database of your choice."
 
-    - name: "Best practices to build secure and resilient applications"
+    - name: "Secure and resilient by default"
       image: "images/2_best_practices.gif"
       video: "images/2_best_practices.mp4"
       content: 'Dapr includes built-in security features that are "on by default". Developers and ops can set application-centric policies on APIs, services, and components to limit access without getting into low level networking concerns.  Communication is automatically encrypted in-transit with mTLS.'
@@ -276,3 +302,8 @@ concerns:
       icon: "arrow-clockwise"
       content: "Dapr provides a capability for defining and applying fault tolerance resiliency policies to your application. You can define policies for following resiliency patterns: timeouts, retries/back-offs, circuit breakers. These policies can be applied to any Dapr API calls when calling components with a resiliency spec."
       link: "https://docs.dapr.io/concepts/resiliency-concept/"
+
+    - name: "Verifiable execution"
+      icon: "shield-checkmark"
+      content: "Workflow execution histories can be cryptographically signed, making what ran tamper-evident and auditable. Every history event is signed using the sidecar's mTLS identity, creating a chain of signatures that is verified each time workflow state is loaded."
+      link: "https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-history-signing/"

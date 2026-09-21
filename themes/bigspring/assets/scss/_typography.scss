@@ -40,7 +40,10 @@
 }
 .text-size-large {
   font-size: clamp(1.75rem, calc(1rem + 3vw), 3rem);
-  line-height: 1.15;
+  /* The inline .highlight-* backgrounds paint the full font em box (~1.36em in
+     Noto Sans). A line-height below that lets a highlight on one line bleed over
+     the descenders of the line above, so keep this comfortably above it. */
+  line-height: 1.4;
 }
 .font-weight-300 {
   font-weight: 300;

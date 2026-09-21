@@ -9,3 +9,6 @@ builds
 package-lock.json
 public
 resources
+
+# Claude Code specs and plans (local only)
+docs/superpowers/

@@ -357,6 +357,14 @@ h2.video {
 .width-45 {
     width: 45%;
 }
+/* Two per row inside a flex container using .gap-md (20px), with the gap
+   subtracted so the pair fills the row exactly. border-box is required here:
+   this theme has no global border-box, so a card's own padding would otherwise
+   be added outside the width and push the second card onto the next row. */
+.width-half-gap {
+    box-sizing: border-box;
+    width: calc(50% - 10px);
+}
 .width-50 {
     width: 50%;
 }
