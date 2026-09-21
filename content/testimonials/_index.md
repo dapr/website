@@ -2,7 +2,7 @@
 title: "Companies building with Dapr"
 #subtitle: ""
 # meta description
-description: "Real-world case studies of enterprises using Dapr: Alibaba, Grafana, HDFC Bank, Vonage, ZEISS, and more — how teams build reliable distributed apps."
+description: "Real-world case studies of enterprises using Dapr: Alibaba, Grafana, HDFC Bank, Vonage, ZEISS, and how teams build reliable distributed apps."
 meta_keywords: "dapr case studies, dapr adopters, dapr customer stories, dapr alibaba, dapr grafana, dapr zeiss, dapr in production, dapr enterprise use cases"
 draft: false
 

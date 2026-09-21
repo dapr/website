@@ -27,6 +27,13 @@ learn:
       label : "Try the Dapr Quickstarts"
       link : "https://docs.dapr.io/getting-started/quickstarts/"
 
+  - title: "Dapr Dev Dashboard"
+    summary: "Inspect what Dapr is doing on your machine while you build. The Dapr Dev Dashboard gives you a live view of your running applications, sidecars, components, and workflow executions, plus guided builders for authoring component files and resiliency policies. It is free to use and maintained by Diagrid."
+    cta :
+      enable : true
+      label : "Try the Dapr Dev Dashboard"
+      link : "https://docs.diagrid.io/dapr-open-source/dapr-dev-dashboard/"
+
   - title: "Dapr University"
     summary: "Learn Dapr through Dapr University, a free, self-paced learning program that provides hands-on courses to learn Dapr. It uses a cloud-based sandbox environment, so it requires no local setup, you only need a browser. Dapr University is community sponsored by Diagrid."
     cta :
