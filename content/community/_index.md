@@ -1,6 +1,7 @@
 ---
-title: "Join the Dapr community!"
-description: "Join the Dapr community!"
+title: "Join the Dapr Community: Discord, Calls, Meteors"
+description: "Join the Dapr community: Discord, bi-weekly community calls, the Dapr Meteors program, and the GitHub org. Connect with maintainers and Dapr users."
+meta_keywords: "dapr community, dapr discord, dapr meteors, dapr contributor, dapr open source, cncf community, dapr maintainers, dapr github"
 draft: false
 
 community:
@@ -12,7 +13,7 @@ community:
     cta :
       enable : true
       label : "Go to the Dapr Discord"
-      link : "https://bit.ly/dapr-discord"
+      link : "https://diagrid.ws/dapr-discord"
 
   - logo : "images/community/dapr-meteor-logo.png"
     alt: "Become a Dapr Meteor"

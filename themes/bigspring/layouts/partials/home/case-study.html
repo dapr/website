@@ -6,7 +6,7 @@
     {{  range .stories }}
       <div class="feature-card">
         <div class="img-container-md">
-          <img src="{{ .image | absURL }}" alt="{{ .name }}">
+          <img src="{{ .image | absURL }}" alt="{{ .name }}" loading="lazy">
         </div>
         <div class="border-decoration">
           <p>{{ .title }}</p>

@@ -1,9 +1,12 @@
 ---
-title: "Dapr Day 2025"
-description: "Dapr Day 2025"
+title: "Dapr Day 2025: Watch Free Virtual Event Sessions"
+description: "Dapr Day 2025 featured Dapr maintainers, adopters, and community experts on microservices and agentic AI. Watch the recorded sessions on YouTube."
+meta_keywords: "dapr day 2025, dapr virtual event, dapr conference, cncf event, microservices conference, agentic ai event, dapr roadmap, dapr community call"
 draft: false
 image: "images/events/dapr-day-2025-banner.png"
 alt: "Dapr Day 2025 Logo"
+start_date: "2025-11-05T16:00:00Z"
+end_date: "2025-11-05T20:30:00Z"
 
 
 event:

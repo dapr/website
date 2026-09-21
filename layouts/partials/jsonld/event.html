@@ -1,0 +1,24 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "{{ .Title }}",
+  "description": "{{ .Params.description }}",
+  "startDate": "{{ .Params.start_date }}",
+  "endDate": "{{ .Params.end_date }}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "location": {
+    "@type": "VirtualLocation",
+    "url": "{{ .Permalink }}"
+  },
+  {{ with .Params.image }}"image": "{{ . | absURL }}",{{ end }}
+  "organizer": {
+    "@type": "Organization",
+    "@id": "{{ site.BaseURL }}#organization",
+    "name": "Dapr",
+    "url": "{{ site.BaseURL }}"
+  },
+  "url": "{{ .Permalink }}"
+}
+</script>

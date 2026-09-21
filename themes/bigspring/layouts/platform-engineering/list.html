@@ -6,7 +6,10 @@
 {{ with .platform }}
 <section class="bg-light">
   <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
-    <img src="../{{ .image }}" alt="{{ .imagealt }}">
+    {{ partial "responsive-image.html" (dict
+      "src" .image
+      "alt" .imagealt
+      "sizes" "(max-width: 786px) 80vw, 960px") }}
     <p class="text-justify font-weight-300">
       {{ .content }}
     </p>
@@ -16,6 +19,9 @@
       <div class="width-45 width-100-mobile font-weight-300">
         <h3 class="text-center-mobile">{{ $featureItem.name }}</h3>
         <p class="text-justify">{{ $featureItem.content }}</p>
+        {{ with $featureItem.link }}
+        <p><a href="{{ . }}"> &gt; Read the docs</a></p>
+        {{ end }}
       </div>
       {{ end }}
     </div>

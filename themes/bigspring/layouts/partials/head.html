@@ -1,11 +1,62 @@
 <head>
   <meta charset="utf-8">
-  <title>{{ .Title }}</title>
+  {{ "<!-- Reo + Scarf analytics (loaded only with cookie consent) -->" | safeHTML }}
+  <script>
+  (function () {
+    var COOKIE_NAME = "dapr_cookie_consent";
+
+    function readConsent() {
+      var prefix = COOKIE_NAME + "=";
+      var parts = document.cookie ? document.cookie.split("; ") : [];
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i].indexOf(prefix) === 0) {
+          return parts[i].substring(prefix.length);
+        }
+      }
+      return null;
+    }
+
+    var injected = false;
+    window.daprInjectReo = function () {
+      if (injected) { return; }
+      injected = true;
+      var clientId = "5901cc15fcf7e10";
+      var onLoad = function () { Reo.init({ clientID: clientId }); };
+      var s = document.createElement("script");
+      s.src = "https://static.reo.dev/" + clientId + "/reo.js";
+      s.defer = true;
+      s.onload = onLoad;
+      document.head.appendChild(s);
+    };
+
+    // Scarf pixel. docs.dapr.io already carries one; the website did not, so
+    // referral traffic to dapr.io was invisible to the project. Requests a 1x1
+    // image, which Scarf resolves to coarse company/location data. No cookies
+    // are set and no identifiers are stored by the pixel itself.
+    var scarfInjected = false;
+    window.daprInjectScarf = function () {
+      if (scarfInjected) { return; }
+      scarfInjected = true;
+      var pixelId = "0f63416a-15c2-4ccd-bae0-001898f75f8f";
+      var pixel = new Image();
+      pixel.referrerPolicy = "no-referrer-when-downgrade";
+      pixel.src = "https://static.scarf.sh/a.png?x-pxid=" + pixelId;
+    };
+
+    if (readConsent() === "accepted") {
+      window.daprInjectReo();
+      window.daprInjectScarf();
+    }
+  })();
+  </script>
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | Dapr{{ end }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
 
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
-  <meta name="keywords" content="{{ with .Params.Keywords }}{{ . }}{{ else }}{{ with site.Params.keywords }}{{ . }}{{ end }}{{ end }}">
+  {{/* Per-page uses meta_keywords; Hugo reserves .Keywords as a whitespace-tokenized slice that renders as garbage. Site-wide fallback comes from config.toml [params] as a raw TOML string. */}}
+  <meta name="keywords" content="{{ with .Params.meta_keywords }}{{ . }}{{ else }}{{ with site.Params.keywords }}{{ . }}{{ end }}{{ end }}">
   {{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ hugo.Generator }}
 
@@ -18,25 +69,39 @@
   {{ $style := resources.Get "scss/style.scss" | toCSS | minify }}
   <link href="{{ $style.Permalink }}" rel="stylesheet" media="screen"/>
 
-  {{ "<!-- Font Awesome -->" | safeHTML }}
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"/>
-
   {{ "<!-- Google Font CDN -->" | safeHTML }}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://code.iconify.design" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preconnect" href="https://buttons.github.io" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   {{ "<!--Favicon-->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.ico` | absURL }}" type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
   
   {{ template "_internal/opengraph.html" . }}
-  {{ with .Params.Image }}
-  <meta property="og:image" content="{{ . | absURL }}" />
-  {{ end }}
+
+  {{ $ogImage := site.Params.og_image_default }}
+  {{ with .Params.Image }}{{ $ogImage = . }}{{ end }}
+  <meta property="og:image" content="{{ $ogImage | absURL }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ with .Params.Title }}{{ . }}{{ else }}{{ site.Title }}{{ end }}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="{{ site.Params.twitter_handle }}">
+  <meta name="twitter:title" content="{{ with .Params.Title }}{{ . }}{{ else }}{{ site.Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ with .Params.Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta name="twitter:image" content="{{ $ogImage | absURL }}">
 
   {{ "<!--Iconify-->" | safeHTML }}
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-  
+  {{ if .IsHome }}{{ partial "jsonld/home.html" . }}
+  {{ else if and (eq .Section "events") .Params.start_date }}{{ partial "jsonld/event.html" . }}
+  {{ else if and (eq .Section "testimonials") .Params.adopters }}{{ partial "jsonld/testimonials.html" . }}
+  {{ end }}
 </head>

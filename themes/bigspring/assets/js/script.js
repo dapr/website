@@ -24,6 +24,7 @@
 	});
 
 	// banner carousel — timing read from data attributes set in the partial
+	var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	$('.banner-carousel').each(function () {
 		var $el = $(this);
 		var speed = parseInt($el.attr('data-autoplay-speed'), 10) || 6000;
@@ -31,13 +32,16 @@
 		$el.slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			autoplay: true,
+			autoplay: !reduceMotion,
 			autoplaySpeed: speed,
 			pauseOnHover: pauseOnHover,
-			dots: false,
-			arrows: true,
-			prevArrow: '<button type="button" class="slick-prev banner-arrow" aria-label="Previous announcement">&#10094;</button>',
-			nextArrow: '<button type="button" class="slick-next banner-arrow" aria-label="Next announcement">&#10095;</button>',
+			pauseOnFocus: true,
+			dots: true,
+			arrows: false,
+			swipe: true,
+			touchMove: true,
+			touchThreshold: 10,
+			accessibility: true,
 			fade: true,
 			cssEase: 'linear'
 		});

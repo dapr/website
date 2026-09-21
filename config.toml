@@ -2,6 +2,8 @@
 baseURL = "https://dapr.io/"
 title = "Dapr - Distributed Application Runtime"
 theme = "bigspring"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
 languageName = "En"
 languageCode = "en-us"
 # post excerpt
@@ -111,7 +113,7 @@ weight = 1
 
 [[menu.footer_column2]]
 name = "Discord"
-URL = "https://bit.ly/dapr-discord"
+URL = "https://diagrid.ws/dapr-discord"
 weight = 2
 
 [[menu.footer_column2]]
@@ -176,8 +178,10 @@ weight = 3
 logo = "images/dapr.svg"
 logo_width = "60px"
 # Meta data
-description = "APIs for building secure and reliable microservices, durable workflows, and agentic AI"
-keywords = "dapr, microservices, distributed applications, runtime, kubernetes, agentic ai"
+description = "Dapr is the durable execution engine for workflows and AI agents. A graduated CNCF project whose APIs keep work running through crashes, restarts, and outages."
+twitter_handle = "@daprdev"
+og_image_default = "images/dapr-og-default.png"
+keywords = "dapr, durable execution, durable workflows, durable ai agents, distributed application runtime, workflow engine, agentic ai, cncf, kubernetes, microservices, event-driven architecture, pub/sub"
 author = "Dapr Maintainers"
 # contact form action
 contact_form_action = "#" # contact form works with https://formspree.io
