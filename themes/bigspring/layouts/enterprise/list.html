@@ -43,9 +43,7 @@
 
         <div class="flex-left padding-top-down-10 gap-xsm">
           {{ if $company.cta.enable }}
-          <a href="{{ $company.cta.link | absURL }}">
-            <button class="btn-feature btn-secondary btn-md">{{ $company.cta.label }}</button>
-          </a>
+          <a href="{{ $company.cta.link | absURL }}" class="btn btn-feature btn-secondary btn-md">{{ $company.cta.label }}</a>
           {{ end }}
         </div>
       </div>
@@ -86,8 +84,7 @@
         {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" 
-          class="btn btn-primary stretched-link"><button class="btn-primary btn-md">{{ .label }}</button></a>
+        <a href="{{ .link | absURL }}" class="btn btn-primary btn-md">{{ .label }}</a>
         {{ end }}
         {{ end }}
       </div>

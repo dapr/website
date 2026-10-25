@@ -229,6 +229,45 @@ video.value-prop {
     width: 600px;
 }
 
+/* pause/play controls for autoplaying media (WCAG 2.2.2) */
+.value-prop-video-frame {
+    position: relative;
+}
+.video-toggle,
+.carousel-toggle {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    line-height: 1;
+}
+.video-toggle[hidden],
+.carousel-toggle[hidden] {
+    display: none;
+}
+.video-toggle {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: $primary-color;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+.carousel-toggle {
+    bottom: 8px;
+    background-color: transparent;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+}
+.video-toggle .fas,
+.carousel-toggle .fas {
+    padding: 0;
+}
+
 /* hero highlight text */
 .highlight-light-blue {
     background-color: #3ea9f5;
@@ -409,6 +448,7 @@ h2.video {
     color: black;
 }
 .banner {
+    position: relative;
     padding: 10px 0px;
     font-weight: 500;
     font-size: 1.5rem;

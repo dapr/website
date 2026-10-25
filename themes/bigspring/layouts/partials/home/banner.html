@@ -7,14 +7,16 @@
 {{ $count := len $messages }}
 <div class="banner text-center highlight-golden">
   {{ if gt $count 1 }}
-  <div class="banner-carousel"
-       aria-live="polite"
+  <div class="banner-carousel" id="banner-carousel"
        data-autoplay-speed="{{ .autoplaySpeed | default 6000 }}"
        data-pause-on-hover="{{ .pauseOnHover | default true }}">
     {{ range $messages }}
     <div class="banner-slide"><a href="{{ .link | safeURL }}">{{ with .prefix }}{{ . }}{{ end }}{{ .text }}</a></div>
     {{ end }}
   </div>
+  <button type="button" class="carousel-toggle" aria-controls="banner-carousel" aria-label="Pause announcements" hidden>
+    <i class="fas fa-pause" aria-hidden="true"></i>
+  </button>
   {{ else }}
     {{ with index $messages 0 }}
     <a href="{{ .link | safeURL }}">{{ with .prefix }}{{ . }}{{ end }}{{ .text }}</a>

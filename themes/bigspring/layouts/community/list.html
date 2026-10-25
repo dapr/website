@@ -20,7 +20,7 @@
           <p>{{ .summary | markdownify }}</p>
         </div>
         <div class="flex-left padding-top-down-10 gap-xsm">
-          <a href="{{ .cta.link | absURL }}"><button class="btn-feature btn-secondary btn-md">{{ .cta.label }}</button></a>
+          <a href="{{ .cta.link | absURL }}" class="btn btn-feature btn-secondary btn-md">{{ .cta.label }}</a>
         </div>
       </div>
       {{ end }}
@@ -71,7 +71,7 @@
         </div>
         {{ if .cta.enable }}
         <div class="flex-left padding-top-down-10 gap-xsm">
-          <a href="{{ .cta.link | absURL }}"><button class="btn-feature btn-secondary btn-md">{{ .cta.label }}</button></a>
+          <a href="{{ .cta.link | absURL }}" class="btn btn-feature btn-secondary btn-md">{{ .cta.label }}</a>
         </div>
         {{ end }}
       </div>
@@ -107,7 +107,7 @@
           <p>{{ .bio | markdownify }}</p>
         </div>
         <div class="flex-left padding-top-down-10 gap-xsm">
-          <a href="{{ .linkedin | absURL }}"><button class="btn-feature btn-secondary btn-md">LinkedIn</button></a>
+          <a href="{{ .linkedin | absURL }}" class="btn btn-feature btn-secondary btn-md">LinkedIn</a>
         </div>
       </div>
       {{ end }}
@@ -166,8 +166,7 @@
         {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a href="{{ .link | absURL }}" 
-          class="btn btn-primary stretched-link"><button class="btn-primary btn-md">{{ .label }}</button></a>
+        <a href="{{ .link | absURL }}" class="btn btn-primary btn-md">{{ .label }}</a>
         {{ end }}
         {{ end }}
       </div>

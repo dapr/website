@@ -3,7 +3,31 @@ button {
   border: none;
   border-radius: 7px;
   font-family: "Noto Sans", sans-serif;
-  
+
+}
+// Links styled as buttons. Mirrors the browser's <button> defaults so a
+// link CTA renders the same as the <a><button> pattern it replaced.
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 1px 6px;
+  border-radius: 7px;
+  font-family: "Noto Sans", sans-serif;
+  line-height: normal;
+  text-align: center;
+}
+a.btn,
+a.btn:hover,
+a.btn:focus {
+  text-decoration: none;
+}
+a.btn-primary:hover {
+  color: white;
+}
+a.btn-secondary:hover {
+  color: $text-color-mid;
 }
 .btn-md {
   width: 120px;

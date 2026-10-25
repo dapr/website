@@ -14,11 +14,12 @@
     <ul class="flex vertical-align-center list-style-none" id="navLinkWrapper">
       {{ range site.Menus.main }}
         {{ if .HasChildren }}
-          <li class="dropdown navbar-item is-hoverable padding-left-right-10"><span href="#" class="navLink">{{ .Name }}</span>
+          {{ $dropdownID := printf "nav-dropdown-%s" (.Identifier | urlize) }}
+          <li class="dropdown navbar-item is-hoverable padding-left-right-10"><button type="button" class="navLink navbar-dropdown-toggle" aria-expanded="false" aria-controls="{{ $dropdownID }}">{{ .Name }}</button>
             <span class="icon is-small text-denim-blue">
               <i class="fas fa-angle-down" aria-hidden="true"></i>
             </span>
-            <div class="navbar-dropdown" role="menu">
+            <div class="navbar-dropdown" id="{{ $dropdownID }}">
               <div class="flex flex-column">
                 {{ range .Children }}
                 <a href="{{ .URL | absURL }}" class="navLink navbar-item">{{ .Name }}</a>
