@@ -7,13 +7,13 @@
   "@context" "https://schema.org"
   "@type" "Event"
   "name" .Title
-  "description" .Params.description
   "startDate" .Params.start_date
-  "endDate" .Params.end_date
   "eventStatus" "https://schema.org/EventScheduled"
   "eventAttendanceMode" "https://schema.org/OnlineEventAttendanceMode"
   "location" (dict "@type" "VirtualLocation" "url" .Permalink)
   "organizer" $organizer
   "url" .Permalink -}}
-{{- with .Params.image }}{{ $event = merge $event (dict "image" (. | absURL)) }}{{ end -}}
+{{- with .Params.end_date }}{{ $event = merge $event (dict "endDate" .) }}{{ end -}}
+{{- with .Params.description }}{{ $event = merge $event (dict "description" .) }}{{ end -}}
+{{- with or .Params.image site.Params.og_image_default }}{{ $event = merge $event (dict "image" (. | absURL)) }}{{ end -}}
 <script type="application/ld+json">{{ $event | jsonify (dict "indent" "  ") | safeJS }}</script>

@@ -2,6 +2,51 @@
 
 {{ partial "page-header.html" . }}
 
+{{- /* The listing is the events section root (its parent is the home page). Every other
+       page in the section is an event page and renders through the branches below. */ -}}
+{{ if and (eq .Section "events") .Parent.IsHome }}
+{{ $split := partialCached "events/split.html" . .RelPermalink }}
+<section class="bg-light">
+  <div class="width-80 vertical-align-center padding-top-down-30">
+    {{ with .Params.recurring }}
+    <h2 id="recurring" class="text-center padding-top-down-10">Recurring</h2>
+    <div class="grid grid-column-auto-3 grid-spacing padding-top-down-30">
+      {{ range . }}
+      <div class="feature-card">
+        <h3>{{ .title }}</h3>
+        <p class="italic">{{ .cadence }}</p>
+        <div class="border-decoration">
+          <p>{{ .summary }}</p>
+        </div>
+        <div class="flex-left padding-top-down-10 gap-xsm">
+          {{ range .links }}
+          <a href="{{ .url }}" class="btn btn-feature btn-secondary btn-md">{{ .label }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <h2 class="text-center padding-top-down-10">Upcoming events</h2>
+    {{ if $split.upcoming }}
+    <div class="grid grid-column-auto-3 grid-spacing padding-top-down-30">
+      {{ range $split.upcoming }}{{ template "event-card" . }}{{ end }}
+    </div>
+    {{ else }}
+    <p class="text-center">No upcoming events are scheduled. Join the <a href="#recurring">Dapr Community Call</a>{{ with .Params.recurring }}{{ with (index . 0).cadence }}, which streams {{ lower . }}{{ end }}{{ end }}.</p>
+    {{ end }}
+
+    {{ if $split.past }}
+    <h2 class="text-center padding-top-down-10">Past events</h2>
+    <div class="grid grid-column-auto-3 grid-spacing padding-top-down-30">
+      {{ range $split.past }}{{ template "event-card" . }}{{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
 
 {{ with .Params }}
 {{ if .events }}
@@ -38,18 +83,20 @@
 {{ if .event }}
 <section class="bg-light">
   <div class="width-80 vertical-align-center">
+    {{ with .image }}
     <div class="hero-image">
       {{ partial "responsive-image.html" (dict
-        "src" .image
-        "alt" (.alt | markdownify)
+        "src" .
+        "alt" ($.Params.alt | markdownify)
         "sizes" "(max-width: 786px) 48vw, 576px"
         "loading" "eager"
         "fetchpriority" "high") }}
     </div>
+    {{ end }}
     <div class="grid grid-row-fit grid-spacing padding-top-down-30">
       {{ range .event }}
       <div class="feature-card">
-        <h3>{{ .title }}</h3>
+        <h2 class="event-card-title">{{ .title }}</h2>
         <div>
           <p>{{ .summary | markdownify }}</p>
         </div>
@@ -70,14 +117,46 @@
       {{ end }}
     </div>
 
+    {{- $past := partial "events/is-past.html" $ -}}
+    {{ if not $past }}
+    {{ with .registration_hubspot_form_id }}
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
     <script>
       hbspt.forms.create({
         portalId: "22146261",
-        formId: "37002a48-7eda-41b5-97b8-70fec7fe7782",
+        formId: {{ . }},
         region: "na1"
       });
     </script>
+    {{ end }}
+    {{ with .registration_link }}
+    <div class="flex-left padding-top-down-10 gap-xsm">
+      <a href="{{ . }}" class="btn btn-feature btn-secondary btn-md">Register</a>
+    </div>
+    {{ end }}
+    {{ else }}
+    {{ with .recordings }}
+    {{ $list := (urls.Parse .).Query.Get "list" }}
+    {{ if $list }}
+    <div class="text-center padding-top-down-10">
+      <h2>Recordings</h2>
+    </div>
+    <div class="embed-16x9">
+      <iframe src="https://www.youtube.com/embed/videoseries?list={{ $list }}" title="{{ $.Title }} recordings" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    {{ else }}
+    <div class="text-center padding-top-down-10">
+      <h2>Recordings</h2>
+      <p><a href="{{ . }}">Watch the recordings</a></p>
+    </div>
+    {{ end }}
+    {{ else }}
+    <div class="text-center padding-top-down-10">
+      <h2>Recordings coming soon</h2>
+      <p>Watch for the sessions on the <a href="https://www.youtube.com/@daprdev">Dapr YouTube channel</a>.</p>
+    </div>
+    {{ end }}
+    {{ end }}
 
     {{ if .sessions }}
     <div class="text-center padding-top-down-10">
@@ -88,7 +167,7 @@
       <div class="feature-card">
         <h3>{{ .title }}</h3>
         <div>
-          <p class="italic">{{ .speaker | markdownify }} | {{ .role | markdownify }}</p>
+          <p class="italic">{{ .speaker | markdownify }}{{ with .role }} | {{ . | markdownify }}{{ end }}</p>
         </div>
         <div>
           <p>{{ .abstract | markdownify }}</p>
@@ -121,4 +200,17 @@
 {{ end }}
 {{ end }}
 
+{{ end }}
+
+{{ define "event-card" }}
+<div class="feature-card">
+  <h3>{{ .page.Title }}</h3>
+  <p class="italic">{{ .t.Format "January 2, 2006" }}</p>
+  <div class="border-decoration">
+    <p>{{ .page.Params.description }}</p>
+  </div>
+  <div class="flex-left padding-top-down-10 gap-xsm">
+    <a href="{{ .page.RelPermalink }}" class="btn btn-feature btn-secondary btn-md">View event</a>
+  </div>
+</div>
 {{ end }}

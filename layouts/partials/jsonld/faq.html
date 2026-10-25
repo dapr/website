@@ -1,0 +1,20 @@
+{{- /* FAQPage for /faq/, built from the same `faq` front matter list the page
+       renders, with dict + jsonify so quotes and non-ASCII text are escaped
+       as JSON, not HTML. The page's WebPage node comes from webpage.html; this
+       node points at it with isPartOf instead of being a second WebPage. */ -}}
+{{- $questions := slice -}}
+{{- range .Params.faq -}}
+  {{- $questions = $questions | append (dict
+    "@type" "Question"
+    "name" .question
+    "acceptedAnswer" (dict "@type" "Answer" "text" .answer)) -}}
+{{- end -}}
+{{- $faq := dict
+  "@context" "https://schema.org"
+  "@type" "FAQPage"
+  "@id" (printf "%s#faq" .Permalink)
+  "url" .Permalink
+  "name" .Title
+  "isPartOf" (dict "@id" (printf "%s#webpage" .Permalink))
+  "mainEntity" $questions -}}
+<script type="application/ld+json">{{ $faq | jsonify (dict "indent" "  ") | safeJS }}</script>

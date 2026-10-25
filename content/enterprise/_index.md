@@ -3,6 +3,7 @@ title: "Enterprise solutions in the Dapr ecosystem"
 #subtitle: ""
 # meta description
 description: "Commercial support, managed services, and enterprise distributions for running Dapr in production, from vendors in the Dapr ecosystem."
+intro: "This page lists commercial products and services from vendors in the Dapr ecosystem, including support, managed platforms, and enterprise distributions of Dapr."
 meta_keywords: "dapr enterprise, dapr support, diagrid, dapr ops dashboard, d3e, diagrid catalyst, durable execution, azure container apps, enterprise microservices"
 draft: false
 

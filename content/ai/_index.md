@@ -1,6 +1,7 @@
 ---
 title: "Build Production-Ready AI Agents with Dapr"
 description: "Dapr Agents is an open source framework for building stateful, durable, observable AI agents. Run multi-agent workflows reliably in production."
+intro: "Dapr Agents is an open source Python framework for building durable, observable AI agents and multi-agent systems on Dapr."
 meta_keywords: "dapr agents, ai agents framework, agentic ai, multi-agent systems, durable ai agents, llm orchestration, model context protocol, mcp servers"
 draft: false
 

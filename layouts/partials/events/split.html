@@ -1,0 +1,16 @@
+{{- /* Splits the events under the /events/ section into upcoming (soonest first) and
+       past (newest first). Takes the events section page, returns dict "upcoming" "past"
+       of page slices. Pages with neither start_date nor end_date are left out; the
+       is-past partial logs the warning. Call it through partialCached so that warning
+       prints once per build. */ -}}
+{{- $upcoming := slice -}}
+{{- $past := slice -}}
+{{- range .Pages -}}
+  {{- $isPast := partial "events/is-past.html" . -}}
+  {{- $start := or .Params.start_date .Params.end_date -}}
+  {{- if $start -}}
+    {{- $item := dict "page" . "t" (time $start) -}}
+    {{- if $isPast }}{{ $past = $past | append $item }}{{ else }}{{ $upcoming = $upcoming | append $item }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "upcoming" (sort $upcoming "t" "asc") "past" (sort $past "t" "desc")) -}}

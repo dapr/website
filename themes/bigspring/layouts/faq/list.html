@@ -1,19 +1,22 @@
 {{ define "main" }}
+
 {{ partial "page-header.html" . }}
 
-{{ "<!-- faq -->" | safeHTML }}
-<section class="section">
-  <div class="container">
-    <div class="row">
-      {{ .Content }}
+{{- /* Questions and answers come from the `faq` front matter list, the same
+       list jsonld/faq.html turns into FAQPage structured data, so the visible
+       text and the JSON-LD cannot drift apart. Answers are plain text and are
+       not markdownified. `source` is for checking the answer and is never
+       rendered. */ -}}
+<section class="bg-light">
+  <div class="width-60 width-80-mobile vertical-align-center padding-top-down-30">
+    {{ range .Params.faq }}
+    <div class="faq-entry padding-bottom-20">
+      <h2>{{ .question }}</h2>
+      <p class="faq-answer">{{ .answer }}</p>
+      {{ with .link }}<p><a href="{{ .url | absURL }}">{{ .label }}</a></p>{{ end }}
     </div>
+    {{ end }}
   </div>
 </section>
-{{ "<!-- /faq -->" | safeHTML }}
-
-
-<!-- call to action -->
-
-<!-- /call to action -->
 
 {{ end }}

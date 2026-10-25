@@ -176,8 +176,18 @@
       "impact": "serious",
       "count": 1
     },
-    "heading-order": {
+    "landmark-one-main": {
       "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 6
+    }
+  },
+  "/events/dapr-day-2026/": {
+    "color-contrast": {
+      "impact": "serious",
       "count": 1
     },
     "landmark-one-main": {
@@ -186,7 +196,21 @@
     },
     "region": {
       "impact": "moderate",
-      "count": 6
+      "count": 2
+    }
+  },
+  "/faq/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
     }
   }
 }

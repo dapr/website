@@ -1,0 +1,23 @@
+{{- /* ItemList of the events on the /events/ listing. Each item is an Event with the
+       same fields as jsonld/event.html. The recurring community call is left out: it has
+       no start date we can state accurately, and Event requires one. */ -}}
+{{- $split := partialCached "events/split.html" . .RelPermalink -}}
+{{- $items := slice -}}
+{{- range (($split.upcoming) | append $split.past) -}}
+  {{- $p := .page -}}
+  {{- $event := dict
+    "@type" "Event"
+    "name" $p.Title
+    "startDate" $p.Params.start_date
+    "eventStatus" "https://schema.org/EventScheduled"
+    "eventAttendanceMode" "https://schema.org/OnlineEventAttendanceMode"
+    "location" (dict "@type" "VirtualLocation" "url" $p.Permalink)
+    "organizer" (dict "@id" (printf "%s#organization" site.BaseURL))
+    "url" $p.Permalink -}}
+  {{- with $p.Params.end_date }}{{ $event = merge $event (dict "endDate" .) }}{{ end -}}
+  {{- with $p.Params.description }}{{ $event = merge $event (dict "description" .) }}{{ end -}}
+  {{- with or $p.Params.image site.Params.og_image_default }}{{ $event = merge $event (dict "image" (. | absURL)) }}{{ end -}}
+  {{- $items = $items | append (dict "@type" "ListItem" "position" (add (len $items) 1) "item" $event) -}}
+{{- end -}}
+{{- $list := dict "@context" "https://schema.org" "@type" "ItemList" "name" .Title "itemListElement" $items -}}
+<script type="application/ld+json">{{ $list | jsonify (dict "indent" "  ") | safeJS }}</script>

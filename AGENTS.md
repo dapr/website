@@ -49,7 +49,7 @@ Homepage copy is data, not markup. Everything else is front matter.
 | Images | `static/images/` |
 | Structured data (JSON-LD) | `layouts/partials/jsonld/*.html` (repo root, not the theme), built with `dict` and `jsonify` |
 
-Every directory under `content/` has a matching layout directory under `themes/bigspring/layouts/`: `ai`, `community`, `enterprise`, `events`, `learn`, `platform-engineering`, `testimonials`, `workflow`. The `_index.md` files are front matter only, with no body, so a page's copy and its rendering are always in those two files.
+Every directory under `content/` has a matching layout directory under `themes/bigspring/layouts/`: `ai`, `community`, `enterprise`, `events`, `faq`, `learn`, `platform-engineering`, `testimonials`, `workflow`. The `_index.md` files are front matter only, with no body, so a page's copy and its rendering are always in those two files.
 
 `static/images/dapr-logo-square.png` (the `logo_png` param, used as the schema.org logo) comes from the official CNCF artwork repo, `projects/dapr/icon/color/dapr-icon-color.png` in https://github.com/cncf/artwork (2001x1066). It was padded onto a square white canvas without distortion, then scaled to 512x512: `sips -p 2001 2001 --padColor FFFFFF in.png --out sq.png`, then `sips -z 512 512 sq.png --out static/images/dapr-logo-square.png`.
 
@@ -61,7 +61,7 @@ US spelling, matching the existing copy.
 
 Avoid em dashes and en dashes in prose. They were removed from the site copy deliberately; use commas, colons, parentheses, or two sentences.
 
-Templates render page copy through `{{ .content }}` in some layouts and `{{ . | markdownify }}` in others. Check before writing a Markdown link: `learn/list.html` and `enterprise/list.html` markdownify their body copy, while `workflow/list.html`, `ai/list.html`, and `platform-engineering/list.html` do not. In the latter, a Markdown link renders as literal text, so add a `link` field and render it in the template instead.
+Templates render page copy through `{{ .content }}` in some layouts and `{{ . | markdownify }}` in others. Check before writing a Markdown link: `learn/list.html` and `enterprise/list.html` markdownify their body copy, while `workflow/list.html`, `ai/list.html`, and `platform-engineering/list.html` do not. `faq/list.html` renders answers as plain text, with no markdownify, so the same applies there. In the latter, a Markdown link renders as literal text, so add a `link` field and render it in the template instead.
 
 `config.toml` uses CRLF line endings. Other files use LF. Preserve them.
 
@@ -91,6 +91,7 @@ Things that are easy to get wrong:
 
 - It lives in `tests/` with its own `package.json` on purpose. A `package.json` at the repo root makes Netlify run `npm install` on every deploy.
 - The tests build the site into `tests/.site` with a localhost `baseURL` and serve it statically. Do not point them at `hugo server`; overriding `--baseURL` there makes pages load assets from production, so tests pass against code that is not under test. `reuseExistingServer` is `false` for the same reason: a leftover server serves a stale build.
+- Date-dependent pages (the `/events/` listing) are tested with fixture builds. `buildFixtureSite(name, fixtureConfig)` in `tests/specs/helpers.js` runs `hugo` (the one on PATH) with an extra config from `tests/fixtures/` that pins `params.eventsReferenceDate` (the fixed "now") and mounts `tests/fixtures/content`, writing to `tests/.site-<name>-<pid>` (gitignored, one directory per worker, memoized per worker). It returns `{ dir, stderr }`. It logs at `warn` instead of using `--quiet`, because `--quiet` hides the build warnings the tests assert on.
 - They run in system Google Chrome (`channel: 'chrome'`). Playwright's bundled Chromium cannot play the homepage MP4s.
 - Third-party embeds (YouTube, GitHub buttons, analytics) are blocked in `preparePage()`. They are not under test and make runs slow and network-dependent.
 - The axe test compares against `tests/a11y-baseline.*.json`. It fails on a rule a page did not have before, or on more critical/serious violations than recorded. After fixing an issue, lower the baseline with `npm run test:update-a11y-baseline` and commit the JSON. Do not regenerate the baseline to make a new violation pass.
@@ -136,6 +137,10 @@ The mobile navbar overflows horizontally at narrow widths. At a 390px viewport t
 `themes/bigspring/layouts/partials/home/apis.html` has an unclosed `<section>` tag (three opened, two closed). Browsers tolerate it.
 
 The two Azure Static Web Apps workflows in `.github/workflows/` trigger on a `main` branch. The default branch here is `master` and no `main` branch exists, so they do not run. Netlify is the live deployment.
+
+## Event dates and builds
+
+The `/events` listing and each event page decide between upcoming and past from the build date (`layouts/partials/events/is-past.html`). Netlify builds only when changes merge to `master`, and there is no scheduled rebuild. An event that has ended therefore stays under "Upcoming events", with its registration form or link, until the next merge. After an event, merge any change to refresh these pages; adding the event's `recordings` playlist is the natural one.
 
 ## Git
 

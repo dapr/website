@@ -19,3 +19,4 @@ docs/superpowers/
 tests/.site
 tests/test-results
 tests/playwright-report
+tests/.site-*

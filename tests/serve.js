@@ -42,6 +42,12 @@ createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': types[extname(file).toLowerCase()] || 'application/octet-stream' });
     res.end(body);
   } catch {
-    res.writeHead(404, { 'Content-Type': 'text/plain' }).end('Not found');
+    // Like Netlify: unknown paths get status 404 with the site's 404.html when it exists.
+    try {
+      const page = await readFile(join(root, '404.html'));
+      res.writeHead(404, { 'Content-Type': types['.html'] }).end(page);
+    } catch {
+      res.writeHead(404, { 'Content-Type': 'text/plain' }).end('Not found');
+    }
   }
 }).listen(port, () => console.log(`Serving ${root} on http://localhost:${port}`));

@@ -1,0 +1,14 @@
+{{- /* Is this event over? Takes an event page, returns a bool.
+       Reference time: site.Params.eventsReferenceDate when set (test fixtures pin it), else now.
+       Event time: end_date, falling back to start_date. Past means the reference time is after it.
+       With neither date it returns false and warns; callers leave such pages out of listings. */ -}}
+{{- $ref := now -}}
+{{- with site.Params.eventsReferenceDate }}{{ $ref = time . }}{{ end -}}
+{{- $when := or .Params.end_date .Params.start_date -}}
+{{- $past := false -}}
+{{- if $when }}
+  {{- $past = $ref.After (time $when) -}}
+{{- else }}
+  {{- warnf "event %s has no start_date or end_date" .File.Path -}}
+{{- end -}}
+{{- return $past -}}
