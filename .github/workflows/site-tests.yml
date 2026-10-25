@@ -1,0 +1,56 @@
+name: Site tests
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: tests
+    steps:
+      - uses: actions/checkout@v4
+
+      # Use the same Hugo version as Netlify, read from netlify.toml so the
+      # version stays pinned in one place for builds.
+      - name: Install Hugo extended
+        working-directory: .
+        run: |
+          HUGO_VERSION=$(sed -n 's/^HUGO_VERSION = "\(.*\)"/\1/p' netlify.toml)
+          echo "Installing Hugo extended $HUGO_VERSION"
+          curl -sSL -o hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          mkdir -p "$HOME/.local/bin"
+          tar -xzf hugo.tar.gz -C "$HOME/.local/bin" hugo
+          rm hugo.tar.gz
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tests/package-lock.json
+
+      - run: npm ci
+
+      # Tests run in the runner's preinstalled Google Chrome (channel: 'chrome'),
+      # which can play the homepage MP4s; no Playwright browser download needed.
+      - run: npx playwright test
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: tests/playwright-report
+          retention-days: 14

@@ -1,0 +1,152 @@
+{
+  "/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 4
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 80
+    }
+  },
+  "/workflow/": {
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/ai/": {
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/learn/": {
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/community/": {
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 5
+    }
+  },
+  "/community/program/": {
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/enterprise/": {
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/platform-engineering/": {
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/testimonials/": {
+    "image-alt": {
+      "impact": "critical",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 4
+    }
+  },
+  "/events/": {
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 1
+    }
+  },
+  "/events/dapr-day-2025/": {
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 6
+    }
+  }
+}

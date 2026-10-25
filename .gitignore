@@ -12,3 +12,10 @@ resources
 
 # Claude Code specs and plans (local only)
 docs/superpowers/
+
+# Playwright tests (tests/): build output and reports. The lockfile is kept
+# so CI installs the exact versions.
+!tests/package-lock.json
+tests/.site
+tests/test-results
+tests/playwright-report

@@ -1,0 +1,192 @@
+{
+  "/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 5
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 80
+    }
+  },
+  "/workflow/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/ai/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/learn/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/community/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 5
+    }
+  },
+  "/community/program/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/enterprise/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/platform-engineering/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 2
+    }
+  },
+  "/testimonials/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "image-alt": {
+      "impact": "critical",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 4
+    }
+  },
+  "/events/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 1
+    }
+  },
+  "/events/dapr-day-2025/": {
+    "color-contrast": {
+      "impact": "serious",
+      "count": 1
+    },
+    "heading-order": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "landmark-one-main": {
+      "impact": "moderate",
+      "count": 1
+    },
+    "region": {
+      "impact": "moderate",
+      "count": 6
+    }
+  }
+}

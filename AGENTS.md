@@ -73,7 +73,26 @@ grep -rc "are cryptographically signed" public/     # must be 0
 
 ## Verifying a change
 
-There is no test suite. Build and grep the output.
+### Playwright tests
+
+`tests/` holds a Playwright suite that guards the accessibility fixes: visible focus rings, the keyboard-operable nav dropdown, the carousel and video pause controls (including `prefers-reduced-motion`), markup rules such as no `<button>` inside `<a>`, and an axe-core scan of every page at desktop and mobile widths. It runs in `.github/workflows/site-tests.yml` on pull requests to `master`. Run it after any change to the theme's templates, SCSS, or JS:
+
+```bash
+cd tests && npm install && npm test
+```
+
+Things that are easy to get wrong:
+
+- It lives in `tests/` with its own `package.json` on purpose. A `package.json` at the repo root makes Netlify run `npm install` on every deploy.
+- The tests build the site into `tests/.site` with a localhost `baseURL` and serve it statically. Do not point them at `hugo server`; overriding `--baseURL` there makes pages load assets from production, so tests pass against code that is not under test. `reuseExistingServer` is `false` for the same reason: a leftover server serves a stale build.
+- They run in system Google Chrome (`channel: 'chrome'`). Playwright's bundled Chromium cannot play the homepage MP4s.
+- Third-party embeds (YouTube, GitHub buttons, analytics) are blocked in `preparePage()`. They are not under test and make runs slow and network-dependent.
+- The axe test compares against `tests/a11y-baseline.*.json`. It fails on a rule a page did not have before, or on more critical/serious violations than recorded. After fixing an issue, lower the baseline with `npm run test:update-a11y-baseline` and commit the JSON. Do not regenerate the baseline to make a new violation pass.
+- If you change a guarded behavior on purpose, update the matching spec in the same change.
+
+### Build and grep
+
+For copy and data changes, build and grep the output.
 
 ```bash
 hugo 2>&1 | grep -i "error\|unmarshal\|yaml"   # YAML slips surface here
