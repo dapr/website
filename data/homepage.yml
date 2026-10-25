@@ -68,15 +68,17 @@ banner:
   autoplaySpeed: 4000   # milliseconds between slides
   pauseOnHover: true
   messages:
-    - text: "The State of Dapr Report 2026 is now available!"
-      link: "https://www.diagrid.io/reports-and-ebooks/state-of-dapr-2026"
-    - prefix: "Announcement: "
-      text: "Dapr Support provided by Diagrid "
-      link: "https://www.diagrid.io/dapr-enterprise"
-    - text: "Try the Dapr Dev Dashboard to inspect local Dapr workflow executions!"
-      link: "https://docs.diagrid.io/dapr-open-source/dapr-dev-dashboard/"
+    - prefix: "Dapr Support Pro: "
+      text: "Get expert Dapr guidance and email support for your team, starting at $99/month."
+      link: "https://www.diagrid.io/dapr-support"
+    - prefix: "Dapr Dev Dashboard: "
+      text: "See your local Dapr apps and workflows in real time, for free."
+      link: "https://docs.diagrid.io/develop/local-development/dev-dashboard/"
+    - prefix: "Dapr Ops Dashboard: "
+      text: "Automate Dapr operations on Kubernetes, for free."
+      link: "https://docs.diagrid.io/dapr-open-source/dapr-ops-dashboard/"
     - text: "Learn Dapr with Dapr University, a free and self-paced learning program!"
-      link: "https://www.diagrid.io/dapr-university"
+      link: "https://www.diagrid.io/university"
 
 ##################### News (max 2 items) #########################
 # news:
