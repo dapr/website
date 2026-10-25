@@ -1,6 +1,7 @@
 ---
 title: "Join the Dapr Community: Discord, Calls, Meteors"
-description: "Join the Dapr community: Discord, bi-weekly community calls, the Dapr Meteors program, and the GitHub org. Connect with maintainers and Dapr users."
+description: "Join the Dapr community: Discord, monthly community calls, the Dapr Meteors program, and the GitHub org. Connect with maintainers and Dapr users."
+intro: "The Dapr community is the maintainers, contributors, and users who help each other on Discord, meet in community calls every month, and contribute to the Dapr project in various ways."
 meta_keywords: "dapr community, dapr discord, dapr meteors, dapr contributor, dapr open source, cncf community, dapr maintainers, dapr github"
 draft: false
 
@@ -27,7 +28,7 @@ community:
   - logo : "images/community/dapr-community-calls.png"
     alt: "Dapr Community Calls"
     title: "Join our community calls"
-    summary: "Every other week we live stream our community call to [YouTube](https://www.youtube.com/@daprdev/streams). During these calls, we invite maintainers, contributors, Dapr end users, and Dapr community members, to share new features and their experiences. This is a great opportunity to ask questions and learn from your peers. Do you want to speak at one of our calls? Add a comment to one of the [Community Call issues](https://github.com/dapr/community/issues?q=is%3Aissue+is%3Aopen+label%3A%22community+call%22) on GitHub."
+    summary: "Every month we live stream our community call to [YouTube](https://www.youtube.com/@daprdev/streams). During these calls, we invite maintainers, contributors, Dapr end users, and Dapr community members, to share new features and their experiences. This is a great opportunity to ask questions and learn from your peers. Do you want to speak at one of our calls? Add a comment to one of the [Community Call issues](https://github.com/dapr/community/issues?q=is%3Aissue+is%3Aopen+label%3A%22community+call%22) on GitHub."
     cta :
       enable : true
       label : "Watch our community calls"
@@ -63,7 +64,7 @@ community:
   - logo : "images/community/youtube-logo.png"
     alt: "Dapr YouTube"
     title: "Subscribe to the Dapr YouTube channel"
-    summary: "The Dapr YouTube channels contains all the recordings of Dapr Community Calls, Dapr Day sessions, and other Dapr related content such as a playlist of video's created by the community. Make sure to subscribe to the channel to stay up to date with the latest Dapr video content and watch our bi-weekly live streams there."
+    summary: "The Dapr YouTube channels contains all the recordings of Dapr Community Calls, Dapr Day sessions, and other Dapr related content such as a playlist of video's created by the community. Make sure to subscribe to the channel to stay up to date with the latest Dapr video content and watch our monthly live streams there."
     cta :
       enable : true
       label : "Go to the Dapr YouTube channel"

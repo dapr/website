@@ -1,6 +1,9 @@
 # {{ .Title }}
 
-{{ with .Params.subtitle }}{{ . | plainify }}{{ else }}{{ .Description }}{{ end }}
+{{ with .Params.intro }}{{ . }}{{ else }}{{ .Description }}{{ end }}
+{{ with .Params.subtitle }}
+{{ . | plainify }}
+{{ end }}
 {{ range .Params.companies }}
 {{- $company := . }}
 ### {{ $company.title }}

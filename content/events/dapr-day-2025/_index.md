@@ -1,6 +1,7 @@
 ---
 title: "Dapr Day 2025: Watch Free Virtual Event Sessions"
 description: "Dapr Day 2025 featured Dapr maintainers, adopters, and community experts on microservices and agentic AI. Watch the recorded sessions on YouTube."
+intro: "Dapr Day 2025 was a free virtual event on November 5, 2025, where users shared how they use Dapr in production and maintainers showed the latest Dapr features."
 meta_keywords: "dapr day 2025, dapr virtual event, dapr conference, cncf event, microservices conference, agentic ai event, dapr roadmap, dapr community call"
 draft: false
 image: "images/events/dapr-day-2025-banner.png"
@@ -9,22 +10,21 @@ start_date: "2025-11-05T16:00:00Z"
 end_date: "2025-11-05T20:30:00Z"
 
 
+registration_hubspot_form_id: "37002a48-7eda-41b5-97b8-70fec7fe7782"
+recordings: "https://www.youtube.com/playlist?list=PLcip_LgkYwzsOa3eXZwAKv6hp-DinXpjx"
+
 event:
-  - title: "Join us for Dapr Day 2025!"
-    summary: "Dapr Day is a virtual event for developers and platform engineers to learn about Dapr, the distributed application runtime, a graduated CNCF project used by many organizations to build secure and reliable microservices and agentic AI systems.
+  - title: "Dapr Day 2025"
+    summary: "Dapr Day was a virtual event for developers and platform engineers to learn about Dapr, the durable execution engine for workflows and AI agents, a graduated CNCF project used by many organizations to build secure and reliable microservices and agentic AI systems.
 
 
-    During Dapr Day, you'll hear from users how they use Dapr in production and learn from subject matter experts and maintainers how to use the latest Dapr features. Scroll down to see the full agenda and register for free!
+    At Dapr Day, users shared how they use Dapr in production, and subject matter experts and maintainers showed how to use the latest Dapr features. Scroll down to see the full agenda and the recordings.
 
 
-    Dapr Day will be held on November 5th, 2025, 17:00 - 21:30 CET / 8am - 12:30pm PST."
+    Dapr Day was held on November 5th, 2025, 17:00 - 21:30 CET / 8am - 12:30pm PST."
 
   - title: "Registration"
-    summary: "Dapr Day is a free community event that is open for everyone. Register using the form below. You'll first receive a confirmation email. A week before the event you'll receive another email with the link to join the live event."
-
-playlists:
-  - title: "Dapr Day Oct 2024 Sessions"
-    link: "https://www.youtube.com/embed/videoseries?si=Y99c5aXc2J41juVo&amp;list=PLcip_LgkYwzsFZ65fIzeOmJBQHwcPQ_gE"
+    summary: "Dapr Day was a free community event that was open for everyone. Attendees registered using a form, received a confirmation email, and a week before the event received another email with the link to join the live event."
 
 sessions:
   - title: "Opening"
@@ -32,7 +32,7 @@ sessions:
     role: "Dapr Community Managers"
 
   - title: "Dapr Roadmap"
-    speaker: "Mark Fussell & Yaron Scnheider"
+    speaker: "Mark Fussell & Yaron Schneider"
     role: "Dapr co-creators"
 
   - title: "Building and running applications using Dapr since 2020"

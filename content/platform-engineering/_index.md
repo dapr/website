@@ -1,6 +1,7 @@
 ---
 title: "Solving Platform Engineering Challenges with Dapr"
 description: "How platform teams use Dapr to tame infrastructure complexity, observability, security, and Kubernetes-native GitOps with Argo CD and Flux."
+intro: "Platform teams use Dapr to configure complex infrastructure setups once and expose simple, consistent APIs to the application teams who build on their platform."
 meta_keywords: "platform engineering, internal developer platform, dapr kubernetes, gitops, argo cd, flux cd, dapr components, opentelemetry, mtls, kyverno"
 draft: false
 

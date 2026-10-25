@@ -1,4 +1,5 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, rmSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join, resolve } from 'node:path';
 
 // Absolute path to the static build the tests run against.
@@ -16,6 +17,52 @@ export function builtFiles(suffix) {
     }));
 }
 
+// Builds a second copy of the site with an extra Hugo config from
+// tests/fixtures/ (fixed "now", extra fixture content), using the `hugo` on
+// PATH. Tests read the output statically; no server is needed.
+//
+// Returns `{ dir, stderr }`:
+//   dir    absolute path of the output directory
+//   stderr Hugo's warnings and errors as one string, so tests can assert on a
+//          build warning (for example the one for an event with no dates)
+// Throws, with Hugo's stderr in the message, if the build fails.
+//
+// Safe under fullyParallel: results are memoized per fixture `name` within the
+// worker process (each fixture is built at most once per worker, so call it
+// freely from many tests), and the output directory is
+// tests/.site-<name>-<pid>, unique per worker, so concurrent
+// `hugo --cleanDestinationDir` runs never touch the same directory. The
+// directory is removed when the worker exits. Reuse this helper for new
+// fixture builds; do not build into a shared directory.
+//
+// Runs at log level "warn" rather than --quiet: --quiet hides warnings too.
+const fixtureBuilds = new Map();
+export function buildFixtureSite(name, fixtureConfig) {
+  if (fixtureBuilds.has(name)) return fixtureBuilds.get(name);
+  const repoRoot = resolve(import.meta.dirname, '..', '..');
+  const rel = `tests/.site-${name}-${process.pid}`;
+  const dir = join(repoRoot, rel);
+  const res = spawnSync(
+    'hugo',
+    [
+      '--logLevel', 'warn',
+      '--cleanDestinationDir',
+      '--baseURL', 'http://localhost:8181/',
+      '--config', `config.toml,tests/fixtures/${fixtureConfig}`,
+      '--destination', rel,
+    ],
+    { cwd: repoRoot, encoding: 'utf8' },
+  );
+  const stderr = (res.stderr || '') + (res.stdout || '');
+  if (res.error || res.status !== 0) {
+    throw new Error(`hugo failed for fixture ${name} (status ${res.status}): ${res.error ?? ''}\n${stderr}`);
+  }
+  process.on('exit', () => rmSync(dir, { recursive: true, force: true }));
+  const result = { dir, stderr };
+  fixtureBuilds.set(name, result);
+  return result;
+}
+
 // Pages under test. Keep in step with the directories under content/.
 export const PAGES = [
   '/',
@@ -29,6 +76,8 @@ export const PAGES = [
   '/testimonials/',
   '/events/',
   '/events/dapr-day-2025/',
+  '/events/dapr-day-2026/',
+  '/faq/',
 ];
 
 // Third-party embeds and scripts that none of the tests exercise. Loading them

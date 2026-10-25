@@ -51,6 +51,7 @@
   </script>
   <title>{{ if .IsHome }}{{ site.Params.home_title }}{{ else }}{{ .Title }} | Dapr{{ end }}</title>
   <link rel="canonical" href="{{ .Permalink }}">
+  {{ if eq .Kind "404" }}<meta name="robots" content="noindex">{{ end }}
   {{ with .OutputFormats.Get "markdown" }}<link rel="alternate" type="text/markdown" href="{{ .Permalink }}">{{ end }}
 
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
@@ -112,8 +113,10 @@
   <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
   {{ if .IsHome }}{{ partial "jsonld/home.html" . }}
+  {{ else if and (eq .Section "events") .Parent.IsHome }}{{ partial "jsonld/events-list.html" . }}
   {{ else if and (eq .Section "events") .Params.start_date }}{{ partial "jsonld/event.html" . }}
   {{ else if and (eq .Section "testimonials") .Params.adopters }}{{ partial "jsonld/testimonials.html" . }}
+  {{ else if and (eq .Section "faq") .Params.faq }}{{ partial "jsonld/faq.html" . }}
   {{ end }}
-  {{ partial "jsonld/webpage.html" . }}
+  {{ if not (eq .Kind "404") }}{{ partial "jsonld/webpage.html" . }}{{ end }}
 </head>

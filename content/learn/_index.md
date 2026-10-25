@@ -1,6 +1,7 @@
 ---
 title: "Learn Dapr: Docs, Quickstarts, and Dapr University"
 description: "Learn Dapr through official docs, quickstarts in .NET, Java, Python, Go, and JavaScript, Dapr University courses, and the Dapr YouTube channel."
+intro: "You can learn Dapr from the Dapr docs and quickstarts, free Dapr University courses, and videos on the Dapr YouTube channel."
 meta_keywords: "learn dapr, dapr tutorial, dapr university, dapr quickstarts, dapr documentation, dapr getting started, dapr for beginners, dapr courses"
 draft: false
 

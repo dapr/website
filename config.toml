@@ -82,22 +82,28 @@ identifier = "News & Media"
 weight = 6
 
 [[menu.main]]
+name = "Events"
+URL = "/events/"
+parent = "News & Media"
+weight = 1
+
+[[menu.main]]
 name = "Blog"
 URL = "https://blog.dapr.io/posts"
 parent = "News & Media"
-weight = 1
+weight = 2
 
 [[menu.main]]
 name = "Case studies"
 URL = "/testimonials/"
 parent = "News & Media"
-weight = 1
+weight = 3
 
 [[menu.main]]
 name = "Logos"
 URL = "https://github.com/cncf/artwork/blob/master/examples/graduated.md#dapr-logos"
 parent = "News & Media"
-weight = 3
+weight = 4
 
 [[menu.main]]
 name = "中国社区"
@@ -124,6 +130,11 @@ weight = 3
 name = "Dapr University"
 URL = "https://www.diagrid.io/dapr-university"
 weight = 4
+
+[[menu.footer_column1]]
+name = "FAQ"
+URL = "/faq/"
+weight = 5
 
 [[menu.footer_column2]]
 name = "GitHub"

@@ -1,0 +1,11 @@
+# Pins "now" for the events listing and mounts the fixture events.
+[params]
+eventsReferenceDate = "2025-06-01T00:00:00Z"
+
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "tests/fixtures/content"
+    target = "content"

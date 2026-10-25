@@ -771,3 +771,19 @@ h2.video {
         height: 313px;
    }
 }
+
+/* Event page card titles are h2 for heading order, but keep the h3 look
+   (browser default h3: 1.17em, 1em vertical margins). */
+.feature-card > h2.event-card-title {
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+// Answer-first intro under the page h1 (partials/page-header.html). The header
+// section has no bottom padding, so the last element's bottom margin sets the
+// gap below the header. Match the h1's margin (0.67em of 2rem = 1.34rem) so the
+// gap is the same as on a header without an intro.
+.page-intro {
+  margin-bottom: 1.34rem;
+}
