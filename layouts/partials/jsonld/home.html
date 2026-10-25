@@ -1,29 +1,36 @@
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "{{ site.BaseURL }}#organization",
-      "name": "Dapr",
-      "url": "{{ site.BaseURL }}",
-      "logo": "{{ `images/dapr.svg` | absURL }}",
-      "sameAs": [
-        "https://github.com/dapr",
-        "https://twitter.com/daprdev",
-        "https://www.youtube.com/@daprdev",
-        "https://www.linkedin.com/company/daprdev/",
-        "https://bsky.app/profile/daprdev.bsky.social"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "{{ site.BaseURL }}#website",
-      "url": "{{ site.BaseURL }}",
-      "name": "{{ site.Title }}",
-      "description": "{{ site.Params.description }}",
-      "publisher": { "@id": "{{ site.BaseURL }}#organization" }
-    }
-  ]
-}
-</script>
+{{- $core := site.Params.core_message -}}
+{{- $org := dict
+  "@type" "Organization"
+  "@id" (printf "%s#organization" site.BaseURL)
+  "name" "Dapr"
+  "url" site.BaseURL
+  "description" $core
+  "logo" (site.Params.logo_png | absURL)
+  "sameAs" (slice
+    "https://github.com/dapr"
+    "https://twitter.com/daprdev"
+    "https://www.youtube.com/@daprdev"
+    "https://www.linkedin.com/company/daprdev/"
+    "https://bsky.app/profile/daprdev.bsky.social") -}}
+{{- $site := dict
+  "@type" "WebSite"
+  "@id" (printf "%s#website" site.BaseURL)
+  "url" site.BaseURL
+  "name" site.Title
+  "description" site.Params.description
+  "publisher" (dict "@id" (printf "%s#organization" site.BaseURL)) -}}
+{{- $app := dict
+  "@type" "SoftwareApplication"
+  "@id" (printf "%s#software" site.BaseURL)
+  "name" "Dapr"
+  "url" site.BaseURL
+  "description" $core
+  "applicationCategory" "DeveloperApplication"
+  "operatingSystem" "Linux, macOS, Windows"
+  "softwareVersion" site.Params.software_version
+  "license" "https://www.apache.org/licenses/LICENSE-2.0"
+  "sameAs" (slice "https://github.com/dapr/dapr")
+  "downloadUrl" "https://docs.dapr.io/getting-started/install-dapr-cli/"
+  "publisher" (dict "@id" (printf "%s#organization" site.BaseURL)) -}}
+{{- $graph := dict "@context" "https://schema.org" "@graph" (slice $org $site $app) -}}
+<script type="application/ld+json">{{ $graph | jsonify (dict "indent" "  ") | safeJS }}</script>

@@ -1,13 +1,9 @@
 // Static checks on the built HTML. No browser needed; these catch markup that
 // was copied back in from older templates.
 import { test, expect } from '@playwright/test';
-import { readFileSync, readdirSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { builtFiles } from './helpers.js';
 
-const siteDir = resolve(import.meta.dirname, '..', '.site');
-const htmlFiles = readdirSync(siteDir, { recursive: true })
-  .filter((f) => f.endsWith('index.html'))
-  .map((f) => ({ name: f, html: readFileSync(join(siteDir, f), 'utf8') }));
+const htmlFiles = builtFiles('index.html').map(({ url, text }) => ({ name: url.slice(1), html: text }));
 
 test('the build produced pages to check', () => {
   expect(htmlFiles.length).toBeGreaterThan(5);

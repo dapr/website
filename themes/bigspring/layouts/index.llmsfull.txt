@@ -1,0 +1,13 @@
+{{- /* Generated /llms-full.txt: the markdown of every page in one file, in the order of llms.txt. Each page calls the same partial as its own index.md, so the two are identical. */ -}}
+# Dapr: full site content
+
+> {{ site.Params.core_message }}
+
+Each section below is the markdown rendering of one page of {{ strings.TrimSuffix "/" site.BaseURL }}, preceded by its URL.
+{{ range sort (where site.Pages "Kind" "in" (slice "home" "section")) "RelPermalink" }}
+---
+
+URL: {{ .Permalink }}
+
+{{ partial "markdown/page.md" . }}
+{{ end }}

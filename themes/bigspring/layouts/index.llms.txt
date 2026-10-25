@@ -1,0 +1,29 @@
+{{- /* Generated /llms.txt (llmstxt.org format). The page list is built from the site, so new pages appear automatically. Keep the page order in step with index.llmsfull.txt. */ -}}
+# Dapr
+
+> {{ site.Params.core_message }}
+
+Dapr is an open source project under the Apache 2.0 license and a graduated Cloud Native Computing Foundation (CNCF) project. Stable SDKs are available for .NET, Python, Java, Go, PHP, and JavaScript.
+
+## Pages
+
+{{ range sort (where site.Pages "Kind" "in" (slice "home" "section")) "RelPermalink" }}
+{{- $desc := cond .IsHome site.Params.description .Description -}}
+- [{{ cond .IsHome "Home" .Title }}]({{ .Permalink }}index.md){{ with $desc }}: {{ . }}{{ end }}
+{{ end }}
+## Docs
+
+- [Overview](https://docs.dapr.io/overview/): What Dapr is and how it fits together
+- [Getting started](https://docs.dapr.io/getting-started/): Install Dapr and run your first application
+- [Building blocks](https://docs.dapr.io/developing-applications/building-blocks/): The APIs Dapr provides
+- [Workflow overview](https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-overview/): Durable workflows with Dapr
+- [Dapr Agents](https://docs.dapr.io/developing-ai/dapr-agents/): The Python framework for building AI agents on Dapr
+- [Dapr MCP server (alpha)](https://docs.dapr.io/developing-ai/mcp/dapr-mcp-server/): Dapr building blocks as Model Context Protocol tools
+- [SDKs](https://docs.dapr.io/developing-applications/sdks/): Supported languages and SDK packages
+
+## Source
+
+- [GitHub: dapr/dapr](https://github.com/dapr/dapr): Runtime source
+- [GitHub: dapr/docs](https://github.com/dapr/docs): Documentation source
+- [GitHub: dapr/dapr-agents](https://github.com/dapr/dapr-agents): Dapr Agents framework
+- [GitHub: dapr/dapr-mcp-server](https://github.com/dapr/dapr-mcp-server): Dapr MCP server

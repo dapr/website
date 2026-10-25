@@ -41,11 +41,17 @@ Homepage copy is data, not markup. Everything else is front matter.
 | Homepage section markup | `themes/bigspring/layouts/partials/home/*.html` |
 | Other page copy | `content/<page>/_index.md` front matter |
 | Other page markup | `themes/bigspring/layouts/<page>/list.html` |
+| Markdown renderings of pages (`index.md`, for LLMs and agents) | `themes/bigspring/layouts/<page>/list.markdown.md`, falling back to `_default/list.markdown.md`; home is `index.markdown.md` |
+| `llms.txt` (generated page list, docs links) | `themes/bigspring/layouts/index.llms.txt` |
+| `llms-full.txt` (every page's markdown in one file) | `themes/bigspring/layouts/index.llmsfull.txt` |
 | Site config, menus, meta | `config.toml` |
 | Styles | `themes/bigspring/assets/scss/` |
 | Images | `static/images/` |
+| Structured data (JSON-LD) | `layouts/partials/jsonld/*.html` (repo root, not the theme), built with `dict` and `jsonify` |
 
 Every directory under `content/` has a matching layout directory under `themes/bigspring/layouts/`: `ai`, `community`, `enterprise`, `events`, `learn`, `platform-engineering`, `testimonials`, `workflow`. The `_index.md` files are front matter only, with no body, so a page's copy and its rendering are always in those two files.
+
+`static/images/dapr-logo-square.png` (the `logo_png` param, used as the schema.org logo) comes from the official CNCF artwork repo, `projects/dapr/icon/color/dapr-icon-color.png` in https://github.com/cncf/artwork (2001x1066). It was padded onto a square white canvas without distortion, then scaled to 512x512: `sips -p 2001 2001 --padColor FFFFFF in.png --out sq.png`, then `sips -z 512 512 sq.png --out static/images/dapr-logo-square.png`.
 
 The `bigspring` theme is vendored in this repo, not a submodule. Edit it directly.
 
