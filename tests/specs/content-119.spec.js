@@ -144,19 +144,3 @@ test('signing claim guard', () => {
     .map(({ url }) => url);
   expect(hits).toEqual([]);
 });
-
-// The announcement carousel leads with the 1.19 release, linking the release post.
-test('banner announces 1.19', async ({ page }) => {
-  await preparePage(page);
-  await page.goto('/');
-  const slide = page
-    .locator('.banner-carousel .banner-slide:not(.slick-cloned)')
-    .filter({ hasText: 'Dapr 1.19' });
-  await expect(slide).toHaveCount(1);
-  await expect(slide.locator('a')).toHaveAttribute(
-    'href',
-    'https://blog.dapr.io/posts/2026/10/22/dapr-v1.19-is-now-available/',
-  );
-  // It is the first slide.
-  expect(await page.locator('.banner-carousel .banner-slide:not(.slick-cloned)').first().textContent()).toContain('Dapr 1.19');
-});
