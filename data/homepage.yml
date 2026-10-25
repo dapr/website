@@ -68,9 +68,6 @@ banner:
   autoplaySpeed: 4000   # milliseconds between slides
   pauseOnHover: true
   messages:
-    - prefix: "Dapr 1.19 is here: "
-      text: "Workflow performance improvements, cross-app workflow operations, and an alpha Binary Store building block."
-      link: "https://blog.dapr.io/posts/2026/10/22/dapr-v1.19-is-now-available/"
     - prefix: "Dapr Support Pro: "
       text: "Get expert Dapr guidance and email support for your team, starting at $99/month."
       link: "https://www.diagrid.io/dapr-support"
