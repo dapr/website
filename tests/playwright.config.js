@@ -6,6 +6,8 @@ export const SITE_DIR = '.site';
 
 export default defineConfig({
   testDir: './specs',
+  // Visual baselines (VISUAL=1 only), gitignored.
+  snapshotPathTemplate: '{testDir}/../.visual/{arg}{ext}',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,

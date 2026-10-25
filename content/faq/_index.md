@@ -45,10 +45,10 @@ faq:
       url: "https://docs.dapr.io/developing-ai/dapr-agents/"
 
   - question: "What is the Dapr MCP server?"
-    answer: "The Dapr MCP server is a standalone Model Context Protocol (MCP) server that runs next to a Dapr sidecar and turns the sidecar's building blocks, such as state, pub/sub, bindings, secrets, and service invocation, into tools that any MCP client can call. It is a separate binary with its own release cycle, not a feature of the Dapr sidecar itself. The Dapr MCP server is in alpha, so tool names, inputs, and configuration may change in a future release."
+    answer: "The Dapr MCP server (alpha) is a standalone Model Context Protocol (MCP) server that runs next to a Dapr sidecar and turns the sidecar's building blocks, such as state, pub/sub, bindings, secrets, and service invocation, into tools that any MCP client can call. It is a separate binary with its own release cycle, not a feature of the Dapr sidecar itself. The Dapr MCP server is in alpha, so tool names, inputs, and configuration may change in a future release."
     source: "https://docs.dapr.io/developing-ai/mcp/dapr-mcp-server/"
     link:
-      label: "Read about the Dapr MCP server"
+      label: "Read about the Dapr MCP server (alpha)"
       url: "https://docs.dapr.io/developing-ai/mcp/dapr-mcp-server/"
 
   - question: "Does Dapr require Kubernetes?"

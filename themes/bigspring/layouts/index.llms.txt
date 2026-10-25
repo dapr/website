@@ -26,4 +26,4 @@ Dapr is an open source project under the Apache 2.0 license and a graduated Clou
 - [GitHub: dapr/dapr](https://github.com/dapr/dapr): Runtime source
 - [GitHub: dapr/docs](https://github.com/dapr/docs): Documentation source
 - [GitHub: dapr/dapr-agents](https://github.com/dapr/dapr-agents): Dapr Agents framework
-- [GitHub: dapr/dapr-mcp-server](https://github.com/dapr/dapr-mcp-server): Dapr MCP server
+- [GitHub: dapr/dapr-mcp-server](https://github.com/dapr/dapr-mcp-server): Dapr MCP server (alpha)
