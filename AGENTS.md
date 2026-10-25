@@ -138,21 +138,9 @@ The mobile navbar overflows horizontally at narrow widths. At a 390px viewport t
 
 The two Azure Static Web Apps workflows in `.github/workflows/` trigger on a `main` branch. The default branch here is `master` and no `main` branch exists, so they do not run. Netlify is the live deployment.
 
-## Scheduled rebuild
+## Event dates and builds
 
-`.github/workflows/scheduled-rebuild.yml` ("Scheduled rebuild") triggers a Netlify build hook every day at 05:00 UTC. Netlify normally rebuilds only on merges to `master`, but the `/events` page decides between Upcoming and Past using the build date, so without a daily build an event stays listed as upcoming after it has happened.
-
-The workflow reads the hook URL from the repository secret `NETLIFY_BUILD_HOOK`. If the secret is not set, the job prints a notice (`NETLIFY_BUILD_HOOK is not set; skipping rebuild`) and succeeds without building anything. If the hook call fails, the job fails.
-
-One-time maintainer setup:
-
-1. In Netlify, go to Site configuration > Build and deploy > Build hooks and add a hook for branch `master`. Copy its URL.
-2. In GitHub, go to Settings > Secrets and variables > Actions and add a repository secret named `NETLIFY_BUILD_HOOK` with that URL.
-3. Run the workflow once to confirm it works (see below).
-
-GitHub disables scheduled workflows after 60 days without repository activity. If events stop moving to Past, check the Actions tab and re-enable the workflow.
-
-To run it by hand, open the Actions tab, choose "Scheduled rebuild", and click "Run workflow".
+The `/events` listing and each event page decide between upcoming and past from the build date (`layouts/partials/events/is-past.html`). Netlify builds only when changes merge to `master`, and there is no scheduled rebuild. An event that has ended therefore stays under "Upcoming events", with its registration form or link, until the next merge. After an event, merge any change to refresh these pages; adding the event's `recordings` playlist is the natural one.
 
 ## Git
 
