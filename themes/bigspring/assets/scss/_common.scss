@@ -71,9 +71,15 @@ select {
   cursor: pointer;
   transition: .2s ease;
 
-  &:focus {
+  // Hide the ring for mouse clicks only; keyboard focus gets :focus-visible below.
+  &:focus:not(:focus-visible) {
     outline: 0;
   }
+}
+
+:focus-visible {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
 }
 
 a:hover {

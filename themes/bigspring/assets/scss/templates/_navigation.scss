@@ -22,8 +22,16 @@ nav i {
   position: relative;
   display: inline-block;
 }
-.navbar-item.is-active .navbar-dropdown, .navbar-item.is-hoverable:focus .navbar-dropdown, .navbar-item.is-hoverable:focus-within .navbar-dropdown, .navbar-item.is-hoverable:hover .navbar-dropdown {
+// Keyboard users open the dropdown with its toggle button, which sets .is-active.
+.navbar-item.is-active .navbar-dropdown, .navbar-item.is-hoverable:hover .navbar-dropdown {
   display: block;
+}
+.navbar-dropdown-toggle {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 786px) {

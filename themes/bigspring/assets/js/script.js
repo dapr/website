@@ -45,6 +45,47 @@
 			fade: true,
 			cssEase: 'linear'
 		});
+
+		// pause/play control; starts paused when the visitor prefers reduced motion
+		var $toggle = $el.siblings('.carousel-toggle');
+		var setToggle = function (playing) {
+			$toggle.attr('aria-label', playing ? 'Pause announcements' : 'Play announcements');
+			$toggle.find('.fas').toggleClass('fa-pause', playing).toggleClass('fa-play', !playing);
+		};
+		var playing = !reduceMotion;
+		setToggle(playing);
+		$toggle.prop('hidden', false).on('click', function () {
+			playing = !playing;
+			$el.slick(playing ? 'slickPlay' : 'slickPause');
+			setToggle(playing);
+		});
+	});
+
+	// autoplaying value-prop videos: pause/play control, paused under reduced motion
+	$('.video-toggle').each(function () {
+		var $toggle = $(this);
+		var video = $toggle.siblings('video').get(0);
+		var label = $toggle.attr('data-label');
+		var setToggle = function (playing) {
+			$toggle.attr('aria-label', (playing ? 'Pause animation: ' : 'Play animation: ') + label);
+			$toggle.find('.fas').toggleClass('fa-pause', playing).toggleClass('fa-play', !playing);
+		};
+		if (reduceMotion) {
+			video.removeAttribute('autoplay');
+			video.pause();
+		}
+		// follow the video's real state, so a blocked autoplay still reads "Play"
+		video.addEventListener('play', function () { setToggle(true); });
+		video.addEventListener('pause', function () { setToggle(false); });
+		setToggle(!video.paused);
+		$toggle.prop('hidden', false).on('click', function () {
+			if (video.paused) {
+				var started = video.play();
+				if (started && started.catch) { started.catch(function () {}); }
+			} else {
+				video.pause();
+			}
+		});
 	});
 
 })(jQuery);

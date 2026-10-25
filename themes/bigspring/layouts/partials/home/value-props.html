@@ -22,11 +22,16 @@
         {{ end }}
       </div>
       <div class="align-self-center-mobile value-prop-video">
-        <video class="value-prop" autoplay playsinline loop muted>
-          <source src="{{ $featureItem.video }}" type="video/mp4">
-          <img src="{{ $featureItem.image }}" alt="{{ $featureItem.name }}" loading="lazy" />
-        Your browser does not support the video tag.
-        </video>
+        <div class="value-prop-video-frame">
+          <video class="value-prop" autoplay playsinline loop muted>
+            <source src="{{ $featureItem.video }}" type="video/mp4">
+            <img src="{{ $featureItem.image }}" alt="{{ $featureItem.name }}" loading="lazy" />
+          Your browser does not support the video tag.
+          </video>
+          <button type="button" class="video-toggle" aria-label="Pause animation: {{ $featureItem.name }}" data-label="{{ $featureItem.name }}" hidden>
+            <i class="fas fa-pause" aria-hidden="true"></i>
+          </button>
+        </div>
         <!-- <img src="{{ $featureItem.image }}" alt="image describing {{ $featureItem.name }}"> -->
       </div>
     </div>

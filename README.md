@@ -33,6 +33,17 @@ Run:
 hugo server --disableFastRender
 ```
 
+### Run the tests
+Playwright tests in [/tests](https://github.com/dapr/website/tree/master/tests) check accessibility behavior: keyboard focus, the nav dropdown, the carousel and video pause controls, and an axe-core scan of every page. They run in GitHub Actions on every pull request. To run them locally you need Hugo, Node.js, and Google Chrome:
+
+```bash
+cd tests
+npm install
+npm test
+```
+
+The tests build the site themselves. If a change fixes accessibility issues, update the recorded baseline with `npm run test:update-a11y-baseline` and commit the changed `a11y-baseline.*.json` files.
+
 ### Editing the content
 All basic content editing can be done via changes to [/data/homepage.yml](https://github.com/dapr/website/blob/master/data/homepage.yml). Note that the different sections in the file are ordered in the same way as in the website. Each section will usually have an `enable` flag which allows it to be removed without deleting it from the file.
 

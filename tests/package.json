@@ -1,0 +1,14 @@
+{
+  "name": "dapr-website-tests",
+  "private": true,
+  "description": "Playwright regression tests for dapr.io. Kept out of the repo root so Netlify does not run npm install on deploy.",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:update-a11y-baseline": "UPDATE_A11Y_BASELINE=1 playwright test a11y"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "1.56.1"
+  }
+}

@@ -75,6 +75,41 @@ const handleToggle = () => {
     navBarLinkContainer.style.display = "none";
   };
 };
+
+// desktop dropdown toggles; on mobile the submenu is always shown
+(function () {
+  var mobileQuery = window.matchMedia("(max-width: 786px)");
+  var toggles = document.querySelectorAll(".navbar-dropdown-toggle");
+
+  function setOpen(toggle, open) {
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.parentElement.classList.toggle("is-active", open && !mobileQuery.matches);
+  }
+
+  function syncToViewport() {
+    toggles.forEach(function (toggle) { setOpen(toggle, mobileQuery.matches); });
+  }
+
+  toggles.forEach(function (toggle) {
+    var item = toggle.parentElement;
+    toggle.addEventListener("click", function () {
+      if (mobileQuery.matches) { return; }
+      setOpen(toggle, toggle.getAttribute("aria-expanded") !== "true");
+    });
+    item.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true" && !mobileQuery.matches) {
+        setOpen(toggle, false);
+        toggle.focus();
+      }
+    });
+    item.addEventListener("focusout", function (e) {
+      if (!mobileQuery.matches && !item.contains(e.relatedTarget)) { setOpen(toggle, false); }
+    });
+  });
+
+  syncToViewport();
+  mobileQuery.addEventListener("change", syncToViewport);
+})();
 </script>
 
 <script>
