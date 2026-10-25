@@ -20,3 +20,6 @@ tests/.site
 tests/test-results
 tests/playwright-report
 tests/.site-*
+
+# Visual regression snapshots (VISUAL=1), local only
+tests/.visual
