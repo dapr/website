@@ -1,0 +1,26 @@
+{{- /* WebPage + BreadcrumbList for every page. Built with dict + jsonify so
+       quotes, ampersands and non-ASCII text are escaped as JSON, not HTML. */ -}}
+{{- $crumbs := slice -}}
+{{- range .Ancestors.Reverse }}{{ $crumbs = $crumbs | append . }}{{ end -}}
+{{- $crumbs = $crumbs | append . -}}
+{{- $items := slice -}}
+{{- range $i, $p := $crumbs -}}
+  {{- $name := $p.Title -}}
+  {{- if $p.IsHome }}{{ $name = "Home" }}{{ end -}}
+  {{- $items = $items | append (dict
+    "@type" "ListItem"
+    "position" (add $i 1)
+    "name" $name
+    "item" $p.Permalink) -}}
+{{- end -}}
+{{- $page := dict
+  "@type" "WebPage"
+  "@id" (printf "%s#webpage" .Permalink)
+  "url" .Permalink
+  "name" (cond .IsHome site.Params.home_title .Title)
+  "isPartOf" (dict "@id" (printf "%s#website" site.BaseURL))
+  "breadcrumb" (dict "@type" "BreadcrumbList" "itemListElement" $items) -}}
+{{- with or .Params.description site.Params.description }}{{ $page = merge $page (dict "description" .) }}{{ end -}}
+{{- if not .Lastmod.IsZero }}{{ $page = merge $page (dict "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")) }}{{ end -}}
+{{- $doc := dict "@context" "https://schema.org" "@graph" (slice $page) -}}
+<script type="application/ld+json">{{ $doc | jsonify (dict "indent" "  ") | safeJS }}</script>

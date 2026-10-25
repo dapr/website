@@ -1,0 +1,11 @@
+{{- /*
+  Absolute URL of an image given its front matter path. Images live under
+  assets/ and are published by the asset pipeline, so the path in front matter
+  alone is not a servable URL; fall back to the plain absolute URL for files
+  that are still in static/.
+*/ -}}
+{{- $url := . | absURL -}}
+{{- with resources.Get . -}}
+  {{- $url = .Permalink -}}
+{{- end -}}
+{{- return $url -}}

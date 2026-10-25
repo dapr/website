@@ -15,6 +15,8 @@ Important folders and files to note:
 
 [/config.toml](https://github.com/dapr/website/blob/master/config.toml) - Hugo configuration and parameters including baseURL, headers and footers, Google Analytics etc.
 
+[/themes/bigspring/layouts/index.llms.txt](https://github.com/dapr/website/blob/master/themes/bigspring/layouts/index.llms.txt) - Template that generates `llms.txt` (do not edit a static copy); `index.llmsfull.txt` next to it generates `llms-full.txt`
+
 [/netlify.toml](https://github.com/dapr/website/blob/master/netlify.toml) - Configuration for deployment on Netlify
 
 [/themes/bigspring/](https://github.com/dapr/website/blob/master/themes/bigspring) - The website theme

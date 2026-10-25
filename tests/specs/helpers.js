@@ -1,3 +1,21 @@
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+
+// Absolute path to the static build the tests run against.
+export const SITE_DIR = resolve(import.meta.dirname, '..', '.site');
+
+// Built files whose path ends in `suffix`, e.g. builtFiles('index.html').
+// `url` is the site-relative URL, e.g. '/workflow/index.md'.
+export function builtFiles(suffix) {
+  return readdirSync(SITE_DIR, { recursive: true })
+    .filter((f) => f.endsWith(suffix))
+    .map((f) => ({
+      path: join(SITE_DIR, f),
+      url: '/' + f.split('\\').join('/'),
+      text: readFileSync(join(SITE_DIR, f), 'utf8'),
+    }));
+}
+
 // Pages under test. Keep in step with the directories under content/.
 export const PAGES = [
   '/',
@@ -38,4 +56,24 @@ export async function tabTo(page, selector, maxPresses = 60) {
     if (await page.evaluate((sel) => document.activeElement?.matches(sel), selector)) return;
   }
   throw new Error(`Tabbed ${maxPresses} times without reaching ${selector}`);
+}
+
+// Parsed JSON-LD blocks of a built HTML page, with `@graph` flattened.
+// Throws, naming the page, if a block is not valid JSON.
+export function jsonLd(html, name = 'page') {
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  const out = [];
+  for (const [, body] of blocks) {
+    let data;
+    try {
+      data = JSON.parse(body);
+    } catch (e) {
+      throw new Error(`${name}: invalid JSON-LD: ${e.message}`);
+    }
+    for (const item of Array.isArray(data) ? data : [data]) {
+      if (Array.isArray(item['@graph'])) out.push(...item['@graph']);
+      else out.push(item);
+    }
+  }
+  return out;
 }

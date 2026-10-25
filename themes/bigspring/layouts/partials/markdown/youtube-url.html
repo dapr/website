@@ -1,0 +1,10 @@
+{{- /*
+  Turns a YouTube embed URL (as stored in front matter, possibly with &amp;)
+  into a link to the video or playlist a reader can open.
+*/ -}}
+{{- $u := . | htmlUnescape -}}
+{{- $url := replace $u "/embed/" "/watch?v=" -}}
+{{- with findRE `list=[^&]+` $u 1 -}}
+  {{- $url = printf "https://www.youtube.com/playlist?%s" (index . 0) -}}
+{{- end -}}
+{{- return $url -}}

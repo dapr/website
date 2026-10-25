@@ -2,7 +2,7 @@
 title: "Enterprise solutions in the Dapr ecosystem"
 #subtitle: ""
 # meta description
-description: "Enterprise-grade Dapr: Diagrid Dapr support, Dapr Ops Dashboard, D3E, Diagrid Catalyst, Azure Container Apps, and Intent Architect. 24/7 support and durable execution for agents and workflows."
+description: "Commercial support, managed services, and enterprise distributions for running Dapr in production, from vendors in the Dapr ecosystem."
 meta_keywords: "dapr enterprise, dapr support, diagrid, dapr ops dashboard, d3e, diagrid catalyst, durable execution, azure container apps, enterprise microservices"
 draft: false
 

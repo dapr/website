@@ -14,6 +14,25 @@ disqusShortname = "" # get your shortname form here : https://disqus.com
 [markup.goldmark.renderer]
 unsafe = true
 
+[outputFormats.markdown]
+mediaType = "text/markdown"
+baseName = "index"
+isPlainText = true
+
+[outputFormats.llms]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
+
+[outputFormats.llmsfull]
+mediaType = "text/plain"
+baseName = "llms-full"
+isPlainText = true
+
+[outputs]
+home = ["HTML", "RSS", "markdown", "llms", "llmsfull"]
+section = ["HTML", "markdown"]
+
 ############################# Plugins ##############################
 
 # CSS Plugins
@@ -177,6 +196,10 @@ weight = 3
 [params]
 logo = "images/dapr.svg"
 logo_width = "60px"
+home_title = "Dapr: Durable Execution for Workflows and AI Agents"
+software_version = "1.19"
+core_message = "Dapr is the durable execution engine for workflows and AI agents. It provides APIs for building event-driven architectures."
+logo_png = "images/dapr-logo-square.png"
 # Meta data
 description = "Dapr is the durable execution engine for workflows and AI agents. A graduated CNCF project whose APIs keep work running through crashes, restarts, and outages."
 twitter_handle = "@daprdev"
