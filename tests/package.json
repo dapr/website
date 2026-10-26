@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "playwright test",
-    "test:update-a11y-baseline": "UPDATE_A11Y_BASELINE=1 playwright test a11y"
+    "test:update-a11y-baseline": "UPDATE_A11Y_BASELINE=1 playwright test a11y",
+    "export:hero-fallback": "node export-hero-fallback.js"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",

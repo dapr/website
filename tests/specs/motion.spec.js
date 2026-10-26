@@ -25,6 +25,9 @@ test.describe('announcement carousel', () => {
     await preparePage(page);
     await page.goto('/');
     await expect(page.locator('.banner-carousel.slick-initialized')).toBeVisible();
+    // pause the hero diagram: under the fake clock it draws a frame every 16ms of
+    // the ~30s these tests skip through, which is slow enough to time out
+    await page.locator('.diagram-toggle').click();
     // keep the mouse off the banner: hovering pauses Slick on its own
     await page.mouse.move(5, 800);
   });
@@ -94,6 +97,60 @@ test.describe('value-prop videos', () => {
   });
 });
 
+// Positions of the diagram's pulses; any change means the animation advanced.
+const diagramFrame = (page) =>
+  page.locator('.hero-diagram-svg circle').evaluateAll((cs) => cs.map((c) => c.getAttribute('cx')).join());
+
+test.describe('hero diagram', () => {
+  test.beforeEach(async ({ page }) => {
+    // Fake clock: d3-timer runs on requestAnimationFrame and performance.now.
+    await page.clock.install();
+    await preparePage(page);
+    await page.goto('/');
+    await expect(page.locator('.diagram-toggle')).toBeVisible();
+  });
+
+  test('replaces the static fallback once it draws', async ({ page }) => {
+    await expect(page.locator('.hero-diagram-fallback')).toHaveCount(0);
+  });
+
+  test('animates on its own', async ({ page }) => {
+    const before = await diagramFrame(page);
+    await page.clock.runFor(500);
+    expect(await diagramFrame(page)).not.toBe(before);
+  });
+
+  test('pause stops the animation and play resumes it', async ({ page }) => {
+    const toggle = page.locator('.diagram-toggle');
+    await expect(toggle).toHaveAttribute('aria-label', /^Pause animation: .+/);
+
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-label', /^Play animation: .+/);
+    const paused = await diagramFrame(page);
+    await page.clock.runFor(2000);
+    expect(await diagramFrame(page)).toBe(paused);
+
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-label', /^Pause animation: .+/);
+    await page.clock.runFor(500);
+    expect(await diagramFrame(page)).not.toBe(paused);
+  });
+});
+
+test.describe('hero diagram without JavaScript', () => {
+  test.use({ javaScriptEnabled: false });
+
+  test('shows the static fallback and no pause control', async ({ page }) => {
+    await preparePage(page);
+    await page.goto('/');
+    const fallback = page.locator('.hero-diagram-fallback');
+    await expect(fallback).toBeAttached();
+    const src = await fallback.getAttribute('href');
+    expect((await page.request.get(src)).ok()).toBe(true);
+    await expect(page.locator('.diagram-toggle')).toBeHidden();
+  });
+});
+
 test.describe('with prefers-reduced-motion', () => {
   test.beforeEach(async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -103,6 +160,15 @@ test.describe('with prefers-reduced-motion', () => {
 
   test('the carousel starts paused', async ({ page }) => {
     await expect(page.locator('.carousel-toggle')).toHaveAttribute('aria-label', 'Play announcements');
+  });
+
+  test('the hero diagram shows a still frame and starts paused', async ({ page }) => {
+    const toggle = page.locator('.diagram-toggle');
+    await expect(toggle).toHaveAttribute('aria-label', /^Play animation: .+/);
+    const still = await diagramFrame(page);
+    expect(still).not.toBe('');
+    await page.waitForTimeout(500);
+    expect(await diagramFrame(page)).toBe(still);
   });
 
   test('the videos start paused', async ({ page }) => {

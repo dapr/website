@@ -36,6 +36,11 @@ for (const { name, html } of htmlFiles) {
       expect(html).toMatch(/<button\b[^>]*class="carousel-toggle"[^>]*aria-label="Pause announcements"/);
     });
 
+    test('the animated hero diagram has a labeled pause control', () => {
+      if (!html.includes('class="hero-diagram-svg"')) return;
+      expect(html).toMatch(/<button\b[^>]*class="diagram-toggle"[^>]*aria-label="Pause animation: [^"]+"/);
+    });
+
     test('dropdown menus are opened by a real button', () => {
       const dropdowns = html.match(/class="dropdown navbar-item/g) || [];
       const toggles = html.match(/<button type="button" class="navLink navbar-dropdown-toggle" aria-expanded="false" aria-controls="[^"]+"/g) || [];

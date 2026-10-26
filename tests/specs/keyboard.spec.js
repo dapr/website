@@ -13,6 +13,7 @@ test.describe('visible keyboard focus', () => {
     ['hero CTA', '.btn-container a.btn'],
     ['carousel toggle', '.carousel-toggle'],
     ['video toggle', '.video-toggle'],
+    ['hero diagram toggle', '.diagram-toggle'],
   ]) {
     test(`${label} shows a focus ring`, async ({ page }) => {
       await tabTo(page, selector);
