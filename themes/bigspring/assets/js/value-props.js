@@ -14,11 +14,19 @@
 
   // colors of the original value-prop videos
   var C = {
-    navy: '#1D168E', teal: '#4EA4AF', tealFill: '#D3E6E6', mint: '#1AF7A2', mintFill: '#CAF7E6',
-    yellow: '#E9D30A', yellowFill: '#FAF6CB', orange: '#F03E00', orangeFill: '#FACCBE',
+    navy: '#1D168E', teal: '#4EA4AF', tealFill: '#D3E6E6', mint: '#1AF7A2',
+    orange: '#F03E00', orangeFill: '#FACCBE',
     red: '#EE0000', blue: '#45AEEE', lavender: '#C2C0FB', grey: '#303030', caption: '#747474',
     rabbit: '#EE5D04', redis: '#C41922', black: '#000000', bg: '#FDFDFD'
   };
+  // App hexagons take these in order: one app is light blue, two add dark blue,
+  // three add teal, four add orange. No yellow: too light on the white background.
+  var APP = [
+    { stroke: '#3EA9F5', fill: '#D8ECFD' },
+    { stroke: '#0D2192', fill: '#D3D7F0' },
+    { stroke: C.teal, fill: C.tealFill },
+    { stroke: C.orange, fill: C.orangeFill }
+  ];
 
   function inOut(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
   // progress of a step that runs from a to b seconds, eased, clamped to 0..1
@@ -252,26 +260,27 @@
         var diagram = group(root);
 
         var base = group(diagram);
-        hex(base, { x: 296.5, y: 102.5, stroke: C.teal, fill: C.tealFill });
-        hex(base, { x: 442.5, y: 101.5, stroke: C.teal, fill: C.tealFill });
-        hex(base, { x: 442.5, y: 243, stroke: C.teal, fill: C.tealFill });
+        // three kinds of app: the existing system (teal), and the two Dapr apps added to it
+        hex(base, { x: 296.5, y: 102.5, stroke: APP[2].stroke, fill: APP[2].fill });
+        hex(base, { x: 442.5, y: 101.5, stroke: APP[2].stroke, fill: APP[2].fill });
+        hex(base, { x: 442.5, y: 243, stroke: APP[2].stroke, fill: APP[2].fill });
         icon(base, { name: 'apachekafka', x: 303, y: 236, size: 56, color: C.black, label: 'Apache Kafka', labelDy: 44 });
         arrow(base, [333, 101.5], [405, 101.5]);
         arrow(base, [296.5, 145], [296.5, 198.5]);
         arrow(base, [442.5, 144], [442.5, 198.5]);
         arrow(base, [344, 244], [404, 244]);
 
-        var daprApp = group(diagram);
-        hex(daprApp, { x: 155.5, y: 102.5, stroke: C.mint, fill: C.mintFill });
-        badge(daprApp, { x: 191.5, y: 111 });
+        var firstApp = group(diagram);
+        hex(firstApp, { x: 155.5, y: 102.5, stroke: APP[0].stroke, fill: APP[0].fill });
+        badge(firstApp, { x: 191.5, y: 111 });
         var daprToApp = arrow(diagram, [210.5, 102.5], [259, 102.5]);
         var daprToDb = arrow(diagram, [155.5, 145], [155.5, 198.5]);
         var db = cylinder(diagram, { x: 155.5, top: 210, bottom: 254 });
         var kafkaDown = arrow(diagram, [297, 290], [297, 345]);
-        var yellowApp = group(diagram);
-        hex(yellowApp, { x: 297, y: 389, stroke: C.yellow, fill: C.yellowFill });
-        badge(yellowApp, { x: 333, y: 400 });
-        var yellowToRabbit = arrow(diagram, [352, 390], [404, 390]);
+        var secondApp = group(diagram);
+        hex(secondApp, { x: 297, y: 389, stroke: APP[1].stroke, fill: APP[1].fill });
+        badge(secondApp, { x: 333, y: 400 });
+        var secondToRabbit = arrow(diagram, [352, 390], [404, 390]);
         var rabbit = icon(diagram, { name: 'rabbitmq', x: 421, y: 385, size: 32, color: C.rabbit, label: 'RabbitMQ', labelDy: 34 });
 
         var START = [-81, 61.5]; // where the base diagram sits before it slides into place
@@ -281,13 +290,13 @@
           diagram.attr('transform', 'translate(' + (START[0] * (1 - slide)).toFixed(2) + ',' + (START[1] * (1 - slide)).toFixed(2) + ')');
 
           var out = 1 - step(t, 7.0, 7.5); // everything added fades out together
-          daprApp.attr('opacity', step(t, 1.23, 1.9) * out);
+          firstApp.attr('opacity', step(t, 1.23, 1.9) * out);
           daprToApp(step(t, 2.07, 2.57), out);
           daprToDb(step(t, 2.07, 2.57), out);
           db.attr('opacity', step(t, 2.73, 3.23) * out);
           kafkaDown(step(t, 3.23, 3.73), out);
-          yellowApp.attr('opacity', step(t, 3.9, 4.35) * out);
-          yellowToRabbit(step(t, 4.65, 5.15), out);
+          secondApp.attr('opacity', step(t, 3.9, 4.35) * out);
+          secondToRabbit(step(t, 4.65, 5.15), out);
           rabbit.attr('opacity', step(t, 5.23, 5.73) * out);
         };
       }
@@ -326,7 +335,7 @@
         at(7.25, 7.55, box(d, { x: X, y: 257, w: W, h: H, label: 'Activity 2' }));
         at(7.6, 8.0, arrow(d, [393.5, 257], [502, 257]));
         at(7.6, 8.0, label(d, 453, 231, 'Service\nInvocation'));
-        at(8.05, 8.35, hex(d, { x: 536, y: 257, r: 32, stroke: C.orange, fill: C.orangeFill, size: 11.5 }));
+        at(8.05, 8.35, hex(d, { x: 536, y: 257, r: 32, stroke: APP[0].stroke, fill: APP[0].fill, size: 11.5 }));
         at(8.6, 8.9, arrow(d, [X, 272.5], [X, 302]));
         at(8.95, 9.25, box(d, { x: X, y: 319.5, w: W, h: H, label: 'Activity 3' }));
         at(9.9, 10.25, arrow(d, [197.5, 319.5], [98.5, 319.5]));
@@ -358,11 +367,11 @@
       still: 14,
       build: function (root) {
         var Y = 249.5, d = group(root);
-        daprApp(d, { x: 70.5, y: 243, r: 32, stroke: C.mint, fill: C.mintFill });
-        daprApp(d, { x: 316.5, y: 243, r: 32, stroke: C.orange, fill: C.orangeFill });
+        daprApp(d, { x: 70.5, y: 243, r: 32, stroke: APP[0].stroke, fill: APP[0].fill });
+        daprApp(d, { x: 316.5, y: 243, r: 32, stroke: APP[1].stroke, fill: APP[1].fill });
         broker(d, { x: 513, y: 247, label: 'Message Broker', labelDy: 42 });
-        daprApp(d, { x: 510.5, y: 103, r: 32, stroke: C.mint, fill: C.mintFill, badgeLeft: true });
-        daprApp(d, { x: 510.5, y: 368, r: 32, stroke: C.yellow, fill: C.yellowFill, badgeLeft: true });
+        daprApp(d, { x: 510.5, y: 103, r: 32, stroke: APP[2].stroke, fill: APP[2].fill, badgeLeft: true });
+        daprApp(d, { x: 510.5, y: 368, r: 32, stroke: APP[3].stroke, fill: APP[3].fill, badgeLeft: true });
 
         // A call that fails, is retried, and goes through: `before` grows with a
         // head and turns red with a cross; then it turns green, loses its head and
@@ -428,7 +437,7 @@
           function mark(spec, x, y) {
             return icon(g, { name: spec[0], x: x, y: y, size: spec[2], color: spec[3], label: spec[1], labelDy: spec[2] / 2 + 15 });
           }
-          parts.app = daprApp(g, { x: 66.5, y: 207.5, stroke: C.orange, fill: C.orangeFill });
+          parts.app = daprApp(g, { x: 66.5, y: 207.5, stroke: APP[0].stroke, fill: APP[0].fill });
           parts.caption = label(g, 293.5, 380, p.caption, { size: 16, weight: 600, color: C.caption });
           parts.toBroker = arrow(g, [120, 207.5], [163, 207.5]);
           parts.toSecrets = arrow(g, [66.5, 250], [66.5, 296]);
@@ -440,8 +449,8 @@
           parts.toTop = arrow(g, [292.5, 162.5], [352, 162.5]);
           parts.toBottom = arrow(g, [292.5, 253.5], [352, 253.5]);
           parts.apps = group(g);
-          daprApp(parts.apps, { x: 395, y: 159, stroke: C.teal, fill: C.tealFill });
-          daprApp(parts.apps, { x: 395, y: 257, stroke: C.mint, fill: C.mintFill });
+          daprApp(parts.apps, { x: 395, y: 159, stroke: APP[1].stroke, fill: APP[1].fill });
+          daprApp(parts.apps, { x: 395, y: 257, stroke: APP[2].stroke, fill: APP[2].fill });
           parts.toDb = arrow(g, [448, 255.5], [497, 255.5]);
           parts.db = mark(p.db, 534, 250);
           parts.g = g;
