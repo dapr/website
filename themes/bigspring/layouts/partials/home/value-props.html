@@ -49,7 +49,8 @@
       <div class="align-self-center-mobile value-prop-video">
         {{- with $featureItem.diagram }}
         <div class="value-prop-diagram-frame">
-          <svg class="value-prop-diagram" data-scene="{{ . }}" width="600" height="480" viewBox="0 0 600 480" role="img" aria-labelledby="value-prop-{{ . }}-title value-prop-{{ . }}-desc">
+          {{- /* diagramstatic: true shows the scene's complete frame, without animation */}}
+          <svg class="value-prop-diagram" data-scene="{{ . }}"{{ if $featureItem.diagramstatic }} data-static{{ end }} width="600" height="480" viewBox="0 0 600 480" role="img" aria-labelledby="value-prop-{{ . }}-title value-prop-{{ . }}-desc">
             <title id="value-prop-{{ . }}-title">{{ $featureItem.name }}</title>
             <desc id="value-prop-{{ . }}-desc">{{ $featureItem.diagramdesc }}</desc>
             {{- /* Still frame shown until value-props.js draws; removed by it. */}}
@@ -57,9 +58,11 @@
             <image class="value-prop-diagram-fallback" href="{{ .Permalink }}" width="600" height="480"/>
             {{- end }}
           </svg>
+          {{- if not $featureItem.diagramstatic }}
           <button type="button" class="diagram-toggle" aria-label="Pause animation: {{ $featureItem.name }}" data-label="{{ $featureItem.name }}" hidden>
             <i class="fas fa-pause" aria-hidden="true"></i>
           </button>
+          {{- end }}
         </div>
         {{- else }}
         <div class="value-prop-video-frame">

@@ -139,6 +139,9 @@ test.describe('hero diagram', () => {
   });
 });
 
+// Value-prop diagrams that animate; a still (data-static) has no pause control.
+const ANIMATED_FRAMES = '.value-prop-diagram-frame:has(.value-prop-diagram:not([data-static]))';
+
 // Opacity and transform of every animated element; any change means the scene advanced.
 const sceneFrame = (svg) =>
   svg.evaluate((s) => [...s.querySelectorAll('[opacity], [transform]')]
@@ -157,7 +160,7 @@ test.describe('value-prop diagrams', () => {
   });
 
   test('animate, and each toggle pauses and resumes its diagram', async ({ page }) => {
-    const frames = page.locator('.value-prop-diagram-frame');
+    const frames = page.locator(ANIMATED_FRAMES);
     const count = await frames.count();
     expect(count).toBeGreaterThan(0);
 
@@ -234,7 +237,7 @@ test.describe('with prefers-reduced-motion', () => {
   });
 
   test('the value-prop diagrams show a still frame and start paused', async ({ page }) => {
-    const frames = page.locator('.value-prop-diagram-frame');
+    const frames = page.locator(ANIMATED_FRAMES);
     for (let i = 0; i < (await frames.count()); i++) {
       const frame = frames.nth(i);
       await frame.scrollIntoViewIfNeeded();

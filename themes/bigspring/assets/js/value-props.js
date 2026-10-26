@@ -1,11 +1,13 @@
-/* Homepage value-prop diagrams: 2D animations drawn with D3 (d3-selection and
-   d3-timer, vendored in static/plugins/d3/), replacing the old MP4s one by one.
+/* Homepage value-prop diagrams: 2D diagrams, animated or still, drawn with D3
+   (d3-selection and d3-timer, vendored in static/plugins/d3/). They replaced
+   the MP4s these sections used to show.
 
    Markup lives in layouts/partials/home/value-props.html: each diagram is an
    <svg class="value-prop-diagram" data-scene="<name>"> with a static fallback
    <image> (assets/images/value-props/<name>.svg, regenerated with
-   `npm run export:diagram-fallbacks` in tests/) and a pause/play button. The Dapr
-   logo and brand marks are <symbol>s in the same partial.
+   `npm run export:diagram-fallbacks` in tests/) and, unless it is a still
+   (diagramstatic: true in the data, data-static on the svg), a pause/play
+   button. The Dapr logo and brand marks are <symbol>s in the same partial.
 
    Each scene builds its shapes once; frame(t) only updates opacity, transforms
    and arrow lengths. Layouts are in a 600x480 space. */
@@ -245,7 +247,9 @@
   }
 
   // ---- scenes: build(root) returns frame(t), for a loop of T seconds; `still` is
-  // the moment shown under prefers-reduced-motion and in the static fallback
+  // the moment shown under prefers-reduced-motion, in the static fallback, and when
+  // the diagram is shown as a still. A scene only ever shown as a still can leave
+  // out T, and its frame(t) can ignore t.
 
   var scenes = {
     /* "Incrementally adopt", after the old 4_adopt.mp4 (155 frames at 24 fps).
@@ -501,6 +505,14 @@
     var root = d3.select(svgNode).append('g').attr('aria-hidden', 'true')
       .attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
     var frame = scene.build(root);
+
+    // a still diagram (data-static, from diagramstatic in the data) is drawn once,
+    // at its complete frame, with no timer and no pause button; so is a scene
+    // without a loop length T, which can only be shown as a still
+    if (svgNode.hasAttribute('data-static') || !scene.T) {
+      frame(scene.still || 0);
+      return;
+    }
 
     var toggle = svgNode.parentNode.querySelector('.diagram-toggle');
     var label = toggle ? toggle.getAttribute('data-label') : '';

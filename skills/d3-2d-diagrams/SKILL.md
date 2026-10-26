@@ -1,13 +1,14 @@
 ---
 name: d3-2d-diagrams
-description: Create or change the animated 2D diagrams on the dapr.io homepage (the value-prop diagrams drawn with D3 in themes/bigspring/assets/js/value-props.js). Use for a new diagram from a video or GIF, a still image, or a text description, and for changes to an existing scene's layout, colors, icons, timing or tests.
+description: Create or change the animated 2D diagrams on the dapr.io homepage (the value-prop diagrams drawn with D3 in themes/bigspring/assets/js/value-props.js). Use for a new diagram, animated or still, from a video or GIF, a still image, or a text description, and for changes to an existing scene's layout, colors, icons, timing or tests.
 ---
 
 # 2D D3 diagrams for dapr.io
 
-The four homepage value-prop sections each show an animated 2D diagram, drawn in
-code with D3 instead of the MP4s they replaced. This skill holds the design rules
-and the workflow that produced them, so a new diagram matches the existing ones.
+The four homepage value-prop sections each show a 2D diagram, drawn in code with
+D3 instead of the MP4s they replaced. A diagram is either animated or a still.
+This skill holds the design rules and the workflow that produced them, so a new
+diagram matches the existing ones.
 
 The 3D wireframe hero diagram (`themes/bigspring/assets/js/hero-diagram.js`) is a
 separate piece of code. The style below borrows from it, but nothing here
@@ -29,6 +30,32 @@ changes it.
 The engine's API is in [reference/engine.md](reference/engine.md).
 
 ## Design rules
+
+### Animated or still
+
+Decide this first; it changes which steps apply.
+
+| Starting from | Animated or still |
+| --- | --- |
+| A video or GIF | Always animated, following the source's timing |
+| A still image | Whatever the user asked for |
+| A text description | Whatever the user asked for |
+
+If a still image or a text description comes without instructions, ask whether
+the diagram should animate. Do not assume.
+
+- **A still** is a scene drawn once at its complete frame:
+  - **Data:** set `diagramstatic: true` on its item in `data/homepage.yml`. The
+    template then marks the svg `data-static` and leaves out the pause button.
+    The script draws `still` once, with no timer.
+  - **Scene:** it needs `build` and `still`. It can leave out `T`, and its
+    `frame(t)` can ignore `t`. A scene without `T` is always drawn as a still,
+    even without the flag; set the flag anyway, so the page has no pause button
+    for it.
+  - **Rules that don't apply:** [Motion](#motion) and the pause button.
+    Everything else does.
+- **Animated scenes can also be shown as a still** by setting
+  `diagramstatic: true`.
 
 ### Canvas and style
 
@@ -122,6 +149,8 @@ names, never new hex values in a scene.
 
 ### Motion
 
+Animated diagrams only.
+
 - **Timeline:** a scene is a function of time `t` in seconds, over a loop of `T`
   seconds. Every step is `step(t, start, end)`, eased in and out and clamped,
   so the same `t` always draws the same frame.
@@ -153,15 +182,17 @@ These come with the engine and the partial. Keep them working:
   - Describe what the diagram shows, plainly and accurately. It is read as an
     official statement by the project.
   - Avoid em dashes and en dashes, as in all site copy.
-- **Pause button:** it starts hidden and is shown by the script, labeled
-  "Pause animation: <name>" or "Play animation: <name>".
-- **Motion settings:** under `prefers-reduced-motion` the diagram shows `still`
-  and starts paused. It stops while offscreen.
+- **Pause button (animated only):** it starts hidden and is shown by the
+  script, labeled "Pause animation: <name>" or "Play animation: <name>". A still
+  has none.
+- **Motion settings (animated only):** under `prefers-reduced-motion` the diagram
+  shows `still` and starts paused. It stops while offscreen.
 - **Fallback:** without JavaScript, the static fallback image shows.
 
 ## Workflow
 
-Pick the first step by what you start from, then continue at step 2.
+Pick the first step by what you start from, then continue at step 2. Settle
+[animated or still](#animated-or-still) first.
 
 | Starting from | Step 1 |
 | --- | --- |
@@ -202,8 +233,10 @@ skills/d3-2d-diagrams/scripts/video-frames.sh path/to/diagram.png /tmp/frames
 
 This writes `frame-0.png` at 1200px wide.
 
-- **Layout and colors:** measure and sample them exactly as in 1a. A still has no
-  timing, so you design the animation yourself.
+- **Layout and colors:** measure and sample them exactly as in 1a.
+- **For a still diagram,** that is all: continue at step 2.
+- **For an animated diagram,** the image has no timing, so you design the
+  animation yourself, as follows.
 - **Reveal order.** Follow how the diagram reads:
   - **Direction:** usually along the data flow, or left to right and top to
     bottom.
@@ -233,7 +266,8 @@ This writes `frame-0.png` at 1200px wide.
   and when. Have it agreed if someone asked for the diagram.
 - **Checking the result:** `scene-frames.mjs --video path/to/diagram.png` puts
   the image next to the scene's frames. Every moment is compared with the same
-  still, so use a time when the scene is complete.
+  image, so use a time when the scene is complete. This works for a still
+  diagram too.
 
 ### 1c. Turn the description into a layout
 
@@ -267,7 +301,8 @@ This writes `frame-0.png` at 1200px wide.
 
    Then share the frame. Layout changes are cheap now and expensive once the
    timeline exists.
-6. **Animate:** follow 1b's reveal order and pacing.
+6. **Animate, if the diagram is animated:** follow 1b's reveal order and
+   pacing. A still is finished at step 5.
 7. **Write `diagramdesc` from the description:** plain and accurate, with only
    what the diagram actually shows.
 
@@ -275,8 +310,9 @@ This writes `frame-0.png` at 1200px wide.
 
 Add an entry to `scenes` in `value-props.js`:
 
-- `T`: the loop length in seconds.
-- `still`: when the diagram is complete.
+- `T`: the loop length in seconds. A still can leave it out.
+- `still`: when the diagram is complete. For a still, any value its `frame`
+  draws completely.
 - `build(root)`: creates the shapes once and returns `frame(t)`.
 
 `frame(t)` only sets opacity, transforms and arrow growth, and never creates
@@ -289,6 +325,7 @@ this. Then switch the section in `data/homepage.yml`:
     - name: "Section title"
       diagram: "myscene"
       diagramdesc: "What the diagram shows, in one or two plain sentences."
+      diagramstatic: true   # only for a still; leave out for an animated diagram
       content: "..."
 ```
 
@@ -309,6 +346,9 @@ node skills/d3-2d-diagrams/scripts/smoothness.mjs myscene --seconds <T>
 Iterate until layout, colors and timing match, and smoothness passes. Without a
 source, leave out `--video` and review the frames on their own.
 
+For a still, take one frame at `still` and skip `smoothness.mjs`. A still's
+frame does not change over time.
+
 ### 4. Fallbacks, tests, docs
 
 ```bash
@@ -320,8 +360,12 @@ npx playwright test diagrams motion markup keyboard
 - **Fallback:** commit the new or changed `assets/images/value-props/<scene>.svg`.
   The hero's fallback should come out byte-identical; if it changed, find out why.
 - **Tests:** add the scene and the labels its still frame must show to `SCENES` in
-  `tests/specs/diagrams.spec.js`. The spec fails until every scene on the page
-  is listed.
+  `tests/specs/diagrams.spec.js`, whether it is animated or still. The spec fails
+  until every scene on the page is listed.
+  - **Animated diagrams:** the animation and pause tests in `motion.spec.js`
+    cover them.
+  - **Stills:** the still test in `diagrams.spec.js` checks the still path: no
+    pause button and no change over time.
 - **Full suite:** run `npm test` before pushing.
 - **Source files:** delete a replaced video or GIF only after the comparisons are
   done. Check nothing links to it first:

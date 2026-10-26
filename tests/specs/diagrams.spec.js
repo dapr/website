@@ -28,6 +28,39 @@ test.describe('value-prop diagrams', () => {
     expect(scenes.sort()).toEqual(Object.keys(SCENES).sort());
   });
 
+  test('a diagram shown as a still draws its complete frame once, with no pause control', async ({ page }) => {
+    // Mark the first diagram as a still the way the template does for
+    // diagramstatic: true, before its script runs, so this works whichever
+    // scenes the data currently shows as stills.
+    await page.route('**/', async (route) => {
+      const res = await route.fetch();
+      let html = await res.text();
+      html = html.replace(/(<div class="value-prop-diagram-frame">\s*<svg class="value-prop-diagram" data-scene="[^"]+")/, '$1 data-static');
+      html = html.replace(/(data-static[\s\S]*?<\/svg>)\s*<button type="button" class="diagram-toggle"[\s\S]*?<\/button>/, '$1');
+      await route.fulfill({ response: res, body: html });
+    });
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.clock.install();
+    await page.goto('/');
+
+    const frame = page.locator('.value-prop-diagram-frame').first();
+    const svg = frame.locator('.value-prop-diagram');
+    await expect(svg).toHaveAttribute('data-static', '');
+    await expect(frame.locator('.diagram-toggle')).toHaveCount(0);
+    await svg.scrollIntoViewIfNeeded();
+
+    const scene = await svg.getAttribute('data-scene');
+    const drawn = () => svg.evaluate((s) => [...s.querySelectorAll('[opacity], [transform]')]
+      .map((e) => `${e.getAttribute('opacity')}|${e.getAttribute('transform')}`).join());
+    const before = await drawn();
+    await page.clock.runFor(3000);
+    expect(await drawn()).toBe(before);
+    // and it is the complete frame: its labels are drawn
+    const text = await svg.locator(':scope > g').textContent();
+    for (const label of SCENES[scene]) expect(text).toContain(label);
+    expect(errors).toEqual([]);
+  });
+
   for (const [scene, labels] of Object.entries(SCENES)) {
     test.describe(scene, () => {
       const svg = (page) => page.locator(`.value-prop-diagram[data-scene="${scene}"]`);

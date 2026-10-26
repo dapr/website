@@ -78,6 +78,26 @@ myscene: {
 }
 ```
 
+A scene that is only ever shown as a still leaves out `T`, and its frame can
+ignore `t`:
+
+```js
+mystill: {
+  still: 0,
+  build: function (root) {
+    var d = group(root);
+    daprApp(d, { x: 150, y: 200, stroke: APP[0].stroke, fill: APP[0].fill });
+    arrow(d, [195, 200], [300, 200]);
+    cylinder(d, { x: 340, top: 185, bottom: 225 });
+    return function () {};   // nothing changes
+  }
+}
+```
+
+Set `diagramstatic: true` on its item in `data/homepage.yml`. Any animated scene
+can be shown as a still the same way: the diagram then draws `still` once.
+
 The playback code at the bottom of the file mounts every
-`.value-prop-diagram[data-scene]`. It handles the pause button, reduced motion
-and offscreen pausing, and removes the static fallback once the scene draws.
+`.value-prop-diagram[data-scene]` and removes the static fallback once the scene
+draws. For an animated diagram it handles the pause button, reduced motion and
+offscreen pausing. For a still (`data-static`) it draws `still` once and stops.

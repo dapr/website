@@ -37,7 +37,9 @@ for (const { name, html } of htmlFiles) {
     });
 
     test('every animated diagram has a labeled pause control', () => {
-      const diagrams = (html.match(/<svg\b[^>]*class="(hero-diagram-svg|value-prop-diagram)"/g) || []).length;
+      // a still value-prop diagram (data-static) has no pause control
+      const diagrams = (html.match(/<svg\b[^>]*class="(hero-diagram-svg|value-prop-diagram)"[^>]*>/g) || [])
+        .filter((tag) => !/\bdata-static\b/.test(tag)).length;
       const toggles = html.match(/<button\b[^>]*class="diagram-toggle"[^>]*aria-label="Pause animation: [^"]+"/g) || [];
       expect(toggles.length).toBe(diagrams);
     });
