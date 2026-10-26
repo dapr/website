@@ -14,9 +14,9 @@ export default defineConfig({
   reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
   use: {
     baseURL: BASE_URL,
-    // System Chrome, not Playwright's bundled Chromium: the bundled build cannot
-    // decode the homepage MP4s, so video tests would fail for the wrong reason.
-    // GitHub's ubuntu runners ship Chrome; locally it must be installed.
+    // System Chrome, not Playwright's bundled Chromium: chosen because the bundled
+    // build cannot decode MP4s, which the homepage used to have (they are D3
+    // diagrams now). GitHub's ubuntu runners ship Chrome; locally it must be installed.
     channel: 'chrome',
     viewport: { width: 1366, height: 900 },
     trace: 'retain-on-failure',

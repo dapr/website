@@ -22,6 +22,11 @@
         {{ end }}
       </div>
       <div class="align-self-center-mobile value-prop-video">
+        {{- with $featureItem.diagram }}
+        {{ partial "diagram.html" (dict "scene" . "name" $featureItem.name "desc" $featureItem.diagramdesc
+            "static" $featureItem.diagramstatic "width" 600 "height" 480
+            "class" "value-prop-diagram" "frame" "value-prop-diagram-frame") }}
+        {{- else }}
         <div class="value-prop-video-frame">
           <video class="value-prop" autoplay playsinline loop muted>
             <source src="{{ $featureItem.video }}" type="video/mp4">
@@ -32,6 +37,7 @@
             <i class="fas fa-pause" aria-hidden="true"></i>
           </button>
         </div>
+        {{- end }}
         <!-- <img src="{{ $featureItem.image }}" alt="image describing {{ $featureItem.name }}"> -->
       </div>
     </div>

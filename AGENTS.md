@@ -32,6 +32,8 @@ With `--bind`, Hugo stops rewriting `baseURL` away from the configured `https://
 
 ## Where things live
 
+Skills for agents live in `skills/` at the repo root (not under `.claude/`), one folder per skill with a `SKILL.md`.
+
 Homepage copy is data, not markup. Everything else is front matter.
 
 | What | Where |
@@ -39,7 +41,8 @@ Homepage copy is data, not markup. Everything else is front matter.
 | Homepage copy and section data | `data/homepage.yml` |
 | Homepage section order | `themes/bigspring/layouts/index.html` |
 | Homepage section markup | `themes/bigspring/layouts/partials/home/*.html` |
-| Homepage hero diagram (animated D3 wireframe) | `themes/bigspring/assets/js/hero-diagram.js`; markup and logo symbol in `partials/home/hero.html`; D3 modules vendored in `themes/bigspring/static/plugins/d3/`; static fallback `assets/images/dapr_hero_diagram.svg` is generated, rerun `npm run export:hero-fallback` in `tests/` after changing the diagram |
+| Homepage hero diagram (animated D3 wireframe) | `themes/bigspring/assets/js/hero-diagram.js`; markup and logo symbol in `partials/home/hero.html`; D3 modules vendored in `themes/bigspring/static/plugins/d3/`; static fallback `assets/images/dapr_hero_diagram.svg` is generated, rerun `npm run export:diagram-fallbacks` in `tests/` after changing the diagram |
+| Homepage 2D diagrams (the value-prop diagrams that replaced the MP4s, and the APIs overview) | `themes/bigspring/assets/js/diagrams.js` (engine and one scene per diagram); markup from `partials/diagram.html`, symbols and script from `partials/home/diagram-assets.html`; a section's data names its scene with `diagram`, `diagramdesc` and `diagramstatic` (still, not animated); icons and brand marks in `assets/images/icons/` (sources and terms in its `README.md`); fallbacks in `assets/images/diagrams/`, regenerated with `npm run export:diagram-fallbacks` in `tests/`; to create or change one, follow `skills/d3-2d-diagrams/SKILL.md` |
 | Other page copy | `content/<page>/_index.md` front matter |
 | Other page markup | `themes/bigspring/layouts/<page>/list.html` |
 | Markdown renderings of pages (`index.md`, for LLMs and agents) | `themes/bigspring/layouts/<page>/list.markdown.md`, falling back to `_default/list.markdown.md`; home is `index.markdown.md` |
@@ -93,7 +96,7 @@ Things that are easy to get wrong:
 - It lives in `tests/` with its own `package.json` on purpose. A `package.json` at the repo root makes Netlify run `npm install` on every deploy.
 - The tests build the site into `tests/.site` with a localhost `baseURL` and serve it statically. Do not point them at `hugo server`; overriding `--baseURL` there makes pages load assets from production, so tests pass against code that is not under test. `reuseExistingServer` is `false` for the same reason: a leftover server serves a stale build.
 - Date-dependent pages (the `/events/` listing) are tested with fixture builds. `buildFixtureSite(name, fixtureConfig)` in `tests/specs/helpers.js` runs `hugo` (the one on PATH) with an extra config from `tests/fixtures/` that pins `params.eventsReferenceDate` (the fixed "now") and mounts `tests/fixtures/content`, writing to `tests/.site-<name>-<pid>` (gitignored, one directory per worker, memoized per worker). It returns `{ dir, stderr }`. It logs at `warn` instead of using `--quiet`, because `--quiet` hides the build warnings the tests assert on.
-- They run in system Google Chrome (`channel: 'chrome'`). Playwright's bundled Chromium cannot play the homepage MP4s.
+- They run in system Google Chrome (`channel: 'chrome'`). This was set up for the homepage MP4s, which Playwright's bundled Chromium cannot play; those are now D3 diagrams, so it is no longer required.
 - Third-party embeds (YouTube, GitHub buttons, analytics) are blocked in `preparePage()`. They are not under test and make runs slow and network-dependent.
 - The axe test compares against `tests/a11y-baseline.*.json`. It fails on a rule a page did not have before, or on more critical/serious violations than recorded. After fixing an issue, lower the baseline with `npm run test:update-a11y-baseline` and commit the JSON. Do not regenerate the baseline to make a new violation pass.
 - If you change a guarded behavior on purpose, update the matching spec in the same change.

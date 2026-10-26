@@ -4,10 +4,15 @@
   <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
   
     <h2 class="text-center padding-bottom-20 text-blue">{{ .title }}</h2>
+    {{- if .diagram }}
+    {{ partial "diagram.html" (dict "scene" .diagram "name" .imagealt "desc" .diagramdesc
+        "static" .diagramstatic "width" 1200 "height" 624 "class" "apis-diagram") }}
+    {{- else }}
     {{ partial "responsive-image.html" (dict
       "src" .image
       "alt" .imagealt
       "sizes" "(max-width: 786px) 80vw, 960px") }}
+    {{- end }}
     {{ if .content }}
     <p class="text-justify font-weight-300">
       {{ .content }}

@@ -13,9 +13,11 @@ test.describe('visible keyboard focus', () => {
     ['hero CTA', '.btn-container a.btn'],
     ['carousel toggle', '.carousel-toggle'],
     ['video toggle', '.video-toggle'],
-    ['hero diagram toggle', '.diagram-toggle'],
+    ['hero diagram toggle', '.hero-diagram .diagram-toggle'],
+    ['value-prop diagram toggle', '.value-prop-diagram-frame .diagram-toggle'],
   ]) {
     test(`${label} shows a focus ring`, async ({ page }) => {
+      test.skip((await page.locator(selector).count()) === 0, `no ${label} on the page`);
       await tabTo(page, selector);
       const focused = page.locator(`${selector}:focus`);
       // links and buttons transition for 0.2s, so let the outline settle

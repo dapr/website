@@ -27,7 +27,7 @@ test.describe('announcement carousel', () => {
     await expect(page.locator('.banner-carousel.slick-initialized')).toBeVisible();
     // pause the hero diagram: under the fake clock it draws a frame every 16ms of
     // the ~30s these tests skip through, which is slow enough to time out
-    await page.locator('.diagram-toggle').click();
+    await page.locator('.hero-diagram .diagram-toggle').click();
     // keep the mouse off the banner: hovering pauses Slick on its own
     await page.mouse.move(5, 800);
   });
@@ -61,6 +61,8 @@ test.describe('value-prop videos', () => {
   test.beforeEach(async ({ page }) => {
     await preparePage(page);
     await page.goto('/');
+    // the homepage videos are all D3 diagrams now; these guard any video added back
+    test.skip((await page.locator('.value-prop-video-frame').count()) === 0, 'no value-prop videos on the page');
   });
 
   test('autoplay, and each toggle pauses and resumes its video', async ({ page }) => {
@@ -107,7 +109,7 @@ test.describe('hero diagram', () => {
     await page.clock.install();
     await preparePage(page);
     await page.goto('/');
-    await expect(page.locator('.diagram-toggle')).toBeVisible();
+    await expect(page.locator('.hero-diagram .diagram-toggle')).toBeVisible();
   });
 
   test('replaces the static fallback once it draws', async ({ page }) => {
@@ -121,7 +123,7 @@ test.describe('hero diagram', () => {
   });
 
   test('pause stops the animation and play resumes it', async ({ page }) => {
-    const toggle = page.locator('.diagram-toggle');
+    const toggle = page.locator('.hero-diagram .diagram-toggle');
     await expect(toggle).toHaveAttribute('aria-label', /^Pause animation: .+/);
 
     await toggle.click();
@@ -137,6 +139,57 @@ test.describe('hero diagram', () => {
   });
 });
 
+// Value-prop diagrams that animate; a still (data-static) has no pause control.
+const ANIMATED_FRAMES = '.value-prop-diagram-frame:has(.value-prop-diagram:not([data-static]))';
+
+// Opacity and transform of every animated element; any change means the scene advanced.
+const sceneFrame = (svg) =>
+  svg.evaluate((s) => [...s.querySelectorAll('[opacity], [transform]')]
+    .map((e) => `${e.getAttribute('opacity')}|${e.getAttribute('transform')}`).join());
+
+test.describe('value-prop diagrams', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.clock.install();
+    await preparePage(page);
+    await page.goto('/');
+  });
+
+  test('replace their static fallback once they draw', async ({ page }) => {
+    await expect(page.locator('.value-prop-diagram').first()).toBeAttached();
+    await expect(page.locator('.value-prop-diagram-frame .diagram-fallback')).toHaveCount(0);
+  });
+
+  test('animate, and each toggle pauses and resumes its diagram', async ({ page }) => {
+    const frames = page.locator(ANIMATED_FRAMES);
+    const count = await frames.count();
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i++) {
+      const frame = frames.nth(i);
+      const svg = frame.locator('.value-prop-diagram');
+      const toggle = frame.locator('.diagram-toggle');
+      // diagrams only run while on screen
+      await frame.scrollIntoViewIfNeeded();
+      await expect(toggle).toHaveAttribute('aria-label', /^Pause animation: .+/);
+
+      const before = await sceneFrame(svg);
+      await page.clock.runFor(1000);
+      expect(await sceneFrame(svg)).not.toBe(before);
+
+      await toggle.click();
+      await expect(toggle).toHaveAttribute('aria-label', /^Play animation: .+/);
+      const paused = await sceneFrame(svg);
+      await page.clock.runFor(2000);
+      expect(await sceneFrame(svg)).toBe(paused);
+
+      await toggle.click();
+      await expect(toggle).toHaveAttribute('aria-label', /^Pause animation: .+/);
+      await page.clock.runFor(1000);
+      expect(await sceneFrame(svg)).not.toBe(paused);
+    }
+  });
+});
+
 test.describe('hero diagram without JavaScript', () => {
   test.use({ javaScriptEnabled: false });
 
@@ -147,7 +200,19 @@ test.describe('hero diagram without JavaScript', () => {
     await expect(fallback).toBeAttached();
     const src = await fallback.getAttribute('href');
     expect((await page.request.get(src)).ok()).toBe(true);
-    await expect(page.locator('.diagram-toggle')).toBeHidden();
+    await expect(page.locator('.hero-diagram .diagram-toggle')).toBeHidden();
+  });
+
+  test('value-prop diagrams show their static fallback and no pause control', async ({ page }) => {
+    await preparePage(page);
+    await page.goto('/');
+    const frames = page.locator('.value-prop-diagram-frame');
+    for (let i = 0; i < (await frames.count()); i++) {
+      const fallback = frames.nth(i).locator('.diagram-fallback');
+      await expect(fallback).toBeAttached();
+      expect((await page.request.get(await fallback.getAttribute('href'))).ok()).toBe(true);
+      await expect(frames.nth(i).locator('.diagram-toggle')).toBeHidden();
+    }
   });
 });
 
@@ -163,12 +228,24 @@ test.describe('with prefers-reduced-motion', () => {
   });
 
   test('the hero diagram shows a still frame and starts paused', async ({ page }) => {
-    const toggle = page.locator('.diagram-toggle');
+    const toggle = page.locator('.hero-diagram .diagram-toggle');
     await expect(toggle).toHaveAttribute('aria-label', /^Play animation: .+/);
     const still = await diagramFrame(page);
     expect(still).not.toBe('');
     await page.waitForTimeout(500);
     expect(await diagramFrame(page)).toBe(still);
+  });
+
+  test('the value-prop diagrams show a still frame and start paused', async ({ page }) => {
+    const frames = page.locator(ANIMATED_FRAMES);
+    for (let i = 0; i < (await frames.count()); i++) {
+      const frame = frames.nth(i);
+      await frame.scrollIntoViewIfNeeded();
+      await expect(frame.locator('.diagram-toggle')).toHaveAttribute('aria-label', /^Play animation: .+/);
+      const still = await sceneFrame(frame.locator('.value-prop-diagram'));
+      await page.waitForTimeout(500);
+      expect(await sceneFrame(frame.locator('.value-prop-diagram'))).toBe(still);
+    }
   });
 
   test('the videos start paused', async ({ page }) => {

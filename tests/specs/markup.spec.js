@@ -36,9 +36,12 @@ for (const { name, html } of htmlFiles) {
       expect(html).toMatch(/<button\b[^>]*class="carousel-toggle"[^>]*aria-label="Pause announcements"/);
     });
 
-    test('the animated hero diagram has a labeled pause control', () => {
-      if (!html.includes('class="hero-diagram-svg"')) return;
-      expect(html).toMatch(/<button\b[^>]*class="diagram-toggle"[^>]*aria-label="Pause animation: [^"]+"/);
+    test('every animated diagram has a labeled pause control', () => {
+      // a still value-prop diagram (data-static) has no pause control
+      const diagrams = (html.match(/<svg\b[^>]*(class="hero-diagram-svg"|data-scene=)[^>]*>/g) || [])
+        .filter((tag) => !/\bdata-static\b/.test(tag)).length;
+      const toggles = html.match(/<button\b[^>]*class="diagram-toggle"[^>]*aria-label="Pause animation: [^"]+"/g) || [];
+      expect(toggles.length).toBe(diagrams);
     });
 
     test('dropdown menus are opened by a real button', () => {
