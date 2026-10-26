@@ -19,6 +19,9 @@
   var C = {
     navy: '#0D2192', mid: '#476581', blue: '#3EA9F5', light: '#73CDF3', teal: '#489fb5', bg: '#fcfcfc'
   };
+  // App hexagons take these in order, as in the value-prop diagrams
+  // (value-props.js): light blue, dark blue, teal, then orange. No yellow.
+  var APP = ['#3EA9F5', '#0D2192', '#4EA4AF', '#F03E00'];
   var TEXT = 1.5; // label scale: the diagram renders at roughly 0.55x its layout size
 
   // ---- geometry: everything is a list of segments [[x,y,z],[x,y,z]], y is up
@@ -228,7 +231,7 @@
     items.push({ segs: hex([0, 0.5, 0], lerp(R + 10, 380, rip)), c: C.blue, w: 1.4, o: 0.45 * (1 - rip) });
 
     apps.forEach(function (a, i) {
-      items.push({ segs: a.segs, c: C.blue, w: 1.4, glow: 0.08 });
+      items.push({ segs: a.segs, c: APP[i], w: 1.4, glow: 0.08 });
       labels.push({ p: [a.p[0], AH, a.p[2]], t: a.t, size: 13.5, weight: 700, c: C.navy, dy: 5 });
       items.push({ segs: open(a.call), c: C.blue, w: 1.4, o: 0.7 });
       flow(dots, a.call, t, 2000, 2, i * 0.21);
