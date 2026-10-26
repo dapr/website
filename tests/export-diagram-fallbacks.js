@@ -33,7 +33,6 @@ try {
   const files = await page.evaluate(() => {
     function standalone(src, width, height) {
       const el = src.cloneNode(true);
-      el.querySelector('.hero-diagram-fallback, .diagram-fallback')?.remove();
       for (const a of ['class', 'role', 'aria-labelledby', 'data-scene', 'data-static']) el.removeAttribute(a);
       // drop what the still frame does not show (and, below, the symbols only it used)
       for (const hidden of el.querySelectorAll('[opacity="0"]')) hidden.remove();

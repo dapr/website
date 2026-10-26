@@ -21,11 +21,12 @@
             <title id="hero-diagram-title">Dapr architecture diagram</title>
             <desc id="hero-diagram-desc">Dapr in the center, connected to a workflow app, an agent, and an app, and to a message broker and a state store. Animated pulses show calls and messages flowing through Dapr and durable state being saved to the state store.</desc>
             <defs><symbol id="hero-dapr-logo" viewBox="0 0 367 270">{{ $logo | safeHTML }}</symbol></defs>
-            {{- /* Still frame shown until the script draws; removed by it once D3 loads. */}}
-            {{- with resources.Get "images/dapr_hero_diagram.svg" }}
-            <image class="hero-diagram-fallback" href="{{ .Permalink }}" x="30" y="30" width="640" height="515"/>
-            {{- end }}
           </svg>
+          {{- /* Still frame for visitors without JavaScript, laid over the svg. In a
+                 noscript, so browsers running the script never download it. */}}
+          {{- with resources.Get "images/dapr_hero_diagram.svg" }}
+          <noscript><img class="hero-diagram-fallback" src="{{ .Permalink }}" alt="" width="832" height="670"></noscript>
+          {{- end }}
           <button type="button" class="diagram-toggle" aria-label="Pause animation: Dapr architecture diagram" data-label="Dapr architecture diagram" hidden>
             <i class="fas fa-pause" aria-hidden="true"></i>
           </button>

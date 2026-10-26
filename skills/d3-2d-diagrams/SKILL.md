@@ -231,7 +231,8 @@ These come with the engine and the partial. Keep them working:
   has none.
 - **Motion settings (animated only):** under `prefers-reduced-motion` the diagram
   shows `still` and starts paused. It stops while offscreen.
-- **Fallback:** without JavaScript, the static fallback image shows.
+- **Fallback:** without JavaScript, the static fallback image shows, laid over the
+  svg. It is in a `<noscript>`, so visitors running the script never download it.
 
 ## Workflow
 
@@ -454,9 +455,12 @@ npx playwright test diagrams motion markup keyboard
   optional, a missing one rendered the word "undefined".
 - **A vendor svg's ids and classes collide** with other icons and the page when
   inlined. The template prefixes them; never inline one by hand.
-- **The fallback is an svg shown as an `<image>`.** It cannot load the web font
-  or external files. The exporter copies the symbols it uses into the file and
-  drops elements the still frame hides. Its labels render in Arial.
+- **The fallback is an svg shown as an image.** It cannot load the web font or
+  external files. The exporter copies the symbols it uses into the file and drops
+  elements the still frame hides. Its labels render in Arial.
+- **Keep the fallback in its `<noscript>`.** It sits next to the svg and CSS lays
+  it over the svg's box. An `<image>` inside the svg would be downloaded by every
+  visitor, about 165 KB across the homepage, though the script draws over it.
 - **`d3.range` and other d3-array helpers are not loaded.** Only d3-selection
   and d3-timer are.
 - **Keep the hero script's lookups scoped to `.hero-diagram`.** The page has

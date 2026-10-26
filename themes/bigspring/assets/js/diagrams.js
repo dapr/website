@@ -4,9 +4,10 @@
    new one: skills/d3-2d-diagrams/SKILL.md.
 
    Markup comes from layouts/partials/diagram.html: an <svg data-scene="<name>">
-   whose viewBox sets the scene's canvas (600x480 for a value prop), with a
-   static fallback <image> (assets/images/diagrams/<name>.svg, regenerated with
-   `npm run export:diagram-fallbacks` in tests/) and, unless it is a still
+   whose viewBox sets the scene's canvas (600x480 for a value prop); a static
+   fallback for visitors without JavaScript, in a <noscript> next to it
+   (assets/images/diagrams/<name>.svg, regenerated with
+   `npm run export:diagram-fallbacks` in tests/); and, unless it is a still
    (data-static), a pause/play button. The Dapr logo and brand marks are
    <symbol>s from layouts/partials/home/diagram-assets.html.
 
@@ -611,9 +612,6 @@
   function mount(svgNode) {
     var scene = scenes[svgNode.getAttribute('data-scene')];
     if (!scene) return;
-    // the static fallback stays up for an unknown scene or when this script does not run
-    var fallback = svgNode.querySelector('.diagram-fallback');
-    if (fallback) fallback.remove();
 
     var root = d3.select(svgNode).append('g').attr('aria-hidden', 'true')
       .attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');

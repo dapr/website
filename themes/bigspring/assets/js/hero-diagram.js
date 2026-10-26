@@ -4,16 +4,14 @@
    to it, with pulses showing calls, messages, and durable state.
 
    Markup lives in layouts/partials/home/hero.html: an <svg class="hero-diagram-svg">
-   holding the logo as <symbol id="hero-dapr-logo"> and a static fallback image
+   holding the logo as <symbol id="hero-dapr-logo">; a static fallback for
+   visitors without JavaScript, in a <noscript> next to it
    (assets/images/dapr_hero_diagram.svg, regenerated with
-   `npm run export:diagram-fallbacks` in tests/), and a pause/play button.
+   `npm run export:diagram-fallbacks` in tests/); and a pause/play button.
    The scene is laid out in a 700x600 space; the svg's viewBox crops it. */
 (function () {
   var svgNode = document.querySelector('.hero-diagram-svg');
   if (!svgNode || !window.d3 || !d3.select || !d3.timer) return;
-  // the static fallback stays up when this script or D3 does not load
-  var fallback = svgNode.querySelector('.hero-diagram-fallback');
-  if (fallback) fallback.remove();
 
   var cos = Math.cos, sin = Math.sin, PI = Math.PI, TAU = PI * 2;
   var C = {
