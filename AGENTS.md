@@ -32,6 +32,8 @@ With `--bind`, Hugo stops rewriting `baseURL` away from the configured `https://
 
 ## Where things live
 
+Skills for agents live in `skills/` at the repo root (not under `.claude/`), one folder per skill with a `SKILL.md`.
+
 Homepage copy is data, not markup. Everything else is front matter.
 
 | What | Where |
@@ -40,7 +42,7 @@ Homepage copy is data, not markup. Everything else is front matter.
 | Homepage section order | `themes/bigspring/layouts/index.html` |
 | Homepage section markup | `themes/bigspring/layouts/partials/home/*.html` |
 | Homepage hero diagram (animated D3 wireframe) | `themes/bigspring/assets/js/hero-diagram.js`; markup and logo symbol in `partials/home/hero.html`; D3 modules vendored in `themes/bigspring/static/plugins/d3/`; static fallback `assets/images/dapr_hero_diagram.svg` is generated, rerun `npm run export:diagram-fallbacks` in `tests/` after changing the diagram |
-| Homepage value-prop diagrams (2D D3 animations; they replaced the MP4s) | `themes/bigspring/assets/js/value-props.js` (engine and one scene per diagram); a feature item in `data/homepage.yml` with `diagram: <scene>` and `diagramdesc` renders one instead of a video; brand marks in `assets/images/icons/` (sources and terms in its `README.md`); fallbacks in `assets/images/value-props/`, regenerated with `npm run export:diagram-fallbacks` in `tests/` |
+| Homepage value-prop diagrams (2D D3 animations; they replaced the MP4s) | `themes/bigspring/assets/js/value-props.js` (engine and one scene per diagram); a feature item in `data/homepage.yml` with `diagram: <scene>` and `diagramdesc` renders one instead of a video; brand marks in `assets/images/icons/` (sources and terms in its `README.md`); fallbacks in `assets/images/value-props/`, regenerated with `npm run export:diagram-fallbacks` in `tests/`; to create or change one, follow `skills/d3-2d-diagrams/SKILL.md` |
 | Other page copy | `content/<page>/_index.md` front matter |
 | Other page markup | `themes/bigspring/layouts/<page>/list.html` |
 | Markdown renderings of pages (`index.md`, for LLMs and agents) | `themes/bigspring/layouts/<page>/list.markdown.md`, falling back to `_default/list.markdown.md`; home is `index.markdown.md` |
