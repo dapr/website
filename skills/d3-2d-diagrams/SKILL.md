@@ -221,6 +221,11 @@ These come with the engine and the partial. Keep them working:
   - Describe what the diagram shows, plainly and accurately. It is read as an
     official statement by the project.
   - Avoid em dashes and en dashes, as in all site copy.
+  - **Alpha APIs:** name them alpha, close to each mention. The description is
+    part of the page, and `tests/specs/content-119.spec.js` fails any mention of
+    an alpha API (such as Binary Store, Search or Vector) without "alpha" within
+    60 characters. Give the alpha APIs their own sentence, as the APIs overview
+    does: "Six more APIs are in alpha: binary store, search, vector, ...".
 - **Pause button (animated only):** it starts hidden and is shown by the
   script, labeled "Pause animation: <name>" or "Play animation: <name>". A still
   has none.

@@ -195,7 +195,7 @@ buildingBlock:
   # used by the markdown rendering
   diagram: "apis"
   diagramstatic: true
-  diagramdesc: "Your app, written in any language or runtime such as Node.js, Python, .NET, Go, Java, PHP, or Rust, calls Dapr over HTTP or gRPC. Dapr provides APIs for workflow, publish and subscribe, service invocation, state management, actors, jobs, external configuration, secrets, bindings, and middleware, and alpha APIs for cryptography, distributed lock, conversation, binary store, search, and vector, with observability, security, and resiliency built in. Dapr runs on and integrates with any cloud or edge infrastructure: Microsoft Azure, AWS, Google Cloud, Kubernetes, virtual or physical machines, databases, message brokers, and services."
+  diagramdesc: "Your app, written in any language or runtime such as Node.js, Python, .NET, Go, Java, PHP, or Rust, calls Dapr over HTTP or gRPC. Dapr provides APIs for workflow, publish and subscribe, service invocation, state management, actors, jobs, external configuration, secrets, bindings, and middleware, with observability, security, and resiliency built in. Six more APIs are in alpha: binary store, search, vector, cryptography, distributed lock, and conversation. Dapr runs on and integrates with any cloud or edge infrastructure: Microsoft Azure, AWS, Google Cloud, Kubernetes, virtual or physical machines, databases, message brokers, and services."
   image: "images/diagrams/apis.svg"
   imagealt: "Dapr APIs overview"
   content: "Durable execution is one of a set of integrated Dapr APIs. The building block APIs allow you to build distributed applications quicker. The built-in resiliency, security, and observability features help you to focus on your business logic."
