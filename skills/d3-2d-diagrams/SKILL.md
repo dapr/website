@@ -1,6 +1,6 @@
 ---
 name: d3-2d-diagrams
-description: Create or change the animated 2D diagrams on the dapr.io homepage (the value-prop diagrams drawn with D3 in themes/bigspring/assets/js/value-props.js), including redrawing a video or GIF as a diagram. Use for a new diagram, a change to an existing scene, its colors, icons, timing or tests.
+description: Create or change the animated 2D diagrams on the dapr.io homepage (the value-prop diagrams drawn with D3 in themes/bigspring/assets/js/value-props.js). Use for a new diagram from a video or GIF, a still image, or a text description, and for changes to an existing scene's layout, colors, icons, timing or tests.
 ---
 
 # 2D D3 diagrams for dapr.io
@@ -161,7 +161,15 @@ These come with the engine and the partial. Keep them working:
 
 ## Workflow
 
-### 1. Analyze the source, when redrawing a video or GIF
+Pick the first step by what you start from, then continue at step 2.
+
+| Starting from | Step 1 |
+| --- | --- |
+| A video or GIF | [1a. Analyze the source animation](#1a-analyze-the-source-animation) |
+| A still image (PNG, JPG or SVG) | [1b. Analyze the still and design the reveal](#1b-analyze-the-still-and-design-the-reveal) |
+| A text description | [1c. Turn the description into a layout](#1c-turn-the-description-into-a-layout) |
+
+### 1a. Analyze the source animation
 
 ```bash
 skills/d3-2d-diagrams/scripts/video-frames.sh path/to/video.mp4 /tmp/frames 140
@@ -184,6 +192,85 @@ every 4th frame, and the frames you ask for at 1200px wide.
   Map each one to the nearest `C` or `APP` color. App hexagons follow the
   `APP` rule whatever the source used.
 
+### 1b. Analyze the still and design the reveal
+
+The scripts take an image as well as a video:
+
+```bash
+skills/d3-2d-diagrams/scripts/video-frames.sh path/to/diagram.png /tmp/frames
+```
+
+This writes `frame-0.png` at 1200px wide.
+
+- **Layout and colors:** measure and sample them exactly as in 1a. A still has no
+  timing, so you design the animation yourself.
+- **Reveal order.** Follow how the diagram reads:
+  - **Direction:** usually along the data flow, or left to right and top to
+    bottom.
+  - **Shapes before arrows:** a shape appears before the arrows that leave it.
+  - **Arrows before targets:** an arrow grows before its target appears.
+
+    In adopt, an arrow grows from Kafka, and only then does the app it feeds
+    fade in.
+  - **What already exists:** draw it first, as one step. In adopt, the existing
+    system is there from the start, and the new parts are added to it.
+  - **One idea at a time:** add new parts one per step, and give a point the
+    diagram makes its own beat. For example, secure shows a failure and a retry
+    before the call goes through.
+- **Pacing,** from the existing scenes:
+
+  | Step | Duration |
+  | --- | --- |
+  | A shape fades in | 0.3–0.5s |
+  | An arrow grows | 0.4–0.5s |
+  | Gap between steps | 0.1–0.4s; longer, 0.5–1s, before a step that should land |
+  | Complete diagram holds | 1–1.5s |
+  | Loop fade-out | 0.5s, then a short empty or starting hold |
+
+  A diagram of 8 to 12 elements loops in about 8 to 15 seconds. The existing
+  scenes run 8.4 to 15.2 seconds.
+- **Before you animate:** write the reveal down as a timetable of what appears
+  and when. Have it agreed if someone asked for the diagram.
+- **Checking the result:** `scene-frames.mjs --video path/to/diagram.png` puts
+  the image next to the scene's frames. Every moment is compared with the same
+  still, so use a time when the scene is complete.
+
+### 1c. Turn the description into a layout
+
+1. **Components:** list every one the description names: apps, Dapr, brokers,
+   stores, external systems, people, workflow steps.
+2. **Connections:** list how they connect, and in which direction.
+3. **Shapes:** map each component to an engine shape (see
+   [reference/engine.md](reference/engine.md)).
+   - **Branded products:** use the product's mark, sourced as in
+     [Brand marks](#brand-marks).
+   - **No matching shape:** pick the nearest existing shape, or add a new
+     builder in the same style.
+   - **Labels:** use the words the description uses.
+4. **Layout on the 600×480 canvas:** put the main flow on one axis, left to
+   right or top to bottom, and side services on the other. The existing scenes
+   use these spacings:
+
+   | Element | Measurement |
+   | --- | --- |
+   | Space between app centers | about 140–150px (adopt). Up to about 250px when the arrow between them carries a mark, such as a lock or a retry (secure) |
+   | App radius | 42.5px normally; 32px in a crowded scene |
+   | Arrow length | 30–110px, running between shape edges, not centers |
+   | Workflow activity boxes | 194×30px, about 65px apart vertically (automate) |
+   | Margins | at least 10px from the edges; leave room for labels under shapes |
+
+   Center the whole layout in the canvas, and keep the pause button's corner
+   empty.
+5. **Get the layout agreed before animating.** Render it as a still:
+   - Give the scene a `still` and run it under reduced motion.
+   - Or run `scene-frames.mjs` at that time.
+
+   Then share the frame. Layout changes are cheap now and expensive once the
+   timeline exists.
+6. **Animate:** follow 1b's reveal order and pacing.
+7. **Write `diagramdesc` from the description:** plain and accurate, with only
+   what the diagram actually shows.
+
 ### 2. Build the scene
 
 Add an entry to `scenes` in `value-props.js`:
@@ -193,9 +280,10 @@ Add an entry to `scenes` in `value-props.js`:
 - `build(root)`: creates the shapes once and returns `frame(t)`.
 
 `frame(t)` only sets opacity, transforms and arrow growth, and never creates
-elements. Above the scene, write a comment that names its source and frame
-count, and describes what it shows and how its timing relates to the source.
-The existing scenes all do this. Then switch the section in `data/homepage.yml`:
+elements. Above the scene, write a comment that describes what it shows. If
+it was redrawn from a video, the comment also names the source and its frame
+count, and says how the scene's timing relates to it. The existing scenes all do
+this. Then switch the section in `data/homepage.yml`:
 
 ```yaml
     - name: "Section title"
