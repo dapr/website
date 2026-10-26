@@ -1,6 +1,20 @@
 {{ if site.Data.homepage.values.enable }}
 {{ with site.Data.homepage.values }}
 <section class="bg-grey">
+{{- /* Symbols for the value-prop diagrams (assets/js/value-props.js): the Dapr logo,
+       and one per brand mark in assets/images/icons/ (Simple Icons, CC0, 24x24),
+       read from their files at build time. */}}
+{{- if where .feature_item "diagram" "!=" nil }}
+{{- $logo := readFile "static/images/dapr.svg" }}
+{{- $logo = index (findRE `(?s)<g id="Artboard".*</g>` $logo) 0 | replaceRE ` id="[^"]*"` "" }}
+<svg class="svg-symbols" aria-hidden="true" focusable="false">
+  <symbol id="value-prop-dapr-logo" viewBox="0 0 367 270">{{ $logo | safeHTML }}</symbol>
+  {{- range readDir "assets/images/icons" }}
+  {{- $icon := readFile (printf "assets/images/icons/%s" .Name) }}
+  <symbol id="value-prop-icon-{{ strings.TrimSuffix ".svg" .Name }}" viewBox="0 0 24 24"><path d="{{ index (findRESubmatch ` d="([^"]+)"` $icon 1) 0 1 }}"/></symbol>
+  {{- end }}
+</svg>
+{{- end }}
 <section class="width-80 width-80-mobile vertical-align-center padding-top-down-30 value-prop-text ">
     <h2 class="text-center">{{ .title }}</h2>
     <p class="text-justify font-weight-300">
@@ -22,6 +36,21 @@
         {{ end }}
       </div>
       <div class="align-self-center-mobile value-prop-video">
+        {{- with $featureItem.diagram }}
+        <div class="value-prop-diagram-frame">
+          <svg class="value-prop-diagram" data-scene="{{ . }}" width="600" height="480" viewBox="0 0 600 480" role="img" aria-labelledby="value-prop-{{ . }}-title value-prop-{{ . }}-desc">
+            <title id="value-prop-{{ . }}-title">{{ $featureItem.name }}</title>
+            <desc id="value-prop-{{ . }}-desc">{{ $featureItem.diagramdesc }}</desc>
+            {{- /* Still frame shown until value-props.js draws; removed by it. */}}
+            {{- with resources.Get (printf "images/value-props/%s.svg" .) }}
+            <image class="value-prop-diagram-fallback" href="{{ .Permalink }}" width="600" height="480"/>
+            {{- end }}
+          </svg>
+          <button type="button" class="diagram-toggle" aria-label="Pause animation: {{ $featureItem.name }}" data-label="{{ $featureItem.name }}" hidden>
+            <i class="fas fa-pause" aria-hidden="true"></i>
+          </button>
+        </div>
+        {{- else }}
         <div class="value-prop-video-frame">
           <video class="value-prop" autoplay playsinline loop muted>
             <source src="{{ $featureItem.video }}" type="video/mp4">
@@ -32,6 +61,7 @@
             <i class="fas fa-pause" aria-hidden="true"></i>
           </button>
         </div>
+        {{- end }}
         <!-- <img src="{{ $featureItem.image }}" alt="image describing {{ $featureItem.name }}"> -->
       </div>
     </div>
@@ -39,5 +69,9 @@
   {{ end }}
 </section>
 </section>
+{{- if where .feature_item "diagram" "!=" nil }}
+{{- $js := resources.Get "js/value-props.js" | minify }}
+<script src="{{ $js.Permalink }}" defer></script>
+{{- end }}
 {{ end }}
 {{ end }}

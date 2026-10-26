@@ -33,7 +33,5 @@
       </div>
     </div>
   </section>
-  <script src="{{ "plugins/d3/d3-selection.min.js" | absURL }}" defer></script>
-  <script src="{{ "plugins/d3/d3-timer.min.js" | absURL }}" defer></script>
   {{- $diagram := resources.Get "js/hero-diagram.js" | minify }}
   <script src="{{ $diagram.Permalink }}" defer></script>

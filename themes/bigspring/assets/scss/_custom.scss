@@ -235,9 +235,25 @@ footer .navLink:hover {
     justify-content: center;
 }
 
-video.value-prop {
+video.value-prop,
+svg.value-prop-diagram {
     border-radius: 0.5em;
     width: 600px;
+}
+svg.value-prop-diagram {
+    display: block;
+    height: auto;
+    background: #fdfdfd;
+}
+.value-prop-diagram-frame {
+    position: relative;
+}
+/* holds <symbol>s only */
+.svg-symbols {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
 }
 
 /* pause/play controls for autoplaying media (WCAG 2.2.2) */
@@ -624,7 +640,8 @@ h2.video {
    /* hero section */
    /* footer */
    /* iframe */
-   video.value-prop {
+   video.value-prop,
+   svg.value-prop-diagram {
     border-radius: 0.5em;
         width: 100%;
         max-width: 400px;

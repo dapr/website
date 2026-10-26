@@ -295,8 +295,8 @@ values:
       content2: "Dapr applications run on Kubernetes or run self-hosted on any virtual or physical machine, so you can run Dapr applications on any cloud or edge."
 
     - name: "Incrementally adopt"
-      image: "images/4_adopt.gif"
-      video: "images/4_adopt.mp4"
+      diagram: "adopt"
+      diagramdesc: "An existing system of three apps and Apache Kafka. A Dapr-enabled app that uses a state store is added, then a Dapr-enabled app that sends messages to RabbitMQ, without changing the existing apps."
       content: "Dapr can be introduced into an existing architecture incrementally. Dapr applications can call non-Dapr endpoints while still having the Dapr benefits of having resiliency policies, observability, security access through scoping and more."
 
 ##################### Cross Cutting Concerns ##########################

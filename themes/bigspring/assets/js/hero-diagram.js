@@ -6,7 +6,7 @@
    Markup lives in layouts/partials/home/hero.html: an <svg class="hero-diagram-svg">
    holding the logo as <symbol id="hero-dapr-logo"> and a static fallback image
    (assets/images/dapr_hero_diagram.svg, regenerated with
-   `npm run export:hero-fallback` in tests/), and a pause/play button.
+   `npm run export:diagram-fallbacks` in tests/), and a pause/play button.
    The scene is laid out in a 700x600 space; the svg's viewBox crops it. */
 (function () {
   var svgNode = document.querySelector('.hero-diagram-svg');
@@ -265,7 +265,7 @@
 
   // ---- playback: pause/play button, prefers-reduced-motion, offscreen
 
-  var toggle = document.querySelector('.diagram-toggle');
+  var toggle = document.querySelector('.hero-diagram .diagram-toggle');
   var label = toggle ? toggle.getAttribute('data-label') : '';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var STILL = 1200; // the frame shown before the animation starts, or instead of it
