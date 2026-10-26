@@ -1,7 +1,8 @@
-# value-props.js engine reference
+# diagrams.js engine reference
 
-Everything below lives in `themes/bigspring/assets/js/value-props.js`.
-Coordinates are in the 600×480 viewBox.
+Everything below lives in `themes/bigspring/assets/js/diagrams.js`.
+Coordinates are in the scene's canvas, its svg's viewBox: 600×480 for a value
+prop, 1200×624 for the APIs overview.
 
 ## Shape builders
 
@@ -12,7 +13,7 @@ except `arrow`, which returns a grow function. Set a selection's `opacity` in
 | Builder | Options | Draws |
 | --- | --- | --- |
 | `group(parent)` | none | an empty `<g>`, for moving or fading things together |
-| `label(parent, x, y, text, o)` | `size` (11), `weight` (600), `color` (black), `halo` | centered text; `\n` starts a second line. Returns the `<text>` |
+| `label(parent, x, y, text, o)` | `size` (11), `weight` (600), `color` (black), `halo`, `anchor` ('middle', or 'start' to start at x) | text; `\n` starts a second line. Returns the `<text>` |
 | `hex(parent, o)` | `x, y, r` (42.5), `stroke, fill`, `label` ('App'), `size`, `labelDx` | a pointy-top app hexagon with its name |
 | `badge(parent, o)` | `x, y, r` (19) | the small Dapr hexagon with the logo |
 | `daprApp(parent, o)` | `x, y, r, stroke, fill, badgeLeft` | an app with its Dapr badge, bottom right (or bottom left) |
@@ -26,7 +27,10 @@ except `arrow`, which returns a grow function. Set a selection's `opacity` in
 | `secureLock(parent, o)` | `x, y, size, label, labelDy` | secure service communication (padlock and shield) |
 | `retry(parent, o)` | `x, y, r` (13) | a resiliency policy (circling arrows and "Resiliency") |
 | `failure(parent, o)` | `x, y, r` (9) | a failed call (cross in a circle) |
-| `icon(parent, o)` | `name, x, y, size, color, label, labelDy, labelSize` (13) | a brand mark from `assets/images/icons/<name>.svg`, with a label under it. `color` fills single-color marks |
+| `icon(parent, o)` | `name, x, y, size, color, label, labelDy, labelSize` (13) | an icon or brand mark from `assets/images/icons/<name>.svg`, with an optional label under it. `color` fills single-color marks, and colors Fluent icons, which use `currentColor` |
+| `panel(parent, o)` | `x, y, w, h, stroke, r` (10) | a dashed, rounded area grouping part of a diagram |
+| `pill(parent, o)` | `x, y, w, h, text, color, filled, size` (15) | a rounded caption tag: outlined on white, or filled with white text |
+| `tile(parent, o)` | `x, y, icon, label, color, filled, w` and `h` (or `size`, 99), `inline`, `tag`, `labelSize` (11.5) | a card with an icon over a one- or two-line label, or with `inline: true` beside a one-line label; filled cards invert to white. `tag` puts a small word, such as 'alpha', in the top right corner |
 
 ### Arrows
 

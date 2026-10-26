@@ -1,4 +1,4 @@
-// The homepage value-prop diagrams (assets/js/value-props.js) draw what they
+// The homepage's 2D diagrams (assets/js/diagrams.js) draw what they
 // should: checked on each scene's still frame, the one shown under
 // prefers-reduced-motion and saved as its static fallback.
 import { test, expect } from '@playwright/test';
@@ -11,6 +11,9 @@ const SCENES = {
   secure: ['Secure Service', 'Communication', 'Resiliency', 'Message Broker', 'App'],
   integrate: ['Azure Service Bus', 'Azure Key Vault', 'Azure Cosmos DB', 'Microsoft Azure', 'App'],
   adopt: ['Apache Kafka', 'RabbitMQ', 'App'],
+  apis: ['Use any language or runtime', 'My app', 'HTTP / gRPC API', 'Workflow', 'Conversation',
+    'Binary Store', 'Search', 'Vector', 'alpha', 'Observability', 'Security', 'Resiliency', 'Host on & integrate',
+    'Azure', 'Kubernetes', 'Services'],
 };
 
 test.describe('value-prop diagrams', () => {
@@ -24,7 +27,7 @@ test.describe('value-prop diagrams', () => {
   });
 
   test('every scene in the page is covered by this spec', async ({ page }) => {
-    const scenes = await page.locator('.value-prop-diagram').evaluateAll((els) => els.map((e) => e.dataset.scene));
+    const scenes = await page.locator('svg[data-scene]').evaluateAll((els) => els.map((e) => e.dataset.scene));
     expect(scenes.sort()).toEqual(Object.keys(SCENES).sort());
   });
 
@@ -35,7 +38,7 @@ test.describe('value-prop diagrams', () => {
     await page.route('**/', async (route) => {
       const res = await route.fetch();
       let html = await res.text();
-      html = html.replace(/(<div class="value-prop-diagram-frame">\s*<svg class="value-prop-diagram" data-scene="[^"]+")/, '$1 data-static');
+      html = html.replace(/(<div class="diagram-frame value-prop-diagram-frame">\s*<svg class="value-prop-diagram" data-scene="[^"]+")/, '$1 data-static');
       html = html.replace(/(data-static[\s\S]*?<\/svg>)\s*<button type="button" class="diagram-toggle"[\s\S]*?<\/button>/, '$1');
       await route.fulfill({ response: res, body: html });
     });
@@ -63,7 +66,7 @@ test.describe('value-prop diagrams', () => {
 
   for (const [scene, labels] of Object.entries(SCENES)) {
     test.describe(scene, () => {
-      const svg = (page) => page.locator(`.value-prop-diagram[data-scene="${scene}"]`);
+      const svg = (page) => page.locator(`svg[data-scene="${scene}"]`);
 
       test('has a title and a description', async ({ page }) => {
         await expect(svg(page).locator('title')).not.toHaveText('');
@@ -109,7 +112,7 @@ test.describe('value-prop diagrams', () => {
       });
 
       test('has a static fallback image', async ({ page }) => {
-        const res = await page.request.get(`/images/value-props/${scene}.svg`);
+        const res = await page.request.get(`/images/diagrams/${scene}.svg`);
         expect(res.ok()).toBe(true);
         expect(res.headers()['content-type']).toContain('image/svg+xml');
         expect(await res.text()).toContain('<svg');

@@ -1,31 +1,6 @@
 {{ if site.Data.homepage.values.enable }}
 {{ with site.Data.homepage.values }}
 <section class="bg-grey">
-{{- /* Symbols for the value-prop diagrams (assets/js/value-props.js): the Dapr logo,
-       and one per brand mark in assets/images/icons/ (sources and terms in its
-       README.md), read from their files at build time. */}}
-{{- if where .feature_item "diagram" "!=" nil }}
-{{- $logo := readFile "static/images/dapr.svg" }}
-{{- $logo = index (findRE `(?s)<g id="Artboard".*</g>` $logo) 0 | replaceRE ` id="[^"]*"` "" }}
-<svg class="svg-symbols" aria-hidden="true" focusable="false">
-  <symbol id="value-prop-dapr-logo" viewBox="0 0 367 270">{{ $logo | safeHTML }}</symbol>
-  {{- range readDir "assets/images/icons" }}
-  {{- if strings.HasSuffix .Name ".svg" }}
-  {{- $name := strings.TrimSuffix ".svg" .Name }}
-  {{- $svg := readFile (printf "assets/images/icons/%s" .Name) }}
-  {{- $viewBox := index (findRESubmatch `viewBox="([^"]+)"` $svg 1) 0 1 }}
-  {{- /* the file's contents, with its ids and classes prefixed so they cannot clash on the page */}}
-  {{- $inner := replaceRE `(?s)^.*?<svg[^>]*>(.*)</svg>\s*$` "$1" $svg }}
-  {{- $inner = replaceRE `(?s)<title>.*?</title>` "" $inner }}
-  {{- $inner = replaceRE ` id="([^"]+)"` (printf ` id="icon-%s-$1"` $name) $inner }}
-  {{- $inner = replaceRE `url\(#([^)]+)\)` (printf `url(#icon-%s-$1)` $name) $inner }}
-  {{- $inner = replaceRE `href="#([^"]+)"` (printf `href="#icon-%s-$1"` $name) $inner }}
-  {{- $inner = replaceRE `\bcls-(\d+)` (printf `icon-%s-cls-$1` $name) $inner }}
-  <symbol id="value-prop-icon-{{ $name }}" viewBox="{{ $viewBox }}">{{ $inner | safeHTML }}</symbol>
-  {{- end }}
-  {{- end }}
-</svg>
-{{- end }}
 <section class="width-80 width-80-mobile vertical-align-center padding-top-down-30 value-prop-text ">
     <h2 class="text-center">{{ .title }}</h2>
     <p class="text-justify font-weight-300">
@@ -48,22 +23,9 @@
       </div>
       <div class="align-self-center-mobile value-prop-video">
         {{- with $featureItem.diagram }}
-        <div class="value-prop-diagram-frame">
-          {{- /* diagramstatic: true shows the scene's complete frame, without animation */}}
-          <svg class="value-prop-diagram" data-scene="{{ . }}"{{ if $featureItem.diagramstatic }} data-static{{ end }} width="600" height="480" viewBox="0 0 600 480" role="img" aria-labelledby="value-prop-{{ . }}-title value-prop-{{ . }}-desc">
-            <title id="value-prop-{{ . }}-title">{{ $featureItem.name }}</title>
-            <desc id="value-prop-{{ . }}-desc">{{ $featureItem.diagramdesc }}</desc>
-            {{- /* Still frame shown until value-props.js draws; removed by it. */}}
-            {{- with resources.Get (printf "images/value-props/%s.svg" .) }}
-            <image class="value-prop-diagram-fallback" href="{{ .Permalink }}" width="600" height="480"/>
-            {{- end }}
-          </svg>
-          {{- if not $featureItem.diagramstatic }}
-          <button type="button" class="diagram-toggle" aria-label="Pause animation: {{ $featureItem.name }}" data-label="{{ $featureItem.name }}" hidden>
-            <i class="fas fa-pause" aria-hidden="true"></i>
-          </button>
-          {{- end }}
-        </div>
+        {{ partial "diagram.html" (dict "scene" . "name" $featureItem.name "desc" $featureItem.diagramdesc
+            "static" $featureItem.diagramstatic "width" 600 "height" 480
+            "class" "value-prop-diagram" "frame" "value-prop-diagram-frame") }}
         {{- else }}
         <div class="value-prop-video-frame">
           <video class="value-prop" autoplay playsinline loop muted>
@@ -83,9 +45,5 @@
   {{ end }}
 </section>
 </section>
-{{- if where .feature_item "diagram" "!=" nil }}
-{{- $js := resources.Get "js/value-props.js" | minify }}
-<script src="{{ $js.Permalink }}" defer></script>
-{{- end }}
 {{ end }}
 {{ end }}

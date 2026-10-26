@@ -1,16 +1,17 @@
-/* Homepage value-prop diagrams: 2D diagrams, animated or still, drawn with D3
-   (d3-selection and d3-timer, vendored in static/plugins/d3/). They replaced
-   the MP4s these sections used to show.
+/* The homepage's 2D diagrams, animated or still, drawn with D3 (d3-selection
+   and d3-timer, vendored in static/plugins/d3/). The value-prop diagrams that
+   replaced the old MP4s, and the APIs overview, are scenes here. How to make a
+   new one: skills/d3-2d-diagrams/SKILL.md.
 
-   Markup lives in layouts/partials/home/value-props.html: each diagram is an
-   <svg class="value-prop-diagram" data-scene="<name>"> with a static fallback
-   <image> (assets/images/value-props/<name>.svg, regenerated with
+   Markup comes from layouts/partials/diagram.html: an <svg data-scene="<name>">
+   whose viewBox sets the scene's canvas (600x480 for a value prop), with a
+   static fallback <image> (assets/images/diagrams/<name>.svg, regenerated with
    `npm run export:diagram-fallbacks` in tests/) and, unless it is a still
-   (diagramstatic: true in the data, data-static on the svg), a pause/play
-   button. The Dapr logo and brand marks are <symbol>s in the same partial.
+   (data-static), a pause/play button. The Dapr logo and brand marks are
+   <symbol>s from layouts/partials/home/diagram-assets.html.
 
    Each scene builds its shapes once; frame(t) only updates opacity, transforms
-   and arrow lengths. Layouts are in a 600x480 space. */
+   and arrow lengths. */
 (function () {
   if (!window.d3 || !d3.select || !d3.timer) return;
 
@@ -57,10 +58,10 @@
 
   function group(parent) { return parent.append('g'); }
 
-  // text centered on x; "\n" starts a new line below
+  // text centered on x (or starting at x, with anchor: 'start'); "\n" starts a new line below
   function label(parent, x, y, str, o) {
     o = o || {};
-    var size = o.size || 11, t = parent.append('text').attr('x', x).attr('y', y).attr('text-anchor', 'middle')
+    var size = o.size || 11, t = parent.append('text').attr('x', x).attr('y', y).attr('text-anchor', o.anchor || 'middle')
       .attr('font-size', size).attr('font-weight', o.weight || 600).attr('fill', o.color || C.black);
     if (o.halo) t.attr('paint-order', 'stroke').attr('stroke', C.bg).attr('stroke-width', 4).attr('stroke-linejoin', 'round');
     String(str).split('\n').forEach(function (line, i) {
@@ -82,7 +83,7 @@
     var r = o.r || 19, w = r * 1.35, h = w * 270 / 367, g = parent.append('g');
     g.append('polygon').attr('points', hexPoints(o.x, o.y, r))
       .attr('fill', '#fff').attr('stroke', C.navy).attr('stroke-width', 2.2);
-    g.append('use').attr('href', '#value-prop-dapr-logo')
+    g.append('use').attr('href', '#diagram-dapr-logo')
       .attr('x', o.x - w / 2).attr('y', o.y - h / 2 + 1).attr('width', w).attr('height', h);
     return g;
   }
@@ -215,12 +216,51 @@
     return g;
   }
 
-  // a brand mark symbol (assets/images/icons/<name>.svg), centered on x,y, with a label under it
+  // a brand mark or icon symbol (assets/images/icons/<name>.svg), centered on x,y,
+  // in a size x size box (or w x h), with an optional label under it. color fills single-color marks: as `fill`, and
+  // as `color` for icons drawn in currentColor (the Fluent icons)
   function icon(parent, o) {
     var g = parent.append('g');
-    g.append('use').attr('href', '#value-prop-icon-' + o.name).attr('fill', o.color || C.black)
-      .attr('x', o.x - o.size / 2).attr('y', o.y - o.size / 2).attr('width', o.size).attr('height', o.size);
-    label(g, o.x, o.y + o.labelDy, o.label, { size: o.labelSize || 13, weight: 700 });
+    // w and h set a box for a mark that is not square; it keeps its proportions inside it
+    var w = o.w || o.size, h = o.h || o.size;
+    g.append('use').attr('href', '#diagram-icon-' + o.name).attr('fill', o.color || C.black).attr('color', o.color || C.black)
+      .attr('x', o.x - w / 2).attr('y', o.y - h / 2).attr('width', w).attr('height', h);
+    if (o.label) label(g, o.x, o.y + o.labelDy, o.label, { size: o.labelSize || 13, weight: 700 });
+    return g;
+  }
+
+  // a dashed, rounded area that groups part of a diagram
+  function panel(parent, o) {
+    return parent.append('rect').attr('x', o.x).attr('y', o.y).attr('width', o.w).attr('height', o.h).attr('rx', o.r || 10)
+      .attr('fill', 'none').attr('stroke', o.stroke).attr('stroke-width', 2).attr('stroke-dasharray', '6 6');
+  }
+
+  // a rounded caption tag; filled (white text) or outlined (on a white ground)
+  function pill(parent, o) {
+    var g = parent.append('g');
+    g.append('rect').attr('x', o.x - o.w / 2).attr('y', o.y - o.h / 2).attr('width', o.w).attr('height', o.h).attr('rx', o.h * 0.25)
+      .attr('fill', o.filled ? o.color : '#fff').attr('stroke', o.color).attr('stroke-width', 2.2);
+    label(g, o.x, o.y + (o.size || 15) * 0.35, o.text, { size: o.size || 15, color: o.filled ? '#fff' : C.black });
+    return g;
+  }
+
+  // a card with an icon over a one- or two-line label (or, with inline: true, beside
+  // a one-line label); filled cards invert to white. tag puts a small word, such as
+  // 'alpha', in the top right corner
+  function tile(parent, o) {
+    var g = parent.append('g'), w = o.w || o.size || 99, h = o.h || o.size || 99;
+    var ink = o.filled ? '#fff' : o.color, text = o.filled ? '#fff' : C.black;
+    g.append('rect').attr('x', o.x).attr('y', o.y).attr('width', w).attr('height', h).attr('rx', 9)
+      .attr('fill', o.filled ? o.color : '#fff').attr('stroke', o.color).attr('stroke-width', 2.2);
+    if (o.inline) {
+      icon(g, { name: o.icon, x: o.x + 22, y: o.y + h / 2, size: 26, color: ink });
+      label(g, o.x + 40, o.y + h / 2 + 4, o.label, { size: o.labelSize || 12, color: text, anchor: 'start' });
+    } else {
+      var two = o.label.indexOf('\n') > -1;
+      icon(g, { name: o.icon, x: o.x + w / 2, y: o.y + h * 0.36, size: Math.min(w, h) * 0.4, color: ink });
+      label(g, o.x + w / 2, o.y + h * (two ? 0.7 : 0.8), o.label, { size: o.labelSize || 11.5, color: text });
+    }
+    if (o.tag) label(g, o.x + w - 6, o.y + 13, o.tag, { size: 9, weight: 700, color: ink, anchor: 'end' });
     return g;
   }
 
@@ -488,6 +528,79 @@
           first.db.attr('opacity', step(t, 3.3, 3.6));
         };
       }
+    },
+
+    /* "The APIs behind it", after the old assets/images/dapr-apis-overview.png (3168x1647),
+       as a still on a 1200x624 canvas that scales with the section, like the
+       image did. Three bands: your app in any language or runtime; Dapr and
+       its APIs, reached over HTTP or gRPC; the infrastructure Dapr runs on and
+       integrates with. Languages, runtimes and clouds are shown with their own logos. */
+    apis: {
+      still: 0,
+      build: function (root) {
+        var d = group(root), BLUE = APP[0].stroke;
+
+        // languages and runtimes
+        panel(d, { x: 23, y: 28, w: 1158, h: 119, stroke: C.teal });
+        pill(d, { x: 1005, y: 30, w: 294, h: 35, text: 'Use any language or runtime', color: C.teal });
+        hex(d, { x: 136, y: 88, r: 47, stroke: APP[0].stroke, fill: APP[0].fill, label: 'My app', size: 15 });
+        // the languages' and runtimes' own logos (assets/images/icons/README.md), sized to
+        // their proportions; most carry their name, and the description lists them all
+        [['nodejs', 72, 44], ['python', 44, 44], ['dotnet', 44, 44], ['go', 86, 32], ['java', 28, 52],
+          ['php', 76, 41], ['rust', 46, 46]].forEach(function (l, i) {
+          icon(d, { name: l[0], x: 290 + i * 136.5, y: 88, w: l[1], h: l[2] });
+        });
+
+        // Dapr and its APIs
+        panel(d, { x: 23, y: 180, w: 1158, h: 291, stroke: BLUE });
+        arrow(d, [136, 136], [136, 252]);
+        pill(d, { x: 136, y: 180, w: 132, h: 26, text: 'HTTP / gRPC API', color: BLUE, filled: true, size: 13.5 });
+        d.append('polygon').attr('points', hexPoints(136, 342, 84))
+          .attr('fill', '#fff').attr('stroke', C.navy).attr('stroke-width', 2.6);
+        var lw = 112, lh = lw * 270 / 367;
+        d.append('use').attr('href', '#diagram-dapr-logo').attr('x', 136 - lw / 2).attr('y', 342 - lh / 2)
+          .attr('width', lw).attr('height', lh);
+        // the APIs, two rows of eight; the alpha APIs are tagged, as on the API cards,
+        // and grouped together at the end of the second row
+        [[['flowchart', 'Workflow'], ['mail-copy', 'Publish /\nSubscribe'], ['arrow-step-in-right', 'Service\nInvocation'],
+          ['database', 'State\nManagement'], ['people-team', 'Actors'], ['clock', 'Jobs'],
+          ['settings-cog-multiple', 'External\nConfiguration'], ['key', 'Secrets']],
+         [['plug-disconnected', 'Bindings'], ['arrow-move', 'Middleware'],
+          ['lock-closed-key', 'Cryptography', 'alpha'], ['table-lock', 'Distributed\nlock', 'alpha'], ['chat', 'Conversation', 'alpha'],
+          ['cloud-archive', 'Binary Store', 'alpha'], ['document-search', 'Search', 'alpha'], ['data-scatter', 'Vector', 'alpha']]
+        ].forEach(function (row, r) {
+          row.forEach(function (t, i) {
+            tile(d, { x: 238 + i * 100, y: 214 + r * 123, w: 88, h: 99, icon: 'fluent-' + t[0], label: t[1],
+              tag: t[2], color: BLUE, labelSize: 11 });
+          });
+        });
+        // what Dapr gives every API: a column of filled tiles
+        [['heart-pulse', 'Observability'], ['shield-lock', 'Security'], ['arrow-clockwise', 'Resiliency']].forEach(function (t, i) {
+          tile(d, { x: 1038, y: 214 + i * 78, w: 128, h: 66, icon: 'fluent-' + t[0], label: t[1], color: BLUE, filled: true, inline: true });
+        });
+        arrow(d, [124, 474], [124, 506]);
+        arrow(d, [142, 506], [142, 474]);
+
+        // infrastructure
+        panel(d, { x: 23, y: 510, w: 1158, h: 102, stroke: C.navy });
+        pill(d, { x: 913, y: 510, w: 478, h: 36, text: 'Host on & integrate with any cloud or edge infrastructure', color: C.navy });
+        var Y = 574;
+        // the clouds' own logos (assets/images/icons/README.md): Azure's mark with its
+        // name, and the AWS and Google Cloud logos, which carry theirs
+        icon(d, { name: 'azure', x: 62, y: Y - 5, size: 30 });
+        label(d, 83, Y, 'Azure', { size: 15, anchor: 'start' });
+        icon(d, { name: 'aws', x: 172, y: Y - 4, w: 50, h: 30 });
+        icon(d, { name: 'googlecloud', x: 302, y: Y - 5, w: 156, h: 24 });
+        icon(d, { name: 'kubernetes', x: 412, y: Y - 5, size: 30, color: '#326CE5' });
+        label(d, 433, Y, 'Kubernetes', { size: 15, anchor: 'start' });
+        [['fluent-server', 'Virtual or\nphysical machines', 560], ['fluent-database', 'Databases', 755],
+          ['fluent-mail-copy', 'Message brokers', 890], ['fluent-plug-disconnected', 'Services', 1062]].forEach(function (b) {
+          icon(d, { name: b[0], x: b[2], y: Y - 5, size: 30, color: BLUE });
+          label(d, b[2] + 22, b[1].indexOf('\n') > -1 ? Y - 9 : Y, b[1], { size: 13.5, anchor: 'start' });
+        });
+
+        return function () {};
+      }
     }
   };
 
@@ -499,7 +612,7 @@
     var scene = scenes[svgNode.getAttribute('data-scene')];
     if (!scene) return;
     // the static fallback stays up for an unknown scene or when this script does not run
-    var fallback = svgNode.querySelector('.value-prop-diagram-fallback');
+    var fallback = svgNode.querySelector('.diagram-fallback');
     if (fallback) fallback.remove();
 
     var root = d3.select(svgNode).append('g').attr('aria-hidden', 'true')
@@ -545,5 +658,5 @@
     sync();
   }
 
-  Array.prototype.forEach.call(document.querySelectorAll('.value-prop-diagram'), mount);
+  Array.prototype.forEach.call(document.querySelectorAll('svg[data-scene]'), mount);
 })();

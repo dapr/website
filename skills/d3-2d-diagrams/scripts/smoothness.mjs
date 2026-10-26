@@ -28,7 +28,7 @@ try {
   await ctx.addCookies([{ name: 'dapr_cookie_consent', value: 'rejected', url: site.url }]);
   const page = await ctx.newPage();
   await page.goto(site.url);
-  const svg = page.locator(`.value-prop-diagram[data-scene="${scene}"]`);
+  const svg = page.locator(`svg[data-scene="${scene}"]`);
   await svg.scrollIntoViewIfNeeded();
   result = await svg.evaluate((s, ms) => new Promise((done) => {
     const all = [...s.querySelectorAll(':scope > g [opacity], :scope > g [transform], :scope > g g[stroke]')];

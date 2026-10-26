@@ -1,0 +1,37 @@
+{{- /* What the homepage's 2D diagrams (partials/diagram.html) need, once per page:
+       the <symbol>s they draw with, and assets/js/diagrams.js. The symbols are
+       the Dapr logo, and one per brand mark in assets/images/icons/ (sources
+       and terms in its README.md), read from their files at build time. */}}
+{{- $logo := readFile "static/images/dapr.svg" }}
+{{- $logo = index (findRE `(?s)<g id="Artboard".*</g>` $logo) 0 | replaceRE ` id="[^"]*"` "" }}
+<svg class="svg-symbols" aria-hidden="true" focusable="false">
+  <symbol id="diagram-dapr-logo" viewBox="0 0 367 270">{{ $logo | safeHTML }}</symbol>
+  {{- range readDir "assets/images/icons" }}
+  {{- if strings.HasSuffix .Name ".svg" }}
+  {{- $name := strings.TrimSuffix ".svg" .Name }}
+  {{- $svg := readFile (printf "assets/images/icons/%s" .Name) }}
+  {{- /* the viewBox, or for a file without one, its width and height */}}
+  {{- $svgTag := index (findRE `<svg[^>]*>` $svg 1) 0 }}
+  {{- $viewBox := "" }}
+  {{- with findRESubmatch `viewBox="([^"]+)"` $svgTag 1 }}{{ $viewBox = index . 0 1 }}{{ end }}
+  {{- if not $viewBox }}
+  {{- $w := index (findRESubmatch `width="([\d.]+)` $svgTag 1) 0 1 }}
+  {{- $h := index (findRESubmatch `height="([\d.]+)` $svgTag 1) 0 1 }}
+  {{- $viewBox = printf "0 0 %s %s" $w $h }}
+  {{- end }}
+  {{- /* the file's contents, with its ids and classes prefixed so they cannot clash on the page */}}
+  {{- $inner := replaceRE `(?s)^.*?<svg[^>]*>(.*)</svg>\s*$` "$1" $svg }}
+  {{- $inner = replaceRE `(?s)<title>.*?</title>` "" $inner }}
+  {{- $inner = replaceRE ` id="([^"]+)"` (printf ` id="icon-%s-$1"` $name) $inner }}
+  {{- $inner = replaceRE `url\(#([^)]+)\)` (printf `url(#icon-%s-$1)` $name) $inner }}
+  {{- $inner = replaceRE `href="#([^"]+)"` (printf `href="#icon-%s-$1"` $name) $inner }}
+  {{- $inner = replaceRE ` class="([^"]+)"` (printf ` class="icon-%s-$1"` $name) $inner }}
+  {{- range findRE `(?s)<style[^>]*>.*?</style>` $inner }}
+  {{- $inner = replace $inner . (replaceRE `\.([A-Za-z_][\w-]*)` (printf ".icon-%s-$1" $name) .) }}
+  {{- end }}
+  <symbol id="diagram-icon-{{ $name }}" viewBox="{{ $viewBox }}">{{ $inner | safeHTML }}</symbol>
+  {{- end }}
+  {{- end }}
+</svg>
+{{- $js := resources.Get "js/diagrams.js" | minify }}
+<script src="{{ $js.Permalink }}" defer></script>

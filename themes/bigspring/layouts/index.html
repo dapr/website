@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{- /* D3 for the hero and value-prop diagrams; deferred, so it runs before their scripts. */}}
+  {{- /* D3 for the hero and the 2D diagrams; deferred, so it runs before their scripts. */}}
   <script src="{{ "plugins/d3/d3-selection.min.js" | absURL }}" defer></script>
   <script src="{{ "plugins/d3/d3-timer.min.js" | absURL }}" defer></script>
   {{ partial "home/banner.html" . }}
@@ -12,4 +12,5 @@
   {{ partial "home/adopters.html" . }}
   {{ partial "home/full-video.html" . }}
   {{ partial "home/cncf.html" . }}
+  {{ partial "home/diagram-assets.html" . }}
  {{ end }}

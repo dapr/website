@@ -1,14 +1,15 @@
 ---
 name: d3-2d-diagrams
-description: Create or change the animated 2D diagrams on the dapr.io homepage (the value-prop diagrams drawn with D3 in themes/bigspring/assets/js/value-props.js). Use for a new diagram, animated or still, from a video or GIF, a still image, or a text description, and for changes to an existing scene's layout, colors, icons, timing or tests.
+description: Create or change the 2D diagrams on the dapr.io homepage (the value-prop diagrams and the APIs overview, drawn with D3 in themes/bigspring/assets/js/diagrams.js). Use for a new diagram, animated or still, from a video or GIF, a still image, or a text description, and for changes to an existing scene's layout, colors, icons, timing or tests.
 ---
 
 # 2D D3 diagrams for dapr.io
 
-The four homepage value-prop sections each show a 2D diagram, drawn in code with
-D3 instead of the MP4s they replaced. A diagram is either animated or a still.
-This skill holds the design rules and the workflow that produced them, so a new
-diagram matches the existing ones.
+The homepage's 2D diagrams are drawn in code with D3. The four value-prop
+sections show diagrams that replaced their MP4s, and "The APIs behind it" shows
+a still that replaced an image. A diagram is either animated or a still. This
+skill holds the design rules and the workflow that produced them, so a new
+diagram matches the existing ones, wherever on the homepage it goes.
 
 The 3D wireframe hero diagram (`themes/bigspring/assets/js/hero-diagram.js`) is a
 separate piece of code. The style below borrows from it, but nothing here
@@ -18,12 +19,13 @@ changes it.
 
 | What | Where |
 | --- | --- |
-| Engine and scenes | `themes/bigspring/assets/js/value-props.js`: shapes, the `C` and `APP` colors, one entry per scene in `scenes` |
-| Which section shows which scene | `data/homepage.yml`, under `values.feature_item`: `diagram: <scene>` and `diagramdesc` replace `video` |
-| Markup | `themes/bigspring/layouts/partials/home/value-props.html`: the `<svg class="value-prop-diagram">`, title, description, fallback `<image>`, pause button, and the `<symbol>`s |
-| Brand marks | `assets/images/icons/<name>.svg`, with sources and terms in `assets/images/icons/README.md` |
-| Static fallbacks | `assets/images/value-props/<scene>.svg`, generated: `npm run export:diagram-fallbacks` in `tests/` |
-| Styles | `svg.value-prop-diagram` and `.value-prop-diagram-frame` in `themes/bigspring/assets/scss/_custom.scss` |
+| Engine and scenes | `themes/bigspring/assets/js/diagrams.js`: shapes, the `C` and `APP` colors, one entry per scene in `scenes`. It draws every `svg[data-scene]` on the page |
+| Markup for one diagram | `themes/bigspring/layouts/partials/diagram.html`: the `<svg data-scene>` and its canvas size, title, description, fallback `<image>`, and the pause button for an animated one |
+| Symbols and script, once per page | `themes/bigspring/layouts/partials/home/diagram-assets.html`, included by `themes/bigspring/layouts/index.html` |
+| Where each diagram is shown | The section's data in `data/homepage.yml` names its scene. Value props use `diagram`, `diagramdesc` and `diagramstatic` on a `values.feature_item`; `partials/home/value-props.html` calls the partial at 600×480. The APIs overview uses the same fields on `buildingBlock`; `partials/home/apis.html` calls it at 1200×624 |
+| Icons and brand marks | `assets/images/icons/<name>.svg`, with sources and terms in `assets/images/icons/README.md` |
+| Static fallbacks | `assets/images/diagrams/<scene>.svg`, generated: `npm run export:diagram-fallbacks` in `tests/` |
+| Styles | `svg.value-prop-diagram`, `svg.apis-diagram` and `.diagram-frame` in `themes/bigspring/assets/scss/_custom.scss` |
 | D3 | `d3-selection` and `d3-timer` only, vendored in `themes/bigspring/static/plugins/d3/`, loaded by `themes/bigspring/layouts/index.html` |
 | Tests | `tests/specs/diagrams.spec.js` (per scene), plus the diagram cases in `motion.spec.js`, `markup.spec.js` and `keyboard.spec.js` |
 
@@ -59,9 +61,15 @@ the diagram should animate. Do not assume.
 
 ### Canvas and style
 
-- **2D only.** Every scene is laid out in a 600×480 viewBox. It displays at
-  600×480 on desktop and at full width, up to 400px, on phones, the same as the
-  videos it replaced. Never make it larger.
+- **2D only.**
+- **Canvas size:** the svg's viewBox sets it, and the scene's coordinates use it.
+  - **A value-prop diagram:** 600×480. It displays at 600×480 on desktop and at
+    full width, up to 400px, on phones, the same as the videos they replaced.
+  - **Anywhere else:** give the canvas the shape of what the diagram replaces, or
+    of the space it fills, and display it at that size. Never make it larger.
+    The APIs overview replaced a 1.92:1 image that fills its section's width,
+    so it uses 1200×624 and `svg.apis-diagram` makes it fill the width too.
+  - **A new placement** gets its own class with a CSS rule for its size.
 - **Wireframe line art,** after the hero diagram:
   - outlines are 2.2px and arrows 2px
   - fills are light tints at `fill-opacity: 0.6`
@@ -69,12 +77,13 @@ the diagram should animate. Do not assume.
 - **No backdrop and no glow.** A hex-grid background and glowing dots were
   both tried and rejected.
 - **Keep everything at least 10px inside the edges.** The tests fail anything
-  visible outside the frame. The pause button covers the bottom-right corner,
-  about 590 to 556 in x and 470 to 436 in y, so keep that area empty too.
+  visible outside the frame. On an animated value-prop diagram, the pause
+  button covers the bottom-right corner, about 590 to 556 in x and 470 to 436
+  in y, so keep that area empty too.
 
 ### Colors
 
-Defined once, as `C` and `APP` at the top of `value-props.js`. Use those
+Defined once, as `C` and `APP` at the top of `diagrams.js`. Use those
 names, never new hex values in a scene.
 
 - **App hexagons take `APP` in order:**
@@ -85,7 +94,10 @@ names, never new hex values in a scene.
 
   Each has a light fill. With more than four apps, color by role, so that apps
   of one kind share a color. The adopt scene does this: its existing system is
-  teal and its two Dapr apps are light and dark blue.
+  teal and its two Dapr apps are light and dark blue. The hero diagram
+  (`hero-diagram.js`) follows the same order.
+- **A large Dapr hexagon,** as in the APIs overview, is navy with the logo
+  inside it.
 - **Never yellow.** It is too light on the white background.
 - **Other colors and what they mean:**
   - navy `C.navy` (`#1D168E`) for arrows, Dapr badges and databases
@@ -126,8 +138,18 @@ names, never new hex values in a scene.
     never pops in.
   - **Color changes:** use `grow.paint()`, blended with `mix()` over at least
     0.3 seconds, never switched instantly.
+- **Groups and captions:** a dashed rounded `panel()` groups part of a diagram,
+  a `pill()` captions it, and a `tile()` shows one capability with an icon and
+  a label. The APIs overview uses all three.
 - **Do not hand-draw a company's logo or product mark.** Use its official
   file; see the next section.
+- **Generic icons** (a key, a clock, a database) come from
+  [Fluent UI System Icons](https://github.com/microsoft/fluentui-system-icons)
+  (MIT), the set the homepage's API cards already use. Download the 24px regular
+  variant from `https://api.iconify.design/fluent/<name>-24-regular.svg`, save it
+  as `assets/images/icons/fluent-<name>.svg` unmodified, and draw it with
+  `icon({ name: 'fluent-<name>', color })`. These icons are drawn in
+  `currentColor`, which `icon()` sets.
 
 ### Brand marks
 
@@ -142,10 +164,27 @@ names, never new hex values in a scene.
   `assets/images/icons/<name>.svg` and add a row to that folder's `README.md`.
   The template prefixes every file's ids and classes when it inlines it, so the
   Google Cloud files' `<style>` blocks cannot leak into the page.
-- **Company logos** (Microsoft Azure, AWS, Google Cloud) are not covered by the
-  architecture icon terms. Name the platform in text with a caption instead.
+- **Company and language logos** (Microsoft Azure, AWS, Google Cloud, Node.js,
+  Java) are not covered by the architecture icon terms.
+  - **By default,** name the platform in text, as the integrate diagram does.
+  - **Logos only when asked,** as for the APIs overview. Use the official full
+    logo, in its own colors and proportions, not a single-color stand-in.
+    Wikimedia Commons hosts most of them with their license recorded. Get the
+    file URL and license from the Commons API:
+    `https://commons.wikimedia.org/w/api.php?action=query&titles=File:<name>.svg&prop=imageinfo&iiprop=url|extmetadata&format=json`.
+  - **Record each logo's source and license** in the icons README. Credit the
+    author when the license requires it, as CC BY does.
+  - **A logo that is not freely licensed** needs the maintainers' explicit
+    go-ahead, recorded in the README. Java's coffee cup, hosted on English
+    Wikipedia as fair use only, is used that way.
+  - **Wide logos and wordmarks** keep their proportions: give `icon()` a `w` and
+    `h`. A logo that carries its name needs no text label beside it.
+  - **Missing files:** if the user names no source and no official file can be
+    found, ask before using a substitute.
 - **Check every file before adding it:** no `<script>`, no event handlers, no
-  external `href`.
+  external `href`. The template prefixes every id and class name (including
+  those in a `<style>` block), and takes a missing viewBox from the file's
+  width and height.
 
 ### Motion
 
@@ -177,8 +216,8 @@ Animated diagrams only.
 
 These come with the engine and the partial. Keep them working:
 
-- **Description:** `<title>` is the section name, and `<desc>` is the
-  `diagramdesc` text.
+- **Description:** `<title>` is the section name (the image's alt text for the
+  APIs overview), and `<desc>` is the `diagramdesc` text.
   - Describe what the diagram shows, plainly and accurately. It is read as an
     official statement by the project.
   - Avoid em dashes and en dashes, as in all site copy.
@@ -213,7 +252,8 @@ every 4th frame, and the frames you ask for at 1200px wide.
   appearing. Sheet label `k` is frame `4k`, which is `4k / fps` seconds.
 - **Layout:** measure positions on a 1200px frame and halve them for the 600×480
   viewBox. A source that is not 5:4 is scaled to 600 wide and centered
-  vertically: add `(480 - height / 2) / 2` to every y.
+  vertically: add `(480 - height / 2) / 2` to every y. For another canvas, scale
+  by its width over 1200 instead.
 - **Colors:** sample them in the middle of a stroke, never on an antialiased edge:
 
   ```bash
@@ -231,7 +271,9 @@ The scripts take an image as well as a video:
 skills/d3-2d-diagrams/scripts/video-frames.sh path/to/diagram.png /tmp/frames
 ```
 
-This writes `frame-0.png` at 1200px wide.
+This writes `frame-0.png` at 1200px wide. Measure from the original instead if
+it is larger, for more precision. The APIs overview was measured at 2000px wide
+and scaled by 0.6 to its 1200×624 canvas.
 
 - **Layout and colors:** measure and sample them exactly as in 1a.
 - **For a still diagram,** that is all: continue at step 2.
@@ -308,7 +350,7 @@ This writes `frame-0.png` at 1200px wide.
 
 ### 2. Build the scene
 
-Add an entry to `scenes` in `value-props.js`:
+Add an entry to `scenes` in `diagrams.js`:
 
 - `T`: the loop length in seconds. A still can leave it out.
 - `still`: when the diagram is complete. For a still, any value its `frame`
@@ -319,7 +361,9 @@ Add an entry to `scenes` in `value-props.js`:
 elements. Above the scene, write a comment that describes what it shows. If
 it was redrawn from a video, the comment also names the source and its frame
 count, and says how the scene's timing relates to it. The existing scenes all do
-this. Then switch the section in `data/homepage.yml`:
+this.
+
+**Showing it.** In a value-prop section, switch the item in `data/homepage.yml`:
 
 ```yaml
     - name: "Section title"
@@ -329,8 +373,21 @@ this. Then switch the section in `data/homepage.yml`:
       content: "..."
 ```
 
-A new brand mark goes in `assets/images/icons/`, with its README row, and is
-used as `icon(parent, { name: '<file name>', ... })`.
+Anywhere else, give the section's data the same three fields, and call the
+partial from its template at the scene's canvas size:
+
+```go-html-template
+{{ partial "diagram.html" (dict "scene" .diagram "name" "Title" "desc" .diagramdesc
+    "static" .diagramstatic "width" 1200 "height" 624 "class" "apis-diagram") }}
+```
+
+Add a CSS rule for the new class's display size. `partials/home/apis.html`
+shows the pattern: it falls back to the section's image when no `diagram` is
+set. The Markdown rendering of the homepage still uses the section's `image`,
+so point that at the generated fallback, `images/diagrams/<scene>.svg`.
+
+A new icon or brand mark goes in `assets/images/icons/`, with its README row,
+and is used as `icon(parent, { name: '<file name>', ... })`.
 
 ### 3. Compare and measure
 
@@ -357,7 +414,7 @@ npm run export:diagram-fallbacks   # regenerates every diagram's fallback, hero 
 npx playwright test diagrams motion markup keyboard
 ```
 
-- **Fallback:** commit the new or changed `assets/images/value-props/<scene>.svg`.
+- **Fallback:** commit the new or changed `assets/images/diagrams/<scene>.svg`.
   The hero's fallback should come out byte-identical; if it changed, find out why.
 - **Tests:** add the scene and the labels its still frame must show to `SCENES` in
   `tests/specs/diagrams.spec.js`, whether it is animated or still. The spec fails
@@ -367,10 +424,12 @@ npx playwright test diagrams motion markup keyboard
   - **Stills:** the still test in `diagrams.spec.js` checks the still path: no
     pause button and no change over time.
 - **Full suite:** run `npm test` before pushing.
-- **Source files:** delete a replaced video or GIF only after the comparisons are
-  done. Check nothing links to it first:
+- **Source files:** delete a replaced video, GIF or image only after the
+  comparisons are done. Check nothing links to it first:
   - `git grep`
-  - a GitHub code search for `dapr.io/images/<file>`
+  - a GitHub code search for `dapr.io/images/<file>`, for files under
+    `static/`. Files under `assets/` are only published when the site uses
+    them, so nothing outside can depend on them.
 
 ## Traps already hit
 
@@ -383,9 +442,11 @@ npx playwright test diagrams motion markup keyboard
   `runFor`. `scene-frames.mjs` does this.
 - **Diagrams only run while on screen.** Scroll a diagram into view before
   stepping its clock.
-- **Do not give the svg `max-width: 100%` in the desktop rules.** The flex
-  layout then shrinks it to about 445px. The mobile rule already handles narrow
-  screens.
+- **Do not give the value-prop svg `max-width: 100%` in the desktop rules.** The
+  flex layout then shrinks it to about 445px. The mobile rule already handles
+  narrow screens.
+- **`icon()` without a `label`** draws only the icon. Before labels were
+  optional, a missing one rendered the word "undefined".
 - **A vendor svg's ids and classes collide** with other icons and the page when
   inlined. The template prefixes them; never inline one by hand.
 - **The fallback is an svg shown as an `<image>`.** It cannot load the web font

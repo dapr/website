@@ -1,11 +1,11 @@
 // Regenerates the static fallbacks for the homepage's D3 diagrams from the
 // diagrams themselves: builds the site, renders the homepage with reduced motion
 // (each diagram shows its still frame), and saves each drawn svg as a standalone
-// file. Run after changing hero-diagram.js or value-props.js:
+// file. Run after changing hero-diagram.js or diagrams.js:
 //   npm run export:diagram-fallbacks
 //
 //   hero diagram           -> assets/images/dapr_hero_diagram.svg
-//   value-prop diagram <x> -> assets/images/value-props/<x>.svg
+//   2D diagram <scene>     -> assets/images/diagrams/<scene>.svg (every svg[data-scene])
 import { spawn, spawnSync } from 'node:child_process';
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -28,13 +28,13 @@ try {
   }
   // both scripts draw into a <g> they append; wait until every diagram has one
   await page.waitForFunction(() =>
-    [...document.querySelectorAll('.hero-diagram-svg, .value-prop-diagram')].every((s) => s.querySelector(':scope > g')));
+    [...document.querySelectorAll('.hero-diagram-svg, svg[data-scene]')].every((s) => s.querySelector(':scope > g')));
 
   const files = await page.evaluate(() => {
     function standalone(src, width, height) {
       const el = src.cloneNode(true);
-      el.querySelector('.hero-diagram-fallback, .value-prop-diagram-fallback')?.remove();
-      for (const a of ['class', 'role', 'aria-labelledby', 'data-scene']) el.removeAttribute(a);
+      el.querySelector('.hero-diagram-fallback, .diagram-fallback')?.remove();
+      for (const a of ['class', 'role', 'aria-labelledby', 'data-scene', 'data-static']) el.removeAttribute(a);
       // drop what the still frame does not show (and, below, the symbols only it used)
       for (const hidden of el.querySelectorAll('[opacity="0"]')) hidden.remove();
       // copy in symbols the drawing uses from elsewhere on the page
@@ -53,8 +53,9 @@ try {
       return el.outerHTML;
     }
     const out = [{ path: 'assets/images/dapr_hero_diagram.svg', svg: standalone(document.querySelector('.hero-diagram-svg'), 640, 515) }];
-    for (const s of document.querySelectorAll('.value-prop-diagram')) {
-      out.push({ path: `assets/images/value-props/${s.getAttribute('data-scene')}.svg`, svg: standalone(s, 600, 480) });
+    for (const s of document.querySelectorAll('svg[data-scene]')) {
+      const vb = s.viewBox.baseVal;
+      out.push({ path: `assets/images/diagrams/${s.getAttribute('data-scene')}.svg`, svg: standalone(s, vb.width, vb.height) });
     }
     return out;
   });

@@ -1,0 +1,30 @@
+{{- /*
+  A 2D D3 diagram, drawn by assets/js/diagrams.js (see skills/d3-2d-diagrams/).
+  Needs partials/home/diagram-assets.html on the page for its symbols and script.
+
+  Params (dict):
+    scene     (string, required)  scene name in diagrams.js; also names the static
+                                  fallback, assets/images/diagrams/<scene>.svg
+    name      (string, required)  title, and the pause button's label
+    desc      (string, required)  what the diagram shows, for screen readers
+    static    (bool)              true: drawn once at its complete frame, no pause button
+    width     (int, required)     viewBox size, which is also the svg's intrinsic size
+    height    (int, required)
+    class     (string)            class on the svg, for sizing (e.g. value-prop-diagram)
+    frame     (string)            class on the wrapping div (e.g. value-prop-diagram-frame)
+*/ -}}
+<div class="diagram-frame {{ .frame }}">
+  <svg class="{{ .class }}" data-scene="{{ .scene }}"{{ if .static }} data-static{{ end }} width="{{ .width }}" height="{{ .height }}" viewBox="0 0 {{ .width }} {{ .height }}" role="img" aria-labelledby="diagram-{{ .scene }}-title diagram-{{ .scene }}-desc">
+    <title id="diagram-{{ .scene }}-title">{{ .name }}</title>
+    <desc id="diagram-{{ .scene }}-desc">{{ .desc }}</desc>
+    {{- /* Still frame shown until diagrams.js draws; removed by it. */}}
+    {{- with resources.Get (printf "images/diagrams/%s.svg" .scene) }}
+    <image class="diagram-fallback" href="{{ .Permalink }}" width="{{ $.width }}" height="{{ $.height }}"/>
+    {{- end }}
+  </svg>
+  {{- if not .static }}
+  <button type="button" class="diagram-toggle" aria-label="Pause animation: {{ .name }}" data-label="{{ .name }}" hidden>
+    <i class="fas fa-pause" aria-hidden="true"></i>
+  </button>
+  {{- end }}
+</div>

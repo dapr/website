@@ -156,7 +156,7 @@ test.describe('value-prop diagrams', () => {
 
   test('replace their static fallback once they draw', async ({ page }) => {
     await expect(page.locator('.value-prop-diagram').first()).toBeAttached();
-    await expect(page.locator('.value-prop-diagram-fallback')).toHaveCount(0);
+    await expect(page.locator('.value-prop-diagram-frame .diagram-fallback')).toHaveCount(0);
   });
 
   test('animate, and each toggle pauses and resumes its diagram', async ({ page }) => {
@@ -208,7 +208,7 @@ test.describe('hero diagram without JavaScript', () => {
     await page.goto('/');
     const frames = page.locator('.value-prop-diagram-frame');
     for (let i = 0; i < (await frames.count()); i++) {
-      const fallback = frames.nth(i).locator('.value-prop-diagram-fallback');
+      const fallback = frames.nth(i).locator('.diagram-fallback');
       await expect(fallback).toBeAttached();
       expect((await page.request.get(await fallback.getAttribute('href'))).ok()).toBe(true);
       await expect(frames.nth(i).locator('.diagram-toggle')).toBeHidden();

@@ -19,8 +19,8 @@
   var C = {
     navy: '#0D2192', mid: '#476581', blue: '#3EA9F5', light: '#73CDF3', teal: '#489fb5', bg: '#fcfcfc'
   };
-  // App hexagons take these in order, as in the value-prop diagrams
-  // (value-props.js): light blue, dark blue, teal, then orange. No yellow.
+  // App hexagons take these in order, as in the 2D diagrams (diagrams.js):
+  // light blue, dark blue, teal, then orange. No yellow.
   var APP = ['#3EA9F5', '#0D2192', '#4EA4AF', '#F03E00'];
   var TEXT = 1.5; // label scale: the diagram renders at roughly 0.55x its layout size
 

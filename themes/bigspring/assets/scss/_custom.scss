@@ -248,6 +248,15 @@ svg.value-prop-diagram {
 .value-prop-diagram-frame {
     position: relative;
 }
+/* the APIs overview: fills the section's width, like the image it replaced */
+svg.apis-diagram {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.diagram-frame {
+    position: relative;
+}
 /* holds <symbol>s only */
 .svg-symbols {
     position: absolute;
