@@ -3,7 +3,7 @@
 
 Dapr provides durable, verifiable execution so your workflows and AI agents survive crashes, restarts, and outages, resuming exactly where they left off. Built on infrastructure-agnostic APIs with production-grade security, resiliency, and observability, so you can focus on your code.
 
-![Dapr architecture illustration: a central Dapr logo connected to an App and Dapr building blocks including Workflow, Database, and Message Broker]({{ partial "markdown/image-url.html" "images/dapr_hero.png" }})
+![Dapr architecture diagram: Dapr in the center, connected to a workflow app, an agent, and an app, and to a message broker and a state store]({{ partial "markdown/image-url.html" "images/dapr_hero_diagram.svg" }})
 
 - [Get Started](https://docs.dapr.io/getting-started/)
 - [Durable Workflows]({{ "workflow/" | absURL }})

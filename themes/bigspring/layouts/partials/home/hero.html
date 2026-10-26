@@ -12,12 +12,28 @@
         </div>
       </div>
       <div class="padding-top-100-mobile align-self-center-mobile img-container-lg img-container-fullwidth-mobile">
-        {{ partial "responsive-image.html" (dict
-          "src" "images/dapr_hero.png"
-          "alt" "Dapr architecture illustration: a central Dapr logo connected to an App and Dapr building blocks including Workflow, Database, and Message Broker"
-          "sizes" "(max-width: 786px) 90vw, 600px"
-          "loading" "eager"
-          "fetchpriority" "high") }}
+        {{- /* Drawn by assets/js/hero-diagram.js. width/height give the svg the same
+               intrinsic size as the hero image it replaced, so it lays out the same. */}}
+        {{- $logo := readFile "static/images/dapr.svg" }}
+        {{- $logo = index (findRE `(?s)<g id="Artboard".*</g>` $logo) 0 | replaceRE ` id="[^"]*"` "" }}
+        <div class="hero-diagram">
+          <svg class="hero-diagram-svg" width="832" height="670" viewBox="30 30 640 515" role="img" aria-labelledby="hero-diagram-title hero-diagram-desc">
+            <title id="hero-diagram-title">Dapr architecture diagram</title>
+            <desc id="hero-diagram-desc">Dapr in the center, connected to a workflow app, an agent, and an app, and to a message broker and a state store. Animated pulses show calls and messages flowing through Dapr and durable state being saved to the state store.</desc>
+            <defs><symbol id="hero-dapr-logo" viewBox="0 0 367 270">{{ $logo | safeHTML }}</symbol></defs>
+            {{- /* Still frame shown until the script draws; removed by it once D3 loads. */}}
+            {{- with resources.Get "images/dapr_hero_diagram.svg" }}
+            <image class="hero-diagram-fallback" href="{{ .Permalink }}" x="30" y="30" width="640" height="515"/>
+            {{- end }}
+          </svg>
+          <button type="button" class="diagram-toggle" aria-label="Pause animation: Dapr architecture diagram" data-label="Dapr architecture diagram" hidden>
+            <i class="fas fa-pause" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
     </div>
   </section>
+  <script src="{{ "plugins/d3/d3-selection.min.js" | absURL }}" defer></script>
+  <script src="{{ "plugins/d3/d3-timer.min.js" | absURL }}" defer></script>
+  {{- $diagram := resources.Get "js/hero-diagram.js" | minify }}
+  <script src="{{ $diagram.Permalink }}" defer></script>

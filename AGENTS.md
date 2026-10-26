@@ -39,6 +39,7 @@ Homepage copy is data, not markup. Everything else is front matter.
 | Homepage copy and section data | `data/homepage.yml` |
 | Homepage section order | `themes/bigspring/layouts/index.html` |
 | Homepage section markup | `themes/bigspring/layouts/partials/home/*.html` |
+| Homepage hero diagram (animated D3 wireframe) | `themes/bigspring/assets/js/hero-diagram.js`; markup and logo symbol in `partials/home/hero.html`; D3 modules vendored in `themes/bigspring/static/plugins/d3/`; static fallback `assets/images/dapr_hero_diagram.svg` is generated, rerun `npm run export:hero-fallback` in `tests/` after changing the diagram |
 | Other page copy | `content/<page>/_index.md` front matter |
 | Other page markup | `themes/bigspring/layouts/<page>/list.html` |
 | Markdown renderings of pages (`index.md`, for LLMs and agents) | `themes/bigspring/layouts/<page>/list.markdown.md`, falling back to `_default/list.markdown.md`; home is `index.markdown.md` |
