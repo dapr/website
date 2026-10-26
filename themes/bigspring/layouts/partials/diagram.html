@@ -17,11 +17,12 @@
   <svg class="{{ .class }}" data-scene="{{ .scene }}"{{ if .static }} data-static{{ end }} width="{{ .width }}" height="{{ .height }}" viewBox="0 0 {{ .width }} {{ .height }}" role="img" aria-labelledby="diagram-{{ .scene }}-title diagram-{{ .scene }}-desc">
     <title id="diagram-{{ .scene }}-title">{{ .name }}</title>
     <desc id="diagram-{{ .scene }}-desc">{{ .desc }}</desc>
-    {{- /* Still frame shown until diagrams.js draws; removed by it. */}}
-    {{- with resources.Get (printf "images/diagrams/%s.svg" .scene) }}
-    <image class="diagram-fallback" href="{{ .Permalink }}" width="{{ $.width }}" height="{{ $.height }}"/>
-    {{- end }}
   </svg>
+  {{- /* Still frame for visitors without JavaScript, laid over the svg. In a
+         noscript, so browsers running diagrams.js never download it. */}}
+  {{- with resources.Get (printf "images/diagrams/%s.svg" .scene) }}
+  <noscript><img class="diagram-fallback" src="{{ .Permalink }}" alt="" width="{{ $.width }}" height="{{ $.height }}"></noscript>
+  {{- end }}
   {{- if not .static }}
   <button type="button" class="diagram-toggle" aria-label="Pause animation: {{ .name }}" data-label="{{ .name }}" hidden>
     <i class="fas fa-pause" aria-hidden="true"></i>

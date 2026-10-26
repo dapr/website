@@ -39,7 +39,7 @@ test.describe('value-prop diagrams', () => {
       const res = await route.fetch();
       let html = await res.text();
       html = html.replace(/(<div class="diagram-frame value-prop-diagram-frame">\s*<svg class="value-prop-diagram" data-scene="[^"]+")/, '$1 data-static');
-      html = html.replace(/(data-static[\s\S]*?<\/svg>)\s*<button type="button" class="diagram-toggle"[\s\S]*?<\/button>/, '$1');
+      html = html.replace(/(data-static[\s\S]*?<\/svg>[\s\S]*?)<button type="button" class="diagram-toggle"[\s\S]*?<\/button>/, '$1');
       await route.fulfill({ response: res, body: html });
     });
     await page.emulateMedia({ reducedMotion: 'no-preference' });

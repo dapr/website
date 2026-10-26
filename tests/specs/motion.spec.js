@@ -99,6 +99,9 @@ test.describe('value-prop videos', () => {
   });
 });
 
+// Whether two boxes match to within a pixel (layout rounds to fractions of one).
+const sameBox = (a, b) => ['x', 'y', 'width', 'height'].every((k) => Math.abs(a[k] - b[k]) <= 1);
+
 // Positions of the diagram's pulses; any change means the animation advanced.
 const diagramFrame = (page) =>
   page.locator('.hero-diagram-svg circle').evaluateAll((cs) => cs.map((c) => c.getAttribute('cx')).join());
@@ -112,8 +115,13 @@ test.describe('hero diagram', () => {
     await expect(page.locator('.hero-diagram .diagram-toggle')).toBeVisible();
   });
 
-  test('replaces the static fallback once it draws', async ({ page }) => {
-    await expect(page.locator('.hero-diagram-fallback')).toHaveCount(0);
+  test('never downloads its static fallback', async ({ page }) => {
+    // the fallback is in a noscript, so a browser running the script skips it
+    const requested = [];
+    page.on('request', (r) => requested.push(r.url()));
+    await page.reload();
+    await expect(page.locator('.hero-diagram .diagram-toggle')).toBeVisible();
+    expect(requested.filter((u) => u.includes('dapr_hero_diagram.svg'))).toEqual([]);
   });
 
   test('animates on its own', async ({ page }) => {
@@ -154,9 +162,13 @@ test.describe('value-prop diagrams', () => {
     await page.goto('/');
   });
 
-  test('replace their static fallback once they draw', async ({ page }) => {
-    await expect(page.locator('.value-prop-diagram').first()).toBeAttached();
-    await expect(page.locator('.value-prop-diagram-frame .diagram-fallback')).toHaveCount(0);
+  test('never download their static fallbacks', async ({ page }) => {
+    // the fallbacks are in noscripts, so a browser running the script skips them
+    const requested = [];
+    page.on('request', (r) => requested.push(r.url()));
+    await page.reload();
+    await expect(page.locator('svg[data-scene] > g').first()).toBeAttached();
+    expect(requested.filter((u) => u.includes('/images/diagrams/'))).toEqual([]);
   });
 
   test('animate, and each toggle pauses and resumes its diagram', async ({ page }) => {
@@ -197,20 +209,24 @@ test.describe('hero diagram without JavaScript', () => {
     await preparePage(page);
     await page.goto('/');
     const fallback = page.locator('.hero-diagram-fallback');
-    await expect(fallback).toBeAttached();
-    const src = await fallback.getAttribute('href');
-    expect((await page.request.get(src)).ok()).toBe(true);
+    await expect(fallback).toBeVisible();
+    expect((await page.request.get(await fallback.getAttribute('src'))).ok()).toBe(true);
+    // laid over the svg's box
+    expect(sameBox(await fallback.boundingBox(), await page.locator('.hero-diagram-svg').boundingBox())).toBe(true);
     await expect(page.locator('.hero-diagram .diagram-toggle')).toBeHidden();
   });
 
-  test('value-prop diagrams show their static fallback and no pause control', async ({ page }) => {
+  test('2D diagrams show their static fallback and no pause control', async ({ page }) => {
     await preparePage(page);
     await page.goto('/');
-    const frames = page.locator('.value-prop-diagram-frame');
+    const frames = page.locator('.diagram-frame');
+    expect(await frames.count()).toBeGreaterThan(0);
     for (let i = 0; i < (await frames.count()); i++) {
       const fallback = frames.nth(i).locator('.diagram-fallback');
-      await expect(fallback).toBeAttached();
-      expect((await page.request.get(await fallback.getAttribute('href'))).ok()).toBe(true);
+      await expect(fallback).toBeVisible();
+      expect((await page.request.get(await fallback.getAttribute('src'))).ok()).toBe(true);
+      // laid over the svg's box
+      expect(sameBox(await fallback.boundingBox(), await frames.nth(i).locator('svg[data-scene]').boundingBox())).toBe(true);
       await expect(frames.nth(i).locator('.diagram-toggle')).toBeHidden();
     }
   });

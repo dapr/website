@@ -257,6 +257,15 @@ svg.apis-diagram {
 .diagram-frame {
     position: relative;
 }
+/* a diagram's still frame without JavaScript (in a noscript), laid over its svg */
+.diagram-frame noscript img,
+.hero-diagram noscript img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 /* holds <symbol>s only */
 .svg-symbols {
     position: absolute;
