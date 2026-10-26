@@ -35,6 +35,8 @@ try {
       const el = src.cloneNode(true);
       el.querySelector('.hero-diagram-fallback, .value-prop-diagram-fallback')?.remove();
       for (const a of ['class', 'role', 'aria-labelledby', 'data-scene']) el.removeAttribute(a);
+      // drop what the still frame does not show (and, below, the symbols only it used)
+      for (const hidden of el.querySelectorAll('[opacity="0"]')) hidden.remove();
       // copy in symbols the drawing uses from elsewhere on the page
       let defs = el.querySelector('defs');
       for (const use of el.querySelectorAll('use')) {

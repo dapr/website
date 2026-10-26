@@ -15,12 +15,23 @@
   // colors of the original value-prop videos
   var C = {
     navy: '#1D168E', teal: '#4EA4AF', tealFill: '#D3E6E6', mint: '#1AF7A2', mintFill: '#CAF7E6',
-    yellow: '#E9D30A', yellowFill: '#FAF6CB', rabbit: '#EE5D04', black: '#000000'
+    yellow: '#E9D30A', yellowFill: '#FAF6CB', orange: '#F03E00', orangeFill: '#FACCBE',
+    red: '#EE0000', blue: '#45AEEE', lavender: '#C2C0FB', grey: '#303030', caption: '#747474',
+    rabbit: '#EE5D04', redis: '#C41922', black: '#000000', bg: '#FDFDFD'
   };
 
   function inOut(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
   // progress of a step that runs from a to b seconds, eased, clamped to 0..1
   function step(t, a, b) { return inOut(Math.max(0, Math.min(1, (t - a) / (b - a)))); }
+  // a color between two #RRGGBB colors
+  function mix(a, b, u) {
+    var out = '#';
+    for (var i = 1; i < 7; i += 2) {
+      var x = parseInt(a.substr(i, 2), 16), y = parseInt(b.substr(i, 2), 16);
+      out += ('0' + Math.round(x + (y - x) * u).toString(16)).slice(-2);
+    }
+    return out;
+  }
 
   // pointy-top hexagon
   function hexPoints(x, y, r) {
@@ -36,12 +47,23 @@
 
   function group(parent) { return parent.append('g'); }
 
+  // text centered on x; "\n" starts a new line below
+  function label(parent, x, y, str, o) {
+    o = o || {};
+    var size = o.size || 11, t = parent.append('text').attr('x', x).attr('y', y).attr('text-anchor', 'middle')
+      .attr('font-size', size).attr('font-weight', o.weight || 600).attr('fill', o.color || C.black);
+    if (o.halo) t.attr('paint-order', 'stroke').attr('stroke', C.bg).attr('stroke-width', 4).attr('stroke-linejoin', 'round');
+    String(str).split('\n').forEach(function (line, i) {
+      t.append('tspan').attr('x', x).attr('dy', i ? size * 1.25 : 0).text(line);
+    });
+    return t;
+  }
+
   function hex(parent, o) {
-    var g = parent.append('g');
-    g.append('polygon').attr('points', hexPoints(o.x, o.y, o.r || 42.5))
+    var g = parent.append('g'), r = o.r || 42.5;
+    g.append('polygon').attr('points', hexPoints(o.x, o.y, r))
       .attr('fill', o.fill).attr('fill-opacity', 0.6).attr('stroke', o.stroke).attr('stroke-width', 2.2);
-    g.append('text').attr('x', o.x).attr('y', o.y + 5).attr('text-anchor', 'middle')
-      .attr('font-size', 14).attr('font-weight', 600).attr('fill', C.black).text(o.label || 'App');
+    label(g, o.x + (o.labelDx || 0), o.y + r * 0.12, o.label || 'App', { size: o.size || r / 3, weight: 600 });
     return g;
   }
 
@@ -52,6 +74,32 @@
       .attr('fill', '#fff').attr('stroke', C.navy).attr('stroke-width', 2.2);
     g.append('use').attr('href', '#value-prop-dapr-logo')
       .attr('x', o.x - w / 2).attr('y', o.y - h / 2 + 1).attr('width', w).attr('height', h);
+    return g;
+  }
+
+  // an app with its Dapr badge; the badge sits bottom right, or bottom left
+  function daprApp(parent, o) {
+    var g = parent.append('g'), r = o.r || 42.5, side = o.badgeLeft ? -1 : 1;
+    hex(g, { x: o.x, y: o.y, r: r, stroke: o.stroke, fill: o.fill, labelDx: o.badgeLeft ? r * 0.15 : -r * 0.1 });
+    badge(g, { x: o.x + side * r * 0.85, y: o.y + r * 0.2, r: r * 0.45 });
+    return g;
+  }
+
+  // a workflow activity
+  function box(parent, o) {
+    var g = parent.append('g');
+    g.append('rect').attr('x', o.x - o.w / 2).attr('y', o.y - o.h / 2).attr('width', o.w).attr('height', o.h)
+      .attr('fill', C.tealFill).attr('fill-opacity', 0.6).attr('stroke', C.teal).attr('stroke-width', 2.2);
+    label(g, o.x, o.y + 4, o.label);
+    return g;
+  }
+
+  // a workflow start or end
+  function node(parent, o) {
+    var g = parent.append('g');
+    g.append('circle').attr('cx', o.x).attr('cy', o.y).attr('r', o.r)
+      .attr('fill', 'none').attr('stroke', o.stroke).attr('stroke-width', 2.6);
+    label(g, o.x, o.y + o.labelDy, o.label);
     return g;
   }
 
@@ -67,30 +115,123 @@
     return g;
   }
 
-  // a brand mark symbol, centered on x,y, with a label under it
+  // a message: an envelope, w wide, with an optional label
+  function envelope(parent, o) {
+    var w = o.w || 35, h = w * 0.76, x = o.x - w / 2, y = o.y - h / 2, g = parent.append('g');
+    g.append('rect').attr('x', x).attr('y', y).attr('width', w).attr('height', h).attr('rx', w * 0.12)
+      .attr('fill', o.fill || 'none').attr('stroke', o.color || C.grey).attr('stroke-width', o.stroke || 2.4);
+    g.append('polyline').attr('points', [x + w * 0.12, y + h * 0.22, o.x, y + h * 0.58, x + w * 0.88, y + h * 0.22].join(' '))
+      .attr('fill', 'none').attr('stroke', o.color || C.grey).attr('stroke-width', o.stroke || 2.4);
+    if (o.label) label(g, o.x, o.y + o.labelDy, o.label);
+    return g;
+  }
+
+  // a message broker: two stacked envelopes
+  function broker(parent, o) {
+    var g = parent.append('g'), w = o.w || 46;
+    envelope(g, { x: o.x - w * 0.12, y: o.y + w * 0.1, w: w, color: C.black, stroke: 3, fill: C.bg });
+    envelope(g, { x: o.x, y: o.y, w: w, color: C.black, stroke: 3, fill: C.bg });
+    label(g, o.x, o.y + o.labelDy, o.label, { size: 13, weight: 700 });
+    return g;
+  }
+
+  // a secret store: a padlock in a rounded square
+  function lockBox(parent, o) {
+    var s = o.size, x = o.x, y = o.y, g = parent.append('g').attr('stroke', C.teal).attr('stroke-width', 2.2);
+    g.append('rect').attr('x', x - s / 2).attr('y', y - s / 2).attr('width', s).attr('height', s).attr('rx', s * 0.12)
+      .attr('fill', C.tealFill).attr('fill-opacity', 0.6);
+    g.append('path').attr('d', 'M' + (x - s * 0.13) + ' ' + (y - s * 0.02) + 'V' + (y - s * 0.13) +
+      'A' + s * 0.13 + ' ' + s * 0.13 + ' 0 0 1 ' + (x + s * 0.13) + ' ' + (y - s * 0.13) + 'V' + (y - s * 0.02)).attr('fill', 'none');
+    g.append('rect').attr('x', x - s * 0.22).attr('y', y - s * 0.02).attr('width', s * 0.44).attr('height', s * 0.3)
+      .attr('rx', s * 0.05).attr('fill', 'none');
+    g.append('circle').attr('cx', x).attr('cy', y + s * 0.13).attr('r', s * 0.035).attr('fill', C.teal);
+    return g;
+  }
+
+  // a person, for an external system
+  function person(parent, o) {
+    var s = o.size, x = o.x, y = o.y, g = parent.append('g')
+      .attr('fill', C.lavender).attr('fill-opacity', 0.8).attr('stroke', C.navy).attr('stroke-width', 2.4);
+    g.append('path').attr('d', 'M' + (x - s * 0.48) + ' ' + (y + s * 0.5) + 'V' + (y + s * 0.38) +
+      'C' + (x - s * 0.48) + ' ' + (y + s * 0.1) + ' ' + (x - s * 0.3) + ' ' + y + ' ' + x + ' ' + y +
+      'C' + (x + s * 0.3) + ' ' + y + ' ' + (x + s * 0.48) + ' ' + (y + s * 0.1) + ' ' + (x + s * 0.48) + ' ' + (y + s * 0.38) +
+      'V' + (y + s * 0.5) + 'Z');
+    g.append('circle').attr('cx', x).attr('cy', y - s * 0.22).attr('r', s * 0.25);
+    return g;
+  }
+
+  // secure service communication: a padlock with a shield
+  function secureLock(parent, o) {
+    var s = o.size, x = o.x, y = o.y, g = parent.append('g').attr('stroke', C.blue).attr('stroke-width', 2);
+    g.append('path').attr('d', 'M' + (x - s * 0.3) + ' ' + (y - s * 0.05) + 'V' + (y - s * 0.22) +
+      'A' + s * 0.18 + ' ' + s * 0.18 + ' 0 0 1 ' + (x + s * 0.06) + ' ' + (y - s * 0.22) + 'V' + (y - s * 0.05)).attr('fill', 'none');
+    g.append('rect').attr('x', x - s * 0.45).attr('y', y - s * 0.05).attr('width', s * 0.66).attr('height', s * 0.48)
+      .attr('rx', s * 0.07).attr('fill', 'none');
+    g.append('circle').attr('cx', x - s * 0.18).attr('cy', y + s * 0.18).attr('r', s * 0.04).attr('fill', C.blue);
+    g.append('path').attr('d', 'M' + (x + s * 0.3) + ' ' + (y + s * 0.02) + 'L' + (x + s * 0.5) + ' ' + (y + s * 0.09) +
+      'V' + (y + s * 0.25) + 'C' + (x + s * 0.5) + ' ' + (y + s * 0.38) + ' ' + (x + s * 0.4) + ' ' + (y + s * 0.45) + ' ' +
+      (x + s * 0.3) + ' ' + (y + s * 0.5) + 'C' + (x + s * 0.2) + ' ' + (y + s * 0.45) + ' ' + (x + s * 0.1) + ' ' + (y + s * 0.38) + ' ' +
+      (x + s * 0.1) + ' ' + (y + s * 0.25) + 'V' + (y + s * 0.09) + 'Z').attr('fill', C.blue).attr('stroke', 'none');
+    if (o.label) label(g, x, y + o.labelDy, o.label, { size: 11.5 }).attr('stroke', 'none');
+    return g;
+  }
+
+  // a resiliency policy: two circling arrows behind the word "Resiliency"
+  function retry(parent, o) {
+    var r = o.r || 13, x = o.x, y = o.y, g = parent.append('g');
+    var arcs = g.append('g').attr('fill', 'none').attr('stroke', C.blue).attr('stroke-width', 2.2);
+    [[-160, -20], [20, 160]].forEach(function (span) {
+      var a0 = span[0] * Math.PI / 180, a1 = span[1] * Math.PI / 180;
+      var x1 = x + r * Math.cos(a1), y1 = y + r * Math.sin(a1);
+      arcs.append('path').attr('d', 'M' + (x + r * Math.cos(a0)) + ' ' + (y + r * Math.sin(a0)) + 'A' + r + ' ' + r + ' 0 0 1 ' + x1 + ' ' + y1);
+      // arrowhead at the end of the arc, pointing along it
+      var t = a1 + Math.PI / 2, k = r * 0.38;
+      arcs.append('polyline').attr('points', [
+        x1 - k * Math.cos(t - 0.6), y1 - k * Math.sin(t - 0.6), x1, y1, x1 - k * Math.cos(t + 0.6), y1 - k * Math.sin(t + 0.6)
+      ].join(' '));
+    });
+    label(g, x, y + 4, 'Resiliency', { size: 11.5, halo: true });
+    return g;
+  }
+
+  // a failed call: a cross in a circle
+  function failure(parent, o) {
+    var r = o.r || 9, x = o.x, y = o.y, g = parent.append('g');
+    g.append('circle').attr('cx', x).attr('cy', y).attr('r', r)
+      .attr('fill', C.orangeFill).attr('stroke', C.orange).attr('stroke-width', 2.4);
+    g.append('path').attr('d', 'M' + (x - r * 0.38) + ' ' + (y - r * 0.38) + 'L' + (x + r * 0.38) + ' ' + (y + r * 0.38) +
+      'M' + (x + r * 0.38) + ' ' + (y - r * 0.38) + 'L' + (x - r * 0.38) + ' ' + (y + r * 0.38))
+      .attr('stroke', C.orange).attr('stroke-width', 2.4);
+    return g;
+  }
+
+  // a brand mark symbol (assets/images/icons/<name>.svg), centered on x,y, with a label under it
   function icon(parent, o) {
     var g = parent.append('g');
-    g.append('use').attr('href', '#value-prop-icon-' + o.name).attr('fill', o.color)
+    g.append('use').attr('href', '#value-prop-icon-' + o.name).attr('fill', o.color || C.black)
       .attr('x', o.x - o.size / 2).attr('y', o.y - o.size / 2).attr('width', o.size).attr('height', o.size);
-    g.append('text').attr('x', o.x).attr('y', o.y + o.labelDy).attr('text-anchor', 'middle')
-      .attr('font-size', 13).attr('font-weight', 700).attr('fill', C.black).text(o.label);
+    label(g, o.x, o.y + o.labelDy, o.label, { size: o.labelSize || 13, weight: 700 });
     return g;
   }
 
   // An arrow from a to b with an open head. Returns grow(p, o): draws it at
   // fraction p of its length and opacity o. It fades in over the first part of
-  // its growth, so the head does not pop in.
-  function arrow(parent, a, b) {
+  // its growth, so the head does not pop in. grow.paint(color) recolors it, and
+  // grow.head(o) sets the opacity of its head ({ head: false } starts without one).
+  function arrow(parent, a, b, opts) {
+    opts = opts || {};
     var g = parent.append('g').attr('stroke', C.navy).attr('stroke-width', 2).attr('fill', 'none');
     var line = g.append('line').attr('x1', a[0]).attr('y1', a[1]);
-    var tip = g.append('polyline').attr('points', '-8,-8 0,0 -8,8');
+    var tip = g.append('polyline').attr('points', '-8,-8 0,0 -8,8').attr('opacity', opts.head === false ? 0 : 1);
     var ang = Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI;
     function grow(p, o) {
-      var x = a[0] + (b[0] - a[0]) * p, y = a[1] + (b[1] - a[1]) * p, f = Math.min(1, p / 0.4);
+      var x = a[0] + (b[0] - a[0]) * p, y = a[1] + (b[1] - a[1]) * p, f = Math.min(1, p / 0.6);
       line.attr('x2', x).attr('y2', y);
       tip.attr('transform', 'translate(' + x + ',' + y + ') rotate(' + ang + ')');
       g.attr('opacity', f * f * (3 - 2 * f) * (o === undefined ? 1 : o));
     }
+    grow.paint = function (c) { g.attr('stroke', c); };
+    grow.head = function (o) { tip.attr('opacity', o); };
     grow(1);
     return grow;
   }
@@ -148,6 +289,190 @@
           yellowApp.attr('opacity', step(t, 3.9, 4.35) * out);
           yellowToRabbit(step(t, 4.65, 5.15), out);
           rabbit.attr('opacity', step(t, 5.23, 5.73) * out);
+        };
+      }
+    },
+
+    /* "Durable execution for your business processes", after the old
+       1_automate.mp4 (306 frames at 24 fps). A workflow builds up step by step:
+       a pub/sub message starts it, activities call the Secrets API, wait for an
+       external event, invoke an app and write key/value state, and completion
+       publishes a message. Same steps and times as the video (shifted 0.3s), eased;
+       the loop fades everything out instead of a hard cut. */
+    automate: {
+      T: 14,
+      still: 13,
+      build: function (root) {
+        var X = 295.5, W = 194, H = 30;
+        var d = group(root);
+        var steps = [];
+        // each entry fades in (or grows, for arrows) over [a, b] seconds
+        function at(a, b, el) { steps.push({ a: a, b: b, el: el }); return el; }
+
+        at(0.3, 0.55, envelope(d, { x: 179, y: 61, label: 'Pub/Sub\nMessage', labelDy: -40 }));
+        at(1.3, 1.63, arrow(d, [198.5, 61], [276, 61]));
+        at(1.8, 2.05, node(d, { x: X, y: 61, r: 18.5, stroke: C.mint, label: 'Workflow/ Start', labelDy: -26 }));
+        at(2.13, 2.43, arrow(d, [X, 80], [X, 109]));
+        at(2.63, 2.93, box(d, { x: X, y: 126, w: W, h: H, label: 'Activity 1' }));
+        at(3.4, 3.95, arrow(d, [393.5, 126], [507, 126]));
+        at(3.4, 3.95, label(d, 451, 115.5, 'Secrets API'));
+        at(4.05, 4.35, lockBox(d, { x: 533.5, y: 126, size: 46 }));
+        at(4.55, 4.9, arrow(d, [X, 141.5], [X, 174]));
+        at(4.95, 5.2, box(d, { x: X, y: 191, w: W, h: H, label: 'Wait for event' }));
+        at(5.4, 5.7, person(d, { x: 73, y: 192, size: 44 }));
+        at(5.85, 6.2, arrow(d, [99, 191], [196.5, 191]));
+        at(5.85, 6.2, label(d, 140, 180, 'External System'));
+        at(6.9, 7.2, arrow(d, [X, 206.5], [X, 239.5]));
+        at(7.25, 7.55, box(d, { x: X, y: 257, w: W, h: H, label: 'Activity 2' }));
+        at(7.6, 8.0, arrow(d, [393.5, 257], [502, 257]));
+        at(7.6, 8.0, label(d, 453, 231, 'Service\nInvocation'));
+        at(8.05, 8.35, hex(d, { x: 536, y: 257, r: 32, stroke: C.orange, fill: C.orangeFill, size: 11.5 }));
+        at(8.6, 8.9, arrow(d, [X, 272.5], [X, 302]));
+        at(8.95, 9.25, box(d, { x: X, y: 319.5, w: W, h: H, label: 'Activity 3' }));
+        at(9.9, 10.25, arrow(d, [197.5, 319.5], [98.5, 319.5]));
+        at(9.9, 10.25, label(d, 149.5, 309, 'Key/Value'));
+        at(10.25, 10.55, cylinder(d, { x: 73, top: 302, bottom: 336, rx: 22, ry: 8 }));
+        at(10.75, 11.05, arrow(d, [X, 335], [X, 366.5]));
+        at(11.1, 11.4, node(d, { x: X, y: 387.5, r: 18.5, stroke: C.orange, label: 'Workflow/ Complete', labelDy: 35 }));
+        at(11.45, 11.85, arrow(d, [314, 387.5], [394, 387.5]));
+        at(12.05, 12.35, envelope(d, { x: 414, y: 388, label: 'Pub/Sub\nMessage', labelDy: 33 }));
+
+        return function (t) {
+          var out = 1 - step(t, 13.1, 13.7);
+          steps.forEach(function (s) {
+            var u = step(t, s.a, s.b);
+            if (typeof s.el === 'function') s.el(u, out);
+            else s.el.attr('opacity', u * out);
+          });
+        };
+      }
+    },
+
+    /* "Secure and resilient by default", after the old 2_best_practices.mp4
+       (336 frames at 24 fps, fitted from 2200x1536 into 600x480). Three calls fail
+       (red, with a cross), a resiliency policy retries them (green) and they go
+       through (navy). Same steps and times as the video (shifted 0.4s), eased;
+       colors blend instead of switching, and the loop fades the calls out. */
+    secure: {
+      T: 15.2,
+      still: 14,
+      build: function (root) {
+        var Y = 249.5, d = group(root);
+        daprApp(d, { x: 70.5, y: 243, r: 32, stroke: C.mint, fill: C.mintFill });
+        daprApp(d, { x: 316.5, y: 243, r: 32, stroke: C.orange, fill: C.orangeFill });
+        broker(d, { x: 513, y: 247, label: 'Message Broker', labelDy: 42 });
+        daprApp(d, { x: 510.5, y: 103, r: 32, stroke: C.mint, fill: C.mintFill, badgeLeft: true });
+        daprApp(d, { x: 510.5, y: 368, r: 32, stroke: C.yellow, fill: C.yellowFill, badgeLeft: true });
+
+        // A call that fails, is retried, and goes through: `before` grows with a
+        // head and turns red with a cross; then it turns green, loses its head and
+        // the retry appears; then it turns navy and `after` grows to the target.
+        // Lines in `also` lead up to `before` and change color with it.
+        function call(before, mid, after, times, also) {
+          var line = arrow(d, before[0], before[1]);
+          var cross = failure(d, { x: mid[0], y: mid[1] });
+          var policy = retry(d, { x: mid[0], y: mid[1] });
+          var rest = arrow(d, after[0], after[1]);
+          return function (t, out) {
+            var red = step(t, times.fail, times.fail + 0.3), green = step(t, times.retry, times.retry + 0.3);
+            var navy = step(t, times.done, times.done + 0.2);
+            line(step(t, times.grow, times.grow + 0.45), out);
+            var color = mix(mix(mix(C.navy, C.red, red), C.mint, green), C.navy, navy);
+            line.paint(color);
+            (also || []).forEach(function (l) { l.paint(color); });
+            line.head(1 - green);
+            cross.attr('opacity', (red - step(t, times.retry - 0.15, times.retry + 0.05)) * out);
+            policy.attr('opacity', step(t, times.retry + 0.15, times.retry + 0.35) * out);
+            rest(step(t, times.done + 0.3, times.done + 0.7), out);
+          };
+        }
+
+        var first = arrow(d, [111.5, Y], [140.5, Y], { head: false });
+        var lock = secureLock(d, { x: 156.5, y: 247, size: 28, label: 'Secure Service\nCommunication', labelDy: 29 });
+        var calls = [
+          call([[173.5, Y], [206, Y]], [232.5, 247], [[260.5, Y], [288.5, Y]], { grow: 2.57, fail: 3.23, retry: 3.9, done: 4.4 }, [first]),
+          call([[357.5, Y], [386, Y]], [412.5, Y], [[442, Y], [480, Y]], { grow: 5.5, fail: 6.23, retry: 7.4, done: 8.2 }),
+          call([[511, 215.5], [511, 193]], [511, 176], [[511, 159.5], [511, 136]], { grow: 10.0, fail: 10.57, retry: 11.73, done: 12.2 })
+        ];
+        var down = arrow(d, [510.5, 304.5], [510.5, 334]);
+
+        return function (t) {
+          var out = 1 - step(t, 14.4, 14.9);
+          first(step(t, 1.4, 1.65), out);
+          lock.attr('opacity', step(t, 1.73, 2.0) * out);
+          calls.forEach(function (c) { c(t, out); });
+          down(step(t, 10.0, 10.4), out);
+        };
+      }
+    },
+
+    /* "Integrate with the infrastructure of your choice", after the old
+       3_integrate.mp4 (199 frames at 24 fps). The same app, built on Azure, then
+       on AWS, Google Cloud and on-premises: only the components change. Each
+       platform slides in and crossfades, as in the video; platforms are named in
+       text instead of with company logos. */
+    integrate: {
+      T: 9.8,
+      still: 4,
+      build: function (root) {
+        var platforms = [
+          { caption: 'Microsoft Azure', broker: ['azure-service-bus', 'Azure Service Bus', 60], secrets: ['azure-key-vault', 'Azure Key Vault', 60], db: ['azure-cosmos-db', 'Azure Cosmos DB', 60] },
+          { caption: 'AWS', broker: ['amazon-sns', 'Amazon Simple\nNotification Service', 50], secrets: ['aws-kms', 'AWS Key\nManagement Service', 50], db: ['amazon-dynamodb', 'Amazon\nDynamoDB', 50] },
+          { caption: 'Google Cloud', broker: ['google-cloud-pubsub', 'Google Cloud\nPub/Sub', 58], secrets: ['google-cloud-secret-manager', 'Google Cloud\nSecret Manager', 58], db: ['google-cloud-firestore', 'Google Cloud\nFirestore', 58] },
+          { caption: 'On-Prem', broker: ['rabbitmq', 'RabbitMQ', 36, C.rabbit], secrets: ['hashicorp-vault', 'HashiCorp Vault', 38, C.black], db: ['redis', 'Redis', 40, C.redis] }
+        ];
+
+        // one complete diagram per platform; returns its parts so the first can build up
+        function diagram(p) {
+          var g = group(root), parts = {};
+          function mark(spec, x, y) {
+            return icon(g, { name: spec[0], x: x, y: y, size: spec[2], color: spec[3], label: spec[1], labelDy: spec[2] / 2 + 15 });
+          }
+          parts.app = daprApp(g, { x: 66.5, y: 207.5, stroke: C.orange, fill: C.orangeFill });
+          parts.caption = label(g, 293.5, 380, p.caption, { size: 16, weight: 600, color: C.caption });
+          parts.toBroker = arrow(g, [120, 207.5], [163, 207.5]);
+          parts.toSecrets = arrow(g, [66.5, 250], [66.5, 296]);
+          parts.broker = mark(p.broker, 201.5, 205);
+          parts.secrets = mark(p.secrets, 66.5, 331);
+          parts.fan = arrow(g, [234, 207.5], [292.5, 207.5], { head: false });
+          parts.fanUp = arrow(g, [292.5, 207.5], [292.5, 162.5], { head: false });
+          parts.fanDown = arrow(g, [292.5, 207.5], [292.5, 253.5], { head: false });
+          parts.toTop = arrow(g, [292.5, 162.5], [352, 162.5]);
+          parts.toBottom = arrow(g, [292.5, 253.5], [352, 253.5]);
+          parts.apps = group(g);
+          daprApp(parts.apps, { x: 395, y: 159, stroke: C.teal, fill: C.tealFill });
+          daprApp(parts.apps, { x: 395, y: 257, stroke: C.mint, fill: C.mintFill });
+          parts.toDb = arrow(g, [448, 255.5], [497, 255.5]);
+          parts.db = mark(p.db, 534, 250);
+          parts.g = g;
+          return parts;
+        }
+        var views = platforms.map(diagram);
+        var first = views[0];
+        // [slide in, slide out] times per platform, after the first has built up
+        var shown = [[0, 4.3], [4.4, 5.9], [6.0, 7.5], [7.6, 9.1]];
+
+        return function (t) {
+          views.forEach(function (v, i) {
+            var inn = i ? step(t, shown[i][0], shown[i][0] + 0.3) : 1;
+            var gone = step(t, shown[i][1], shown[i][1] + 0.3);
+            var x = 50 * (1 - inn) - 50 * gone;
+            v.g.attr('transform', 'translate(' + x.toFixed(2) + ',0)').attr('opacity', inn * (1 - gone));
+          });
+          first.app.attr('opacity', step(t, 0.45, 0.75));
+          first.caption.attr('opacity', step(t, 0.45, 0.75));
+          first.toBroker(step(t, 1.05, 1.4));
+          first.toSecrets(step(t, 1.05, 1.4));
+          first.broker.attr('opacity', step(t, 1.35, 1.65));
+          first.secrets.attr('opacity', step(t, 1.35, 1.65));
+          first.fan(step(t, 1.75, 2.0));
+          first.fanUp(step(t, 1.95, 2.1));
+          first.fanDown(step(t, 1.95, 2.1));
+          first.toTop(step(t, 2.05, 2.35));
+          first.toBottom(step(t, 2.05, 2.35));
+          first.apps.attr('opacity', step(t, 2.3, 2.6));
+          first.toDb(step(t, 3.05, 3.35));
+          first.db.attr('opacity', step(t, 3.3, 3.6));
         };
       }
     }

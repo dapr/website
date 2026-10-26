@@ -2,16 +2,27 @@
 {{ with site.Data.homepage.values }}
 <section class="bg-grey">
 {{- /* Symbols for the value-prop diagrams (assets/js/value-props.js): the Dapr logo,
-       and one per brand mark in assets/images/icons/ (Simple Icons, CC0, 24x24),
-       read from their files at build time. */}}
+       and one per brand mark in assets/images/icons/ (sources and terms in its
+       README.md), read from their files at build time. */}}
 {{- if where .feature_item "diagram" "!=" nil }}
 {{- $logo := readFile "static/images/dapr.svg" }}
 {{- $logo = index (findRE `(?s)<g id="Artboard".*</g>` $logo) 0 | replaceRE ` id="[^"]*"` "" }}
 <svg class="svg-symbols" aria-hidden="true" focusable="false">
   <symbol id="value-prop-dapr-logo" viewBox="0 0 367 270">{{ $logo | safeHTML }}</symbol>
   {{- range readDir "assets/images/icons" }}
-  {{- $icon := readFile (printf "assets/images/icons/%s" .Name) }}
-  <symbol id="value-prop-icon-{{ strings.TrimSuffix ".svg" .Name }}" viewBox="0 0 24 24"><path d="{{ index (findRESubmatch ` d="([^"]+)"` $icon 1) 0 1 }}"/></symbol>
+  {{- if strings.HasSuffix .Name ".svg" }}
+  {{- $name := strings.TrimSuffix ".svg" .Name }}
+  {{- $svg := readFile (printf "assets/images/icons/%s" .Name) }}
+  {{- $viewBox := index (findRESubmatch `viewBox="([^"]+)"` $svg 1) 0 1 }}
+  {{- /* the file's contents, with its ids and classes prefixed so they cannot clash on the page */}}
+  {{- $inner := replaceRE `(?s)^.*?<svg[^>]*>(.*)</svg>\s*$` "$1" $svg }}
+  {{- $inner = replaceRE `(?s)<title>.*?</title>` "" $inner }}
+  {{- $inner = replaceRE ` id="([^"]+)"` (printf ` id="icon-%s-$1"` $name) $inner }}
+  {{- $inner = replaceRE `url\(#([^)]+)\)` (printf `url(#icon-%s-$1)` $name) $inner }}
+  {{- $inner = replaceRE `href="#([^"]+)"` (printf `href="#icon-%s-$1"` $name) $inner }}
+  {{- $inner = replaceRE `\bcls-(\d+)` (printf `icon-%s-cls-$1` $name) $inner }}
+  <symbol id="value-prop-icon-{{ $name }}" viewBox="{{ $viewBox }}">{{ $inner | safeHTML }}</symbol>
+  {{- end }}
   {{- end }}
 </svg>
 {{- end }}

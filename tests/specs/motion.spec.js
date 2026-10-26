@@ -61,6 +61,8 @@ test.describe('value-prop videos', () => {
   test.beforeEach(async ({ page }) => {
     await preparePage(page);
     await page.goto('/');
+    // the homepage videos are all D3 diagrams now; these guard any video added back
+    test.skip((await page.locator('.value-prop-video-frame').count()) === 0, 'no value-prop videos on the page');
   });
 
   test('autoplay, and each toggle pauses and resumes its video', async ({ page }) => {
