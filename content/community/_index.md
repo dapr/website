@@ -37,7 +37,7 @@ community:
   - logo : "images/community/dapr-presentation.png"
     alt: "Dapr Presentation"
     title: "Give a Dapr presentation"
-    summary: "There are many Dapr enthusiasts who give presentations at local meetups, global conferences, or interally at work. Dapr provides a complete PowerPoint slide deck that can be used for this purpose. Use this deck as a starting point and customize it to your needs. visit the Dapr docs to download the slide deck. Claim the [Dapr presenter badge](https://github.com/dapr/community/tree/master/presentations) once you've given a Dapr presentation!"
+    summary: "There are many Dapr enthusiasts who give presentations at local meetups, global conferences, or internally at work. Dapr provides a complete PowerPoint slide deck that can be used for this purpose. Use this deck as a starting point and customize it to your needs. Visit the Dapr docs to download the slide deck. Claim the [Dapr presenter badge](https://github.com/dapr/community/tree/master/presentations) once you've given a Dapr presentation!"
     cta :
       enable : true
       label : "Download the Dapr slide deck"
@@ -64,7 +64,7 @@ community:
   - logo : "images/community/youtube-logo.png"
     alt: "Dapr YouTube"
     title: "Subscribe to the Dapr YouTube channel"
-    summary: "The Dapr YouTube channels contains all the recordings of Dapr Community Calls, Dapr Day sessions, and other Dapr related content such as a playlist of video's created by the community. Make sure to subscribe to the channel to stay up to date with the latest Dapr video content and watch our monthly live streams there."
+    summary: "The Dapr YouTube channel contains all the recordings of Dapr Community Calls, Dapr Day sessions, and other Dapr related content such as a playlist of videos created by the community. Make sure to subscribe to the channel to stay up to date with the latest Dapr video content and watch our monthly live streams there."
     cta :
       enable : true
       label : "Go to the Dapr YouTube channel"
