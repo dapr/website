@@ -21,7 +21,7 @@ const QUESTIONS = [
 ];
 
 const CORE_MESSAGE =
-  'Dapr is the durable execution engine for workflows and AI agents. It provides APIs for building event-driven architectures.';
+  'Dapr is the durable execution runtime for workflows and AI agents. It provides APIs for building event-driven architectures.';
 
 // The only entries allowed a non-docs source, each pinned to its question.
 // Commercial support points to /enterprise/. The license and CNCF status are

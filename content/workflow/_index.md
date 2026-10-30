@@ -1,7 +1,7 @@
 ---
 title: "Durable Workflows for Distributed Applications"
 description: "Dapr Workflow: durable, verifiable execution for long-running processes with retries, timers, human approvals, and sagas, without operating a workflow engine."
-intro: "Dapr Workflow is a durable execution engine: you write workflows as ordinary code, and Dapr persists each completed step so a workflow resumes after a crash, restart, or redeployment."
+intro: "Dapr Workflow gives you durable execution: you write workflows as ordinary code, and Dapr persists each completed step so a workflow resumes after a crash, restart, or redeployment."
 meta_keywords: "dapr workflow, durable workflows, durable execution, verifiable execution, workflow history signing, saga pattern, workflow engine, workflow orchestration, long-running processes, human-in-the-loop"
 draft: false
 

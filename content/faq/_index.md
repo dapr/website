@@ -17,7 +17,7 @@ intro: "Short answers to common questions about Dapr, with links to the Dapr doc
 faq:
 
   - question: "What is Dapr?"
-    answer: "Dapr is the durable execution engine for workflows and AI agents. It provides APIs for building event-driven architectures. Each Dapr building block, such as workflows, service invocation, publish and subscribe, or state management, is an HTTP or gRPC API that your code calls and that uses one or more Dapr components."
+    answer: "Dapr is the durable execution runtime for workflows and AI agents. It provides APIs for building event-driven architectures. Each Dapr building block, such as workflows, service invocation, publish and subscribe, or state management, is an HTTP or gRPC API that your code calls and that uses one or more Dapr components."
     source: "https://docs.dapr.io/concepts/building-blocks-concept/"
     link:
       label: "Learn about the building blocks"
@@ -31,7 +31,7 @@ faq:
       url: "https://docs.dapr.io/concepts/"
 
   - question: "Is Dapr a workflow engine?"
-    answer: "Dapr includes one: Dapr Workflow is a durable execution engine, and you write workflow logic as ordinary code with a Dapr SDK. Dapr persists the result of each completed step and resumes the workflow from the last completed step after a crash, a restart, or a redeployment. Workflows can also orchestrate other Dapr building blocks, such as service invocation, pub/sub, state management, and bindings."
+    answer: "Dapr includes one: Dapr Workflow gives you durable execution, and you write workflow logic as ordinary code with a Dapr SDK. Dapr persists the result of each completed step and resumes the workflow from the last completed step after a crash, a restart, or a redeployment. Workflows can also orchestrate other Dapr building blocks, such as service invocation, pub/sub, state management, and bindings."
     source: "https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-overview/"
     link:
       label: "Read the workflow overview"
