@@ -165,14 +165,14 @@ adopters:
 useCases:
   enable: true
   title: "What you can build"
-  content: "Durable execution means every step of your application's work is checkpointed as it runs. When a process crashes, a pod restarts, or a network call fails, Dapr resumes from the last completed step instead of starting over or leaving work half-finished."
+  content: "Durable execution means every step of your application's work is checkpointed and replayed as it runs. When a process crashes, a pod restarts, or a network call fails, Dapr resumes from the last completed step instead of starting over or leaving work half-finished."
   feature_item:
-    - name: "Durable Workflows"
+    - name: "Workflows"
       icon: "flowchart"
       content: "Orchestrate long-running, stateful processes that always run to completion. Retries, timers, human approvals, and sagas, without operating a separate workflow engine."
       link: "https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-overview/"
 
-    - name: "Durable AI Agents"
+    - name: "AI Agents"
       icon: "bot"
       content: "Build AI agents that reason, call tools, and recover from any point of failure. Every step of an agent's plan is checkpointed and resumable."
       link: "https://docs.dapr.io/developing-ai/dapr-agents/dapr-agents-introduction/"
@@ -279,7 +279,7 @@ buildingBlock:
 values:
   enable: true
   title: "Build durable applications faster"
-  content: "Dapr is a set of integrated APIs with built-in best practices and patterns to build distributed applications. Dapr increases your developer productivity by 30% with out-of-the-box features such as durable workflow, agentic AI, pub/sub, state management, secret stores, external configuration, bindings, actors, jobs, distributed lock, and cryptography. You benefit from the built-in security, reliability, and observability capabilities, so you don't need to write boilerplate code to achieve production-ready applications."
+  content: "Dapr is a set of APIs for building distributed applications with built-in best practices for security, resiliency, and observability. Dapr increases your developer productivity by 30% with out-of-the-box features such as durable workflow, agentic AI, pub/sub, state management, secret stores, external configuration, bindings, actors, jobs, distributed lock, and cryptography. You benefit from the built-in security, reliability, and observability capabilities, so you don't need to write boilerplate code to achieve production-ready applications."
   feature_item:
     - name: "Durable execution for your business processes"
       diagram: "automate"
@@ -302,7 +302,7 @@ values:
     - name: "Incrementally adopt"
       diagram: "adopt"
       diagramdesc: "An existing system of three apps and Apache Kafka. A Dapr-enabled app that uses a state store is added, then a Dapr-enabled app that sends messages to RabbitMQ, without changing the existing apps."
-      content: "Dapr can be introduced into an existing architecture incrementally. Dapr applications can call non-Dapr endpoints while still having the Dapr benefits of having resiliency policies, observability, security access through scoping and more."
+      content: "Dapr can be introduced into an existing architecture incrementally, adopting more APIs as the application matures. Dapr applications can call non-Dapr endpoints while still having the Dapr benefits of having resiliency policies, observability, security access through scoping and more."
 
 ##################### Cross Cutting Concerns ##########################
 concerns:

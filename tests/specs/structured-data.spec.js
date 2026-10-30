@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { SITE_DIR, builtFiles, jsonLd } from './helpers.js';
 
 const CORE =
-  'Dapr is the durable execution engine for workflows and AI agents. It provides APIs for building event-driven architectures.';
+  'Dapr is the durable execution runtime for workflows and AI agents. It provides APIs for building event-driven architectures.';
 const items = jsonLd(readFileSync(join(SITE_DIR, 'index.html'), 'utf8'), '/');
 const byType = (t) => items.find((i) => i['@type'] === t);
 

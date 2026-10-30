@@ -116,7 +116,7 @@ test('markdown links are absolute', () => {
 
 // llms.txt and llms-full.txt are generated from templates (llmstxt.org format).
 const CORE_MESSAGE =
-  'Dapr is the durable execution engine for workflows and AI agents. It provides APIs for building event-driven architectures.';
+  'Dapr is the durable execution runtime for workflows and AI agents. It provides APIs for building event-driven architectures.';
 const llmsPath = join(SITE_DIR, 'llms.txt');
 const llmsFullPath = join(SITE_DIR, 'llms-full.txt');
 const llmsText = existsSync(llmsPath) ? readFileSync(llmsPath, 'utf8') : '';
