@@ -1,4 +1,4 @@
-# The durable execution engine for workflows and AI agents
+# The durable execution runtime for workflows and AI agents
 {{- /* This H1 and the paragraph below are literals in partials/home/hero.html, not data. Keep them identical. */}}
 
 Dapr provides durable, verifiable execution so your workflows and AI agents survive crashes, restarts, and outages, resuming exactly where they left off. Built on infrastructure-agnostic APIs with production-grade security, resiliency, and observability, so you can focus on your code.

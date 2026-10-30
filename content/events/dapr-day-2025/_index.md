@@ -15,7 +15,7 @@ recordings: "https://www.youtube.com/playlist?list=PLcip_LgkYwzsOa3eXZwAKv6hp-Di
 
 event:
   - title: "Dapr Day 2025"
-    summary: "Dapr Day was a virtual event for developers and platform engineers to learn about Dapr, the durable execution engine for workflows and AI agents, a graduated CNCF project used by many organizations to build secure and reliable microservices and agentic AI systems.
+    summary: "Dapr Day was a virtual event for developers and platform engineers to learn about Dapr, the durable execution runtime for workflows and AI agents, a graduated CNCF project used by many organizations to build secure and reliable microservices and agentic AI systems.
 
 
     At Dapr Day, users shared how they use Dapr in production, and subject matter experts and maintainers showed how to use the latest Dapr features. Scroll down to see the full agenda and the recordings.
