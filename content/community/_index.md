@@ -99,9 +99,9 @@ community:
 
 playlists:
   - title: "Diagrid Dapr Playlist"
-    link: "https://www.youtube.com/embed/videoseries?si=skFV-EtWo7qqqLMr&amp;list=PLdl4NkEiMsJuxL1FlopLJmiZOWTYeDgi-"
+    link: "https://www.youtube.com/embed/videoseries?si=skFV-EtWo7qqqLMr&list=PLdl4NkEiMsJuxL1FlopLJmiZOWTYeDgi-"
   - title: "Dapr Community Call Playlist"
-    link: "https://www.youtube.com/embed/videoseries?si=KHBQ5BOWZ9cNV6Fy&amp;list=PLcip_LgkYwzuF-OV6zKRADoiBvUvGhkao"
+    link: "https://www.youtube.com/embed/videoseries?si=KHBQ5BOWZ9cNV6Fy&list=PLcip_LgkYwzuF-OV6zKRADoiBvUvGhkao"
   - title: "Dapr Day Oct 2024 Sessions"
-    link: "https://www.youtube.com/embed/videoseries?si=Y99c5aXc2J41juVo&amp;list=PLcip_LgkYwzsFZ65fIzeOmJBQHwcPQ_gE"
+    link: "https://www.youtube.com/embed/videoseries?si=Y99c5aXc2J41juVo&list=PLcip_LgkYwzsFZ65fIzeOmJBQHwcPQ_gE"
 ---
