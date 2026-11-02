@@ -7,7 +7,8 @@
     "test": "playwright test",
     "test:update-a11y-baseline": "UPDATE_A11Y_BASELINE=1 playwright test a11y",
     "export:diagram-fallbacks": "node export-diagram-fallbacks.js",
-    "export:og-card": "node export-og-card.js"
+    "export:og-card": "node export-og-card.js",
+    "export:social-banners": "node export-social-banners.js"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",
