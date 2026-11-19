@@ -1,6 +1,8 @@
-![GitHub License](https://img.shields.io/github/license/dapr/website?style=flat&label=License&logo=github) [![GitHub issue custom search in repo](https://img.shields.io/github/issues-search/dapr/website?query=type%3Aissue%20is%3Aopen%20label%3A%22good%20first%20issue%22&label=Good%20first%20issues&style=flat&logo=github)](https://github.com/dapr/website/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) [![Discord](https://img.shields.io/discord/778680217417809931?label=Discord&style=flat&logo=discord)](https://diagrid.ws/dapr-discord) [![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCtpSQ9BLB_3EXdWAUQYwnRA?style=flat&label=YouTube%20views&logo=youtube)](https://youtube.com/@daprdev) [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/daprdev?logo=x&style=flat)](https://twitter.com/daprdev)
+![GitHub License](https://img.shields.io/github/license/dapr/website?style=flat&label=License&logo=github) [![GitHub issue custom search in repo](https://img.shields.io/github/issues-search/dapr/website?query=type%3Aissue%20is%3Aopen%20label%3A%22good%20first%20issue%22&label=Good%20first%20issues&style=flat&logo=github)](https://github.com/dapr/website/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) [![Discord](https://img.shields.io/discord/778680217417809931?label=Discord&style=flat&logo=discord)](https://discord.com/invite/ptHhX6jc34) [![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UCtpSQ9BLB_3EXdWAUQYwnRA?style=flat&label=YouTube%20views&logo=youtube)](https://youtube.com/@daprdev) [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/daprdev?logo=x&style=flat)](https://twitter.com/daprdev)
 
-Welcome to the source file repository for the [Dapr website](https://dapr.io). The website is a simple static site, built with [Hugo](https://gohugo.io/) and hosted on [Netlify](https://app.netlify.com/sites/daprio/settings/general).
+[Dapr](https://dapr.io) is a CNCF graduated project that gives developers APIs for durable workflows, messaging, state and more, so they can build resilient distributed applications in any language.
+
+This repository holds the source for the [Dapr website](https://dapr.io). The website is a static site, built with [Hugo](https://gohugo.io/) and hosted on [Netlify](https://www.netlify.com/).
 
 ---
 
@@ -15,7 +17,7 @@ Important folders and files to note:
 
 [/config.toml](https://github.com/dapr/website/blob/master/config.toml) - Hugo configuration and parameters including baseURL, headers and footers, Google Analytics etc.
 
-[/themes/bigspring/layouts/index.llms.txt](https://github.com/dapr/website/blob/master/themes/bigspring/layouts/index.llms.txt) - Template that generates `llms.txt` (do not edit a static copy); `index.llmsfull.txt` next to it generates `llms-full.txt`
+[/themes/bigspring/layouts/index.llms.txt](https://github.com/dapr/website/blob/master/themes/bigspring/layouts/index.llms.txt) - Template that generates `llms.txt` (do not edit a static copy); `index.llmsfull.txt` next to it generates `llms-full.txt`. The homepage's workflow and durable execution copy that these files pick up lives in [/data/homepage.yml](https://github.com/dapr/website/blob/master/data/homepage.yml); the workflow page's copy lives in [/content/workflow/_index.md](https://github.com/dapr/website/blob/master/content/workflow/_index.md)
 
 [/netlify.toml](https://github.com/dapr/website/blob/master/netlify.toml) - Configuration for deployment on Netlify
 
@@ -60,9 +62,11 @@ All theme files are found at [/themes/bigspring](https://github.com/dapr/website
 
 ## Deployment
 
-The site is automatically rebuilt on Netlify when changes are merged into `master` branch. You view build logs by clicking on the badge below:
+The live site is deployed by Netlify. Netlify rebuilds and publishes the site automatically when changes are merged into the `master` branch, using the build settings and Hugo version in [/netlify.toml](https://github.com/dapr/website/blob/master/netlify.toml). Pull requests get a Netlify deploy preview.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bb8f6580-7739-4d16-8db8-37cbca965aea/deploy-status)](https://app.netlify.com/sites/daprio/deploys)
+The two `azure-static-web-apps-*.yml` workflows in `.github/workflows/` trigger only on the `main` and `facelift` branches, which do not exist in this repository, so they do not deploy the site.
+
+![Netlify Status](https://api.netlify.com/api/v1/badges/bb8f6580-7739-4d16-8db8-37cbca965aea/deploy-status)
 
 
 ---
@@ -70,14 +74,8 @@ The site is automatically rebuilt on Netlify when changes are merged into `maste
 
 # Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+This project welcomes contributions and suggestions. See the [Dapr contributing guide](https://docs.dapr.io/contributing/) for an overview of how to contribute to Dapr.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+Dapr uses the [Developer Certificate of Origin (DCO)](https://developercertificate.org/). Every commit must be signed off to certify that you wrote it or otherwise have the right to submit it. Add the sign-off with `git commit -s`, which appends a `Signed-off-by` line with your name and email to the commit message.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+This project follows the [Dapr Code of Conduct](https://github.com/dapr/community/blob/master/CODE-OF-CONDUCT.md).
