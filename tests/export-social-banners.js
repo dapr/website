@@ -1,6 +1,6 @@
 // Regenerates the social profile banners for the Dapr LinkedIn page, X account,
 // Bluesky account and Reddit community, so the top of each profile says the same
-// thing the homepage does.
+// thing the homepage does. It also writes the Discord server discovery splash.
 //   npm run export:social-banners
 //
 //   hero H1 (partials/home/hero.html) + assets/images/dapr_hero_diagram.svg
@@ -11,7 +11,7 @@
 // generated still fallback, so run export:diagram-fallbacks first if the diagram
 // itself changed.
 //
-// Layout system, shared by all four: headline left, "dapr.io" under it, hero
+// Layout system, shared by all five: headline left, "dapr.io" under it, hero
 // diagram right. No separate Dapr wordmark; the mark inside the diagram's center
 // node is the logo. The bottom left corner is left empty on every size because
 // that is where each platform paints the profile avatar over the banner.
@@ -78,6 +78,17 @@ const PRESETS = [
     h1: { left: 240, top: 60, width: 1150, size: 46 },
     domain: { left: 240, top: 206, size: 30 },
     diagram: { right: -8, top: 24, height: 330 },
+  },
+  {
+    // The discovery splash for the Dapr Discord server, shown on its card in
+    // Server Discovery. Discord recommends 1920x1080 (16:9). The server icon
+    // sits over the card's lower left, so that corner stays empty here too.
+    name: 'discord-discovery-splash',
+    platform: 'Discord',
+    width: 1920, height: 1080, border: 20,
+    h1: { left: 110, top: 290, width: 900, size: 76 },
+    domain: { left: 110, top: 660, size: 50 },
+    diagram: { right: 30, top: 190, height: 680 },
   },
 ];
 
@@ -153,7 +164,9 @@ try {
     const fit = await tab.evaluate(() => {
       const h = document.querySelector('h1');
       const d = document.querySelector('.diagram');
+      const domain = document.querySelector('.domain');
       return {
+        domainTop: domain.getBoundingClientRect().top,
         overflows: h.scrollHeight > h.clientHeight + 1,
         bottom: h.getBoundingClientRect().bottom,
         right: h.getBoundingClientRect().right,
@@ -162,10 +175,11 @@ try {
     });
     if (fit.overflows) throw new Error(`${p.name}: headline overflows its box`);
     if (fit.bottom > p.height - p.border) throw new Error(`${p.name}: headline runs past the bottom border`);
+    if (fit.bottom > fit.domainTop) throw new Error(`${p.name}: headline runs into dapr.io`);
     if (fit.right > fit.diagramLeft) throw new Error(`${p.name}: headline overlaps the diagram`);
     const out = `social/images/${p.name}.png`;
     writeFileSync(resolve(repoRoot, out), await tab.screenshot({ type: 'png' }));
-    console.log(`${out.padEnd(36)} ${p.width}x${p.height}  (${p.platform})`);
+    console.log(`${out.padEnd(44)} ${p.width}x${p.height}  (${p.platform})`);
     await tab.close();
   }
 } finally {

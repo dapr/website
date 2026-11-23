@@ -1,7 +1,8 @@
 # Social profile banners and copy
 
 Banner images and profile copy for the Dapr accounts on LinkedIn, X, Bluesky and
-Reddit, so the top of each profile says what the homepage says.
+Reddit, and the discovery splash for the Dapr Discord server, so the top of each
+profile says what the homepage says.
 
 Nothing here ships with the site. The folder sits outside `content/` and
 `static/`, so Hugo does not publish it; it is the source of truth for whoever
@@ -13,13 +14,14 @@ updates the profiles by hand.
 | X | [x.md](x.md) | `images/x-header.png` | 1500x500 |
 | Bluesky | [bluesky.md](bluesky.md) | `images/bluesky-banner.png` | 1500x500 |
 | Reddit | [reddit.md](reddit.md) | `images/reddit-banner.png` | 1920x384 |
+| Discord | [discord.md](discord.md) | `images/discord-discovery-splash.png` | 1920x1080 |
 
-The avatar stays the Dapr logo on all four. Only the banners and the text
+The avatar stays the Dapr logo on all five. Only the banners and the text
 change.
 
 ## The design
 
-All four carry the homepage hero: the H1, with the same highlighted terms, the
+All five carry the homepage hero: the H1, with the same highlighted terms, the
 hero diagram still, and the site's colors. None of them carry a separate Dapr
 wordmark; the mark inside the diagram's center node is the logo, and a second
 one competed with the headline for the same corner.
