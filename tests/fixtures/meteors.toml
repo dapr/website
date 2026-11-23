@@ -1,0 +1,14 @@
+# Mounts a fixture Meteors program page that covers every combination of a
+# present and absent portrait and LinkedIn URL. For overlapping mount targets
+# Hugo takes the first match, so the fixture mount is listed FIRST to replace
+# content/community/program/_index.md. Everything else still comes from the
+# real content mount below. (The events fixtures only add new directories, so
+# their configs can list the mounts the other way round.)
+
+[module]
+  [[module.mounts]]
+    source = "tests/fixtures/content"
+    target = "content"
+  [[module.mounts]]
+    source = "content"
+    target = "content"

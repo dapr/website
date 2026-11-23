@@ -50,18 +50,6 @@ meteors:
     linkedin: "https://www.linkedin.com/in/iamalexmang/"
     bio: "Alex Mang is a Microsoft Regional Director, Azure Most Valuable Professional, working as a cloud architect, consultant, trainer, software developer but also regularly seen at conferences and user groups speaking mostly on cloud-computing topics. His main goal is to help developers better understand the implications of cloud-computing as a whole, from as many perspectives as possible. Alex was invited three times in a row as a featured speaker at Microsoft Ignite, the company’s largest and most important technical conference gathering nearly 35,000 attendees. Since 2011, Alex runs KeyTicket Solutions, a company focused on democratizing access control, ticketing and management solutions for every single vertical in the world. For his experience on cloud-driven solutions, his Microsoft Certified Trainer, Microsoft Certified Solution Developer (MCSD), Microsoft Certified Solution Associate (MCSA) and Microsoft Certified Solutions Expert (MCSE) stand as proof and so do the many happy customers he had the pleasure to work with for the past many years."
 
-  - name: "Christophe Gigax"
-    image: "images/community/meteors/christophe-gigax.jpg"
-    alt: "Christophe Gigax"
-    linkedin: "https://www.linkedin.com/in/christophegigax/"
-    bio: "Passionate about computers for several years, I decided to do more than just a hobby: my job. After a 5-year course in Strasbourg allowing me to access a diploma in Information Systems Manager, I am now a Cloud Solution Architect within Hager Group, industrial specialist in electrical protection for individuals and homes. This privileged framework allows me to apply my knowledge of analysis, design and development in Microsoft technologies for which I have a great preference. The web and mobility are topics that I particularly like but I also strive to stay in touch with new technologies."
-
-  - name: "Eduard Keilholz"
-    image: "images/community/meteors/eduard-keilholz.jpeg"
-    alt: "Eduard Keilholz"
-    linkedin: "https://www.linkedin.com/in/eduard-keilholz/"
-    bio: "Eduard Keilholz is a seasoned software developer and cloud architect at 4Dotnet, specializing in Microsoft technologies and high-performance cloud solutions. He authored Azure Infrastructure as Code, a book focused on Azure automation, and frequently speaks at international conferences. As founder of DotnetFriday, a Dutch .NET community platform, Eduard fosters collaboration and learning among developers. He also created SpreaView, a solution that helps conference organizers and speakers gain data-driven insights into session performance. Recognized for his expertise and dedication, Eduard has been a Microsoft Most Valuable Professional (MVP) since 2020, continuously contributing to the global developer community."
-
   - name: "Jose Maria Flores Zazo"
     image: "images/community/meteors/jose-maria-flores-zazo.jpg"
     alt: "Jose Maria Flores Zazo"
@@ -74,23 +62,33 @@ meteors:
     linkedin: "https://www.linkedin.com/in/manuel-zapf-374a4889/"
     bio: "Manuel Zapf is a Solution Architect at codecentric AG, where he helps teams build scalable, cloud-native platforms that empower developers and streamline infrastructure. With a strong focus on platform engineering, developer experience, and infrastructure automation, Manuel works closely with modern technologies like Kubernetes, Dapr, and so forth to deliver efficient and resilient systems. He has spoken at numerous conferences and community events, sharing insights on cloud-native development and platform design. When he's not deep in YAML or debugging a sidecar, you'll likely find him enjoying a game of handball or exploring the latest in cloud tech."
 
-  - name: "Matheus Cruz"
-    image: "images/community/meteors/matheus-cruz.jpeg"
-    alt: "Matheus Cruz"
-    linkedin: "https://linkedin.com/in/mcruzdev1"
-    bio: "I’m a Senior Platform Engineer focused on developer experience, cloud-native tooling, and SDKs. I’m also an open-source contributor and passionate Java developer dedicated to helping teams build resilient, cloud-native systems. I contribute to the Quarkus ecosystem, Dapr Java SDK and the Dapr extension for Quarkus. As a teacher and speaker, I believe in sharing knowledge to empower others. Outside of tech, you’ll find me on the Brazilian Jiu-Jitsu mats, playing guitar, or exploring new challenges. I truly believe in the power of community and collaboration—both in and outside of technology."
-
   - name: "Naga Santhosh Reddy Vootukuri"
     image: "images/community/meteors/naga-santhosh.jpeg"
     alt: "Naga Santhosh Reddy Vootukuri"
     linkedin: "https://www.linkedin.com/in/naga-santhosh-reddy-vootukuri-5a67a133/"
     bio: "Naga Santhosh Reddy Vootukuri is a Principal Software Engineering Manager at Microsoft leading Azure SQL Server database products, IEEE Senior Member, Docker Captain, and author of three internationally published technical books. As the author of Exploring Azure Container Apps (Apress/Springer Nature, 2024), he has made significant contributions to the Dapr community by creating the first comprehensive enterprise-scale guide featuring extensive Dapr integration patterns, including Dapr PubSub API, service-to-service invocation, state management, and bindings implementation. His book has reached thousands of developers globally and received outstanding industry recognition, including an 8/10 rating from Microsoft MVP reviewers. Beyond his published work, Naga has spoken at 20+ prestigious international conferences including the IEEE New Era AI World Leaders Summit (where he served as Lightning Committee Chair and Co-Chair), GEEKLE Software Architecture Summit, C# Corner Worldwide Software Architecture Conference, and the upcoming CTO Global Summit, consistently demonstrating real-world Dapr implementations and cloud-native microservices patterns."
 
+  - name: "Nico Vermeir"
+    image: "images/community/meteors/nico-vermeir.jpg"
+    alt: "Nico Vermeir"
+    linkedin: "https://www.linkedin.com/in/nicovermeir/"
+    bio: "Nico Vermeir is a Cloud Solution Architect at Microsoft, focused on application innovation and AI. A former Microsoft MVP in Developer Technologies, he speaks regularly at user groups and at conferences including NDC Oslo, NDC London, NDC Sydney, Build Stuff and DotNext. He is on the crew of Techorama in Belgium and the Netherlands, and of VISUG, the Belgian Visual Studio user group. Away from work he brews and tastes beer, plays guitar, rides a Harley-Davidson and practices karate."
+
   - name: "Rodrigo Díaz Concha"
     image: "images/community/meteors/rodrigo-diaz-concha.jpg"
     alt: "Rodrigo Díaz Concha"
     linkedin: "https://www.linkedin.com/in/rdiazconcha/"
     bio: "Rodrigo Díaz Concha is a Solutions Architect, Microsoft Regional Director, and MVP with 25+ years of experience. He’s a published author and international speaker, and creates training content for LinkedIn Learning in both English and Spanish. His courses focus on Azure, AI, Cloud Native, and .NET technologies. Rodrigo is recognized for his contributions to the global tech community and regularly speaks at conferences across the U.S., Europe, and Latin America."
+
+  - name: "Siri Varma Vegiraju"
+    image: "images/community/meteors/siri-varma-vegiraju.jpg"
+    alt: "Siri Varma Vegiraju"
+    linkedin: "https://www.linkedin.com/in/sirivarma/"
+    bio: "Siri Varma Vegiraju is a Tech Lead at Microsoft, working across healthcare, cloud computing and security. He currently focuses on securing Azure cloud workloads, after earlier work on distributed systems, real-time streaming, cloud observability platforms and multicloud environments. He speaks at industry conferences on cloud and security, and is a judge and technical reviewer for publications in the field. He holds a Master's degree in Computer Science from the University of Texas at Arlington."
+
+  - name: "Victor Aguayo"
+    alt: "Victor Aguayo"
+    bio: "Victor Aguayo is a Technology Architect at Banco de Crédito in Peru, specializing in cloud-native architectures, distributed systems, microservices, and multicloud solutions. With extensive experience in enterprise technology and the financial sector, he explores how Dapr simplifies the development of resilient, portable applications across Kubernetes, Azure, AWS and Google Cloud. An active technology community speaker, he shares practical knowledge through conferences, technical demonstrations, and real-world architectural experiences, including Dapr Workflow and AI-powered systems. He is passionate about open source, knowledge sharing, and helping developers and architects embrace modern distributed architectures."
 
   - name: "Walter Coan"
     image: "images/community/meteors/walter-coan.jpg"
@@ -100,10 +98,25 @@ meteors:
 
 
 alumni_meteors:
+  - name: "Christophe Gigax"
+    image: "images/community/meteors/christophe-gigax.jpg"
+    alt: "Christophe Gigax"
+    linkedin: "https://www.linkedin.com/in/christophegigax/"
+
+  - name: "Eduard Keilholz"
+    image: "images/community/meteors/eduard-keilholz.jpeg"
+    alt: "Eduard Keilholz"
+    linkedin: "https://www.linkedin.com/in/eduard-keilholz/"
+
   - name: "Edwin van Wijk"
     image: "images/community/meteors/edwin-van-wijk.jpg"
     alt: "Edwin van Wijk"
     linkedin: "https://www.linkedin.com/in/edwinvwijk/"
+
+  - name: "Matheus Cruz"
+    image: "images/community/meteors/matheus-cruz.jpeg"
+    alt: "Matheus Cruz"
+    linkedin: "https://linkedin.com/in/mcruzdev1"
 
   - name: "Sander Molenkamp"
     image: "images/community/meteors/sander-molenkamp.jpg"
@@ -114,5 +127,4 @@ alumni_meteors:
     image: "images/community/meteors/will-velida.jpg"
     alt: "Will Velida"
     linkedin: "https://www.linkedin.com/in/willvelida/"
-
 ---

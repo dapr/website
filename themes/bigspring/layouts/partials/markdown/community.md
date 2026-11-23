@@ -40,20 +40,22 @@ The Dapr Meteors program is sponsored by [{{ .alt | plainify | htmlUnescape }}](
 ## Meet the Meteors 🌠
 {{ range . }}
 ### {{ .name }}
-
+{{ if .image }}
 ![{{ .alt | plainify | htmlUnescape }}]({{ partial "markdown/image-url.html" .image }})
-
+{{ end }}
 {{ .bio }}
-
+{{ if .linkedin }}
 [LinkedIn]({{ .linkedin | absURL }})
+{{ end }}
 {{ end }}
 {{ end }}
 {{ with $.Params.alumni_meteors }}
 ## Alumni Meteors
 {{ range . }}
 ### {{ .name }}
-
+{{ if .image }}
 ![{{ .alt | plainify | htmlUnescape }}]({{ partial "markdown/image-url.html" .image }})
+{{ end }}
 {{ end }}
 {{ end }}
 {{ end }}
