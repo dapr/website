@@ -498,9 +498,9 @@ h2.video {
 }
 .banner {
     position: relative;
-    padding: 10px 0px;
+    padding: 6px 44px;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 .banner > a {
     text-decoration: underline;
@@ -524,20 +524,39 @@ h2.video {
 .banner-carousel:not(.slick-initialized) .banner-slide + .banner-slide {
     display: none;
 }
+.banner-carousel .slick-dots {
+    margin-top: 7px;
+    line-height: 0;
+}
 .banner-carousel .slick-dots li,
 .banner-carousel .slick-dots li button {
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
+}
+/* 12px dots stay clear of WCAG 2.5.8 target size through spacing:
+   centers are 28px apart and 13px below the link, so the 24px circles
+   around them touch neither each other nor the link text */
+.banner-carousel .slick-dots li {
+    margin: 0 8px;
 }
 .banner-carousel .slick-dots li button::before {
-    font-size: 10px;
-    line-height: 20px;
-    width: 20px;
-    height: 20px;
+    font-size: 8px;
+    line-height: 12px;
+    width: 12px;
+    height: 12px;
+}
+.banner .carousel-toggle {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
 }
 @media (max-width: 768px) {
     .banner {
-        font-size: 1rem;
+        padding: 4px 40px 4px 12px;
+        font-size: 0.8rem;
     }
 }
 /* news */
