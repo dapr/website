@@ -28,24 +28,13 @@
     color: var(--d-muted);
 }
 
-// Docs picks a card's accent with a c-blue / c-sky / c-orange / c-gold class.
-// Adding one here would mean editing the templates, so rotate by position
-// instead. The first card in a run keeps the --d-blue set above.
-.grid > .feature-card:nth-child(4n + 2),
-.flex > .feature-card:nth-child(4n + 2) {
-    border-top-color: var(--d-sky);
-}
-
-.grid > .feature-card:nth-child(4n + 3),
-.flex > .feature-card:nth-child(4n + 3) {
-    border-top-color: var(--d-orange);
-}
-
-.grid > .feature-card:nth-child(4n + 4),
-.flex > .feature-card:nth-child(4n + 4) {
-    border-top-color: var(--d-gold);
-}
-
+// Docs picks a card's accent with a c-blue / c-sky / c-orange / c-gold class,
+// per card, deliberately. Rotating by :nth-child instead was wrong twice over:
+// it counts every sibling, so one non-card element in a grid shifted the cycle
+// and a color dropped out, and :nth-child(An+B of S), which counts only the
+// cards, does not survive Hugo 0.147.9's CSS minifier: it strips the `of` and
+// emits invalid CSS the browser throws away. Every card takes the brand navy
+// until the accent is set per card in the templates, the way docs does it.
 // Ragged right. Browsers justify without a hyphenation engine, so justified
 // text opens rivers of whitespace, worst of all at phone width.
 .feature-card > p {

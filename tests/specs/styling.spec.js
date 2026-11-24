@@ -167,14 +167,19 @@ test('a feature card has the docs accent top edge', async ({ page }) => {
   await expect(card).toHaveCSS('border-radius', '9px');
 });
 
-test('the accent rotates through the four brand colors', async ({ page }) => {
+// Every card carries the same brand accent. The per-card rotation docs does
+// with c-blue / c-sky / c-orange / c-gold classes is not reproducible from CSS
+// here: :nth-child counts non-card siblings, and the `of S` form that would not
+// is stripped by Hugo 0.147.9's CSS minifier.
+test('every card carries the same brand accent, on pages with mixed grids', async ({ page }) => {
   await preparePage(page);
-  await page.goto('/');
-  const colors = await page.locator('.grid .feature-card').evaluateAll(
-    (els) => els.slice(0, 4).map((e) => getComputedStyle(e).borderTopColor),
-  );
-  expect(colors).toHaveLength(4);
-  expect(new Set(colors).size).toBe(4);
+  for (const path of ['/', '/community/program/', '/events/']) {
+    await page.goto(path);
+    const colors = await page.locator('.feature-card').evaluateAll(
+      (els) => [...new Set(els.map((e) => getComputedStyle(e).borderTopColor))],
+    );
+    expect(colors, `mixed accents on ${path}`).toEqual(['rgb(13, 33, 146)']);
+  }
 });
 
 // Review Focus 4: the tab is positioned from the left edge, so a centered
@@ -358,3 +363,83 @@ for (const path of ['/', '/community/', '/community/program/', '/learn/', '/ente
     expect(gaps).toEqual([]);
   });
 }
+
+// --- Review findings 2, 4, 5 and 6 ---
+
+test('a lead paragraph is centered under its own heading', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const offsets = await page.locator('.value-prop-text').evaluateAll((sections) => {
+    const out = [];
+    for (const sec of sections) {
+      const h = sec.querySelector(':scope > h2');
+      const p2 = sec.querySelector(':scope > p');
+      if (!h || !p2) continue;
+      const hr = h.getBoundingClientRect();
+      const pr = p2.getBoundingClientRect();
+      out.push(Math.round(Math.abs((hr.left + hr.right) / 2 - (pr.left + pr.right) / 2)));
+    }
+    return out;
+  });
+  expect(offsets.length).toBeGreaterThan(0);
+  for (const off of offsets) expect(off).toBeLessThanOrEqual(2);
+});
+
+test('the heading signature stays out of cards', async ({ page }) => {
+  await preparePage(page);
+  for (const path of ['/events/', '/testimonials/', '/faq/']) {
+    const res = await page.goto(path).catch(() => null);
+    if (!res || !res.ok()) continue;
+    const tagged = await page.locator('.feature-card h2, .faq-entry h2').evaluateAll(
+      (els) => els
+        .filter((e) => getComputedStyle(e, '::after').content !== 'none')
+        .map((e) => `${location.pathname} ${e.textContent.trim().slice(0, 30)}`),
+    );
+    expect(tagged, `repeated-item heading carrying the section tab on ${path}`).toEqual([]);
+  }
+});
+
+test('a page-level section heading still carries the signature', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const h2 = page.locator('section h2', { hasText: 'What you can build' }).first();
+  const after = await h2.evaluate((el) => getComputedStyle(el, '::after').width);
+  expect(after).toBe('42px');
+});
+
+test('every font weight the pages ask for has a face declared for it', async ({ page }) => {
+  await preparePage(page);
+  const missing = [];
+  for (const path of ['/', '/community/', '/learn/']) {
+    await page.goto(path);
+    await page.evaluate(() => document.fonts.ready);
+    // document.fonts.check() is no use here: it answers "can the browser render
+    // this", which is true even when it has to substitute or synthesize. Compare
+    // against the weights actually declared by @font-face instead.
+    const gaps = await page.evaluate(() => {
+      // document.fonts reports the family lowercased ("inter"); getComputedStyle
+      // returns it as written ("Inter"). Compare case-insensitively or this
+      // matches nothing and passes without testing anything.
+      const declared = new Map();
+      for (const f of document.fonts) {
+        const fam = f.family.toLowerCase().replace(/["']/g, '');
+        if (!declared.has(fam)) declared.set(fam, new Set());
+        declared.get(fam).add(String(parseInt(f.weight, 10)));
+      }
+      const used = new Map();
+      for (const el of document.querySelectorAll('body *, body svg text')) {
+        if (!el.textContent || !el.textContent.trim()) continue;
+        const cs = getComputedStyle(el);
+        const fam = cs.fontFamily.split(',')[0].replace(/["']/g, '').trim().toLowerCase();
+        if (!declared.has(fam)) continue;
+        const w = String(parseInt(cs.fontWeight, 10));
+        if (declared.get(fam).has(w)) continue;
+        const key = `${fam} ${w}`;
+        used.set(key, (used.get(key) || 0) + 1);
+      }
+      return [...used].map(([k, n]) => `${k} (${n} elements)`);
+    });
+    for (const g of gaps) missing.push(`${path}: ${g}`);
+  }
+  expect(missing).toEqual([]);
+});

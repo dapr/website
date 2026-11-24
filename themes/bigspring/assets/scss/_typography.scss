@@ -54,6 +54,23 @@ section .text-center > h2::after {
   transform: translateX(-50%);
 }
 
+// Upstream this signature is `.td-content > h2`, a direct child of the content
+// body, so it can only ever be a page-level heading. This theme nests its
+// wrappers two deep, so a direct-child selector would miss real section
+// headings; the repeated-item headings are excluded by name instead. Without
+// this, an event card carries two horizontal rules 60px apart, and every FAQ
+// question gets a section tab.
+.feature-card h2,
+.faq-entry h2 {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.feature-card h2::after,
+.faq-entry h2::after {
+  content: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-head);
   letter-spacing: -0.015em;
@@ -64,6 +81,19 @@ h1, h2, h3, h4, h5, h6 {
 code, pre, kbd, samp {
   font-family: var(--font-mono);
 }
+
+// Inter's heaviest loaded weight is 600. Without this, bold text asks for 700,
+// gets no face, and the browser either substitutes or synthesizes.
+strong, b {
+  font-weight: 600;
+}
+
+// Diagram labels are drawn by d3 with font-weight 700 and no family of their
+// own, so they inherited Inter and fell short of a face. Geist is the display
+// type and does carry 700, which is what these labels want anyway.
+svg text {
+  font-family: var(--font-head);
+}
 /*
  * Type scale (fluid tokens):
  *   display-lg (.text-size-large): clamp(1.75rem, calc(1rem + 3vw), 3rem)  — hero H1
@@ -72,7 +102,7 @@ code, pre, kbd, samp {
  */
 .italic {
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .text-center {
@@ -112,8 +142,12 @@ code, pre, kbd, samp {
      tests/specs/styling.spec.js asserts no two highlights overlap. */
   line-height: 1.4;
 }
+// Inter ships here in 400, 500 and 600, the same three dapr/docs self-hosts.
+// There is no 300, so this asked for a face that does not exist and the
+// browser silently served 400 on 64 elements of the homepage. It says 400 now.
+// The class name is left alone: renaming it means touching nine partials.
 .font-weight-300 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @media (max-width: 575px) {
