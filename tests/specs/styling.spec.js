@@ -11,11 +11,13 @@ test('body copy in a card is not justified', async ({ page }) => {
   await expect(page.locator('.feature-card p').first()).toHaveCSS('text-align', 'left');
 });
 
-test('links are underlined solid, not dashed', async ({ page }) => {
+test('prose links are underlined solid, not dashed', async ({ page }) => {
   await preparePage(page);
-  await page.goto('/');
-  // A prose link, not a .btn: those set text-decoration: none.
-  await expect(page.locator('.feature-card p a').first()).toHaveCSS('text-decoration-style', 'solid');
+  await page.goto('/community/program/');
+  // A real prose link, not a .btn: buttons set text-decoration: none, and the
+  // card CTAs are buttons now.
+  const link = page.locator('.feature-card p a:not(.btn)', { hasText: 'this form' }).first();
+  await expect(link).toHaveCSS('text-decoration-style', 'solid');
 });
 
 test('a button is as wide as its label, not a fixed 120px box', async ({ page }) => {
@@ -206,4 +208,89 @@ test('the gold tab is centered when the wrapper carries text-center', async ({ p
   const h2 = page.locator('.text-center > h2', { hasText: 'Meet the Meteors' }).first();
   const tab = await h2.evaluate((el) => getComputedStyle(el, '::after').transform);
   expect(tab).not.toBe('none');
+});
+
+// WCAG 2.2 SC 1.4.11 wants 3:1 between a UI component's boundary and the
+// surface behind it. Computed here rather than asserted as a hex, so the test
+// says what it is actually protecting.
+const contrast = (a, b) => {
+  const lum = (css) => {
+    const [r, g, b2] = css.match(/\d+(\.\d+)?/g).slice(0, 3).map(Number);
+    const ch = (v) => {
+      const s = v / 255;
+      return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+    };
+    return 0.2126 * ch(r) + 0.7152 * ch(g) + 0.0722 * ch(b2);
+  };
+  const [x, y] = [lum(a), lum(b)].sort((p2, q) => q - p2);
+  return (x + 0.05) / (y + 0.05);
+};
+
+test('the secondary button border reads against the page behind it', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const btn = page.locator('.btn-secondary').first();
+  const { border, behind } = await btn.evaluate((el) => {
+    const cs = getComputedStyle(el);
+    let node = el.parentElement;
+    let bg = 'rgb(255, 255, 255)';
+    while (node) {
+      const c = getComputedStyle(node).backgroundColor;
+      if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') { bg = c; break; }
+      node = node.parentElement;
+    }
+    return { border: cs.borderTopColor, behind: bg };
+  });
+  expect(contrast(border, behind)).toBeGreaterThanOrEqual(3);
+});
+
+test('feature card links are secondary buttons, not bare text links', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const cards = page.locator('.feature-card');
+  const n = await cards.count();
+  expect(n).toBeGreaterThan(3);
+  for (let i = 0; i < n; i++) {
+    const links = cards.nth(i).locator('a');
+    const count = await links.count();
+    for (let j = 0; j < count; j++) {
+      const cls = await links.nth(j).getAttribute('class');
+      expect(cls, `card ${i} link ${j} is not a button`).toContain('btn-secondary');
+    }
+  }
+});
+
+test('no card CTA still renders a literal > as an arrow', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const texts = await page.locator('.feature-card a').allTextContents();
+  expect(texts.length).toBeGreaterThan(0);
+  for (const t of texts) expect(t.trim().startsWith('>')).toBe(false);
+});
+
+test.describe('phone cards', () => {
+  // 375px, not 390: an iPhone SE or 13 mini is the narrowest common phone, and
+  // the long CTA labels overflow there first.
+  test.use({ viewport: { width: 375, height: 812 } });
+
+  for (const path of ['/', '/community/program/', '/events/']) {
+  test(`a card CTA button stays inside its card on ${path}`, async ({ page }) => {
+    await preparePage(page);
+    await page.goto(path);
+    const over = await page.locator('.feature-card').evaluateAll((cards) => {
+      const bad = [];
+      for (const c of cards) {
+        const cr = c.getBoundingClientRect();
+        for (const a of c.querySelectorAll('a')) {
+          const ar = a.getBoundingClientRect();
+          if (ar.right > cr.right + 1 || ar.left < cr.left - 1) {
+            bad.push(a.textContent.trim().slice(0, 40));
+          }
+        }
+      }
+      return bad;
+    });
+    expect(over).toEqual([]);
+  });
+  }
 });

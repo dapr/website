@@ -156,6 +156,8 @@ footer .navLink:hover {
 
 .flex-left {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: left;
 }
 
