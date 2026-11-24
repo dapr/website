@@ -5,16 +5,16 @@
 {{ with .Params }}
 {{ with .ai }}
 <section class="bg-light">
-  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
-    <p class="text-justify font-weight-300">
+  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text">
+    <p class="">
       {{ .content }}
     </p>
 
     <div class="flex flex-wrap gap-l row-gap-20 vertical-align-center column-mobile">
       {{ range $index, $featureItem := .feature_item }}
-      <div class="width-45 width-100-mobile font-weight-300">
+      <div class="width-45 width-100-mobile">
         <h3 class="text-center-mobile">{{ $featureItem.name }}</h3>
-        <p class="text-justify">{{ $featureItem.content }}</p>
+        <p class="">{{ $featureItem.content }}</p>
         {{ with $featureItem.link }}
         <p><a href="{{ . }}"> &gt; Read the docs</a></p>
         {{ end }}

@@ -1,7 +1,7 @@
 {{ if site.Data.homepage.buildingBlock.enable }}
 {{ with site.Data.homepage.buildingBlock }}
 <section>
-  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
+  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text">
   
     <h2 class="text-center padding-bottom-20 text-blue">{{ .title }}</h2>
     {{- if .diagram }}
@@ -14,7 +14,7 @@
       "sizes" "(max-width: 786px) 80vw, 960px") }}
     {{- end }}
     {{ if .content }}
-    <p class="text-justify font-weight-300">
+    <p class="">
       {{ .content }}
     </p>
     {{ end }}
