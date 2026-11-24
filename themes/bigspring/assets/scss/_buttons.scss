@@ -2,8 +2,8 @@
 button {
   border: none;
   border-radius: 7px;
-  font-family: "Noto Sans", sans-serif;
-
+  font-family: var(--font-head);
+  font-weight: 600;
 }
 // Links styled as buttons. Mirrors the browser's <button> defaults so a
 // link CTA renders the same as the <a><button> pattern it replaced.
@@ -14,7 +14,8 @@ button {
   box-sizing: border-box;
   padding: 1px 6px;
   border-radius: 7px;
-  font-family: "Noto Sans", sans-serif;
+  font-family: var(--font-head);
+  font-weight: 600;
   line-height: normal;
   text-align: center;
 }

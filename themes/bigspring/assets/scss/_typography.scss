@@ -1,4 +1,35 @@
 /* typography */
+
+// Type lifted from dapr/docs, daprdocs/assets/scss/_typography.scss, so dapr.io
+// and docs.dapr.io set type the same way. The woff2 files are the same files,
+// copied from daprdocs/static/fonts/. Self-hosted, so the site makes no request
+// to the Google Fonts CDN.
+@font-face { font-family: "Geist"; font-weight: 400; font-display: swap; src: url("/fonts/geist-400.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 500; font-display: swap; src: url("/fonts/geist-500.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 600; font-display: swap; src: url("/fonts/geist-600.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 700; font-display: swap; src: url("/fonts/geist-700.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("/fonts/inter-400.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-display: swap; src: url("/fonts/inter-500.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("/fonts/inter-600.woff2") format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-weight: 400; font-display: swap; src: url("/fonts/geist-mono-400.woff2") format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-weight: 500; font-display: swap; src: url("/fonts/geist-mono-500.woff2") format("woff2"); }
+
+:root {
+  --font-head: "Geist", ui-sans-serif, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-head);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  line-height: 1.25;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+}
 /*
  * Type scale (fluid tokens):
  *   display-lg (.text-size-large): clamp(1.75rem, calc(1rem + 3vw), 3rem)  — hero H1
@@ -40,9 +71,11 @@
 }
 .text-size-large {
   font-size: clamp(1.75rem, calc(1rem + 3vw), 3rem);
-  /* The inline .highlight-* backgrounds paint the full font em box (~1.36em in
-     Noto Sans). A line-height below that lets a highlight on one line bleed over
-     the descenders of the line above, so keep this comfortably above it. */
+  /* The inline .highlight-* backgrounds paint the full font em box, measured at
+     1.146em in Geist (it was ~1.36em in Noto Sans, before this site self-hosted
+     its type). A line-height below that lets a highlight on one line bleed over
+     the descenders of the line above, so keep this comfortably above it.
+     tests/specs/styling.spec.js asserts no two highlights overlap. */
   line-height: 1.4;
 }
 .font-weight-300 {

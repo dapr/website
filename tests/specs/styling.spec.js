@@ -71,3 +71,59 @@ test.describe('phone', () => {
     for (const right of rights) expect(right).toBeLessThanOrEqual(390);
   });
 });
+
+test('headings render in Geist and body text in Inter', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  await expect(page.locator('h1').first()).toHaveCSS('font-family', /Geist/);
+  await expect(page.locator('body')).toHaveCSS('font-family', /Inter/);
+});
+
+// Review Focus 2: self-hosting is only a win if the Google request actually goes.
+test('no page requests Google Fonts', async ({ page }) => {
+  const google = [];
+  page.on('request', (r) => {
+    if (/fonts\.(googleapis|gstatic)\.com/.test(r.url())) google.push(r.url());
+  });
+  await preparePage(page);
+  for (const path of ['/', '/community/', '/learn/']) {
+    await page.goto(path);
+  }
+  expect(google).toEqual([]);
+});
+
+// Review Focus 1: .text-size-large carries a line-height chosen for Noto Sans's
+// em box. Geist's differs, so the inline highlight backgrounds can bleed over
+// the line above. This passes before the font swap and must keep passing after.
+const highlightsDoNotOverlap = async (page) => {
+  await preparePage(page);
+  await page.goto('/');
+  const boxes = await page
+    .locator('.text-size-large [class^="highlight-"]')
+    .evaluateAll((els) => els.map((e) => {
+      const r = e.getBoundingClientRect();
+      return { top: r.top, right: r.right, bottom: r.bottom, left: r.left };
+    }));
+  expect(boxes.length).toBeGreaterThan(1);
+  for (let i = 0; i < boxes.length; i++) {
+    for (let j = i + 1; j < boxes.length; j++) {
+      const a = boxes[i];
+      const b = boxes[j];
+      const overlaps =
+        a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+      expect(overlaps, `hero highlight ${i} overlaps highlight ${j}`).toBe(false);
+    }
+  }
+};
+
+test('the hero highlight boxes do not bleed into each other', async ({ page }) => {
+  await highlightsDoNotOverlap(page);
+});
+
+test.describe('phone hero', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test('the hero highlight boxes do not bleed on a phone', async ({ page }) => {
+    await highlightsDoNotOverlap(page);
+  });
+});
