@@ -51,9 +51,14 @@ a,
 a:hover,
 a:focus {
   text-decoration: underline;
-  text-underline-offset: 0.3em;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(13, 33, 146, 0.35);
+  text-decoration-style: solid;
+}
+
+a:hover {
   text-decoration-color: $primary-color;
-  text-decoration-style: dashed;
 }
 
 footer a,

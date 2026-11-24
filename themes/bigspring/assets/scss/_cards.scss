@@ -6,8 +6,10 @@
     padding: 1.2rem;
 }
 
+// Ragged right. Browsers justify without a hyphenation engine, so justified
+// text opens rivers of whitespace, worst of all at phone width.
 .feature-card > p {
-    text-align: justify;
+    text-align: left;
 }
 
 .feature-card > a {

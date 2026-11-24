@@ -360,6 +360,16 @@ a.highlight-orange:hover {
     color: $highlight-color1;
 }
 
+/* A readable measure. Without a cap these run the full 80% container, about
+   95 characters a line; comfortable reading tops out around 70. */
+.value-prop-text > p,
+.page-intro,
+section > div > p,
+section > section > p {
+    max-width: 68ch;
+    margin-inline: auto;
+}
+
 /* spacing */
 .margin-bottom-30 {
     margin-bottom: 30px;
@@ -698,7 +708,7 @@ h2.video {
         grid-template-columns: repeat(1, minmax(0, 1fr));
    }
     .text-justify-mobile {
-        text-align: justify;
+        text-align: left;
    }
     .text-center-mobile {
         text-align: center;

@@ -30,8 +30,12 @@ a.btn-secondary:hover {
   color: $text-color-mid;
 }
 .btn-md {
-  width: 120px;
-  height: 50px;
+  // Sized by the label. A fixed 120x50 box wrapped longer CTAs onto two lines.
+  width: auto;
+  height: auto;
+  min-height: 46px;
+  padding: 12px 22px;
+  white-space: nowrap;
   font-weight: 500;
   font-size: 0.95rem;
 }
