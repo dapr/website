@@ -548,3 +548,49 @@ for (const width of [320, 375, 390]) {
     });
   });
 }
+
+// --- proof that the deletions below are inert ---
+// Both of these pass before and after the classes come out. They are the
+// evidence, not a new requirement.
+
+// Review Focus 4
+test('every section keeps its background through the class collapse', async ({ page }) => {
+  await preparePage(page);
+  for (const path of PAGES) {
+    await page.goto(path);
+    const bgs = await page.locator('section').evaluateAll(
+      (els) => [...new Set(els.map((e) => getComputedStyle(e).backgroundColor))],
+    );
+    const allowed = ['rgba(0, 0, 0, 0)', 'rgb(246, 247, 249)'];
+    expect(bgs.filter((b) => !allowed.includes(b)), `unexpected section background on ${path}`)
+      .toEqual([]);
+  }
+});
+
+// Review Focus 3: .text-justify sets text-align: left, which only matches the
+// inherited value if nothing above it centers the text.
+test('no element relies on a no-op class for its alignment or weight', async ({ page }) => {
+  await preparePage(page);
+  for (const path of ['/', '/community/', '/learn/', '/enterprise/']) {
+    await page.goto(path);
+    const leaning = await page.locator('.text-justify, .font-weight-300').evaluateAll((els) => {
+      // `start` and `left` are the same thing in a left-to-right document, and
+      // the computed value differs between a parent and a child that set it
+      // explicitly. Normalize or every element looks like a false positive.
+      const norm = (a) => (a === 'start' ? 'left' : a === 'end' ? 'right' : a);
+      return els
+        .map((e) => {
+          const own = getComputedStyle(e);
+          const parent = e.parentElement ? getComputedStyle(e.parentElement) : null;
+          return {
+            t: (e.textContent || '').trim().slice(0, 24),
+            align: norm(own.textAlign),
+            parentAlign: parent ? norm(parent.textAlign) : null,
+            weight: own.fontWeight,
+          };
+        })
+        .filter((o) => (o.parentAlign && o.parentAlign !== o.align) || o.weight !== '400');
+    });
+    expect(leaning, `a no-op class is load bearing on ${path}`).toEqual([]);
+  }
+});

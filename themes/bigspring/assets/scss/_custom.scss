@@ -621,15 +621,8 @@ h2.video {
 }
 /* background color. One panel surface, from the docs tokens, instead of two
    near-identical greys that read as a hard edge where a section starts. */
-.bg-grey-white {
-    background: var(--d-panel);
-    display: flow-root;
-}
-
-.bg-grey {
-    background: var(--d-panel);
-    display: flow-root;
-}
+/* One panel surface. .bg-grey and .bg-grey-white both resolved to this same
+   token after the design alignment, so they were three names for one color. */
 
 /* media-section */
 .media-section {
@@ -728,9 +721,6 @@ h2.video {
     }
     .grid-column-auto {
         grid-template-columns: repeat(1, minmax(0, 1fr));
-   }
-    .text-justify-mobile {
-        text-align: left;
    }
     .text-center-mobile {
         text-align: center;

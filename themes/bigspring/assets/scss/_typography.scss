@@ -108,9 +108,6 @@ svg text {
 .text-center {
   text-align: center;
 }
-.text-justify {
-  text-align: left;
-}
 .text-bold {
   font-size: 1.1rem;
   font-weight: 600;
@@ -141,13 +138,6 @@ svg text {
      the descenders of the line above, so keep this comfortably above it.
      tests/specs/styling.spec.js asserts no two highlights overlap. */
   line-height: 1.4;
-}
-// Inter ships here in 400, 500 and 600, the same three dapr/docs self-hosts.
-// There is no 300, so this asked for a face that does not exist and the
-// browser silently served 400 on 64 elements of the homepage. It says 400 now.
-// The class name is left alone: renaming it means touching nine partials.
-.font-weight-300 {
-  font-weight: 400;
 }
 
 @media (max-width: 575px) {
