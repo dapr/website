@@ -294,3 +294,40 @@ test.describe('phone cards', () => {
   });
   }
 });
+
+// A row of cards stretches to the tallest card, so a CTA that sits right after
+// the copy lands at a different height in every card. It belongs on the card's
+// bottom edge instead, so the CTAs in a row line up.
+const ctaRows = async (page, path) => {
+  await preparePage(page);
+  await page.goto(path);
+  return page.locator('.feature-card').evaluateAll((cards) => {
+    const rows = new Map();
+    for (const card of cards) {
+      const cta = card.querySelector(':scope > a.btn, :scope > .flex-left');
+      if (!cta) continue;
+      const cr = card.getBoundingClientRect();
+      const tr = cta.getBoundingClientRect();
+      const row = Math.round(cr.top);
+      if (!rows.has(row)) rows.set(row, []);
+      rows.get(row).push({
+        cardBottom: Math.round(cr.bottom),
+        ctaBottom: Math.round(tr.bottom),
+        gap: Math.round(cr.bottom - tr.bottom),
+      });
+    }
+    return [...rows.values()].filter((r) => r.length > 1);
+  });
+};
+
+for (const path of ['/', '/community/', '/learn/', '/events/']) {
+  test(`card CTAs sit on the card's bottom edge on ${path}`, async ({ page }) => {
+    const rows = await ctaRows(page, path);
+    expect(rows.length, `no multi-card row with a CTA found on ${path}`).toBeGreaterThan(0);
+    for (const row of rows) {
+      const gaps = [...new Set(row.map((c) => c.gap))];
+      // Every CTA in a row sits the same distance above its card's bottom.
+      expect(gaps).toHaveLength(1);
+    }
+  });
+}
