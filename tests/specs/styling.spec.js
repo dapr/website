@@ -443,3 +443,52 @@ test('every font weight the pages ask for has a face declared for it', async ({ 
   }
   expect(missing).toEqual([]);
 });
+
+// --- prose link treatment ---
+
+test('prose links use the brand link color, not the browser default', async ({ page }) => {
+  await preparePage(page);
+  for (const path of ['/faq/', '/community/program/']) {
+    await page.goto(path);
+    const colors = await page.locator('a:not(.btn)').evaluateAll((els) => [...new Set(
+      els
+        .filter((a) => !a.closest('nav, footer, .banner, .cookie-banner'))
+        .map((a) => getComputedStyle(a).color),
+    )]);
+    expect(colors, `on ${path}`).toEqual(['rgb(13, 33, 146)']);
+  }
+});
+
+// Review Focus 1: `a { color }` is unscoped, so it also reaches the chrome,
+// which sits on dark grounds and sets its own colors.
+test('nav, footer and banner links keep their own colors', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  await expect(page.locator('footer a').first()).toHaveCSS('color', 'rgb(255, 255, 255)');
+});
+
+test('keyboard focus gets at least the affordance a mouse hover gets', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/faq/');
+  const link = page.locator('.faq-entry a').first();
+  const alpha = (css) => {
+    const m = css.match(/rgba?\(([^)]+)\)/);
+    const parts = m ? m[1].split(',') : [];
+    return parts.length === 4 ? Number(parts[3]) : 1;
+  };
+  // `a` carries a 0.2s transition, so read after it settles or the alpha comes
+  // back mid-flight.
+  const read = async () => {
+    await page.waitForTimeout(350);
+    return link.evaluate((e) => getComputedStyle(e).textDecorationColor);
+  };
+
+  await link.hover();
+  const hovered = alpha(await read());
+  await page.mouse.move(0, 0);
+  await link.focus();
+  const focused = alpha(await read());
+
+  expect(hovered).toBeGreaterThan(0.9); // hover is the strong state today
+  expect(focused).toBeGreaterThanOrEqual(hovered);
+});

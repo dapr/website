@@ -52,6 +52,10 @@ img {
 a,
 a:hover,
 a:focus {
+  // dapr/docs pairs this tinted underline with .td-content a { color: var(--d-link) }.
+  // Taking the underline without the color left prose links at the browser's
+  // default blue under a navy-tinted rule.
+  color: var(--d-link);
   text-decoration: underline;
   text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
@@ -59,7 +63,10 @@ a:focus {
   text-decoration-style: solid;
 }
 
-a:hover {
+// Focus is included here, not left on the resting tint: a keyboard user should
+// not get a fainter affordance than someone with a mouse.
+a:hover,
+a:focus {
   text-decoration-color: $primary-color;
 }
 
