@@ -49,6 +49,17 @@
     max-height: 3em;
 }
 
+/* Meteor portraits are faces, not the logos .img-container-md usually holds:
+   bigger, and flush with the card's text edge instead of centered in a card
+   that spans the page. */
+.img-container-md.meteor-portrait {
+    margin-inline: 0;
+}
+
+.img-container-md.meteor-portrait img {
+    max-height: 4.5em;
+}
+
 .img-container-md2 img {
     max-height: 10em;
 }
