@@ -27,6 +27,33 @@ h2.text-blue {
   color: var(--d-heading);
 }
 
+// The section heading signature from dapr/docs, daprdocs/assets/scss/_content.scss:
+// a hairline rule with a short gold tab on it.
+section h2 {
+  position: relative;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--d-border);
+}
+
+section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 42px;
+  height: 2px;
+  background: var(--d-gold);
+}
+
+// Positioned from the left edge above, so a centered heading needs the tab
+// brought back under its text. Both spellings occur: the home page partials put
+// .text-center on the h2, the community layout puts it on a wrapping div.
+section h2.text-center::after,
+section .text-center > h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-head);
   letter-spacing: -0.015em;

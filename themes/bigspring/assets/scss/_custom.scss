@@ -590,15 +590,15 @@ h2.video {
 
 /* icon */
 .icon-container {
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    background-color: #fafafa;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: var(--d-panel);
     text-align: center;
-    border: 1px solid #eaeaea;
-    border-radius: 6px;
-    color: #3ea9f5;
-    font-size: 32px;
+    border: 1px solid var(--d-border);
+    border-radius: var(--d-radius);
+    color: var(--d-sky);
+    font-size: 22px;
 }
 /* background color. One panel surface, from the docs tokens, instead of two
    near-identical greys that read as a hard edge where a section starts. */

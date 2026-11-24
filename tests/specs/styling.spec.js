@@ -154,3 +154,56 @@ test('every section heading is the same color', async ({ page }) => {
   expect(colors.length).toBeGreaterThan(0);
   expect(colors).toHaveLength(1);
 });
+
+test('a feature card has the docs accent top edge', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const card = page.locator('.grid .feature-card').first();
+  await expect(card).toHaveCSS('border-top-width', '2px');
+  await expect(card).toHaveCSS('border-top-color', 'rgb(13, 33, 146)');
+  await expect(card).toHaveCSS('border-left-width', '1px');
+  await expect(card).toHaveCSS('border-radius', '9px');
+});
+
+test('the accent rotates through the four brand colors', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const colors = await page.locator('.grid .feature-card').evaluateAll(
+    (els) => els.slice(0, 4).map((e) => getComputedStyle(e).borderTopColor),
+  );
+  expect(colors).toHaveLength(4);
+  expect(new Set(colors).size).toBe(4);
+});
+
+// Review Focus 4: the tab is positioned from the left edge, so a centered
+// heading needs it recentered or it sits under empty space.
+test('the gold tab is centered under a centered heading', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const h2 = page.locator('section h2.text-center').first();
+  const tab = await h2.evaluate((el) => {
+    const r = getComputedStyle(el, '::after');
+    return { width: r.width, background: r.backgroundColor, transform: r.transform };
+  });
+  expect(tab.width).toBe('42px');
+  expect(tab.background).toBe('rgb(239, 202, 8)');
+  expect(tab.transform).not.toBe('none');
+});
+
+// Task 1 set this; Task 4 rewrites the whole .feature-card rule, so prove it
+// survived rather than assuming.
+test('the card rewrite kept the ragged-right body copy', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  await expect(page.locator('.feature-card p').first()).toHaveCSS('text-align', 'left');
+});
+
+// The community layout centers a heading by wrapping it in a .text-center div
+// rather than putting the class on the h2, so the tab needs both spellings.
+test('the gold tab is centered when the wrapper carries text-center', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/community/program/');
+  const h2 = page.locator('.text-center > h2', { hasText: 'Meet the Meteors' }).first();
+  const tab = await h2.evaluate((el) => getComputedStyle(el, '::after').transform);
+  expect(tab).not.toBe('none');
+});
