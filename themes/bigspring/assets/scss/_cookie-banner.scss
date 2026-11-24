@@ -12,7 +12,7 @@
   background-color: #fff;
   border-top: 1px solid $border-color;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
-  font-family: $primary-font;
+  font-family: var(--font-body);
   color: $text-color;
   padding-bottom: env(safe-area-inset-bottom, 0);
 

@@ -1,4 +1,99 @@
 /* typography */
+
+// Type lifted from dapr/docs, daprdocs/assets/scss/_typography.scss, so dapr.io
+// and docs.dapr.io set type the same way. The woff2 files are the same files,
+// copied from daprdocs/static/fonts/. Self-hosted, so the site makes no request
+// to the Google Fonts CDN.
+@font-face { font-family: "Geist"; font-weight: 400; font-display: swap; src: url("/fonts/geist-400.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 500; font-display: swap; src: url("/fonts/geist-500.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 600; font-display: swap; src: url("/fonts/geist-600.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 700; font-display: swap; src: url("/fonts/geist-700.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("/fonts/inter-400.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-display: swap; src: url("/fonts/inter-500.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("/fonts/inter-600.woff2") format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-weight: 400; font-display: swap; src: url("/fonts/geist-mono-400.woff2") format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-weight: 500; font-display: swap; src: url("/fonts/geist-mono-500.woff2") format("woff2"); }
+
+:root {
+  --font-head: "Geist", ui-sans-serif, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", ui-sans-serif, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+// .text-blue made some section headings sky blue while others stayed black.
+// docs.dapr.io uses one heading color throughout, so this site does too.
+h2,
+h2.text-blue {
+  color: var(--d-heading);
+}
+
+// The section heading signature from dapr/docs, daprdocs/assets/scss/_content.scss:
+// a hairline rule with a short gold tab on it.
+section h2 {
+  position: relative;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--d-border);
+}
+
+section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 42px;
+  height: 2px;
+  background: var(--d-gold);
+}
+
+// Positioned from the left edge above, so a centered heading needs the tab
+// brought back under its text. Both spellings occur: the home page partials put
+// .text-center on the h2, the community layout puts it on a wrapping div.
+section h2.text-center::after,
+section .text-center > h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Upstream this signature is `.td-content > h2`, a direct child of the content
+// body, so it can only ever be a page-level heading. This theme nests its
+// wrappers two deep, so a direct-child selector would miss real section
+// headings; the repeated-item headings are excluded by name instead. Without
+// this, an event card carries two horizontal rules 60px apart, and every FAQ
+// question gets a section tab.
+.feature-card h2,
+.faq-entry h2 {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.feature-card h2::after,
+.faq-entry h2::after {
+  content: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-head);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  line-height: 1.25;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+}
+
+// Inter's heaviest loaded weight is 600. Without this, bold text asks for 700,
+// gets no face, and the browser either substitutes or synthesizes.
+strong, b {
+  font-weight: 600;
+}
+
+// Diagram labels are drawn by d3 with font-weight 700 and no family of their
+// own, so they inherited Inter and fell short of a face. Geist is the display
+// type and does carry 700, which is what these labels want anyway.
+svg text {
+  font-family: var(--font-head);
+}
 /*
  * Type scale (fluid tokens):
  *   display-lg (.text-size-large): clamp(1.75rem, calc(1rem + 3vw), 3rem)  — hero H1
@@ -7,14 +102,14 @@
  */
 .italic {
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .text-center {
   text-align: center;
 }
 .text-justify {
-  text-align: justify;
+  text-align: left;
 }
 .text-bold {
   font-size: 1.1rem;
@@ -40,13 +135,19 @@
 }
 .text-size-large {
   font-size: clamp(1.75rem, calc(1rem + 3vw), 3rem);
-  /* The inline .highlight-* backgrounds paint the full font em box (~1.36em in
-     Noto Sans). A line-height below that lets a highlight on one line bleed over
-     the descenders of the line above, so keep this comfortably above it. */
+  /* The inline .highlight-* backgrounds paint the full font em box, measured at
+     1.146em in Geist (it was ~1.36em in Noto Sans, before this site self-hosted
+     its type). A line-height below that lets a highlight on one line bleed over
+     the descenders of the line above, so keep this comfortably above it.
+     tests/specs/styling.spec.js asserts no two highlights overlap. */
   line-height: 1.4;
 }
+// Inter ships here in 400, 500 and 600, the same three dapr/docs self-hosts.
+// There is no 300, so this asked for a face that does not exist and the
+// browser silently served 400 on 64 elements of the homepage. It says 400 now.
+// The class name is left alone: renaming it means touching nine partials.
 .font-weight-300 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @media (max-width: 575px) {

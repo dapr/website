@@ -1,15 +1,74 @@
 /* card */
+
+// .d-card from dapr/docs, daprdocs/assets/scss/_cards.scss, so a card here and
+// a card on docs.dapr.io are the same object: a hairline box with a 2px accent
+// along the top edge, and a small lift on hover.
 .feature-card {
-    box-shadow: 0px 2px 10px rgba(20, 26, 31, 0.15);
-    background-color: #ffffff;
-    border-radius: 0.5rem;
-    padding: 1.2rem;
+    background-color: var(--d-ground);
+    border: 1px solid var(--d-border);
+    border-top-width: 2px;
+    border-top-color: var(--d-blue);
+    border-radius: var(--d-radius);
+    box-shadow: none;
+    padding: 15px 18px;
+    transition: border-color 0.13s, transform 0.1s, box-shadow 0.13s;
 }
 
+.feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(15, 21, 34, 0.08);
+}
+
+.feature-card h3 {
+    font-weight: 600;
+    color: var(--d-heading);
+}
+
+.feature-card p {
+    color: var(--d-muted);
+}
+
+// Docs picks a card's accent with a c-blue / c-sky / c-orange / c-gold class,
+// per card, deliberately. Rotating by :nth-child instead was wrong twice over:
+// it counts every sibling, so one non-card element in a grid shifted the cycle
+// and a color dropped out, and :nth-child(An+B of S), which counts only the
+// cards, does not survive Hugo 0.147.9's CSS minifier: it strips the `of` and
+// emits invalid CSS the browser throws away. Every card takes the brand navy
+// until the accent is set per card in the templates, the way docs does it.
+// Ragged right. Browsers justify without a hyphenation engine, so justified
+// text opens rivers of whitespace, worst of all at phone width.
 .feature-card > p {
-    text-align: justify;
+    text-align: left;
 }
 
 .feature-card > a {
     text-align: left;
+}
+
+// A row of cards stretches to the tallest one, so a CTA that simply follows
+// the copy lands at a different height in every card. Pin it to the card's
+// bottom edge instead, so a row of CTAs reads as one line.
+//
+// This applies to every card, not only the ones in a .grid: the homepage rows
+// (use-cases, apis, concerns, news) are .flex containers. Only an actual CTA is
+// pushed down, never a trailing paragraph, or a card whose copy is its last
+// element would have its text shoved to the bottom.
+.feature-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card > a.btn:last-child,
+.feature-card > .flex-left:last-child {
+    margin-top: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feature-card {
+        transition: none;
+    }
+
+    .feature-card:hover {
+        transform: none;
+    }
 }
