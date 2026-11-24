@@ -879,6 +879,12 @@ h2.video {
         grid-row-gap: 5px;
         gap: 5px;
    }
+    /* A grid item defaults to min-width: auto, so a long link label pushes its
+       track wider than 1fr and the whole footer overflows. At 320px that was
+       10px of sideways scroll on every page. */
+    .footer-container > * {
+        min-width: 0;
+   }
     .iframe {
         height: 313px;
    }

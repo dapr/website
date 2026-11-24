@@ -8,6 +8,10 @@ nav i {
   padding: 0 10px;
 }
 .navbar {
+  // border-box, because the mobile rule sets width: 90% and this padding is a
+  // percentage. Under content-box the two add up: 90% of 390px plus 2 x 9% of
+  // 390px is 421px, so every page scrolled sideways by 31px on a phone.
+  box-sizing: border-box;
   padding: 20px 9%;
   max-width: 1960px;
   margin: 0 auto;

@@ -3,7 +3,7 @@
 // typeface and the design tokens. Everything here is measured in a real browser
 // rather than asserted against the SCSS source.
 import { test, expect } from '@playwright/test';
-import { preparePage } from './helpers.js';
+import { PAGES, preparePage } from './helpers.js';
 
 test('body copy in a card is not justified', async ({ page }) => {
   await preparePage(page);
@@ -527,3 +527,24 @@ test('a section heading rule keeps the page gutter', async ({ page }) => {
     .map((o) => o.t));
   expect(bleeding).toEqual([]);
 });
+
+// --- the navbar box model ---
+
+// The page-level version of the assertion the previous change had to narrow to
+// the hero buttons, because .navbar was already overflowing before it.
+for (const width of [320, 375, 390]) {
+  test.describe(`at ${width}px`, () => {
+    test.use({ viewport: { width, height: 844 } });
+
+    test('no page scrolls sideways', async ({ page }) => {
+      await preparePage(page);
+      for (const path of PAGES) {
+        await page.goto(path);
+        const over = await page.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        );
+        expect(over, `${path} overflows by ${over}px`).toBeLessThanOrEqual(0);
+      }
+    });
+  });
+}
