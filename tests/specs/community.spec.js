@@ -3,7 +3,7 @@
 import { test, expect } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { buildFixtureSite, builtFiles, SITE_DIR } from './helpers.js';
+import { buildFixtureSite, builtFiles, preparePage, SITE_DIR } from './helpers.js';
 
 const programPage = builtFiles('index.html').find((f) => f.url === '/community/program/index.html');
 const source = readFileSync(
@@ -151,5 +151,40 @@ test.describe('a Meteor with only some of the optional fields', () => {
     expect(htmlCard(html, 'Fixture Alumni No Photo')).not.toContain('<img');
     expect(htmlCard(html, 'Fixture Alumni With Photo')).toContain('alex-mang.jpg');
     expect(mdCard(md, 'Fixture Alumni No Photo')).not.toContain('![');
+  });
+});
+
+// The portrait sits at the card's text edge, not floating in the middle of a
+// card that spans the page, and is large enough to read as a face.
+test.describe('Meteor portraits', () => {
+  const PORTRAIT_PX = 72;
+
+  const boxes = async (page, name) => {
+    const card = page.locator('.feature-card', { has: page.locator(`h3:text-is("${name}")`) });
+    const image = await card.locator('img').boundingBox();
+    const heading = await card.locator('h3').boundingBox();
+    return { image, heading };
+  };
+
+  test.beforeEach(async ({ page }) => {
+    await preparePage(page);
+    await page.goto('/community/program/');
+  });
+
+  test('a current Meteor portrait is 72px square', async ({ page }) => {
+    const { image } = await boxes(page, 'Alex Mang');
+    expect(image.width).toBe(PORTRAIT_PX);
+    expect(image.height).toBe(PORTRAIT_PX);
+  });
+
+  test('a current Meteor portrait starts where the name starts', async ({ page }) => {
+    const { image, heading } = await boxes(page, 'Alex Mang');
+    expect(image.x).toBeCloseTo(heading.x, 0);
+  });
+
+  test('an alumni portrait is the same size and alignment', async ({ page }) => {
+    const { image, heading } = await boxes(page, 'Christophe Gigax');
+    expect(image.width).toBe(PORTRAIT_PX);
+    expect(image.x).toBeCloseTo(heading.x, 0);
   });
 });
