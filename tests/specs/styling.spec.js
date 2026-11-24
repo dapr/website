@@ -331,3 +331,30 @@ for (const path of ['/', '/community/', '/learn/', '/events/']) {
     }
   });
 }
+
+// A section that paints a background has to contain its children's margins. If
+// the last child's bottom margin collapses through the section's edge it lands
+// outside the painted area, and two same-colored sections end up separated by a
+// strip of the body's white.
+for (const path of ['/', '/community/', '/community/program/', '/learn/', '/enterprise/', '/events/']) {
+  test(`no unpainted strip between same-colored sections on ${path}`, async ({ page }) => {
+    await preparePage(page);
+    await page.goto(path);
+    const gaps = await page.evaluate(() => {
+      const secs = [...document.querySelectorAll('section')];
+      const bad = [];
+      for (let i = 0; i < secs.length - 1; i++) {
+        const a = secs[i];
+        const b = secs[i + 1];
+        const abg = getComputedStyle(a).backgroundColor;
+        const bbg = getComputedStyle(b).backgroundColor;
+        const transparent = (c) => !c || c === 'rgba(0, 0, 0, 0)' || c === 'transparent';
+        if (transparent(abg) || abg !== bbg) continue;
+        const gap = Math.round(b.getBoundingClientRect().top - a.getBoundingClientRect().bottom);
+        if (gap > 0) bad.push({ i, gap, bg: abg, cls: a.className.slice(0, 50) });
+      }
+      return bad;
+    });
+    expect(gaps).toEqual([]);
+  });
+}

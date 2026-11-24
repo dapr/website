@@ -606,10 +606,12 @@ h2.video {
    near-identical greys that read as a hard edge where a section starts. */
 .bg-grey-white {
     background: var(--d-panel);
+    display: flow-root;
 }
 
 .bg-grey {
     background: var(--d-panel);
+    display: flow-root;
 }
 
 /* media-section */
