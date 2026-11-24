@@ -1,7 +1,7 @@
 /* button styles */
 button {
   border: none;
-  border-radius: 7px;
+  border-radius: 8px;
   font-family: var(--font-head);
   font-weight: 600;
 }
@@ -13,7 +13,7 @@ button {
   justify-content: center;
   box-sizing: border-box;
   padding: 1px 6px;
-  border-radius: 7px;
+  border-radius: 8px;
   font-family: var(--font-head);
   font-weight: 600;
   line-height: normal;
@@ -41,15 +41,14 @@ a.btn-secondary:hover {
   font-size: 0.95rem;
 }
 .btn-primary {
-  background-color: $primary-color;
-  // background-color: #202192;
-  color: white;
+  background-color: var(--d-blue);
+  color: var(--d-on-accent);
 }
 
 .btn-secondary {
-  border: 1px solid $primary-color;
-  background-color: $white;
-  color: $text-color-mid;
+  border: 1px solid var(--d-border);
+  background-color: var(--d-ground);
+  color: var(--d-body);
   line-height: 1;
 }
 

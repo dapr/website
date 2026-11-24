@@ -20,6 +20,13 @@
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
+// .text-blue made some section headings sky blue while others stayed black.
+// docs.dapr.io uses one heading color throughout, so this site does too.
+h2,
+h2.text-blue {
+  color: var(--d-heading);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-head);
   letter-spacing: -0.015em;

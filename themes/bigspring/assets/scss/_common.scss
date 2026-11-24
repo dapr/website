@@ -1,5 +1,7 @@
 body {
   font-family: var(--font-body);
+  color: var(--d-body);
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -136,7 +138,7 @@ a:hover {
 }
 
 .bg-light {
-  background-color: $light !important;
+  background-color: var(--d-panel) !important;
 }
 
 .bg-body {

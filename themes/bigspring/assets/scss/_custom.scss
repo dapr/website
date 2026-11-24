@@ -3,7 +3,7 @@
     list-style: none;
 }
 .border-decoration {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--d-border);
     box-sizing: border-box;
 }
 .dotted-space {
@@ -600,13 +600,14 @@ h2.video {
     color: #3ea9f5;
     font-size: 32px;
 }
-/* background color */
+/* background color. One panel surface, from the docs tokens, instead of two
+   near-identical greys that read as a hard edge where a section starts. */
 .bg-grey-white {
-    background: #fcfcfc;
+    background: var(--d-panel);
 }
 
 .bg-grey {
-    background: #ececec;
+    background: var(--d-panel);
 }
 
 /* media-section */

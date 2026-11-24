@@ -127,3 +127,30 @@ test.describe('phone hero', () => {
     await highlightsDoNotOverlap(page);
   });
 });
+
+test('the brand tokens are defined and still match dapr/docs', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const tokens = await page.evaluate(() => {
+    const s = getComputedStyle(document.documentElement);
+    const want = ['--d-blue', '--d-sky', '--d-orange', '--d-gold', '--d-radius'];
+    return Object.fromEntries(want.map((n) => [n, s.getPropertyValue(n).trim()]));
+  });
+  expect(tokens).toEqual({
+    '--d-blue': '#0D2192',
+    '--d-sky': '#3ea9f5',
+    '--d-orange': '#ff4e00',
+    '--d-gold': '#efca08',
+    '--d-radius': '9px',
+  });
+});
+
+test('every section heading is the same color', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const colors = await page.locator('section h2').evaluateAll(
+    (els) => [...new Set(els.map((e) => getComputedStyle(e).color))],
+  );
+  expect(colors.length).toBeGreaterThan(0);
+  expect(colors).toHaveLength(1);
+});

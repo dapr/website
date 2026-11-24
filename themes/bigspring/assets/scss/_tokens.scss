@@ -1,0 +1,41 @@
+// Design tokens, lifted from dapr/docs, daprdocs/assets/scss/_tokens.scss, so
+// dapr.io and docs.dapr.io describe the same design with the same names. The
+// four brand values were already identical on both sites; the neutrals and the
+// radius are what this brings into line.
+//
+// Two deliberate differences from the docs copy:
+//
+//   1. The dark palette is not here yet. Docs defines it under
+//      [data-bs-theme="dark"], which is a Bootstrap convention this site does
+//      not have. When dark mode lands here it needs [data-theme="dark"] plus a
+//      prefers-color-scheme block instead, and every token below needs a dark
+//      value. Do not copy the docs selector verbatim.
+//
+//   2. The diagram tokens (--d-sky-fill, --d-blue-fill, --d-diagram-plate and
+//      the rest) are not here. They exist upstream so SVG diagrams read on both
+//      grounds, which only matters once dark mode does. They transfer when it
+//      arrives.
+//
+// These sit alongside the Sass variables in _variables.scss rather than
+// replacing them. Existing partials keep using $primary-color and friends.
+
+:root {
+  --d-blue:    #0D2192;
+  --d-sky:     #3ea9f5;
+  --d-orange:  #ff4e00;
+  --d-gold:    #efca08;
+  --d-ground:  #ffffff;
+  --d-panel:   #f6f7f9;
+  --d-border:  #e3e6eb;
+  --d-muted:   #5b6472;
+  --d-body:    #1c2330;
+  --d-heading: #0f1522;
+  --d-link:    var(--d-blue);
+  --d-active:  var(--d-orange);
+  --d-code-bg: #f6f7f9;
+  --d-radius:  9px;
+  --d-on-accent: #ffffff;
+  --d-on-sky:  #06263f;
+  --d-success: #2b9a66;
+  --d-danger:  #d64545;
+}
