@@ -600,16 +600,24 @@ h2.video {
 }
 
 /* icon */
+/* This site's own component. dapr/docs has no equivalent: its .d-card-icon is a
+   bare 36px image with no chip around it. Centered with flex rather than a
+   line-height that has to be kept in sync with font-size, which is what left
+   the glyph 16px off center, and border-box so the hairline does not push the
+   40px square out to 42. */
 .icon-container {
+    box-sizing: border-box;
     width: 40px;
     height: 40px;
-    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--d-panel);
-    text-align: center;
     border: 1px solid var(--d-border);
     border-radius: var(--d-radius);
     color: var(--d-sky);
     font-size: 22px;
+    line-height: 1;
 }
 /* background color. One panel surface, from the docs tokens, instead of two
    near-identical greys that read as a hard edge where a section starts. */

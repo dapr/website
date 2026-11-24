@@ -492,3 +492,38 @@ test('keyboard focus gets at least the affordance a mouse hover gets', async ({ 
   expect(hovered).toBeGreaterThan(0.9); // hover is the strong state today
   expect(focused).toBeGreaterThanOrEqual(hovered);
 });
+
+// --- icon chip and heading gutter ---
+
+// Review Focus 5
+test('the icon chip centers its glyph and stays square', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const chips = await page.locator('.icon-container').evaluateAll((els) => els.map((el) => {
+    const c = el.getBoundingClientRect();
+    const g = el.firstElementChild.getBoundingClientRect();
+    return {
+      w: Math.round(c.width),
+      h: Math.round(c.height),
+      above: Math.round(g.top - c.top),
+      below: Math.round(c.bottom - g.bottom),
+    };
+  }));
+  expect(chips.length).toBeGreaterThan(0);
+  for (const c of chips) {
+    expect(c.w, 'chip width').toBe(40);
+    expect(c.h, 'chip height').toBe(40);
+    expect(Math.abs(c.above - c.below), `glyph off center by ${c.above - c.below}px`)
+      .toBeLessThanOrEqual(1);
+  }
+});
+
+test('a section heading rule keeps the page gutter', async ({ page }) => {
+  await preparePage(page);
+  await page.goto('/');
+  const bleeding = await page.locator('section h2').evaluateAll((els) => els
+    .map((e) => ({ t: e.textContent.trim().slice(0, 30), r: e.getBoundingClientRect() }))
+    .filter((o) => o.r.left <= 0 || o.r.right >= window.innerWidth)
+    .map((o) => o.t));
+  expect(bleeding).toEqual([]);
+});
