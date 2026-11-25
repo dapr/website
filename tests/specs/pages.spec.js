@@ -2,31 +2,29 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { SITE_DIR, preparePage } from './helpers.js';
+import { SITE_DIR, preparePage, parseHtml, htmlText } from './helpers.js';
 
 const HOME_TITLE = 'Dapr: Durable Execution for Workflows and AI Agents';
 const ENTERPRISE_DESCRIPTION =
   'Commercial support, managed services, and enterprise distributions for running Dapr in production, from vendors in the Dapr ecosystem.';
 
 const read = (rel) => readFileSync(join(SITE_DIR, rel, 'index.html'), 'utf8');
-const decode = (s) =>
-  s.replace(/&amp;/g, '&').replace(/&#39;|&#x27;/g, "'").replace(/&quot;|&#34;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-const meta = (html, attr, name) => {
-  const tags = [...html.matchAll(/<meta\s[^>]*>/g)].map((m) => m[0]);
-  return tags
-    .filter((t) => new RegExp(`${attr}=["']?${name}["' >]`).test(t))
-    .map((t) => decode((t.match(/content="([^"]*)"/) || [])[1] ?? ''));
-};
+// The content of every <meta> whose `attr` is `name`, entities decoded.
+const meta = (html, attr, name) =>
+  parseHtml(html)
+    .querySelectorAll(`meta[${attr}="${name}"]`)
+    .map((m) => m.getAttribute('content') ?? '');
+const title = (html) => parseHtml(html).querySelector('title').text;
 
 test('homepage title', () => {
   const html = read('/');
-  expect(decode(html.match(/<title>([^<]*)<\/title>/)[1])).toBe(HOME_TITLE);
+  expect(title(html)).toBe(HOME_TITLE);
   expect(meta(html, 'property', 'og:title')).toEqual([HOME_TITLE]);
   expect(meta(html, 'name', 'twitter:title')).toEqual([HOME_TITLE]);
 });
 
 test('subpage titles unchanged', () => {
-  expect(decode(read('/workflow/').match(/<title>([^<]*)<\/title>/)[1])).toBe(
+  expect(title(read('/workflow/'))).toBe(
     'Durable Workflows for Distributed Applications | Dapr',
   );
 });
@@ -59,8 +57,11 @@ const subpages = () => {
 // The intro of a built page: the p.page-intro that directly follows the h1,
 // with tags stripped and whitespace collapsed. '' when there is none.
 const intro = (html) => {
-  const m = html.match(/<\/h1>\s*<p class="page-intro">([\s\S]*?)<\/p>/);
-  return m ? decode(m[1].replace(/<[^>]*>/g, '')).replace(/\s+/g, ' ').trim() : '';
+  const p = parseHtml(html)
+    .querySelectorAll('h1')
+    .map((h1) => h1.nextElementSibling)
+    .find((el) => el?.tagName === 'P' && el.classList.contains('page-intro'));
+  return p ? htmlText(p) : '';
 };
 
 test('every subpage has an intro', () => {
@@ -98,7 +99,8 @@ test('no page shows its intro twice', () => {
     const html = read(rel);
     const text = intro(html);
     if (!text) continue;
-    const count = decode(html.replace(/<script[\s\S]*?<\/script>/g, '')).split(text).length - 1;
+    // Copies in the visible body text; scripts (JSON-LD) are not counted.
+    const count = htmlText(parseHtml(html).querySelector('body')).split(text).length - 1;
     if (count !== 1) bad.push(`${rel}: ${count} copies`);
   }
   expect(bad).toEqual([]);
