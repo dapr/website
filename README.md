@@ -64,8 +64,6 @@ All theme files are found at [/themes/bigspring](https://github.com/dapr/website
 
 The live site is deployed by Netlify. Netlify rebuilds and publishes the site automatically when changes are merged into the `master` branch, using the build settings and Hugo version in [/netlify.toml](https://github.com/dapr/website/blob/master/netlify.toml). Pull requests get a Netlify deploy preview.
 
-The two `azure-static-web-apps-*.yml` workflows in `.github/workflows/` trigger only on the `main` and `facelift` branches, which do not exist in this repository, so they do not deploy the site.
-
 ![Netlify Status](https://api.netlify.com/api/v1/badges/bb8f6580-7739-4d16-8db8-37cbca965aea/deploy-status)
 
 
