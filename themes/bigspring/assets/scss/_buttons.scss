@@ -1,20 +1,21 @@
 /* button styles */
 button {
   border: none;
-  border-radius: 7px;
-  font-family: "Noto Sans", sans-serif;
-
+  border-radius: 8px;
+  font-family: var(--font-head);
+  font-weight: 600;
 }
 // Links styled as buttons. Mirrors the browser's <button> defaults so a
 // link CTA renders the same as the <a><button> pattern it replaced.
 .btn {
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   padding: 1px 6px;
-  border-radius: 7px;
-  font-family: "Noto Sans", sans-serif;
+  border-radius: 8px;
+  font-family: var(--font-head);
   line-height: normal;
   text-align: center;
 }
@@ -30,21 +31,29 @@ a.btn-secondary:hover {
   color: $text-color-mid;
 }
 .btn-md {
-  width: 120px;
-  height: 50px;
+  // Sized by the label. A fixed 120x50 box wrapped longer CTAs onto two lines
+  // inside the box. Deliberately NOT white-space: nowrap: labels like "Fill in
+  // the Dapr Meteor Nomination Form" are wider than a card on a small phone, so
+  // they have to be allowed to wrap rather than spill out of it.
+  width: auto;
+  height: auto;
+  min-height: 46px;
+  padding: 12px 22px;
   font-weight: 500;
   font-size: 0.95rem;
 }
 .btn-primary {
-  background-color: $primary-color;
-  // background-color: #202192;
-  color: white;
+  background-color: var(--d-blue);
+  color: var(--d-on-accent);
 }
 
 .btn-secondary {
-  border: 1px solid $primary-color;
-  background-color: $white;
-  color: $text-color-mid;
+  // The border is the only thing marking this as a control: no fill, no
+  // underline. WCAG 1.4.11 asks for 3:1 against the surface behind it, and the
+  // neutral --d-border manages 1.25:1 on white, so this uses the brand navy.
+  border: 1px solid var(--d-blue);
+  background-color: var(--d-ground);
+  color: var(--d-body);
   line-height: 1;
 }
 

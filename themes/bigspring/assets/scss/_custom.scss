@@ -3,7 +3,7 @@
     list-style: none;
 }
 .border-decoration {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--d-border);
     box-sizing: border-box;
 }
 .dotted-space {
@@ -47,6 +47,17 @@
 
 .img-container-md img {
     max-height: 3em;
+}
+
+/* Meteor portraits are faces, not the logos .img-container-md usually holds:
+   bigger, and flush with the card's text edge instead of centered in a card
+   that spans the page. */
+.img-container-md.meteor-portrait {
+    margin-inline: 0;
+}
+
+.img-container-md.meteor-portrait img {
+    max-height: 4.5em;
 }
 
 .img-container-md2 img {
@@ -127,7 +138,10 @@ footer .navLink:hover {
     padding: 50px 20% 50px;
     color: white;
     background-color: black;
-    font-weight: 300;
+    /* 400, not 300: Inter self-hosts in 400, 500 and 600 here, the same three
+       weights dapr/docs ships. Asking for 300 got no face and the browser
+       served 400 anyway. */
+    font-weight: 400;
 }
 .footer-info-text {
     font-size: 0.85rem;
@@ -145,6 +159,8 @@ footer .navLink:hover {
 
 .flex-left {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: left;
 }
 
@@ -349,6 +365,16 @@ a.highlight-orange:hover {
     color: $highlight-color1;
 }
 
+/* A readable measure. Without a cap these run the full 80% container, about
+   95 characters a line; comfortable reading tops out around 70. */
+.value-prop-text > p,
+.page-intro,
+section > div > p,
+section > section > p {
+    max-width: 68ch;
+    margin-inline: auto;
+}
+
 /* spacing */
 .margin-bottom-30 {
     margin-bottom: 30px;
@@ -379,7 +405,13 @@ a.highlight-orange:hover {
 }
 
 .value-prop-text > p {
-    margin: 20px clamp(1rem, 5vw, 3rem);
+    /* margin-inline, not a `margin` shorthand: the shorthand resets the auto
+       inline margins that center this under its heading. The inset that used
+       to come from the shorthand is padding now, for the narrow screens where
+       the 68ch cap is wider than the viewport. */
+    margin-block: 20px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 3rem);
     line-height: 1.5;
 }
 
@@ -483,7 +515,7 @@ h2.video {
     width: 45%;
     margin-top: -15px;
     color: white;
-    font-weight: 300;
+    font-weight: 400;
 }
 /* banner */
 .banner {
@@ -498,9 +530,9 @@ h2.video {
 }
 .banner {
     position: relative;
-    padding: 10px 0px;
+    padding: 6px 44px;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 .banner > a {
     text-decoration: underline;
@@ -524,50 +556,73 @@ h2.video {
 .banner-carousel:not(.slick-initialized) .banner-slide + .banner-slide {
     display: none;
 }
+.banner-carousel .slick-dots {
+    margin-top: 7px;
+    line-height: 0;
+}
 .banner-carousel .slick-dots li,
 .banner-carousel .slick-dots li button {
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
+}
+/* 12px dots stay clear of WCAG 2.5.8 target size through spacing:
+   centers are 28px apart and 13px below the link, so the 24px circles
+   around them touch neither each other nor the link text */
+.banner-carousel .slick-dots li {
+    margin: 0 8px;
 }
 .banner-carousel .slick-dots li button::before {
-    font-size: 10px;
-    line-height: 20px;
-    width: 20px;
-    height: 20px;
+    font-size: 8px;
+    line-height: 12px;
+    width: 12px;
+    height: 12px;
+}
+.banner .carousel-toggle {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
 }
 @media (max-width: 768px) {
     .banner {
-        font-size: 1rem;
+        padding: 4px 40px 4px 12px;
+        font-size: 0.8rem;
     }
 }
 /* news */
 .news-date {
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     font-size: smaller;
     margin-left: 1em;
 }
 
 /* icon */
+/* This site's own component. dapr/docs has no equivalent: its .d-card-icon is a
+   bare 36px image with no chip around it. Centered with flex rather than a
+   line-height that has to be kept in sync with font-size, which is what left
+   the glyph 16px off center, and border-box so the hairline does not push the
+   40px square out to 42. */
 .icon-container {
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    background-color: #fafafa;
-    text-align: center;
-    border: 1px solid #eaeaea;
-    border-radius: 6px;
-    color: #3ea9f5;
-    font-size: 32px;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--d-panel);
+    border: 1px solid var(--d-border);
+    border-radius: var(--d-radius);
+    color: var(--d-sky);
+    font-size: 22px;
+    line-height: 1;
 }
-/* background color */
-.bg-grey-white {
-    background: #fcfcfc;
-}
-
-.bg-grey {
-    background: #ececec;
-}
+/* background color. One panel surface, from the docs tokens, instead of two
+   near-identical greys that read as a hard edge where a section starts. */
+/* One panel surface. .bg-grey and .bg-grey-white both resolved to this same
+   token after the design alignment, so they were three names for one color. */
 
 /* media-section */
 .media-section {
@@ -666,9 +721,6 @@ h2.video {
     }
     .grid-column-auto {
         grid-template-columns: repeat(1, minmax(0, 1fr));
-   }
-    .text-justify-mobile {
-        text-align: justify;
    }
     .text-center-mobile {
         text-align: center;
@@ -816,6 +868,12 @@ h2.video {
         grid-template-columns: repeat(2, 1fr);
         grid-row-gap: 5px;
         gap: 5px;
+   }
+    /* A grid item defaults to min-width: auto, so a long link label pushes its
+       track wider than 1fr and the whole footer overflows. At 320px that was
+       10px of sideways scroll on every page. */
+    .footer-container > * {
+        min-width: 0;
    }
     .iframe {
         height: 313px;

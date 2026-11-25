@@ -1,5 +1,7 @@
 body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: var(--font-body);
+  color: var(--d-body);
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -50,10 +52,22 @@ img {
 a,
 a:hover,
 a:focus {
+  // dapr/docs pairs this tinted underline with .td-content a { color: var(--d-link) }.
+  // Taking the underline without the color left prose links at the browser's
+  // default blue under a navy-tinted rule.
+  color: var(--d-link);
   text-decoration: underline;
-  text-underline-offset: 0.3em;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(13, 33, 146, 0.35);
+  text-decoration-style: solid;
+}
+
+// Focus is included here, not left on the resting tint: a keyboard user should
+// not get a fainter affordance than someone with a mouse.
+a:hover,
+a:focus {
   text-decoration-color: $primary-color;
-  text-decoration-style: dashed;
 }
 
 footer a,
@@ -131,7 +145,8 @@ a:hover {
 }
 
 .bg-light {
-  background-color: $light !important;
+  background-color: var(--d-panel) !important;
+  display: flow-root;
 }
 
 .bg-body {

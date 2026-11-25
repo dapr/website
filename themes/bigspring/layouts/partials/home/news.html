@@ -8,13 +8,13 @@
 </div> -->
 
 <section>
-  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text ">
+  <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text">
     <!-- <h2 class="text-center">News</h2> -->
     <div class="flex flex-wrap gap-l row-gap-20 vertical-align-center column-mobile">
     {{ range $newsItem := .news_items }}
     <div class="feature-card width-40 width-90-mobile">
       <h3 class="text-center-mobile">{{ $newsItem.title }} <span class="news-date">{{ $newsItem.date }}</span></h3>
-      <p class="text-justify">{{ $newsItem.content }}</p>
+      <p class="">{{ $newsItem.content }}</p>
       <a href="{{ $newsItem.link | safeURL }}">{{ $newsItem.linktext }}</a>
     </div>
     {{ end }}

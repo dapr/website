@@ -4,7 +4,7 @@
   <section class="width-80 vertical-align-center padding-top-down-30 value-prop-text">
     <h2 class="text-center padding-bottom-20 text-blue">{{ .title }}</h2>
     {{ if .content }}
-    <p class="text-justify font-weight-300">
+    <p class="">
       {{ .content }}
     </p>
     {{ end }}
@@ -18,7 +18,7 @@
         </div>
         <h3>{{ .name }}</h3>
         <p>{{ .content }}</p>
-        <a href="{{ .link }}"> &gt; Learn more about {{ .name }}</a>
+        <a href="{{ .link }}" class="btn btn-secondary btn-feature">Learn more about {{ .name }}</a>
       </div>
       {{ end }}
     </div>
