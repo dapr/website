@@ -4,7 +4,7 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { SITE_DIR, jsonLd } from './helpers.js';
+import { SITE_DIR, jsonLd, parseHtml, htmlText } from './helpers.js';
 
 const QUESTIONS = [
   'What is Dapr?',
@@ -37,30 +37,20 @@ const FRONT_MATTER = resolve(import.meta.dirname, '..', '..', 'content', 'faq', 
 
 const readHtml = () => readFileSync(join(SITE_DIR, 'faq', 'index.html'), 'utf8');
 
-// Visible text of an HTML fragment, entities decoded, whitespace normalized.
-const text = (html) =>
-  html
-    .replace(/<[^>]*>/g, '')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-    .replace(/&rsquo;/g, '’')
-    .replace(/&quot;/g, '"')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
-    .replace(/\s+/g, ' ')
-    .trim();
 const norm = (s) => s.replace(/\s+/g, ' ').trim();
 
 // Each FAQ entry rendered as <div class="faq-entry"><h2>..</h2><p class="faq-answer">..</p>..</div>.
 function entries(html) {
-  return [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>\s*<p class="faq-answer"[^>]*>([\s\S]*?)<\/p>/g)].map(
-    (m) => ({ question: text(m[1]), answer: text(m[2]) }),
-  );
+  return parseHtml(html)
+    .querySelectorAll('p.faq-answer')
+    .map((p) => ({ h2: p.previousElementSibling, p }))
+    .filter(({ h2 }) => h2?.tagName === 'H2')
+    .map(({ h2, p }) => ({ question: htmlText(h2), answer: htmlText(p) }));
 }
 
 test('FAQ page lists all questions in order', () => {
   const html = readHtml();
-  const h2s = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => text(m[1]));
+  const h2s = parseHtml(html).querySelectorAll('h2').map((h2) => htmlText(h2));
   expect(h2s).toEqual(QUESTIONS);
 });
 

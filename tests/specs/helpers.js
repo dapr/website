@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join, resolve } from 'node:path';
+import { parse } from 'node-html-parser';
 
 // Absolute path to the static build the tests run against.
 export const SITE_DIR = resolve(import.meta.dirname, '..', '.site');
@@ -125,4 +126,18 @@ export function jsonLd(html, name = 'page') {
     }
   }
   return out;
+}
+
+// HTML is read with a parser, not regular expressions. Regex tag stripping and
+// hand-written entity decoding were flagged by CodeQL, and the old decoder
+// unescaped `&amp;lt;` twice.
+export const parseHtml = (html) => parse(html);
+
+// Visible text of an HTML string or parsed node: script, style and noscript
+// content dropped, entities decoded once, whitespace collapsed. Works on a
+// copy, so a parsed tree passed in is left unchanged.
+export function htmlText(html) {
+  const root = parse(typeof html === 'string' ? html : html.toString());
+  root.querySelectorAll('script, style, noscript').forEach((n) => n.remove());
+  return root.text.replace(/\s+/g, ' ').trim();
 }

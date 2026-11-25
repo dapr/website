@@ -4,7 +4,7 @@
 import { test, expect } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { SITE_DIR, builtFiles, buildFixtureSite, jsonLd } from './helpers.js';
+import { SITE_DIR, builtFiles, buildFixtureSite, jsonLd, parseHtml, htmlText } from './helpers.js';
 
 const read = (dir, rel) => readFileSync(join(dir, rel), 'utf8');
 
@@ -15,8 +15,7 @@ function section(html, heading) {
   return m[1];
 }
 // Event card titles (h3) in a section's HTML.
-const cardTitles = (sectionHtml) =>
-  [...sectionHtml.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/g)].map((m) => m[1].replace(/<[^>]*>/g, '').trim());
+const cardTitles = (sectionHtml) => parseHtml(sectionHtml).querySelectorAll('h3').map((h3) => htmlText(h3));
 
 const real = read(SITE_DIR, 'events/index.html');
 
@@ -99,11 +98,11 @@ test('boundary: a start-only event is classified by start_date (past in the boun
 
 test('nav: Events is the first item under News & Media', async () => {
   const home = read(SITE_DIR, 'index.html');
-  const m = home.match(/<div class="navbar-dropdown" id="nav-dropdown-news-media">([\s\S]*?)<\/div>\s*<\/div>/);
-  expect(m).not.toBeNull();
-  const first = m[1].match(/<a[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/);
-  expect(first[2].replace(/<[^>]*>/g, '').trim()).toBe('Events');
-  expect(first[1]).toMatch(/\/events\/$/);
+  const dropdown = parseHtml(home).querySelector('div.navbar-dropdown#nav-dropdown-news-media');
+  expect(dropdown).not.toBeNull();
+  const first = dropdown.querySelector('a');
+  expect(htmlText(first)).toBe('Events');
+  expect(first.getAttribute('href')).toMatch(/\/events\/$/);
 });
 
 test('ItemList: the listing JSON-LD lists Events; the community call is not in it', () => {

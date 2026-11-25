@@ -4,7 +4,7 @@
 import { test, expect } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { SITE_DIR } from './helpers.js';
+import { SITE_DIR, parseHtml, htmlText } from './helpers.js';
 
 const sitemap = readFileSync(join(SITE_DIR, 'sitemap.xml'), 'utf8');
 const pages = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => {
@@ -33,12 +33,12 @@ test('each markdown rendering starts with the page H1', () => {
   const wrong = [];
   for (const p of pages) {
     if (!existsSync(p.mdPath)) continue; // the "every page has a markdown rendering" test reports this
-    const h1 = readFileSync(p.htmlPath, 'utf8').match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/);
+    const h1 = parseHtml(readFileSync(p.htmlPath, 'utf8')).querySelector('h1');
     if (!h1) {
       wrong.push(`${p.rel}: the HTML page has no <h1>`);
       continue;
     }
-    const expected = '# ' + h1[1].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    const expected = '# ' + htmlText(h1);
     const first = readFileSync(p.mdPath, 'utf8').split('\n')[0];
     if (first !== expected) wrong.push(`${p.rel}: expected "${expected}", got "${first}"`);
   }
@@ -51,26 +51,11 @@ test('markdown is served as text/markdown', async ({ request }) => {
   expect(res.headers()['content-type']).toMatch(/^text\/markdown/);
 });
 
-// Text of a tag's contents as a reader sees it: no tags, entities decoded,
-// whitespace collapsed.
-function visibleText(html) {
-  return html
-    .replace(/<[^>]*>/g, '')
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
-    .replace(/&quot;/g, '"')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-// The page's own content: no header/nav, footer, cookie banner or scripts.
-function mainHtml(html) {
-  return html
-    .replace(/<(script|style|nav|header|footer)\b[\s\S]*?<\/\1>/gi, '')
-    .replace(/<div[^>]*class="[^"]*cookie[^"]*"[\s\S]*$/i, '');
+// The page's own content, parsed: no header/nav, footer, cookie banner or scripts.
+function mainRoot(html) {
+  const root = parseHtml(html);
+  root.querySelectorAll('script, style, nav, header, footer, div[class*="cookie"]').forEach((n) => n.remove());
+  return root;
 }
 
 const mdPages = pages.filter((p) => existsSync(p.mdPath));
@@ -79,11 +64,10 @@ test('every HTML heading appears in the markdown rendering', () => {
   const missing = [];
   for (const p of mdPages) {
     const lines = new Set(readFileSync(p.mdPath, 'utf8').split('\n').map((l) => l.trim()));
-    const main = mainHtml(readFileSync(p.htmlPath, 'utf8'));
-    for (const m of main.matchAll(/<h([23])\b[^>]*>([\s\S]*?)<\/h\1>/g)) {
-      const text = visibleText(m[2]);
+    for (const h of mainRoot(readFileSync(p.htmlPath, 'utf8')).querySelectorAll('h2, h3')) {
+      const text = htmlText(h);
       if (!text) continue;
-      const line = '#'.repeat(Number(m[1])) + ' ' + text;
+      const line = '#'.repeat(Number(h.tagName[1])) + ' ' + text;
       if (!lines.has(line)) missing.push(`${p.rel}: ${line}`);
     }
   }
