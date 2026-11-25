@@ -87,7 +87,9 @@ meteors:
     bio: "Siri Varma Vegiraju is a Tech Lead at Microsoft, working across healthcare, cloud computing and security. He currently focuses on securing Azure cloud workloads, after earlier work on distributed systems, real-time streaming, cloud observability platforms and multicloud environments. He speaks at industry conferences on cloud and security, and is a judge and technical reviewer for publications in the field. He holds a Master's degree in Computer Science from the University of Texas at Arlington."
 
   - name: "Victor Aguayo"
+    image: "images/community/meteors/victor-aguayo.jpg"
     alt: "Victor Aguayo"
+    linkedin: "https://www.linkedin.com/in/victoraguayos/"
     bio: "Victor Aguayo is a Technology Architect at Banco de Crédito in Peru, specializing in cloud-native architectures, distributed systems, microservices, and multicloud solutions. With extensive experience in enterprise technology and the financial sector, he explores how Dapr simplifies the development of resilient, portable applications across Kubernetes, Azure, AWS and Google Cloud. An active technology community speaker, he shares practical knowledge through conferences, technical demonstrations, and real-world architectural experiences, including Dapr Workflow and AI-powered systems. He is passionate about open source, knowledge sharing, and helping developers and architects embrace modern distributed architectures."
 
   - name: "Walter Coan"

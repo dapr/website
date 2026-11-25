@@ -1,5 +1,6 @@
 // Checks on the built community program page: the Meteor roster, and that a
-// Meteor missing a photo or a LinkedIn URL degrades instead of breaking.
+// Meteor missing a photo or a LinkedIn URL degrades instead of breaking (the
+// fixture site below covers that, since every real Meteor has both).
 import { test, expect } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -55,7 +56,7 @@ test('nobody is both a current and an alumni Meteor', () => {
 
 test('every portrait points at a real image file', () => {
   const srcs = [...roster.matchAll(/<img src="([^"]*)"/g)].map((m) => m[1]);
-  expect(srcs.length).toBe(14);
+  expect(srcs.length).toBe(15);
   for (const src of srcs) {
     expect(src).toMatch(/\.(jpe?g|png|webp|svg)$/);
     // absURL yields an absolute URL here; the base only satisfies the parser.
@@ -65,19 +66,8 @@ test('every portrait points at a real image file', () => {
 
 test('every LinkedIn button points at linkedin.com', () => {
   const hrefs = [...roster.matchAll(/<a href="([^"]*)"[^>]*class="btn btn-feature[^"]*"/g)].map((m) => m[1]);
-  expect(hrefs.length).toBe(8);
+  expect(hrefs.length).toBe(9);
   for (const href of hrefs) expect(href).toContain('linkedin.com/in/');
-});
-
-test('a Meteor with no photo renders a name and bio but no image', () => {
-  const card = cardFor(meteorsBlock, 'Victor Aguayo');
-  expect(card).toBeDefined();
-  expect(card).toContain('Technology Architect at Banco de Crédito');
-  expect(card).not.toContain('<img');
-});
-
-test('a Meteor with no LinkedIn URL renders no LinkedIn button', () => {
-  expect(cardFor(meteorsBlock, 'Victor Aguayo')).not.toContain('btn-feature');
 });
 
 test('a Meteor with a photo still renders both the image and the button', () => {
@@ -94,8 +84,8 @@ test('no alumni entry carries a leftover bio', () => {
 // /community/program/index.md, llms.txt and llms-full.txt. A guard in only one
 // of them leaves the other emitting the site root as a portrait or a profile
 // link. The fixture page below carries all four combinations of a present and
-// absent image and linkedin, which the real roster does not: every current
-// Meteor has both fields or neither, so a single coupled guard would pass.
+// absent image and linkedin, which the real roster does not: every Meteor
+// has both fields, so a single coupled guard would pass.
 test.describe('a Meteor with only some of the optional fields', () => {
   const renderings = () => {
     const { dir } = buildFixtureSite('meteors', 'meteors.toml');
